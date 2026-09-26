@@ -1,0 +1,528 @@
+<!DOCTYPE html><html>
+<head>
+<title>timezone viewer</title>
+<style>
+body {font-family: arial, sans-serif;}
+
+table, th, td {border: 1px solid #C0C0C0; border-collapse: collapse; padding: 5px; text-align: center;}
+
+/* https://stackoverflow.com/questions/6658947/css-table-td-width-fixed-not-flexible */
+table {table-layout: fixed; width: 1580px;}
+td {width: 30px;}
+
+th {background-color: #D1D7FF; font-weight: normal;}
+.empty {background-color: #C0C0C0}
+</style>
+</head>
+<body>
+
+<h1>timezone viewer</h1>
+<p>timezone offsets are from utc<br>cell highlighted yellow is utc+0000, cyan is your timezone, green is timezones corresponding to the lower table<br>whole table will only be visible if your screen width is at least 1600px. refresh the page to update time</p>
+
+<table><tr>
+<th>-12:00</th>
+<th>-11:00</th>
+<th>-10:00</th>
+<th>-09:00</th>
+<th>-08:00</th>
+<th>-07:00</th>
+<th>-06:00</th>
+<th>-05:00</th>
+<th>-04:00</th>
+<th>-03:00</th>
+<th>-02:00</th>
+<th>-01:00</th>
+<th style="background-color: #FFAE00">+00:00</th>
+<th>+01:00</th>
+<th>+02:00</th>
+<th>+03:00</th>
+<th>+04:00</th>
+<th>+05:00</th>
+<th>+06:00</th>
+<th>+07:00</th>
+<th>+08:00</th>
+<th>+09:00</th>
+<th>+10:00</th>
+<th>+11:00</th>
+<th>+12:00</th>
+<th>+13:00</th>
+<th>+14:00</th>
+</tr><tr>
+<!-- <td><span id="0000h"></span>:<span id="0000m"></span>:<span id="0000s"></span></td> -->
+<td id="n1200"><span id="n1200h"></span>:<span id="n1200m"></span></td>
+<td id="n1100"><span id="n1100h"></span>:<span id="n1100m"></span></td>
+<td id="n1000"><span id="n1000h"></span>:<span id="n1000m"></span></td>
+<td id="n0900"><span id="n0900h"></span>:<span id="n0900m"></span></td>
+<td id="n0800"><span id="n0800h"></span>:<span id="n0800m"></span></td>
+<td id="n0700"><span id="n0700h"></span>:<span id="n0700m"></span></td>
+<td id="n0600"><span id="n0600h"></span>:<span id="n0600m"></span></td>
+<td id="n0500"><span id="n0500h"></span>:<span id="n0500m"></span></td>
+<td id="n0400"><span id="n0400h"></span>:<span id="n0400m"></span></td>
+<td id="n0300"><span id="n0300h"></span>:<span id="n0300m"></span></td>
+<td id="n0200"><span id="n0200h"></span>:<span id="n0200m"></span></td>
+<td id="n0100"><span id="n0100h"></span>:<span id="n0100m"></span></td>
+<td id="p0000" style="background-color: yellow"><span id="0000h"></span>:<span id="0000m"></span></td>
+<td id="p0100"><span id="0100h"></span>:<span id="0100m"></span></td>
+<td id="p0200"><span id="0200h"></span>:<span id="0200m"></span></td>
+<td id="p0300"><span id="0300h"></span>:<span id="0300m"></span></td>
+<td id="p0400"><span id="0400h"></span>:<span id="0400m"></span></td>
+<td id="p0500"><span id="0500h"></span>:<span id="0500m"></span></td>
+<td id="p0600"><span id="0600h"></span>:<span id="0600m"></span></td>
+<td id="p0700"><span id="0700h"></span>:<span id="0700m"></span></td>
+<td id="p0800"><span id="0800h"></span>:<span id="0800m"></span></td>
+<td id="p0900"><span id="0900h"></span>:<span id="0900m"></span></td>
+<td id="p1000"><span id="1000h"></span>:<span id="1000m"></span></td>
+<td id="p1100"><span id="1100h"></span>:<span id="1100m"></span></td>
+<td id="p1200"><span id="1200h"></span>:<span id="1200m"></span></td>
+<td id="p1300"><span id="1300h"></span>:<span id="1300m"></span></td>
+<td id="p1400"><span id="1400h"></span>:<span id="1400m"></span></td>
+</tr><tr>
+<td class="empty"><td class="empty"><td class="empty">
+<th>-09:30</th>
+<td class="empty"><td class="empty"><td class="empty"><td class="empty"><td class="empty">
+<th>-03:30</th>
+<th>-02:30</th>
+<td class="empty"><td class="empty"><td class="empty"><td class="empty">
+<th>+03:30</th>
+<th>+04:30</th>
+<th>+05:30</th>
+<th>+06:30</th>
+<td class="empty"><td class="empty">
+<th>+09:30</th>
+<th>+10:30</th>
+<td class="empty"><td class="empty"><td class="empty"><td class="empty">
+</tr><tr>
+<td class="empty"><td class="empty"><td class="empty">
+<td id="n0930"><span id="n0930h"></span>:<span id="n0930m"></span></td>
+<td class="empty"><td class="empty"><td class="empty"><td class="empty"><td class="empty">
+<td id="n0330"><span id="n0330h"></span>:<span id="n0330m"></span></td>
+<td id="n0230"><span id="n0230h"></span>:<span id="n0230m"></span></td>
+<td class="empty"><td class="empty"><td class="empty"><td class="empty">
+<td id="p0330"><span id="0330h"></span>:<span id="0330m"></span></td>
+<td id="p0430"><span id="0430h"></span>:<span id="0430m"></span></td>
+<td id="p0530"><span id="0530h"></span>:<span id="0530m"></span></td>
+<td id="p0630"><span id="0630h"></span>:<span id="0630m"></span></td>
+<td class="empty"><td class="empty">
+<td id="p0930"><span id="0930h"></span>:<span id="0930m"></span></td>
+<td id="p1030"><span id="1030h"></span>:<span id="1030m"></span></td>
+<td class="empty"><td class="empty"><td class="empty"><td class="empty">
+</tr><tr>
+<td class="empty"><td class="empty"><td class="empty"><td class="empty"><td class="empty"><td class="empty"><td class="empty"><td class="empty"><td class="empty"><td class="empty"><td class="empty"><td class="empty"><td class="empty"><td class="empty"><td class="empty"><td class="empty"><td class="empty">
+<th>+05:45</th>
+<td class="empty"><td class="empty"><td class="empty"><td class="empty"><td class="empty"><td class="empty">
+<th>+12:45</th>
+<th>+13:45</th>
+<td class="empty">
+</tr><tr>
+<td class="empty"><td class="empty"><td class="empty"><td class="empty"><td class="empty"><td class="empty"><td class="empty"><td class="empty"><td class="empty"><td class="empty"><td class="empty"><td class="empty"><td class="empty"><td class="empty"><td class="empty"><td class="empty"><td class="empty">
+<td id="p0545"><span id="0545h"></span>:<span id="0545m"></span></td>
+<td class="empty"><td class="empty"><td class="empty"><td class="empty"><td class="empty"><td class="empty">
+<td id="p1245"><span id="1245h"></span>:<span id="1245m"></span></td>
+<td id="p1345"><span id="1345h"></span>:<span id="1345m"></span></td>
+<td class="empty">
+</tr></table>
+
+<br>commonly referenced timezones (at least in english gaming related posts)
+<br>hover over them to highlight its current time
+<br><br>
+<table style="width: 300px">
+<tr><th>name</th><th>winter</th><th>summer</th></tr>
+<tr>
+<td>PT</td>
+<td onmouseover="highlight(n0800)" onmouseout="unhighlight(n0800)">UTC−08:00<br>PST</td>
+<td onmouseover="highlight(n0700)" onmouseout="unhighlight(n0700)">UTC−07:00<br>PDT</td>
+</tr><tr>
+<td>ET</td>
+<td onmouseover="highlight(n0500)" onmouseout="unhighlight(n0500)">UTC−05:00<br>EST</td>
+<td onmouseover="highlight(n0400)" onmouseout="unhighlight(n0400)">UTC−04:00<br>EDT</td>
+</tr><tr>
+<td>CET</td>
+<td onmouseover="highlight(p0100)" onmouseout="unhighlight(p0100)">UTC+01:00<br>CET</td>
+<td onmouseover="highlight(p0200)" onmouseout="unhighlight(p0200)">UTC+02:00<br>CEST</td>
+</tr>
+</table>
+
+<br><a href="index.html">back to index</a>
+
+</body>
+
+<script>
+
+const d = new Date();
+
+hr = d.getUTCHours();
+min = d.getUTCMinutes();
+
+//accounting for timezones with other minutes
+
+min30 = min+30
+min45 = min+45
+
+//getting utc+0 and the minutes for most timezones
+
+hr0000 = hr.toString();
+hr0000 = hr0000.padStart(2,"0");
+min = min.toString();
+min = min.padStart(2,"0");
+document.getElementById("0000h").innerHTML = hr0000;
+document.getElementById("0000m").innerHTML = min;
+
+//cutting off minutes if they roll over 60
+
+min30dis = min30
+min45dis = min45
+
+if (min30 > 59) {min30dis = min30 - 60}
+min30dis = min30dis.toString();
+min30dis = min30dis.padStart(2,"0");
+
+if (min45 > 59) {min45dis = min45 - 60}
+min45dis = min45dis.toString();
+min45dis = min45dis.padStart(2,"0");
+
+//------------------------------------------------------------
+// other timezones
+//------------------------------------------------------------
+
+hr0100 = hr+1
+if ( hr0100>23 ) { hr0100 = hr0100 - 24 }
+hr0100 = hr0100.toString();
+hr0100 = hr0100.padStart(2,"0");
+document.getElementById("0100h").innerHTML = hr0100;
+document.getElementById("0100m").innerHTML = min;
+
+hr0200 = hr+2
+if ( hr0200>23 ) { hr0200 = hr0200 - 24 }
+hr0200 = hr0200.toString();
+hr0200 = hr0200.padStart(2,"0");
+document.getElementById("0200h").innerHTML = hr0200;
+document.getElementById("0200m").innerHTML = min;
+
+hr0300 = hr+3
+if ( hr0300>23 ) { hr0300 = hr0300 - 24 }
+hr0300 = hr0300.toString();
+hr0300 = hr0300.padStart(2,"0");
+document.getElementById("0300h").innerHTML = hr0300;
+document.getElementById("0300m").innerHTML = min;
+
+hr0400 = hr+4
+if ( hr0400>23 ) { hr0400 = hr0400 - 24 }
+hr0400 = hr0400.toString();
+hr0400 = hr0400.padStart(2,"0");
+document.getElementById("0400h").innerHTML = hr0400;
+document.getElementById("0400m").innerHTML = min;
+
+hr0500 = hr+5
+if ( hr0500>23 ) { hr0500 = hr0500 - 24 }
+hr0500 = hr0500.toString();
+hr0500 = hr0500.padStart(2,"0");
+document.getElementById("0500h").innerHTML = hr0500;
+document.getElementById("0500m").innerHTML = min;
+
+hr0600 = hr+6
+if ( hr0600>23 ) { hr0600 = hr0600 - 24 }
+hr0600 = hr0600.toString();
+hr0600 = hr0600.padStart(2,"0");
+document.getElementById("0600h").innerHTML = hr0600;
+document.getElementById("0600m").innerHTML = min;
+
+hr0700 = hr+7
+if ( hr0700>23 ) { hr0700 = hr0700 - 24 }
+hr0700 = hr0700.toString();
+hr0700 = hr0700.padStart(2,"0");
+document.getElementById("0700h").innerHTML = hr0700;
+document.getElementById("0700m").innerHTML = min;
+
+hr0800 = hr+8
+if ( hr0800>23 ) { hr0800 = hr0800 - 24 }
+hr0800 = hr0800.toString();
+hr0800 = hr0800.padStart(2,"0");
+document.getElementById("0800h").innerHTML = hr0800;
+document.getElementById("0800m").innerHTML = min;
+
+hr0900 = hr+9
+if ( hr0900>23 ) { hr0900 = hr0900 - 24 }
+hr0900 = hr0900.toString();
+hr0900 = hr0900.padStart(2,"0");
+document.getElementById("0900h").innerHTML = hr0900;
+document.getElementById("0900m").innerHTML = min;
+
+hr1000 = hr+10
+if ( hr1000>23 ) { hr1000 = hr1000 - 24 }
+hr1000 = hr1000.toString();
+hr1000 = hr1000.padStart(2,"0");
+document.getElementById("1000h").innerHTML = hr1000;
+document.getElementById("1000m").innerHTML = min;
+
+hr1100 = hr+11
+if ( hr1100>23 ) { hr1100 = hr1100 - 24 }
+hr1100 = hr1100.toString();
+hr1100 = hr1100.padStart(2,"0");
+document.getElementById("1100h").innerHTML = hr1100;
+document.getElementById("1100m").innerHTML = min;
+
+hr1200 = hr+12
+if ( hr1200>23 ) { hr1200 = hr1200 - 24 }
+hr1200 = hr1200.toString();
+hr1200 = hr1200.padStart(2,"0");
+document.getElementById("1200h").innerHTML = hr1200;
+document.getElementById("1200m").innerHTML = min;
+
+hr1300 = hr+13
+if ( hr1300>23 ) { hr1300 = hr1300 - 24 }
+hr1300 = hr1300.toString();
+hr1300 = hr1300.padStart(2,"0");
+document.getElementById("1300h").innerHTML = hr1300;
+document.getElementById("1300m").innerHTML = min;
+
+hr1400 = hr+14
+if ( hr1400>23 ) { hr1400 = hr1400 - 24 }
+hr1400 = hr1400.toString();
+hr1400 = hr1400.padStart(2,"0");
+document.getElementById("1400h").innerHTML = hr1400;
+document.getElementById("1400m").innerHTML = min;
+
+//------------------------------------------------------------
+// negative
+//------------------------------------------------------------
+
+nhr0100 = hr-1
+if ( nhr0100<0 ) { nhr0100 = nhr0100 + 24 }
+nhr0100 = nhr0100.toString();
+nhr0100 = nhr0100.padStart(2,"0");
+document.getElementById("n0100h").innerHTML = nhr0100;
+document.getElementById("n0100m").innerHTML = min;
+
+nhr0200 = hr-2
+if ( nhr0200<0 ) { nhr0200 = nhr0200 + 24 }
+nhr0200 = nhr0200.toString();
+nhr0200 = nhr0200.padStart(2,"0");
+document.getElementById("n0200h").innerHTML = nhr0200;
+document.getElementById("n0200m").innerHTML = min;
+
+nhr0300 = hr-3
+if ( nhr0300<0 ) { nhr0300 = nhr0300 + 24 }
+nhr0300 = nhr0300.toString();
+nhr0300 = nhr0300.padStart(2,"0");
+document.getElementById("n0300h").innerHTML = nhr0300;
+document.getElementById("n0300m").innerHTML = min;
+
+nhr0400 = hr-4
+if ( nhr0400<0 ) { nhr0400 = nhr0400 + 24 }
+nhr0400 = nhr0400.toString();
+nhr0400 = nhr0400.padStart(2,"0");
+document.getElementById("n0400h").innerHTML = nhr0400;
+document.getElementById("n0400m").innerHTML = min;
+
+nhr0500 = hr-5
+if ( nhr0500<0 ) { nhr0500 = nhr0500 + 24 }
+nhr0500 = nhr0500.toString();
+nhr0500 = nhr0500.padStart(2,"0");
+document.getElementById("n0500h").innerHTML = nhr0500;
+document.getElementById("n0500m").innerHTML = min;
+
+nhr0600 = hr-6
+if ( nhr0600<0 ) { nhr0600 = nhr0600 + 24 }
+nhr0600 = nhr0600.toString();
+nhr0600 = nhr0600.padStart(2,"0");
+document.getElementById("n0600h").innerHTML = nhr0600;
+document.getElementById("n0600m").innerHTML = min;
+
+nhr0700 = hr-7
+if ( nhr0700<0 ) { nhr0700 = nhr0700 + 24 }
+nhr0700 = nhr0700.toString();
+nhr0700 = nhr0700.padStart(2,"0");
+document.getElementById("n0700h").innerHTML = nhr0700;
+document.getElementById("n0700m").innerHTML = min;
+
+nhr0800 = hr-8
+if ( nhr0800<0 ) { nhr0800 = nhr0800 + 24 }
+nhr0800 = nhr0800.toString();
+nhr0800 = nhr0800.padStart(2,"0");
+document.getElementById("n0800h").innerHTML = nhr0800;
+document.getElementById("n0800m").innerHTML = min;
+
+nhr0900 = hr-9
+if ( nhr0900<0 ) { nhr0900 = nhr0900 + 24 }
+nhr0900 = nhr0900.toString();
+nhr0900 = nhr0900.padStart(2,"0");
+document.getElementById("n0900h").innerHTML = nhr0900;
+document.getElementById("n0900m").innerHTML = min;
+
+nhr1000 = hr-10
+if ( nhr1000<0 ) { nhr1000 = nhr1000 + 24 }
+nhr1000 = nhr1000.toString();
+nhr1000 = nhr1000.padStart(2,"0");
+document.getElementById("n1000h").innerHTML = nhr1000;
+document.getElementById("n1000m").innerHTML = min;
+
+nhr1100 = hr-11
+if ( nhr1100<0 ) { nhr1100 = nhr1100 + 24 }
+nhr1100 = nhr1100.toString();
+nhr1100 = nhr1100.padStart(2,"0");
+document.getElementById("n1100h").innerHTML = nhr1100;
+document.getElementById("n1100m").innerHTML = min;
+
+nhr1200 = hr-12
+if ( nhr1200<0 ) { nhr1200 = nhr1200 + 24 }
+nhr1200 = nhr1200.toString();
+nhr1200 = nhr1200.padStart(2,"0");
+document.getElementById("n1200h").innerHTML = nhr1200;
+document.getElementById("n1200m").innerHTML = min;
+
+//------------------------------------------------------------
+// 30 min
+//------------------------------------------------------------
+
+nhr0930 = hr-9
+if ( nhr0930<0 ) { nhr0930 = nhr0930 + 24 }
+if ( min30>59 ) { nhr0930 = nhr0930 + 1 }
+nhr0930 = nhr0930.toString();
+nhr0930 = nhr0930.padStart(2,"0");
+document.getElementById("n0930h").innerHTML = nhr0930;
+document.getElementById("n0930m").innerHTML = min30dis;
+
+nhr0330 = hr-3
+if ( nhr0330<0 ) { nhr0330 = nhr0330 + 24 }
+if ( min30>59 ) { nhr0330 = nhr0330 + 1 }
+nhr0330 = nhr0330.toString();
+nhr0330 = nhr0330.padStart(2,"0");
+document.getElementById("n0330h").innerHTML = nhr0330;
+document.getElementById("n0330m").innerHTML = min30dis;
+
+nhr0230 = hr-2
+if ( nhr0230<0 ) { nhr0230 = nhr0230 + 24 }
+if ( min30>59 ) { nhr0230 = nhr0230 + 1 }
+nhr0230 = nhr0230.toString();
+nhr0230 = nhr0230.padStart(2,"0");
+document.getElementById("n0230h").innerHTML = nhr0230;
+document.getElementById("n0230m").innerHTML = min30dis;
+
+hr0330 = hr+3
+if ( min30>59 ) { hr0330 = hr0330 + 1 }
+if ( hr0330>23 ) { hr0330 = hr0330 - 24 }
+hr0330 = hr0330.toString();
+hr0330 = hr0330.padStart(2,"0");
+document.getElementById("0330h").innerHTML = hr0330;
+document.getElementById("0330m").innerHTML = min30dis;
+
+hr0430 = hr+4
+if ( min30>59 ) { hr0430 = hr0430 + 1 }
+if ( hr0430>23 ) { hr0430 = hr0430 - 24 }
+hr0430 = hr0430.toString();
+hr0430 = hr0430.padStart(2,"0");
+document.getElementById("0430h").innerHTML = hr0430;
+document.getElementById("0430m").innerHTML = min30dis;
+
+hr0530 = hr+5
+if ( min30>59 ) { hr0530 = hr0530 + 1 }
+if ( hr0530>23 ) { hr0530 = hr0530 - 24 }
+hr0530 = hr0530.toString();
+hr0530 = hr0530.padStart(2,"0");
+document.getElementById("0530h").innerHTML = hr0530;
+document.getElementById("0530m").innerHTML = min30dis;
+
+hr0630 = hr+6
+if ( min30>59 ) { hr0630 = hr0630 + 1 }
+if ( hr0630>23 ) { hr0630 = hr0630 - 24 }
+hr0630 = hr0630.toString();
+hr0630 = hr0630.padStart(2,"0");
+document.getElementById("0630h").innerHTML = hr0630;
+document.getElementById("0630m").innerHTML = min30dis;
+
+hr0930 = hr+9
+if ( min30>59 ) { hr0930 = hr0930 + 1 }
+if ( hr0930>23 ) { hr0930 = hr0930 - 24 }
+hr0930 = hr0930.toString();
+hr0930 = hr0930.padStart(2,"0");
+document.getElementById("0930h").innerHTML = hr0930;
+document.getElementById("0930m").innerHTML = min30dis;
+
+hr1030 = hr+10
+if ( min30>59 ) { hr1030 = hr1030 + 1 }
+if ( hr1030>23 ) { hr1030 = hr1030 - 24 }
+hr1030 = hr1030.toString();
+hr1030 = hr1030.padStart(2,"0");
+document.getElementById("1030h").innerHTML = hr1030;
+document.getElementById("1030m").innerHTML = min30dis;
+
+//------------------------------------------------------------
+// 45 min
+//------------------------------------------------------------
+
+hr0545 = hr+5
+if ( min45>59 ) { hr0545 = hr0545 + 1 }
+if ( hr0545>23 ) { hr0545 = hr0545 - 24 }
+hr0545 = hr0545.toString();
+hr0545 = hr0545.padStart(2,"0");
+document.getElementById("0545h").innerHTML = hr0545;
+document.getElementById("0545m").innerHTML = min45dis;
+
+hr1245 = hr+12
+if ( min45>59 ) { hr1245 = hr1245 + 1 }
+if ( hr1245>23 ) { hr1245 = hr1245 - 24 }
+hr1245 = hr1245.toString();
+hr1245 = hr1245.padStart(2,"0");
+document.getElementById("1245h").innerHTML = hr1245;
+document.getElementById("1245m").innerHTML = min45dis;
+
+hr1345 = hr+13
+if ( min45>59 ) { hr1345 = hr1345 + 1 }
+if ( hr1345>23 ) { hr1345 = hr1345 - 24 }
+hr1345 = hr1345.toString();
+hr1345 = hr1345.padStart(2,"0");
+document.getElementById("1345h").innerHTML = hr1345;
+document.getElementById("1345m").innerHTML = min45dis;
+
+//------------------------------------------------------------
+// getting your time or rather the table id for it
+//------------------------------------------------------------
+
+let diff = d.getTimezoneOffset();
+//let diff = -1300
+diffhourstest = diff/60
+//console.log('diffhourstest', diffhourstest)
+
+if (Number.isInteger(diffhourstest) === true) {
+//console.log('integer lol')
+diffhr = diff
+diffmin = 0
+}
+
+if (Number.isInteger(diffhourstest) === false) {
+//console.log('not integer lol')
+diffmin = diff % 60
+diffhr = diff - diffmin
+}
+
+diffhr = diffhr / 60
+if (diff < 0) {
+//is there a better way to make it into positive numbers LOL
+diffhr = diffhr - diffhr - diffhr
+diffmin = diffmin - diffmin - diffmin
+}
+//console.log('diff', diffhr, ':', diffmin)
+
+hrreal = diffhr.toString();
+hrreal = hrreal.padStart(2,"0");
+minreal = diffmin.toString();
+minreal = minreal.padStart(2,"0");
+
+//console.log('real', hrreal, ':', minreal)
+
+timenumber=hrreal+minreal
+actualid='p0000' //in case the difference is 0
+if (diff < 0) { actualid='p'+timenumber } else
+if (diff > 0) { actualid='n'+timenumber }
+//console.log(actualid)
+
+document.getElementById(actualid).style.backgroundColor = '#00FFFF';
+
+//------------------------------------------------------------
+// highlighting cells
+//------------------------------------------------------------
+
+function highlight(x) { x.style.backgroundColor = '#80FF00'; }
+function unhighlight(x) { x.style.backgroundColor = 'transparent'; }
+
+</script></html>

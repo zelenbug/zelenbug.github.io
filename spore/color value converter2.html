@@ -1,0 +1,802 @@
+<!-- by https://randomsporefacts.tumblr.com/ -->
+<!DOCTYPE html><html><head>
+<title>Spore color value converter</title>
+<style>
+body {
+font: 16px trebuchet ms, sans-serif;
+color: #ffffff;
+background-color: #0F1C24
+}
+
+#main {
+background: #1A303F;
+width: 1000px;
+padding: 40px;
+margin: 0 auto;
+border: 2px solid #3D505C;
+border-radius: 20px;
+}
+
+#center { margin: auto; width: 200px; }
+
+#colorinput {width: 200px}
+#colorinput2 {width: 622px;}
+
+#colorchangebox, #colorchangebox1, #colorchangebox2, #colorchangebox3 {
+width: 200px;
+height: 200px;
+background-color: #ffffff;
+border: 2px solid #3D505C;
+border-radius: 0px 0px 20px 20px
+}
+
+.inline {display: inline-block}
+
+#colorhex, #colorhex1, #colorhex2, #colorhex3 {
+width: 190px;
+border: 2px solid #3D505C;
+border-bottom: 0px solid;
+padding: 5px;
+border-radius: 20px 20px 0px 0px
+}
+
+#skinpaintbase, #skinpaintcoat, #skinpaintdetail  {
+width: 190px;
+padding: 5px;
+overflow-wrap: break-word;
+}
+
+code, pre { border: 2px solid #3D505C; border-radius: 5px; padding:2px }
+
+a { color: #66EFF7; text-decoration: none; } a:hover, a:focus {text-decoration: underline;}
+</style></head>
+
+<div id="main">
+
+Converts the colorRGB values found in the XML files for Spore creatures (or plants or cells), or colorRGB values in other files (such as consequence trait colors), into a visible color. It must be separated by commas!
+<br>Also the typed hex might be a little bit off, but the color actually shown here should be accurate to the game.
+<br><br>Example: <code>0.905882,0.333333,0.290189</code> or <code>0.314, 0.275, 0.804</code>
+<br><br>
+
+<div id="center">
+<div id="colorhex">#ffffff</div>
+<div id="colorchangebox"></div><br>
+<input id="colorinput" type="text" oninput="colorchange()"></input>
+</div>
+
+<br>This will convert three color and skinpaint values from a creation's XML (you can get them from PNGs in <a href="https://tools.sporecommunity.com/asset#PngXmlModel" target="_blank">Kade's asset tool</a>). Here you'll have to import it in this exact format (should have line breaks, and be in this order, but leading spaces don't matter):
+<pre>&lt;skineffect1&gt;0xa3163e4a&lt;/skineffect1&gt;
+    &lt;skineffect2&gt;0x52811f23&lt;/skineffect2&gt;
+    &lt;skineffect3&gt;0x64a50d94&lt;/skineffect3&gt;
+    &lt;skineffectseed1&gt;1234&lt;/skineffectseed1&gt;
+    &lt;skineffectseed2&gt;1234&lt;/skineffectseed2&gt;
+    &lt;skineffectseed3&gt;1234&lt;/skineffectseed3&gt;
+    &lt;skincolor1&gt;0.274509,0.443135,0.262743&lt;/skincolor1&gt;
+    &lt;skincolor2&gt;0.694117,0.513725,0.129411&lt;/skincolor2&gt;
+    &lt;skincolor3&gt;0.176470,0.282352,0.168625&lt;/skincolor3&gt;</pre>
+
+<div id="center" style="width: 622px">
+<div id="colorhex1" class="inline">#ffffff</div>
+<div id="colorhex2" class="inline">#ffffff</div>
+<div id="colorhex3" class="inline">#ffffff</div><br>
+<div id="colorchangebox1" class="inline"></div>
+<div id="colorchangebox2" class="inline"></div>
+<div id="colorchangebox3" class="inline"></div><br>
+<div id="skinpaintbase" class="inline">None</div>
+<div id="skinpaintcoat" class="inline">None</div>
+<div id="skinpaintdetail" class="inline">None</div><br><br>
+<textarea id="colorinput2" name="colorinput2" type="text" oninput="colorchange2()" rows="9"></textarea>
+</div>
+
+</div>
+
+<script>
+function colorchange() {
+  let inputted = document.getElementById("colorinput").value;
+  const colorarray = inputted.split(',');
+  
+  let redsplit = colorarray[0];
+  let greensplit = colorarray[1];
+  let bluesplit = colorarray[2];
+	
+  let redmult = redsplit*255;
+  let greenmult = greensplit*255;
+  let bluemult = bluesplit*255;
+  
+  let result = "rgb(" + redmult + ", " + greenmult + ", " + bluemult + ")";
+  document.getElementById("colorchangebox").style.backgroundColor = result;
+  
+//from https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
+  document.getElementById("colorhex").innerHTML = "#" + (1 << 24 | redmult << 16 | greenmult << 8 | bluemult).toString(16).slice(1);
+}
+
+//three color changers
+
+function colorchange2() {
+  let inputted = document.getElementById("colorinput2").value;
+
+//from https://stackoverflow.com/questions/21711768/split-string-in-javascript-and-detect-line-break
+//also https://stackoverflow.com/questions/9018015/remove-tab-t-from-string-javascript
+  var separateLines = inputted.split(/\r?\n|\r|\n/g);
+
+  let separateLines1 = separateLines[6];
+  let separateLines2 = separateLines[7];
+  let separateLines3 = separateLines[8];
+  
+  separateLines1 = separateLines1.replace("<skincolor1>", "").trim();
+  separateLines1 = separateLines1.replace("</skincolor1>", "").trim();
+  
+  separateLines2 = separateLines2.replace("<skincolor2>", "").trim();
+  separateLines2 = separateLines2.replace("</skincolor2>", "").trim();
+  
+  separateLines3 = separateLines3.replace("<skincolor3>", "").trim();
+  separateLines3 = separateLines3.replace("</skincolor3>", "").trim();
+  
+  //splits lines for skinpaints
+
+  let skinpaintbase = separateLines[0];
+  let skinpaintcoat = separateLines[1];
+  let skinpaintdetail = separateLines[2];
+  
+  //split 1 --------------------------------------------------
+
+  const colorarray1 = separateLines1.split(',');
+  
+  let redsplit1 = colorarray1[0];
+  let greensplit1 = colorarray1[1];
+  let bluesplit1 = colorarray1[2];
+	
+  let redmult1 = redsplit1*255;
+  let greenmult1 = greensplit1*255;
+  let bluemult1 = bluesplit1*255;
+  
+  let result1 = "rgb(" + redmult1 + ", " + greenmult1 + ", " + bluemult1 + ")";
+  document.getElementById("colorchangebox1").style.backgroundColor = result1;
+
+  document.getElementById("colorhex1").innerHTML = "#" + (1 << 24 | redmult1 << 16 | greenmult1 << 8 | bluemult1).toString(16).slice(1);
+  
+  skinpaintbase = skinpaintbase.replace("<skineffect1>", "").trim();
+  skinpaintbase = skinpaintbase.replace("</skineffect1>", "").trim();
+  document.getElementById("skinpaintbase").innerHTML = skinpaintconvert(skinpaintbase);
+  
+  //split 2 --------------------------------------------------
+
+  const colorarray2 = separateLines2.split(',');
+  
+  let redsplit2 = colorarray2[0];
+  let greensplit2 = colorarray2[1];
+  let bluesplit2 = colorarray2[2];
+	
+  let redmult2 = redsplit2*255;
+  let greenmult2 = greensplit2*255;
+  let bluemult2 = bluesplit2*255;
+  
+  let result2 = "rgb(" + redmult2 + ", " + greenmult2 + ", " + bluemult2 + ")";
+  document.getElementById("colorchangebox2").style.backgroundColor = result2;
+
+  document.getElementById("colorhex2").innerHTML = "#" + (1 << 24 | redmult2 << 16 | greenmult2 << 8 | bluemult2).toString(16).slice(1);
+  
+  skinpaintcoat = skinpaintcoat.replace("<skineffect2>", "").trim();
+  skinpaintcoat = skinpaintcoat.replace("</skineffect2>", "").trim();
+  document.getElementById("skinpaintcoat").innerHTML = skinpaintconvert(skinpaintcoat);
+  
+  //split 3 --------------------------------------------------
+
+  const colorarray3 = separateLines3.split(',');
+  
+  let redsplit3 = colorarray3[0];
+  let greensplit3 = colorarray3[1];
+  let bluesplit3 = colorarray3[2];
+	
+  let redmult3 = redsplit3*255;
+  let greenmult3 = greensplit3*255;
+  let bluemult3 = bluesplit3*255;
+  
+  let result3 = "rgb(" + redmult3 + ", " + greenmult3 + ", " + bluemult3 + ")";
+  document.getElementById("colorchangebox3").style.backgroundColor = result3;
+
+  document.getElementById("colorhex3").innerHTML = "#" + (1 << 24 | redmult3 << 16 | greenmult3 << 8 | bluemult3).toString(16).slice(1);
+  
+  skinpaintdetail = skinpaintdetail.replace("<skineffect3>", "").trim();
+  skinpaintdetail = skinpaintdetail.replace("</skineffect3>", "").trim();
+  document.getElementById("skinpaintdetail").innerHTML = skinpaintconvert(skinpaintdetail);
+}
+
+function skinpaintconvert(a) {
+//im so sorry
+var skinhash = a
+if (skinhash=='0x68207e19') {skinhash='skinpaint_base_amigurumi'}
+else if (skinhash=='0xf9081c4e') {skinhash='skinpaint_base_alien_HRG'}
+else if (skinhash=='0xd48c8616') {skinhash='skinpaint_base_amphibian'}
+else if (skinhash=='0x3e4d253a') {skinhash='skinpaint_base_armor'}
+else if (skinhash=='0xd2bc5484') {skinhash='skinpaint_base_bacteria'}
+else if (skinhash=='0xee9e7fb3') {skinhash='skinpaint_base_banded'}
+else if (skinhash=='0x8ec5176c') {skinhash='skinpaint_base_blankMatte'}
+else if (skinhash=='0x0156ac06') {skinhash='skinpaint_base_blankShiny'}
+else if (skinhash=='0xbc0c0344') {skinhash='skinpaint_base_chewtoy'}
+else if (skinhash=='0xff398dd4') {skinhash='skinpaint_base_dottie'}
+else if (skinhash=='0x42d9cefa') {skinhash='skinpaint_base_eggshell'}
+else if (skinhash=='0xaad582b9') {skinhash='skinpaint_base_feltStitch'}
+else if (skinhash=='0x8e3b61ba') {skinhash='skinpaint_base_fishScales'}
+else if (skinhash=='0x1ec77519') {skinhash='skinpaint_base_Frankenstein'}
+else if (skinhash=='0xc42b891f') {skinhash='skinpaint_base_giraffe'}
+else if (skinhash=='0x95540809') {skinhash='skinpaint_base_gradient'}
+else if (skinhash=='0xf68e1a21') {skinhash='skinpaint_base_granite'}
+else if (skinhash=='0xfd3fbc01') {skinhash='skinpaint_base_kidRobot'}
+else if (skinhash=='0x2e576c62') {skinhash='skinpaint_base_krueger'}
+else if (skinhash=='0xa9266f30') {skinhash='skinpaint_base_leather'}
+else if (skinhash=='0x50a10802') {skinhash='skinpaint_base_longFur'}
+else if (skinhash=='0x23f9b700') {skinhash='skinpaint_base_lumpy'}
+else if (skinhash=='0x186abfa2') {skinhash='skinpaint_base_mantelloid'}
+else if (skinhash=='0xf498f126') {skinhash='skinpaint_base_marble'}
+else if (skinhash=='0x8c7aa8c3') {skinhash='skinpaint_base_melt'}
+else if (skinhash=='0x7f46c6ea') {skinhash='skinpaint_base_pinata'}
+else if (skinhash=='0xbdc690bb') {skinhash='skinpaint_base_platesLarge'}
+else if (skinhash=='0xf85500a7') {skinhash='skinpaint_base_platesSmall'}
+else if (skinhash=='0xe413f527') {skinhash='skinpaint_base_quilted'}
+else if (skinhash=='0x492ce536') {skinhash='skinpaint_base_ragdoll'}
+else if (skinhash=='0x8c077662') {skinhash='skinpaint_base_rubberband'}
+else if (skinhash=='0x6cee3495') {skinhash='skinpaint_base_scallopShell'}
+else if (skinhash=='0x71357e68') {skinhash='skinpaint_base_shortfur'}
+else if (skinhash=='0x2b8ac580') {skinhash='skinpaint_base_skinnedBeast'}
+else if (skinhash=='0xa3163e4a') {skinhash='skinpaint_base_snakescales'}
+else if (skinhash=='0xfd5f5298') {skinhash='skinpaint_base_spotted'}
+else if (skinhash=='0xeed0229d') {skinhash='skinpaint_base_stripesLL'}
+else if (skinhash=='0xedd02132') {skinhash='skinpaint_base_stripesML'}
+else if (skinhash=='0x2fc1e149') {skinhash='skinpaint_base_tempered'}
+else if (skinhash=='0xd8f95c32') {skinhash='skinpaint_base_toonCritter'}
+else if (skinhash=='0x37c3d098') {skinhash='skinpaint_base_valueGradientDark'}
+else if (skinhash=='0xb1d9f338') {skinhash='skinpaint_base_valueGradientLight'}
+else if (skinhash=='0x9c359d13') {skinhash='skinpaint_base_vgcats'}
+else if (skinhash=='0x421c1854') {skinhash='skinpaint_base_vittatum1'}
+else if (skinhash=='0x421c1857') {skinhash='skinpaint_base_vittatum2'}
+else if (skinhash=='0x421c1856') {skinhash='skinpaint_base_vittatum3'}
+else if (skinhash=='0x421c1851') {skinhash='skinpaint_base_vittatum4'}
+else if (skinhash=='0x3b32b52b') {skinhash='skinpaint_base_walrus'}
+else if (skinhash=='0xeed1e21b') {skinhash='skinpaint_base_zebra'}
+else if (skinhash=='0x32fe45f6') {skinhash='skinpaint_base_zebroid'}
+else if (skinhash=='0xa5164b92') {skinhash='skinpaint_cell_amigurumi'}
+else if (skinhash=='0x791c8201') {skinhash='skinpaint_cell_amphibian'}
+else if (skinhash=='0x70339dd1') {skinhash='skinpaint_cell_bacteria'}
+else if (skinhash=='0xdcad3e09') {skinhash='skinpaint_cell_blankMatte'}
+else if (skinhash=='0x6d854a7b') {skinhash='skinpaint_cell_blankShiny'}
+else if (skinhash=='0xca7299f4') {skinhash='skinpaint_cell_cowLeather'}
+else if (skinhash=='0xa6481207') {skinhash='skinpaint_cell_doubleDots'}
+else if (skinhash=='0x04ed8115') {skinhash='skinpaint_cell_eggshellBanded'}
+else if (skinhash=='0xcd215e47') {skinhash='skinpaint_cell_fishScales'}
+else if (skinhash=='0x306b8dd8') {skinhash='skinpaint_cell_giraffe'}
+else if (skinhash=='0xe50e0b10') {skinhash='skinpaint_cell_glassCreases'}
+else if (skinhash=='0xfcb09f85') {skinhash='skinpaint_cell_graniteHalftone'}
+else if (skinhash=='0x7a2e9eb3') {skinhash='skinpaint_cell_lumpy'}
+else if (skinhash=='0xbe0cf563') {skinhash='skinpaint_cell_marbleSuckers'}
+else if (skinhash=='0x7d39d956') {skinhash='skinpaint_cell_melt'}
+else if (skinhash=='0x7039c4c3') {skinhash='skinpaint_cell_mesh'}
+else if (skinhash=='0x8fb90228') {skinhash='skinpaint_cell_platesLarge'}
+else if (skinhash=='0x2f363540') {skinhash='skinpaint_cell_platesSmall'}
+else if (skinhash=='0x0d79224f') {skinhash='skinpaint_cell_rubberband'}
+else if (skinhash=='0x5c36ee15') {skinhash='skinpaint_cell_snakeScales'}
+else if (skinhash=='0x3b4a35b2') {skinhash='skinpaint_cell_spottedLizardo'}
+else if (skinhash=='0xe4c02cce') {skinhash='skinpaint_cell_stripes'}
+else if (skinhash=='0xbe9a5c8b') {skinhash='skinpaint_cell_subtleStripes'}
+else if (skinhash=='0xc231ca82') {skinhash='skinpaint_cell_temperedMantella'}
+else if (skinhash=='0xd4068cd8') {skinhash='skinpaint_cell_vgcatsBackStripe'}
+else if (skinhash=='0x5c80bad0') {skinhash='skinpaint_coat_alien_HRG'}
+else if (skinhash=='0xb80f36c3') {skinhash='skinpaint_coat_amigurumi'}
+else if (skinhash=='0x5c80bad0') {skinhash='skinpaint_coat_armor'}
+else if (skinhash=='0x6abd6aaf') {skinhash='skinpaint_coat_backAndBelly'}
+else if (skinhash=='0x216ee35e') {skinhash='skinpaint_coat_bacteria'}
+else if (skinhash=='0x97e43b59') {skinhash='skinpaint_coat_banded'}
+else if (skinhash=='0xcf48a38f') {skinhash='skinpaint_coat_blank'}
+else if (skinhash=='0x1cc711a2') {skinhash='skinpaint_coat_chewToy'}
+else if (skinhash=='0x47d7ef44') {skinhash='skinpaint_coat_cow'}
+else if (skinhash=='0x5d74aad5') {skinhash='skinpaint_coat_crocodile'}
+else if (skinhash=='0x9173f17e') {skinhash='skinpaint_coat_dottie'}
+else if (skinhash=='0x2b0f087b') {skinhash='skinpaint_coat_feltStitch'}
+else if (skinhash=='0x626d5e6c') {skinhash='skinpaint_coat_fishScales'}
+else if (skinhash=='0x6ab52ec3') {skinhash='skinpaint_coat_Frankenstein'}
+else if (skinhash=='0x8ac01a79') {skinhash='skinpaint_coat_giraffe'}
+else if (skinhash=='0x6072d44f') {skinhash='skinpaint_coat_giraffeBorder'}
+else if (skinhash=='0xfaf08f43') {skinhash='skinpaint_coat_gooStripe'}
+else if (skinhash=='0x18b92317') {skinhash='skinpaint_coat_granite'}
+else if (skinhash=='0x97dd66d8') {skinhash='skinpaint_coat_halftone'}
+else if (skinhash=='0xf726d097') {skinhash='skinpaint_coat_kidney'}
+else if (skinhash=='0xc017dc3b') {skinhash='skinpaint_coat_kidRobot'}
+else if (skinhash=='0xa6e9fd94') {skinhash='skinpaint_coat_krueger'}
+else if (skinhash=='0x07804ba8') {skinhash='skinpaint_coat_lateral'}
+else if (skinhash=='0x77159c72') {skinhash='skinpaint_coat_lizardo'}
+else if (skinhash=='0x193f8552') {skinhash='skinpaint_coat_lumpy'}
+else if (skinhash=='0x641caab1') {skinhash='skinpaint_coat_mantella'}
+else if (skinhash=='0xea9d8441') {skinhash='skinpaint_coat_melt'}
+else if (skinhash=='0x52811f23') {skinhash='skinpaint_coat_pebble'}
+else if (skinhash=='0x126e5b5c') {skinhash='skinpaint_coat_pinata'}
+else if (skinhash=='0x6937e719') {skinhash='skinpaint_coat_platesLarge'}
+else if (skinhash=='0x99093c61') {skinhash='skinpaint_coat_platesSmall'}
+else if (skinhash=='0x5bef811d') {skinhash='skinpaint_coat_polkadot'}
+else if (skinhash=='0x9db6d914') {skinhash='skinpaint_coat_ragdoll'}
+else if (skinhash=='0xbe9dd2b4') {skinhash='skinpaint_coat_ridgesLateral'}
+else if (skinhash=='0x14ceb468') {skinhash='skinpaint_coat_ridgesTiger'}
+else if (skinhash=='0x070a7fc0') {skinhash='skinpaint_coat_rubberband'}
+else if (skinhash=='0x58dec63b') {skinhash='skinpaint_coat_scallopShell'}
+else if (skinhash=='0x8fcfb8c6') {skinhash='skinpaint_coat_skinnedBeast'}
+else if (skinhash=='0xe47d0e53') {skinhash='skinpaint_coat_stripesLL'}
+else if (skinhash=='0xe37d0cc0') {skinhash='skinpaint_coat_stripesML'}
+else if (skinhash=='0x3b511e3c') {skinhash='skinpaint_coat_toonCritter'}
+else if (skinhash=='0x642258d5') {skinhash='skinpaint_coat_toupee'}
+else if (skinhash=='0xa9bb0919') {skinhash='skinpaint_coat_turtle'}
+else if (skinhash=='0xa9dedc76') {skinhash='skinpaint_coat_waldo'}
+else if (skinhash=='0xda00909d') {skinhash='skinpaint_coat_walrus'}
+else if (skinhash=='0x48b8e211') {skinhash='skinpaint_coat_washMatte'}
+else if (skinhash=='0xdc96e6f3') {skinhash='skinpaint_coat_washShiny'}
+else if (skinhash=='0x5024a411') {skinhash='skinpaint_coat_zebra'}
+else if (skinhash=='0x91c84cb2') {skinhash='skinpaint_detail_alien_HRG'}
+else if (skinhash=='0x9f720e4d') {skinhash='skinpaint_detail_amigurumi'}
+else if (skinhash=='0xd4219fc6') {skinhash='skinpaint_detail_armor'}
+else if (skinhash=='0x2ee74818') {skinhash='skinpaint_detail_bacteria'}
+else if (skinhash=='0xdd5391a5') {skinhash='skinpaint_detail_blank'}
+else if (skinhash=='0x42107a10') {skinhash='skinpaint_detail_chewToy'}
+else if (skinhash=='0xf28d965b') {skinhash='skinpaint_detail_clydesdale'}
+else if (skinhash=='0x3c54913a') {skinhash='skinpaint_detail_cow'}
+else if (skinhash=='0x48e24760') {skinhash='skinpaint_detail_dottie'}
+else if (skinhash=='0xa8c7174d') {skinhash='skinpaint_detail_feltStitch'}
+else if (skinhash=='0xaaa675d5') {skinhash='skinpaint_detail_Frankenstein'}
+else if (skinhash=='0x203219f6') {skinhash='skinpaint_detail_giraffeLimbs'}
+else if (skinhash=='0x8eb01dde') {skinhash='skinpaint_detail_giraffeUnderside'}
+else if (skinhash=='0xf0f59399') {skinhash='skinpaint_detail_gooLimbs'}
+else if (skinhash=='0x27dee652') {skinhash='skinpaint_detail_gooSides'}
+else if (skinhash=='0x0628c255') {skinhash='skinpaint_detail_gooUnderside'}
+else if (skinhash=='0xe5ddf2c4') {skinhash='skinpaint_detail_graniteLimbs'}
+else if (skinhash=='0xb01c3ee8') {skinhash='skinpaint_detail_graniteUnderside'}
+else if (skinhash=='0x4fa07195') {skinhash='skinpaint_detail_halftoneLimbs'}
+else if (skinhash=='0x7a5430d1') {skinhash='skinpaint_detail_halftoneUnderside'}
+else if (skinhash=='0x50bc5115') {skinhash='skinpaint_detail_kidney'}
+else if (skinhash=='0x5be688f5') {skinhash='skinpaint_detail_kidRobot'}
+else if (skinhash=='0x09033a0e') {skinhash='skinpaint_detail_krueger'}
+else if (skinhash=='0x5931245e') {skinhash='skinpaint_detail_lateral'}
+else if (skinhash=='0x64a50d94') {skinhash='skinpaint_detail_lumpySides'}
+else if (skinhash=='0x00dad470') {skinhash='skinpaint_detail_mantellaJoints'}
+else if (skinhash=='0x73edcc2e') {skinhash='skinpaint_detail_mantellaUnderside'}
+else if (skinhash=='0x12f7ee9a') {skinhash='skinpaint_detail_meltLimbs'}
+else if (skinhash=='0x6f2d9c32') {skinhash='skinpaint_detail_meltUnderside'}
+else if (skinhash=='0x8b725b4e') {skinhash='skinpaint_detail_pinata'}
+else if (skinhash=='0xae92bfc7') {skinhash='skinpaint_detail_platesLarge'}
+else if (skinhash=='0xfdedaead') {skinhash='skinpaint_detail_platesLargeSides'}
+else if (skinhash=='0x92d3a653') {skinhash='skinpaint_detail_platesSmall'}
+else if (skinhash=='0x1c782d6f') {skinhash='skinpaint_detail_polkadot'}
+else if (skinhash=='0x15d2b90b') {skinhash='skinpaint_detail_quilted'}
+else if (skinhash=='0x6a133d3a') {skinhash='skinpaint_detail_ragdoll'}
+else if (skinhash=='0x24be5316') {skinhash='skinpaint_detail_ridgesLateral'}
+else if (skinhash=='0x5666236e') {skinhash='skinpaint_detail_ridgesTiger'}
+else if (skinhash=='0xcd86dbd6') {skinhash='skinpaint_detail_rubberband'}
+else if (skinhash=='0xe76086cf') {skinhash='skinpaint_detail_scallopedShellUnderside'}
+else if (skinhash=='0xbd65935d') {skinhash='skinpaint_detail_sideWash'}
+else if (skinhash=='0xc78aaed4') {skinhash='skinpaint_detail_skinnedBeast'}
+else if (skinhash=='0x11369359') {skinhash='skinpaint_detail_stripesLL'}
+else if (skinhash=='0x103691ce') {skinhash='skinpaint_detail_stripesML'}
+else if (skinhash=='0xb824d59d') {skinhash='skinpaint_detail_suckers'}
+else if (skinhash=='0x93920946') {skinhash='skinpaint_detail_toonCritter'}
+else if (skinhash=='0xc326143f') {skinhash='skinpaint_detail_uniform'}
+else if (skinhash=='0xc2c7e62b') {skinhash='skinpaint_detail_vittatum'}
+else if (skinhash=='0xf09862ba') {skinhash='skinpaint_detail_walrusLimbs'}
+else if (skinhash=='0x2c81b952') {skinhash='skinpaint_detail_walrusUnderside'}
+else if (skinhash=='0xab30f8a9') {skinhash='skinpaint_florabase_amigurumi'}
+else if (skinhash=='0xfd9cbfe6') {skinhash='skinpaint_florabase_amphibian'}
+else if (skinhash=='0xe82c5f34') {skinhash='skinpaint_florabase_auratus'}
+else if (skinhash=='0x89df4dc3') {skinhash='skinpaint_florabase_banded'}
+else if (skinhash=='0x80026823') {skinhash='skinpaint_florabase_bark'}
+else if (skinhash=='0xda39af7c') {skinhash='skinpaint_florabase_blankMatte'}
+else if (skinhash=='0x417efad6') {skinhash='skinpaint_florabase_blankShiny'}
+else if (skinhash=='0x349ba82a') {skinhash='skinpaint_florabase_eggshell'}
+else if (skinhash=='0x607d6b2a') {skinhash='skinpaint_florabase_fishScales'}
+else if (skinhash=='0x5a1e652f') {skinhash='skinpaint_florabase_giraffe'}
+else if (skinhash=='0x6c6ed459') {skinhash='skinpaint_florabase_gradient'}
+else if (skinhash=='0x0123f351') {skinhash='skinpaint_florabase_granite'}
+else if (skinhash=='0xbd9ea7a0') {skinhash='skinpaint_florabase_leather'}
+else if (skinhash=='0xe7a40b72') {skinhash='skinpaint_florabase_longFur'}
+else if (skinhash=='0x913a9750') {skinhash='skinpaint_florabase_lumpy'}
+else if (skinhash=='0x6c1dd152') {skinhash='skinpaint_florabase_mantelloid'}
+else if (skinhash=='0xeb73bd16') {skinhash='skinpaint_florabase_marble'}
+else if (skinhash=='0xad1eb933') {skinhash='skinpaint_florabase_melt'}
+else if (skinhash=='0xce3ae18d') {skinhash='skinpaint_florabase_morinda'}
+else if (skinhash=='0x3ed822ab') {skinhash='skinpaint_florabase_platesLarge'}
+else if (skinhash=='0x4e1a1617') {skinhash='skinpaint_florabase_platesSmall'}
+else if (skinhash=='0xfb20af77') {skinhash='skinpaint_florabase_quilted'}
+else if (skinhash=='0xa595dfd2') {skinhash='skinpaint_florabase_rubberband'}
+else if (skinhash=='0xeaf47118') {skinhash='skinpaint_florabase_shortfur'}
+else if (skinhash=='0xde71a75a') {skinhash='skinpaint_florabase_snakescales'}
+else if (skinhash=='0x6fa2eb88') {skinhash='skinpaint_florabase_spotted'}
+else if (skinhash=='0xa27cff33') {skinhash='skinpaint_florabase_striated'}
+else if (skinhash=='0xd0afd479') {skinhash='skinpaint_florabase_tempered'}
+else if (skinhash=='0x8c1f02e8') {skinhash='skinpaint_florabase_valueGradientDark'}
+else if (skinhash=='0xd2cf6d68') {skinhash='skinpaint_florabase_valueGradientLight'}
+else if (skinhash=='0x0e962e83') {skinhash='skinpaint_florabase_vgcats'}
+else if (skinhash=='0xcc223904') {skinhash='skinpaint_florabase_vittatum1'}
+else if (skinhash=='0xcc223907') {skinhash='skinpaint_florabase_vittatum2'}
+else if (skinhash=='0xcc223906') {skinhash='skinpaint_florabase_vittatum3'}
+else if (skinhash=='0x94eedc7b') {skinhash='skinpaint_florabase_walrus'}
+else if (skinhash=='0x7c2edfcb') {skinhash='skinpaint_florabase_zebra'}
+else if (skinhash=='0x9a6832a6') {skinhash='skinpaint_florabase_zebroid'}
+else if (skinhash=='0x38ae2653') {skinhash='skinpaint_floracoat_amigurumi'}
+else if (skinhash=='0xbbce6ea9') {skinhash='skinpaint_floracoat_banded'}
+else if (skinhash=='0xfee8b97f') {skinhash='skinpaint_floracoat_blank'}
+else if (skinhash=='0x6564d514') {skinhash='skinpaint_floracoat_cow'}
+else if (skinhash=='0xc1f266e5') {skinhash='skinpaint_floracoat_crocodile'}
+else if (skinhash=='0x305b5c1c') {skinhash='skinpaint_floracoat_fishScales'}
+else if (skinhash=='0x45806809') {skinhash='skinpaint_floracoat_giraffe'}
+else if (skinhash=='0x3869c15f') {skinhash='skinpaint_floracoat_giraffeBorder'}
+else if (skinhash=='0xad021db3') {skinhash='skinpaint_floracoat_gooStripe'}
+else if (skinhash=='0x957ba987') {skinhash='skinpaint_floracoat_granite'}
+else if (skinhash=='0xc211db48') {skinhash='skinpaint_floracoat_halftone'}
+else if (skinhash=='0xee5eb987') {skinhash='skinpaint_floracoat_kidney'}
+else if (skinhash=='0xdaacf622') {skinhash='skinpaint_floracoat_lizardo'}
+else if (skinhash=='0x85bbd961') {skinhash='skinpaint_floracoat_mantella'}
+else if (skinhash=='0x1ecd47f1') {skinhash='skinpaint_floracoat_melt'}
+else if (skinhash=='0xcd97a713') {skinhash='skinpaint_floracoat_pebble'}
+else if (skinhash=='0x50f5fb49') {skinhash='skinpaint_floracoat_platesLarge'}
+else if (skinhash=='0x01434dd1') {skinhash='skinpaint_floracoat_platesSmall'}
+else if (skinhash=='0x4b6f36ad') {skinhash='skinpaint_floracoat_polkadot'}
+else if (skinhash=='0x27da4724') {skinhash='skinpaint_floracoat_ridgesLateral'}
+else if (skinhash=='0x96eec598') {skinhash='skinpaint_floracoat_ridgesTiger'}
+else if (skinhash=='0xcd970bb0') {skinhash='skinpaint_floracoat_rubberband'}
+else if (skinhash=='0xe32357e3') {skinhash='skinpaint_floracoat_stripesLL'}
+else if (skinhash=='0xe2235590') {skinhash='skinpaint_floracoat_stripesML'}
+else if (skinhash=='0xecefbd1f') {skinhash='skinpaint_floracoat_suckers'}
+else if (skinhash=='0xeb9aa485') {skinhash='skinpaint_floracoat_toupee'}
+else if (skinhash=='0xca53bee9') {skinhash='skinpaint_floracoat_turtle'}
+else if (skinhash=='0x5952a546') {skinhash='skinpaint_floracoat_waldo'}
+else if (skinhash=='0xfcf7c3ad') {skinhash='skinpaint_floracoat_walrus'}
+else if (skinhash=='0x1dd194c1') {skinhash='skinpaint_floracoat_washMatte'}
+else if (skinhash=='0xfdf5d623') {skinhash='skinpaint_floracoat_washShiny'}
+else if (skinhash=='0xa727d301') {skinhash='skinpaint_floracoat_zebra'}
+else if (skinhash=='0x9961269d') {skinhash='skinpaint_floradetail_amigurumi'}
+else if (skinhash=='0xf2006b97') {skinhash='skinpaint_floradetail_banded'}
+else if (skinhash=='0x3bb13255') {skinhash='skinpaint_floradetail_blank'}
+else if (skinhash=='0xeb7cdcab') {skinhash='skinpaint_floradetail_clydesdale'}
+else if (skinhash=='0xa39315ca') {skinhash='skinpaint_floradetail_cow'}
+else if (skinhash=='0x505fc97b') {skinhash='skinpaint_floradetail_giraffe'}
+else if (skinhash=='0xa6df9b86') {skinhash='skinpaint_floradetail_giraffeLimbs'}
+else if (skinhash=='0x8f318e59') {skinhash='skinpaint_floradetail_giraffeTopside'}
+else if (skinhash=='0x7b675189') {skinhash='skinpaint_floradetail_gooLimbs'}
+else if (skinhash=='0xefa7f722') {skinhash='skinpaint_floradetail_gooSides'}
+else if (skinhash=='0xb4242b0a') {skinhash='skinpaint_floradetail_gooTopside'}
+else if (skinhash=='0xd31c04f4') {skinhash='skinpaint_floradetail_graniteLimbs'}
+else if (skinhash=='0x4066d3a7') {skinhash='skinpaint_floradetail_graniteTopside'}
+else if (skinhash=='0x4b1f8c85') {skinhash='skinpaint_floradetail_halftoneLimbs'}
+else if (skinhash=='0x50e0d3c6') {skinhash='skinpaint_floradetail_halftoneTopside'}
+else if (skinhash=='0x90991c05') {skinhash='skinpaint_floradetail_kidney'}
+else if (skinhash=='0x8d0fee0e') {skinhash='skinpaint_floradetail_lateral'}
+else if (skinhash=='0x431e1c44') {skinhash='skinpaint_floradetail_lumpySides'}
+else if (skinhash=='0xf59d5ee0') {skinhash='skinpaint_floradetail_mantellaJoints'}
+else if (skinhash=='0x18e11609') {skinhash='skinpaint_floradetail_mantellaTopside'}
+else if (skinhash=='0x1529ac0a') {skinhash='skinpaint_floradetail_meltLimbs'}
+else if (skinhash=='0x013cf9bd') {skinhash='skinpaint_floradetail_meltTopside'}
+else if (skinhash=='0x7d461d77') {skinhash='skinpaint_floradetail_platesLarge'}
+else if (skinhash=='0x74778abd') {skinhash='skinpaint_floradetail_platesLargeSides'}
+else if (skinhash=='0x23844003') {skinhash='skinpaint_floradetail_platesSmall'}
+else if (skinhash=='0x8b8682bf') {skinhash='skinpaint_floradetail_polkadot'}
+else if (skinhash=='0x64ae8e9b') {skinhash='skinpaint_floradetail_quilted'}
+else if (skinhash=='0x6382609e') {skinhash='skinpaint_floradetail_ridgesTiger'}
+else if (skinhash=='0x2bdcf906') {skinhash='skinpaint_floradetail_rubberband'}
+else if (skinhash=='0x4bc69c0d') {skinhash='skinpaint_floradetail_sideWash'}
+else if (skinhash=='0x0a0398a9') {skinhash='skinpaint_floradetail_stripesLL'}
+else if (skinhash=='0x0903975e') {skinhash='skinpaint_floradetail_stripesML'}
+else if (skinhash=='0x1556b35b') {skinhash='skinpaint_floradetail_turtle'}
+else if (skinhash=='0x5a3ededb') {skinhash='skinpaint_floradetail_vittatum'}
+else if (skinhash=='0xebcb8637') {skinhash='skinpaint_floradetail_walrus'}
+else if (skinhash=='0xca8718ca') {skinhash='skinpaint_floradetail_walrusLimbs'}
+else if (skinhash=='0x51dc597d') {skinhash='skinpaint_floradetail_walrusTopside'}
+else if (skinhash=='0x7e3a8f8f') {skinhash='skinpaint_floradetail_zebra'}
+//well spore modder fx had hashes for these...
+else if (skinhash=='0xb17e27ff') {skinhash='skinpaint_base_elemental_fire'}
+else if (skinhash=='0xc6a6115b') {skinhash='skinpaint_base_elemental_frost'}
+else if (skinhash=='0x00dbe54f') {skinhash='skinpaint_base_life'}
+else if (skinhash=='0x4b64c8e0') {skinhash='skinpaint_base_life_arborus'}
+else if (skinhash=='0x00edbb3e') {skinhash='skinpaint_base_life_sentinel_effect'}
+else if (skinhash=='0x0f1bdcc4') {skinhash='skinpaint_base_life_tempest'}
+else if (skinhash=='0x6140faeb') {skinhash='skinpaint_base_necro_sentinel'}
+else if (skinhash=='0x35fc74ae') {skinhash='skinpaint_base_plasma_sentinel'}
+else if (skinhash=='0x97e97b62') {skinhash='skinpaint_base_rocky_pattern_01'}
+else if (skinhash=='0x97e97b61') {skinhash='skinpaint_base_rocky_pattern_02'}
+else if (skinhash=='0x97e97b60') {skinhash='skinpaint_base_rocky_pattern_03'}
+else if (skinhash=='0x97e97b67') {skinhash='skinpaint_base_rocky_pattern_04'}
+else if (skinhash=='0x97e97b66') {skinhash='skinpaint_base_rocky_pattern_05'}
+else if (skinhash=='0x97e97b65') {skinhash='skinpaint_base_rocky_pattern_06'}
+else if (skinhash=='0x97e97b64') {skinhash='skinpaint_base_rocky_pattern_07'}
+else if (skinhash=='0x97e97b6b') {skinhash='skinpaint_base_rocky_pattern_08'}
+else if (skinhash=='0x97e97b6a') {skinhash='skinpaint_base_rocky_pattern_09'}
+else if (skinhash=='0x96e979f0') {skinhash='skinpaint_base_rocky_pattern_10'}
+else if (skinhash=='0x051b1c9e') {skinhash='skinpaint_base_spacetime'}
+else if (skinhash=='0x80fdbd0f') {skinhash='skinpaint_base_spacetime01'}
+else if (skinhash=='0xccc136bd') {skinhash='skinpaint_base_stripes'}
+else if (skinhash=='0x076d0bc5') {skinhash='skinpaint_base_supernatural'}
+else if (skinhash=='0x465e0e47') {skinhash='skinpaint_base_technology'}
+else if (skinhash=='0x6c6846e1') {skinhash='skinpaint_base_test'}
+else if (skinhash=='0xa33fd477') {skinhash='skinpaint_base_valuegradients'}
+else if (skinhash=='0x44099927') {skinhash='skinpaint_base_vittatum'}
+else if (skinhash=='0x23fb60b7') {skinhash='skinpaint_coat_cyber1'}
+else if (skinhash=='0x5bb94025') {skinhash='skinpaint_coat_cyber10'}
+else if (skinhash=='0x5bb94024') {skinhash='skinpaint_coat_cyber11'}
+else if (skinhash=='0x5bb94027') {skinhash='skinpaint_coat_cyber12'}
+else if (skinhash=='0x23fb60b4') {skinhash='skinpaint_coat_cyber2'}
+else if (skinhash=='0x23fb60b5') {skinhash='skinpaint_coat_cyber3'}
+else if (skinhash=='0x23fb60b2') {skinhash='skinpaint_coat_cyber4'}
+else if (skinhash=='0x23fb60b3') {skinhash='skinpaint_coat_cyber5'}
+else if (skinhash=='0x23fb60b0') {skinhash='skinpaint_coat_cyber6'}
+else if (skinhash=='0x23fb60b1') {skinhash='skinpaint_coat_cyber7'}
+else if (skinhash=='0x23fb60be') {skinhash='skinpaint_coat_cyber8'}
+else if (skinhash=='0x23fb60bf') {skinhash='skinpaint_coat_cyber9'}
+else if (skinhash=='0x0738498d') {skinhash='skinpaint_coat_elemental_fire'}
+else if (skinhash=='0xb198a7e9') {skinhash='skinpaint_coat_extra_cyber_pattern01_effect'}
+else if (skinhash=='0xfa0019b8') {skinhash='skinpaint_coat_extra_cyber_pattern02_effect'}
+else if (skinhash=='0x86cd13c3') {skinhash='skinpaint_coat_extra_cyber_pattern03_effect'}
+else if (skinhash=='0x9c0ba582') {skinhash='skinpaint_coat_extra_cyber_pattern04_effect'}
+else if (skinhash=='0xf5f52bdd') {skinhash='skinpaint_coat_extra_cyber_pattern05_effect'}
+else if (skinhash=='0xf4f8588c') {skinhash='skinpaint_coat_extra_cyber_pattern06_effect'}
+else if (skinhash=='0x5f2fbcb7') {skinhash='skinpaint_coat_extra_cyber_pattern07_effect'}
+else if (skinhash=='0xafab4a56') {skinhash='skinpaint_coat_extra_cyber_pattern08_effect'}
+else if (skinhash=='0x9543bc41') {skinhash='skinpaint_coat_extra_cyber_pattern09_effect'}
+else if (skinhash=='0x6fef91cf') {skinhash='skinpaint_coat_extra_cyber_pattern10_effect'}
+else if (skinhash=='0x4b7b7004') {skinhash='skinpaint_coat_extra_cyber_pattern11_effect'}
+else if (skinhash=='0xc6a8a015') {skinhash='skinpaint_coat_extra_cyber_pattern12_effect'}
+else if (skinhash=='0xb7cdf1fb') {skinhash='skinpaint_coat_extra_pattern01_effect'}
+else if (skinhash=='0xbef9bb96') {skinhash='skinpaint_coat_extra_pattern02_effect'}
+else if (skinhash=='0xd34ba781') {skinhash='skinpaint_coat_extra_pattern03_effect'}
+else if (skinhash=='0xc0814f24') {skinhash='skinpaint_coat_extra_pattern04_effect'}
+else if (skinhash=='0x9dec7b6f') {skinhash='skinpaint_coat_extra_pattern05_effect'}
+else if (skinhash=='0x40d37c7a') {skinhash='skinpaint_coat_extra_pattern06_effect'}
+else if (skinhash=='0x9fe4e535') {skinhash='skinpaint_coat_extra_pattern07_effect'}
+else if (skinhash=='0x6206c8f8') {skinhash='skinpaint_coat_extra_pattern08_effect'}
+else if (skinhash=='0xa90c4e03') {skinhash='skinpaint_coat_extra_pattern09_effect'}
+else if (skinhash=='0x3e94c3d1') {skinhash='skinpaint_coat_extra_pattern10_effect'}
+else if (skinhash=='0x3d36a866') {skinhash='skinpaint_coat_extra_pattern11_effect'}
+else if (skinhash=='0xadc2648b') {skinhash='skinpaint_coat_extra_pattern12_effect'}
+else if (skinhash=='0xa8e2762b') {skinhash='skinpaint_coat_gooStripe_bumpy'}
+else if (skinhash=='0x7140f0ef') {skinhash='skinpaint_coat_halftoneUnderside'}
+else if (skinhash=='0x07804ba8') {skinhash='skinpaint_coat_lateral'}
+else if (skinhash=='0x4ad791d9') {skinhash='skinpaint_coat_life'}
+else if (skinhash=='0x8dd96e90') {skinhash='skinpaint_coat_life_sentinel_effect'}
+else if (skinhash=='0x66fbeba0') {skinhash='skinpaint_coat_pinata_torso'}
+else if (skinhash=='0xf0404d1c') {skinhash='skinpaint_coat_plasma_sentinel'}
+else if (skinhash=='0x28b3e884') {skinhash='skinpaint_coat_skinnedBeast_limbs'}
+else if (skinhash=='0x3245d4f6') {skinhash='skinpaint_coat_skinnedBeast_torso'}
+else if (skinhash=='0x1c25a2e1') {skinhash='skinpaint_coat_spacetime01'}
+else if (skinhash=='0x24434433') {skinhash='skinpaint_coat_stripes'}
+else if (skinhash=='0x9cb29845') {skinhash='skinpaint_coat_toonCritter1'}
+else if (skinhash=='0xe4232442') {skinhash='skinpaint_detail_chewToy_limbs'}
+else if (skinhash=='0x19e334d9') {skinhash='skinpaint_detail_cyber1'}
+else if (skinhash=='0x99ac31ab') {skinhash='skinpaint_detail_cyber10'}
+else if (skinhash=='0x99ac31aa') {skinhash='skinpaint_detail_cyber11'}
+else if (skinhash=='0x99ac31a9') {skinhash='skinpaint_detail_cyber12'}
+else if (skinhash=='0x19e334da') {skinhash='skinpaint_detail_cyber2'}
+else if (skinhash=='0x19e334db') {skinhash='skinpaint_detail_cyber3'}
+else if (skinhash=='0x19e334dc') {skinhash='skinpaint_detail_cyber4'}
+else if (skinhash=='0x19e334dd') {skinhash='skinpaint_detail_cyber5'}
+else if (skinhash=='0x19e334de') {skinhash='skinpaint_detail_cyber6'}
+else if (skinhash=='0x19e334df') {skinhash='skinpaint_detail_cyber7'}
+else if (skinhash=='0x19e334d0') {skinhash='skinpaint_detail_cyber8'}
+else if (skinhash=='0x19e334d1') {skinhash='skinpaint_detail_cyber9'}
+else if (skinhash=='0x82417887') {skinhash='skinpaint_detail_kidney_circles'}
+else if (skinhash=='0xba5aebf2') {skinhash='skinpaint_detail_plasma_sentinel'}
+else if (skinhash=='0xc8aec02b') {skinhash='skinpaint_detail_spacetime01'}
+else if (skinhash=='0x6cb40d79') {skinhash='skinpaint_detail_stripes'}
+else if (skinhash=='0x75677685') {skinhash='skinpaint_detail_stripes1ML'}
+else if (skinhash=='0x1ef4ea8e') {skinhash='skinpaint_detail_wiry'}
+else if (skinhash=='0x7f6b381f') {skinhash='skinpaint_detail_zebra'}
+//and some forbidden skinpaints that it doesnt convert from hashes but what if. this is more than a little overkill
+else if (skinhash=='0x5e128424') {skinhash='skinpaint_base_auratus'}
+else if (skinhash=='0xdb51984d') {skinhash='skinpaint_base_backAndBelly'}
+else if (skinhash=='0x7f5e8a73') {skinhash='skinpaint_base_bark'}
+else if (skinhash=='0x4b50cfe9') {skinhash='skinpaint_base_blank'}
+else if (skinhash=='0xe4a031b7') {skinhash='skinpaint_base_clydesdale'}
+else if (skinhash=='0x2b89758e') {skinhash='skinpaint_base_cow'}
+else if (skinhash=='0x1c7daabd') {skinhash='skinpaint_base_cowLeather'}
+else if (skinhash=='0xe0cc3dbf') {skinhash='skinpaint_base_crocodile'}
+else if (skinhash=='0x25897812') {skinhash='skinpaint_base_doubleDots'}
+else if (skinhash=='0xbb58b9e4') {skinhash='skinpaint_base_eggshellBanded'}
+else if (skinhash=='0xd50db7f5') {skinhash='skinpaint_base_giraffeBorder'}
+else if (skinhash=='0x0691eb32') {skinhash='skinpaint_base_giraffeLimbs'}
+else if (skinhash=='0xaebde335') {skinhash='skinpaint_base_giraffeTopside'}
+else if (skinhash=='0xa4a6773a') {skinhash='skinpaint_base_giraffeUnderside'}
+else if (skinhash=='0xfbcca209') {skinhash='skinpaint_base_glassCreases'}
+else if (skinhash=='0x2c614d5d') {skinhash='skinpaint_base_gooLimbs'}
+else if (skinhash=='0x3da270a6') {skinhash='skinpaint_base_gooSides'}
+else if (skinhash=='0xbded1425') {skinhash='skinpaint_base_gooStripe'}
+else if (skinhash=='0xe3fb650d') {skinhash='skinpaint_base_gooStripe_Bumpy'}
+else if (skinhash=='0xba936cee') {skinhash='skinpaint_base_gooTopside'}
+else if (skinhash=='0x03ebf209') {skinhash='skinpaint_base_gooUnderside'}
+else if (skinhash=='0xc008dc2a') {skinhash='skinpaint_base_graniteHalftone'}
+else if (skinhash=='0xe3c07ad0') {skinhash='skinpaint_base_graniteLimbs'}
+else if (skinhash=='0xb1b730f3') {skinhash='skinpaint_base_graniteTopside'}
+else if (skinhash=='0x0d806854') {skinhash='skinpaint_base_graniteUnderside'}
+else if (skinhash=='0x4a3169f6') {skinhash='skinpaint_base_halftone'}
+else if (skinhash=='0x2d7cfe09') {skinhash='skinpaint_base_halftoneLimbs'}
+else if (skinhash=='0x6c3ceb8a') {skinhash='skinpaint_base_halftoneTopside'}
+else if (skinhash=='0xb3d5a605') {skinhash='skinpaint_base_halftoneUnderside'}
+else if (skinhash=='0xadf97cf9') {skinhash='skinpaint_base_kidney'}
+else if (skinhash=='0x72640402') {skinhash='skinpaint_base_lateral'}
+else if (skinhash=='0x82a5571c') {skinhash='skinpaint_base_lizardo'}
+else if (skinhash=='0x23987138') {skinhash='skinpaint_base_lumpySides'}
+else if (skinhash=='0x51343c27') {skinhash='skinpaint_base_mantella'}
+else if (skinhash=='0x587b78e4') {skinhash='skinpaint_base_mantellaJoints'}
+else if (skinhash=='0x1734e62d') {skinhash='skinpaint_base_mantellaTopside'}
+else if (skinhash=='0x45b5a852') {skinhash='skinpaint_base_mantellaUnderside'}
+else if (skinhash=='0xd8940a3c') {skinhash='skinpaint_base_marbleSuckers'}
+else if (skinhash=='0x4f9d786e') {skinhash='skinpaint_base_meltLimbs'}
+else if (skinhash=='0x3c438ef1') {skinhash='skinpaint_base_meltTopside'}
+else if (skinhash=='0x97681ec6') {skinhash='skinpaint_base_meltUnderside'}
+else if (skinhash=='0x917ab0fe') {skinhash='skinpaint_base_mesh'}
+else if (skinhash=='0x864511bd') {skinhash='skinpaint_base_morinda'}
+else if (skinhash=='0xdde53395') {skinhash='skinpaint_base_pebble'}
+else if (skinhash=='0x93445af9') {skinhash='skinpaint_base_platesLargeSides'}
+else if (skinhash=='0x9c302033') {skinhash='skinpaint_base_polkadot'}
+else if (skinhash=='0xefc80a82') {skinhash='skinpaint_base_ridgesLateral'}
+else if (skinhash=='0xbffcefd2') {skinhash='skinpaint_base_ridgesTiger'}
+else if (skinhash=='0x292a6fd3') {skinhash='skinpaint_base_scallopedShellUnderside'}
+else if (skinhash=='0xf22855d1') {skinhash='skinpaint_base_sideWash'}
+else if (skinhash=='0x73ad929b') {skinhash='skinpaint_base_spottedLizardo'}
+else if (skinhash=='0x7beaa023') {skinhash='skinpaint_base_striated'}
+else if (skinhash=='0x71245551') {skinhash='skinpaint_base_stripes1ML'}
+else if (skinhash=='0x65782f48') {skinhash='skinpaint_base_subtleStripes'}
+else if (skinhash=='0x4eb8ba91') {skinhash='skinpaint_base_suckers'}
+else if (skinhash=='0x42ae6e83') {skinhash='skinpaint_base_temperedMantella'}
+else if (skinhash=='0xc28c2287') {skinhash='skinpaint_base_toonCritter1'}
+else if (skinhash=='0x0db9c63b') {skinhash='skinpaint_base_toupee'}
+else if (skinhash=='0xa3dfce5f') {skinhash='skinpaint_base_turtle'}
+else if (skinhash=='0x96698a3b') {skinhash='skinpaint_base_uniform'}
+else if (skinhash=='0x92df7e15') {skinhash='skinpaint_base_vgcatsBackStripe'}
+else if (skinhash=='0x137f3b94') {skinhash='skinpaint_base_waldo'}
+else if (skinhash=='0xf3391c36') {skinhash='skinpaint_base_walrusLimbs'}
+else if (skinhash=='0x120bd089') {skinhash='skinpaint_base_walrusTopside'}
+else if (skinhash=='0xa037401e') {skinhash='skinpaint_base_walrusUnderside'}
+else if (skinhash=='0x338f9c7f') {skinhash='skinpaint_base_washMatte'}
+else if (skinhash=='0x5f9d7da1') {skinhash='skinpaint_base_washShiny'}
+else if (skinhash=='0xf1c0d4c0') {skinhash='skinpaint_coat_amphibian'}
+else if (skinhash=='0x7a88372e') {skinhash='skinpaint_coat_auratus'}
+else if (skinhash=='0xc4534d5d') {skinhash='skinpaint_coat_bark'}
+else if (skinhash=='0x7ae32276') {skinhash='skinpaint_coat_blankMatte'}
+else if (skinhash=='0x84c3f070') {skinhash='skinpaint_coat_blankShiny'}
+else if (skinhash=='0xd63fb21d') {skinhash='skinpaint_coat_clydesdale'}
+else if (skinhash=='0xeb6dcd8b') {skinhash='skinpaint_coat_cowLeather'}
+else if (skinhash=='0x16bb7788') {skinhash='skinpaint_coat_doubleDots'}
+else if (skinhash=='0xdf80a734') {skinhash='skinpaint_coat_eggshell'}
+else if (skinhash=='0x6afe819e') {skinhash='skinpaint_coat_eggshellBanded'}
+else if (skinhash=='0xb234ad68') {skinhash='skinpaint_coat_giraffeLimbs'}
+else if (skinhash=='0x431fbcbb') {skinhash='skinpaint_coat_giraffeTopside'}
+else if (skinhash=='0x304eeefc') {skinhash='skinpaint_coat_giraffeUnderside'}
+else if (skinhash=='0x03d35c53') {skinhash='skinpaint_coat_glassCreases'}
+else if (skinhash=='0x2fd88277') {skinhash='skinpaint_coat_gooLimbs'}
+else if (skinhash=='0x99397eb8') {skinhash='skinpaint_coat_gooSides'}
+else if (skinhash=='0xa8e2762b') {skinhash='skinpaint_coat_gooStripe_Bumpy'}
+else if (skinhash=='0xe77ac160') {skinhash='skinpaint_coat_gooTopside'}
+else if (skinhash=='0xf72b2187') {skinhash='skinpaint_coat_gooUnderside'}
+else if (skinhash=='0xa478c94b') {skinhash='skinpaint_coat_gradient'}
+else if (skinhash=='0x1ab5d66c') {skinhash='skinpaint_coat_graniteHalftone'}
+else if (skinhash=='0xe180ff2a') {skinhash='skinpaint_coat_graniteLimbs'}
+else if (skinhash=='0x14ebb6dd') {skinhash='skinpaint_coat_graniteTopside'}
+else if (skinhash=='0x9d90ca82') {skinhash='skinpaint_coat_graniteUnderside'}
+else if (skinhash=='0x2cb8704f') {skinhash='skinpaint_coat_halftoneLimbs'}
+else if (skinhash=='0x9c238ec8') {skinhash='skinpaint_coat_halftoneTopside'}
+else if (skinhash=='0x9c7d2cd6') {skinhash='skinpaint_coat_leather'}
+else if (skinhash=='0x2241abf0') {skinhash='skinpaint_coat_longFur'}
+else if (skinhash=='0xac3ba886') {skinhash='skinpaint_coat_lumpySides'}
+else if (skinhash=='0xb76715a6') {skinhash='skinpaint_coat_mantellaJoints'}
+else if (skinhash=='0x60e49683') {skinhash='skinpaint_coat_mantellaTopside'}
+else if (skinhash=='0x0a6ed5a4') {skinhash='skinpaint_coat_mantellaUnderside'}
+else if (skinhash=='0x7f9f32e8') {skinhash='skinpaint_coat_mantelloid'}
+else if (skinhash=='0xafa97964') {skinhash='skinpaint_coat_marble'}
+else if (skinhash=='0x32fb704a') {skinhash='skinpaint_coat_marbleSuckers'}
+else if (skinhash=='0x9228c770') {skinhash='skinpaint_coat_meltLimbs'}
+else if (skinhash=='0xe0fb7f93') {skinhash='skinpaint_coat_meltTopside'}
+else if (skinhash=='0x9d1cb7f4') {skinhash='skinpaint_coat_meltUnderside'}
+else if (skinhash=='0xdb9d6cf0') {skinhash='skinpaint_coat_mesh'}
+else if (skinhash=='0xc7178073') {skinhash='skinpaint_coat_morinda'}
+else if (skinhash=='0x69134173') {skinhash='skinpaint_coat_platesLargeSides'}
+else if (skinhash=='0x1d897f61') {skinhash='skinpaint_coat_quilted'}
+else if (skinhash=='0x758e3d31') {skinhash='skinpaint_coat_scallopedShellUnderside'}
+else if (skinhash=='0xfa1063d2') {skinhash='skinpaint_coat_shortfur'}
+else if (skinhash=='0xf7489b23') {skinhash='skinpaint_coat_sideWash'}
+else if (skinhash=='0x1d1abd74') {skinhash='skinpaint_coat_snakescales'}
+else if (skinhash=='0xf3e009ea') {skinhash='skinpaint_coat_spotted'}
+else if (skinhash=='0x4b1220e5') {skinhash='skinpaint_coat_spottedLizardo'}
+else if (skinhash=='0xa008eb41') {skinhash='skinpaint_coat_striated'}
+else if (skinhash=='0xdfaa8133') {skinhash='skinpaint_coat_stripes1ML'}
+else if (skinhash=='0xde162c46') {skinhash='skinpaint_coat_subtleStripes'}
+else if (skinhash=='0xc934a06f') {skinhash='skinpaint_coat_suckers'}
+else if (skinhash=='0x676d6e9b') {skinhash='skinpaint_coat_tempered'}
+else if (skinhash=='0x8efe6929') {skinhash='skinpaint_coat_temperedMantella'}
+else if (skinhash=='0xd94993ab') {skinhash='skinpaint_coat_test'}
+else if (skinhash=='0x668e604d') {skinhash='skinpaint_coat_uniform'}
+else if (skinhash=='0x019280aa') {skinhash='skinpaint_coat_valueGradientDark'}
+else if (skinhash=='0x759e5f42') {skinhash='skinpaint_coat_valueGradientLight'}
+else if (skinhash=='0x9affac51') {skinhash='skinpaint_coat_valuegradients'}
+else if (skinhash=='0x440c6b51') {skinhash='skinpaint_coat_vgcats'}
+else if (skinhash=='0xb8a7ca67') {skinhash='skinpaint_coat_vgcatsBackStripe'}
+else if (skinhash=='0x3ab14b01') {skinhash='skinpaint_coat_vittatum'}
+else if (skinhash=='0x661912a2') {skinhash='skinpaint_coat_vittatum1'}
+else if (skinhash=='0x661912a1') {skinhash='skinpaint_coat_vittatum2'}
+else if (skinhash=='0x661912a0') {skinhash='skinpaint_coat_vittatum3'}
+else if (skinhash=='0x661912a7') {skinhash='skinpaint_coat_vittatum4'}
+else if (skinhash=='0x3b0a2874') {skinhash='skinpaint_coat_walrusLimbs'}
+else if (skinhash=='0xa4fe6327') {skinhash='skinpaint_coat_walrusTopside'}
+else if (skinhash=='0x9393a9d8') {skinhash='skinpaint_coat_walrusUnderside'}
+else if (skinhash=='0x0e7bd648') {skinhash='skinpaint_coat_zebroid'}
+else if (skinhash=='0x1bfb8832') {skinhash='skinpaint_detail_amphibian'}
+else if (skinhash=='0x88767248') {skinhash='skinpaint_detail_auratus'}
+else if (skinhash=='0x5e4999e9') {skinhash='skinpaint_detail_backAndBelly'}
+else if (skinhash=='0xb9b39d87') {skinhash='skinpaint_detail_banded'}
+else if (skinhash=='0x94bb7b37') {skinhash='skinpaint_detail_bark'}
+else if (skinhash=='0x88e0ca60') {skinhash='skinpaint_detail_blankMatte'}
+else if (skinhash=='0x0360bbe2') {skinhash='skinpaint_detail_blankShiny'}
+else if (skinhash=='0x5547e331') {skinhash='skinpaint_detail_cowLeather'}
+else if (skinhash=='0xd6c269b3') {skinhash='skinpaint_detail_crocodile'}
+else if (skinhash=='0x488ded16') {skinhash='skinpaint_detail_doubleDots'}
+else if (skinhash=='0xc493ec5e') {skinhash='skinpaint_detail_eggshell'}
+else if (skinhash=='0xd5e45088') {skinhash='skinpaint_detail_eggshellBanded'}
+else if (skinhash=='0x5d66a886') {skinhash='skinpaint_detail_fishScales'}
+else if (skinhash=='0xacaab9eb') {skinhash='skinpaint_detail_giraffe'}
+else if (skinhash=='0x3b2a3359') {skinhash='skinpaint_detail_giraffeBorder'}
+else if (skinhash=='0x94433449') {skinhash='skinpaint_detail_giraffeTopside'}
+else if (skinhash=='0xa6bac50d') {skinhash='skinpaint_detail_glassCreases'}
+else if (skinhash=='0x6b3c0fc9') {skinhash='skinpaint_detail_gooStripe'}
+else if (skinhash=='0x0c0b6879') {skinhash='skinpaint_detail_gooStripe_Bumpy'}
+else if (skinhash=='0x7ec462da') {skinhash='skinpaint_detail_gooTopside'}
+else if (skinhash=='0xaf489055') {skinhash='skinpaint_detail_gradient'}
+else if (skinhash=='0x4d93e32d') {skinhash='skinpaint_detail_granite'}
+else if (skinhash=='0xb7d13986') {skinhash='skinpaint_detail_graniteHalftone'}
+else if (skinhash=='0xac7b9a37') {skinhash='skinpaint_detail_graniteTopside'}
+else if (skinhash=='0x0c835cea') {skinhash='skinpaint_detail_halftone'}
+else if (skinhash=='0x1ca45e56') {skinhash='skinpaint_detail_halftoneTopside'}
+else if (skinhash=='0x80ab8d6c') {skinhash='skinpaint_detail_leather'}
+else if (skinhash=='0xbd3b6000') {skinhash='skinpaint_detail_lizardo'}
+else if (skinhash=='0x3765cc7e') {skinhash='skinpaint_detail_longFur'}
+else if (skinhash=='0x9d960504') {skinhash='skinpaint_detail_lumpy'}
+else if (skinhash=='0xa8f2debb') {skinhash='skinpaint_detail_mantella'}
+else if (skinhash=='0x9df49699') {skinhash='skinpaint_detail_mantellaTopside'}
+else if (skinhash=='0x3c28f496') {skinhash='skinpaint_detail_mantelloid'}
+else if (skinhash=='0xb5f611c2') {skinhash='skinpaint_detail_marble'}
+else if (skinhash=='0x227f5890') {skinhash='skinpaint_detail_marbleSuckers'}
+else if (skinhash=='0x0ea57c87') {skinhash='skinpaint_detail_melt'}
+else if (skinhash=='0x7c09f40d') {skinhash='skinpaint_detail_meltTopside'}
+else if (skinhash=='0x2ba5aaf2') {skinhash='skinpaint_detail_mesh'}
+else if (skinhash=='0x27bc2599') {skinhash='skinpaint_detail_morinda'}
+else if (skinhash=='0x5af7ab01') {skinhash='skinpaint_detail_pebble'}
+else if (skinhash=='0xe408a8c9') {skinhash='skinpaint_detail_scallopShell'}
+else if (skinhash=='0x74c963ac') {skinhash='skinpaint_detail_shortfur'}
+else if (skinhash=='0xc05ae716') {skinhash='skinpaint_detail_snakescales'}
+else if (skinhash=='0x37c42cac') {skinhash='skinpaint_detail_spotted'}
+else if (skinhash=='0x1873a3ff') {skinhash='skinpaint_detail_spottedLizardo'}
+else if (skinhash=='0xfdfb25e7') {skinhash='skinpaint_detail_striated'}
+else if (skinhash=='0xf9286004') {skinhash='skinpaint_detail_subtleStripes'}
+else if (skinhash=='0xf19ebded') {skinhash='skinpaint_detail_tempered'}
+else if (skinhash=='0x6e052337') {skinhash='skinpaint_detail_temperedMantella'}
+else if (skinhash=='0x4b70ff1d') {skinhash='skinpaint_detail_test'}
+else if (skinhash=='0x94e49903') {skinhash='skinpaint_detail_toonCritter1'}
+else if (skinhash=='0x1a502ba7') {skinhash='skinpaint_detail_toupee'}
+else if (skinhash=='0x9fbec14b') {skinhash='skinpaint_detail_turtle'}
+else if (skinhash=='0xc96c5734') {skinhash='skinpaint_detail_valueGradientDark'}
+else if (skinhash=='0x2622815c') {skinhash='skinpaint_detail_valueGradientLight'}
+else if (skinhash=='0xc91bbbf3') {skinhash='skinpaint_detail_valuegradients'}
+else if (skinhash=='0xc79ece9f') {skinhash='skinpaint_detail_vgcats'}
+else if (skinhash=='0x877febf1') {skinhash='skinpaint_detail_vgcatsBackStripe'}
+else if (skinhash=='0xcbaf5580') {skinhash='skinpaint_detail_vittatum1'}
+else if (skinhash=='0xcbaf5583') {skinhash='skinpaint_detail_vittatum2'}
+else if (skinhash=='0xcbaf5582') {skinhash='skinpaint_detail_vittatum3'}
+else if (skinhash=='0xcbaf5585') {skinhash='skinpaint_detail_vittatum4'}
+else if (skinhash=='0x93d609f0') {skinhash='skinpaint_detail_waldo'}
+else if (skinhash=='0xa0142727') {skinhash='skinpaint_detail_walrus'}
+else if (skinhash=='0xec344f2d') {skinhash='skinpaint_detail_walrusTopside'}
+else if (skinhash=='0xec5b8393') {skinhash='skinpaint_detail_washMatte'}
+else if (skinhash=='0x2ded50bd') {skinhash='skinpaint_detail_washShiny'}
+else if (skinhash=='0x38d3f1fa') {skinhash='skinpaint_detail_zebroid'}
+//and these for good measure........... that DID exist at some point
+else if (skinhash=='0x8ec5176f') {skinhash='skinpaint_base_blankMattf (feb 19 2008 CRE_InvalidTextures base paint)'}
+else if (skinhash=='0x2536bb7e') {skinhash='feb 19 2008 Bergamot unknown base paint (0x2536bb7e)'}
+else if (skinhash=='0xcf48a38a') {skinhash='skinpaint_coat_blann (feb 19 2008 CRE_InvalidTextures coat paint)'}
+else if (skinhash=='0xc924ba10') {skinhash='feb 19 2008 Baboonspider unknown coat paint (0xc924ba10)'}
+else if (skinhash=='0x86eee0be') {skinhash='feb 19 2008 Bergamot unknown coat paint (0x86eee0be)'}
+else if (skinhash=='0xf570c158') {skinhash='feb 19 2008 Armox (space outfit) unknown coat paint (0xf570c158)'}
+else if (skinhash=='0xdd5391b4') {skinhash='skinpaint_detail_blanz (feb 19 2008 CRE_InvalidTextures detail paint)'}
+else if (skinhash=='0x00000000') {skinhash='no paint'}
+   else {skinhash='unknown paint'}
+return skinhash
+}
+</script></html>

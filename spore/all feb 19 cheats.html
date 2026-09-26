@@ -1,0 +1,1670 @@
+<pre>
+<a href="#achievement_test">achievement_test    </a>: achievements_test [-guid &lt;accumulator guid&gt;] [-bits &lt;bitfield&gt;]
+<a href="#addDNA">addDNA              </a>: increases your DNA points
+
+<a href="#aev">aev                 </a>: &lt;name&gt; [-d3] [-loop]  - Starts audio event &lt;name&gt; optionally specify 3d or looped sound
+<a href="#amb">amb                 </a>: 
+<a href="#anim">anim                </a>: Animation viewer cheat for loading creatures, animations, etc.
+<a href="#animmgr">animmgr             </a>: Animation system cheat for stats, cache management, property setting, etc.
+<a href="#app">app                 </a>: App control: -pause, -unpause, -speed &lt;float&gt;, -step &lt;ms:int&gt;, -quit, -minimize
+<a href="#asc">asc                 </a>: Various audio system cheats shoehorned into one cheat.
+-dump       dumps the entire sound map out to the log
+-dbg        toggles debug mode on and off
+-droplisten toggles leaving the listener in place
+-showmic    toggles showing the microphone position
+-showprim   toggles showing the primitives
+
+<a href="#baker">baker               </a>: Baker system management.
+<a href="#BehaviorController">BehaviorController  </a>: BehaviorController [dump] [show] 
+<a href="#behaviortree">behaviortree        </a>: Behavior tree debugging control
+<a href="#camera">camera              </a>: various options to control the current camera
+<a href="#cinematic">cinematic           </a>: Cinematic Manager control.
+<a href="#clear">clear               </a>: Clears the debug console
+<a href="#colorLocalized">colorLocalized      </a>: no description
+<a href="#crash">crash               </a>: crash the game (for testing)
+<a href="#directories">directories         </a>: lists directories
+<a href="#dumpBudget">dumpBudget          </a>: toggles ongoing output of mspf budget stats
+<a href="#dumpEffects">dumpEffects         </a>: Dumps info about currently running effects.
+<a href="#effect">effect              </a>: Starts the named effect, or, with no arguments, stops the current effect.
+<a href="#effectsManager">effectsManager      </a>: Used to control the effect manager and global effect settings.
+<a href="#ev">ev                  </a>: evaluates the given expression
+<a href="#flora">flora               </a>: flora system control
+<a href="#genCubeMap">genCubeMap          </a>: Capture a cube map from selected point
+<a href="#genFragments">genFragments        </a>: no description
+<a href="#genSceneViews">genSceneViews       </a>: Capture 6 orthographic views of an object
+<a href="#globalthermonuclearwar">globalthermonuclearwar</a>: Simulates a bad end to the Cold War
+<a href="#gonzago">gonzago             </a>: gonzago [nouns &lt;show | hide &gt;]
+        [input &lt;show | hide | load (filename) &gt;]
+        [simulators &lt;show | hide | hide #first #last&gt;]
+        [menus &lt;debug | normal&gt;]
+        [citynav &lt;lanes | forces | off&gt;]
+        [physcis &lt;havok | gonzago&gt;]
+        [creatureanim (filename) [numloops]]
+        [herddebug &lt;on | off&gt;]
+        [nestlevel &lt;int:level&gt;]
+        [ban #keytype #keygroup #keyinstance]
+        [numrelationships] ... prints the size of the map in the relationship simulator to the console
+        [name_gen &lt;planet | star | tribe | creature | city | building | vehicle | all&gt; (count)] 
+            ... prints out a list of randomly generated names of the given type, will print 20
+                if no count is specified.
+        [tribes] ... prints info about all the tribes on the planet
+        [dumptelemetry &lt;on | off | inject&gt;] ... inject submits inject.dat to the server. 'on' creates a file for future injection 
+
+<a href="#help">help                </a>: [&lt;pattern:string&gt;] [-all] Lists help for all cheats, or those that match &lt;pattern&gt;
+<a href="#hints">hints               </a>: enable or disable hints temporarily. use 'hints -off' / 'hints -on' 
+<a href="#history">history             </a>: [&lt;items:int&gt;] Lists the last n commands in the command history
+<a href="#jobs">jobs                </a>: Show job manager status
+<a href="#key">key                 </a>: Translate to/from keys
+<a href="#lights">lights              </a>: Lighting manager control
+<a href="#listProps">listProps           </a>: Lists app properties, or properties in a given list
+<a href="#log">log                 </a>: log output
+<a href="#logger">logger              </a>: Used to control log system
+<a href="#material">material            </a>: Material manager control
+<a href="#memory">memory              </a>: Controls memory profiler
+<a href="#mode">mode                </a>: Show app mode, Set new app mode, or list all modes [-list]
+<a href="#model">model               </a>: Model cheat
+<a href="#modelTest">modelTest           </a>: Model test cheat
+<a href="#modelWorld">modelWorld          </a>: Model manager control
+<a href="#movie">movie               </a>: Movie cheat
+<a href="#mtr">mtr                 </a>: Creates a trade route between player's city and all other cities in the world.
+<a href="#noAsserts">noAsserts           </a>: Disable asserts
+<a href="#offlineEffect">offlineEffect       </a>: Run an effect offline
+<a href="#option">option              </a>: lists options or sets an option
+<a href="#otdb_test">otdb_test           </a>: Used to debug OTDB parameters
+<a href="#pausegate">pausegate           </a>: Modifies or prints values of pause gate counters.
+<a href="#planetImpostor">planetImpostor      </a>: Planet Impostor Test
+<a href="#planetTestBed">planetTestBed       </a>: Planet Testbed - Writes to offlineEffect.log, if a mSeed is not specified, a random one is used.
+<a href="#pollen">pollen              </a>: Used to control pollinated content system
+<a href="#profiler">profiler            </a>: Control settings for in-game profiler
+<a href="#prop">prop                </a>: &lt;name:string&gt; &lt;value:bool&gt;   Sets app property
+<a href="#quit">quit                </a>: Quit game
+<a href="#raid">raid                </a>: Debug cheats for Raids.
+
+<a href="#refreshplantmaskmask">refreshplantmaskmask</a>: Forces a refresh of the city/tribe map (flora clear mask)
+<a href="#renderer">renderer            </a>: Renderer control
+<a href="#resource">resource            </a>: Resource system management.
+<a href="#RTT">RTT                 </a>: Controls the render target manager
+<a href="#settime">settime             </a>: Sets the time of day at the avatar's position.
+<a href="#showLights">showLights          </a>: Show directional lights and where they are pointing
+<a href="#showpaths">showpaths           </a>: Toggle whether or not to show vehicle path-planning paths
+<a href="#showPause">showPause           </a>: no description
+<a href="#showplantmaskmask">showplantmaskmask   </a>: toggles whether the plant controller shows the city/tribe mask
+<a href="#skinpaint">skinpaint           </a>: Run a skinpaint effect
+<a href="#sound">sound               </a>: Specify on or off to turn audio system on or off.
+
+<a href="#species_query">species_query       </a>: Used to test species queries to the OTDB
+<a href="#spinLights">spinLights          </a>: Spin lights in phi-theta coordinates
+<a href="#starmanager">starmanager         </a>: starmanager -dump &lt;home|current|empires|status&gt; -test
+<a href="#state">state               </a>: State manager control. With no arguments lists current state.
+<a href="#status">status              </a>: outputs current status window lines to log
+<a href="#swatchcamera">swatchcamera        </a>: various options to control the current camera
+<a href="#takeSnap">takeSnap            </a>: Capture the screen into cameraSnapshot
+<a href="#takeThumb">takeThumb           </a>: Capture a thumbnail
+<a href="#terrain">terrain             </a>: terrain control and info
+<a href="#terrainEffectTest">terrainEffectTest   </a>: Terrain Effect Test Cheat
+<a href="#terrainScript">terrainScript       </a>: terrain generation scripting control: control click to add an effect
+<a href="#testBed">testBed             </a>: Effects Testbed - Writes to offlineEffect.log, if a mSeed is not specified, a random one is used.
+<a href="#tester">tester              </a>: Runs available Spore tests.
+<a href="#textures">textures            </a>: Texture manager control
+<a href="#uilayout">uilayout            </a>: Manipulates UI layouts.
+<a href="#uitools">uitools             </a>: Provides access to UI debug features.
+<a href="#usermusic">usermusic           </a>: no description
+<a href="#validateHeap">validateHeap        </a>: Check memory blocks for corruption
+<a href="#ViewManager">ViewManager         </a>: ViewManager [dump] [views &lt;on/off/old_school/standard&gt;]
+<a href="#vwep">vwep                </a>: vwep {weapon number} changes all vehicles in game to given weapon
+</pre><hr><pre id="achievement_test">
+achievement_test    
+achievements_test [-guid &lt;accumulator guid&gt;] [-bits &lt;bitfield&gt;]
+</pre><hr><pre id="addDNA">
+addDNA              
+increases your DNA points
+</pre><hr><pre id="aev">
+aev                 
+&lt;name&gt; [-d3] [-loop]  - Starts audio event &lt;name&gt; optionally specify 3d or looped sound
+</pre><hr><pre id="amb">
+amb                 
+</pre><hr><pre id="anim">
+anim                
+
+Both -blocks and -load creature loading commands below take the
+following common optional parameters:
+     * -pos &lt;position:vector3&gt; - position
+     * -rot &lt;angle:float&gt;      - degrees of rotation around creature's z up vector
+     * -scale &lt;scale:float&gt;    - creature instance scale
+     * -lod &lt;lod:int&gt;          - force LOD level (0 = low, 3 = high)
+     * -add                    - adds instead of replaces creature
+     * -noMesh                 - doesn't create mesh
+     * -noCache                - bypass the creatureanim cache
+
+-blocks &lt;creatureName:string&gt; [-local] [common - see above]
+   THE -blocks OPTION IS CURRENTLY BROKEN.
+   Loads the named creature blocks file,
+   from Data/Creatures/temp/creatures (or UserData/Creatures if -local)
+
+-load [&lt;creatureName:string&gt;]
+      [-instanceID &lt;instanceID:number&gt;]
+      [-groupId &lt;groupId:number&gt; | -baby]
+      [-typeId &lt;typeId:number&gt; | -flr | -cll]
+      [common - see above]
+   Loads a creature from the optional named crt file or the optional instanceId,
+   with the optional groupId (defaults to Data, or UserData if -local)
+   and typeId (defaults to crt type, or -flr, or -cll)
+   If no name or id is given then a random creature is chosen from Data\Editors\Creatures
+
+-creatureGroup [&lt;creatureName:string&gt;]
+     [-instanceID &lt;instanceID:number&gt;]
+     [-groupId &lt;groupId:number&gt; | -baby]
+     [-typeId &lt;typeId:number&gt; | -flr | -cll]
+     [-num &lt;creatureQuantity:int&gt;]
+     [-center &lt;groupCenter:vector3&gt;]
+     [-radius &lt;boundingRadius:float&gt;]
+     [-same]
+     [-typefilter]
+   Works much like -load, but spawns multiple creatures placed randomly in a circle
+   defined by the center and radius specified.
+   The -same flag will force all creatures in the group to be the same creature
+   (which is only really useful with random creature selection)
+   The -typefilter parameter filters random creatures by the type (defaults to crt)
+
+-remove [-creature &lt;creatureNumber:int&gt; | -all ]
+   Removes a creature by number.  If no number removes current creature.
+
+-selectCreature &lt;creatureNumber:int&gt;
+   Makes the specified creature the selected creature .
+
+-scale &lt;scale:float&gt;
+   Sets the scale of the selected creature
+
+The animation sequencing commands -anim, -animID and -wait below take the
+following common optional parameters:
+     * -start | -stop
+         Start/stop the animation immediately, so you don't have to switch windows and hit
+         the space bar like a monkey every time you want to play a goddamned animation.
+
+     * -creature &lt;creatureNumber:int&gt; [&lt;creatureNumber2:int&gt;] | -all
+         A creature (or all creatures) other than the current, to apply this anim to.
+         If two creature numbers are given apply to the range covered by those numbers.
+
+     * -add | -replace &lt;slot:int&gt; | -insert &lt;slot:int&gt;
+         Determines where the animation will be added to the sequence.
+
+     * -cond &lt;conditionFOURCC:string&gt;
+         A condition code such as 'hit' or 'miss' which will apply to this animation.
+
+-anim [&lt;animationName:string&gt;]
+      [-playbackTime &lt;playbackTime:float&gt;] [-duration &lt;duration:float&gt;]
+      [-instanceId &lt;instanceId:number&gt;]
+      [-filename]
+   Loads an animation on the current creature.  Invoke with 'spacebar' and stop with 'delete'
+   Duration is the time the animation will take if play if allowed to play for its entirety.  
+   PlaybackTime is the time we allow it to play in the sequencer.  instanceId is the rsrc key
+   and overrides the name if both are present.  If -filename is passed, animationName is loaded
+   from a discrete file, if not, it's loaded by the instance id of the hash of the last part.
+
+-animID &lt;animationID:uint32&gt;
+   Loads an animation by AnimList ID.  Invoke with 'spacebar' and stop with 'delete'
+   If no name or id is given then a random animation is chosen from the AnimList
+-wait &lt;waitTime:float&gt;
+   Load as waiting period of waitTime seconds.
+
+The following sequenced movement commands transition control immediate after starting,
+so that you can move and play an animation at the same time.
+To stop one before its natural finish you must interrupt with a new command of the same type..
+
+-move &lt;moveTime:float&gt; [-speed &lt;speed:float&gt;] [-dir &lt;angleDeg:float&gt;]
+   Moves the character at the specified speed and direction for the specificed time.
+   Speed is in &quot;meters&quot; per second.
+
+-targetCreature &lt;creatureNum:int&gt; &lt;capsFOURCC:string&gt; [-nearest]
+   Set the current creature's target to the &quot;first&quot; (or nearest) part of the specified
+   creature which matches our four-letter capabilty code (e.g &quot; -targetCreature 4 frut -nearest&quot;)
+
+-targetLocal &lt;position:vector3&gt;
+-targetGlobal &lt;position:vector3&gt;
+   Set the current creature's target to a position either local to this creature or in global space
+
+-turn &lt;turnTime:float&gt; &lt;turnAngleDeg:float&gt;
+   Turns a character the degrees given over the time given
+
+-removeAnim &lt;slotIndex:int&gt; [-creature &lt;creatureNumber:int&gt;] | -all]
+   Remove animation at slotIndex.
+
+-clearAnims [-creature &lt;creatureNumber:int&gt;] | -all]
+   Remove all animations.
+
+-brainLevel &lt;newLevel:int&gt; [-creature &lt;creatureNumber:int&gt;] | -all]
+   Sets the specified creature's brain level to be newLevel .
+
+-printAnimList
+   prints the AnimList to the console
+
+-animFilter [&lt;filter:string&gt;]
+   filters the animation list dialog by string match, no argument to clear filter
+-creatureFilter [&lt;filter:string&gt;]
+   filters the creature list dialog by string match, no argument to clear filter
+
+-capture &lt;filename:string&gt; [-dt &lt;seconds:float&gt;] [-res &lt;resolution:int&gt;] [-stop]
+   Takes series of sequentially numbered screenshots every dt.  Screenshots are output to the
+   UserData\Debug folder.  The -stop flag stops the captures and resets the counter.
+
+-camera [-zoom &lt;distance:float&gt;] [-rot &lt;x-axis:float&gt; &lt;y-axis:float&gt; &lt;z-axis:float&gt;]
+   Controls for camera zoom and rotation.  Rotation angles are in degrees.
+
+-tint (&lt;red:float&gt;, &lt;green:float&gt;, &lt;blue:float&gt;, &lt;alpha:float&gt;)
+   Tint the current creature.
+
+-clearcolor (&lt;red:float&gt;, &lt;green:float&gt;, &lt;blue:float&gt;)
+   Set the background color.
+
+-drawtiles &lt;0|1&gt;
+   Set the display of the tiles on the ground.
+
+-planet &lt;string&gt; [-restart]
+   Set the planet name for next activate. The -restart flag immediately relaunches with the planet.
+</pre><hr><pre id="animmgr">
+animmgr             
+
+-stats - prints animation system statistics; takes the following optional flags:
+     -crt - detailed stats about creatures
+     -aid - detailed stats about queued blender and animation instance cache
+     -asd - detailed stats about the procedural animation static data
+     -ba  - detailed stats about baked animations
+     -ce  - detailed stats about creature effects
+     -all - all of the above
+
+-listprops - the anim version of the listProps cheat, basically equivalent to listProps -list CreatureAnim.prop
+
+-prop - the anim version of the prop cheat, basically equivalent to prop -list CreatureAnim.prop
+
+-clearcache - cache control; takes the following flags:
+     -asd - clear animation cache
+     -ba  - clear baked animation cache
+     -all - all of the above
+
+-preload - load the CreatureAnimPreloads.prop animations
+-tintlod &lt;0|1&gt; - shortcut for -prop TintCreaturesByAnimLod
+                 blue - high lod, fully procedural
+                 magenta - medium lod, baked animations
+                 red - low lod, 0 bone table, no animation, only rigid movement
+</pre><hr><pre id="app">
+app                 
+App control: -pause, -unpause, -speed &lt;float&gt;, -step &lt;ms:int&gt;, -quit, -minimize
+</pre><hr><pre id="asc">
+asc                 
+Various audio system cheats shoehorned into one cheat.
+-dump       dumps the entire sound map out to the log
+-dbg        toggles debug mode on and off
+-droplisten toggles leaving the listener in place
+-showmic    toggles showing the microphone position
+-showprim   toggles showing the primitives
+</pre><hr><pre id="baker">
+baker               
+baker 
+    
+
+    Options:
+    -bake [&lt;keyFilter:string&gt;]
+        bake given buildings/vehicles/creatures/etc., switch to model viewer unless noSwitch is specified
+    -toData 
+        after baking, promote baked resources to Data, ready for checking in as shipped content
+    -show 
+        show result of baking in the model viewer
+    -force 
+        force the baker to perform a full bake, ignoring existing resources on disk
+    -flush 
+        flush resman after each bake
+    -rtts 
+        show rtt list after each bake
+    -limit &lt;n:int&gt;
+        bake at most n models
+    -describeBlocks 
+        dump text descriptions for all rigblocks to basePath or UserData/Debug/BlockDescriptions
+    -dumpPalettes 
+        dump key information for each item in each palette
+    -processQueue &lt;bool&gt;
+        enable or disable processing of queued items
+    -dumpProfs 
+        dump timing information for bakes completed
+    -validate [&lt;keyFilter:string&gt;]
+        print the validation information for the given buildings/vehicles/creatures/etc.
+</pre><hr><pre id="BehaviorController">
+BehaviorController  
+BehaviorController [dump] [show] 
+</pre><hr><pre id="behaviortree">
+behaviortree        
+behaviortree 
+    
+
+    Options:
+    -debug &lt;int&gt;
+        sets debug level
+</pre><hr><pre id="camera">
+camera              
+-set &lt;name:string&gt;
+   Switch to the given camera type
+-list
+   Lists current set of cameras
+-bg &lt;rgb:color&gt;
+   Set background colour
+-renderType &lt;type:int&gt;
+   Set render type of viewer
+</pre><hr><pre id="cinematic">
+cinematic           
+ &lt;string&gt;
+    Run given cinematic.  Stop stops current, while Update reloads scripts.
+
+    Options:
+</pre><hr><pre id="clear">
+clear               
+Clears the debug console
+</pre><hr><pre id="colorLocalized">
+colorLocalized      
+no description
+</pre><hr><pre id="crash">
+crash               
+crash the game (for testing)
+</pre><hr><pre id="directories">
+directories         
+lists directories
+</pre><hr><pre id="dumpBudget">
+dumpBudget          
+dump budget 
+    
+
+    Options:
+</pre><hr><pre id="dumpEffects">
+dumpEffects         
+dumpEffects [&lt;pattern:string&gt;]
+    Dumps active effects, with optional wildcard
+
+    Options:
+</pre><hr><pre id="effect">
+effect              
+effect [&lt;effectName:string&gt;]
+    Set the current effect and start it, or stop the current effect, if no effect name or options given.
+
+    Options:
+    -pos &lt;x:float&gt; &lt;y:float&gt; [&lt;z:float&gt;]
+        Where to place the effect, or move the current effect
+    -offset &lt;p:vector3&gt;
+        Where to place the effect, or move the current effect
+    -scale &lt;s:float&gt;
+        Scale the effect rigidly
+    -id &lt;n:int&gt;
+        Apply this command to effect slot 'n'. The default slot is 0. This can be used to run several effects simultaneously.
+    -start 
+        (Re)start current effect.
+    -stop 
+        Stop current effect.
+    -hard 
+        Modifier on -start or -stop.
+    -soft 
+        Modifier on -start or -stop.
+    -clear 
+        Drop reference to the current effect. (for testing.)
+    -world &lt;name:string&gt;
+        Use given effects world rather than default one.
+    -edit 
+        If file location tracking is on, open effect in editor
+    -floatParams &lt;param:floatParams&gt; &lt;param0:float&gt; ...
+        Set the given float params for the current effect. E.g., -floatParams color 0 1 0, or -floatParams emitRateScale 2
+    -model &lt;name:string&gt; [&lt;set:int&gt;]
+        Set an override model for the current effect.
+    -texture &lt;name:string&gt; [&lt;set:int&gt;]
+        Set an override texture for the current effect.
+    -models &lt;names:string[]&gt; &lt;sets:int[]&gt;
+        Set multiple override models for the current effect.
+    -textures &lt;names:string[]&gt; &lt;sets:int[]&gt;
+        Set multiple override textures for the current effect.
+    -frame &lt;n:int&gt;
+        Select the given texture particle frame.
+    -state &lt;n:int&gt;
+        Select the given state. (See the effect 'states' command).
+    -paused &lt;bool&gt;
+        Set whether current effect is paused.
+    -hidden &lt;bool&gt;
+        Set whether current effect is hidden.
+    -seed &lt;int&gt;
+        Set RNG seed
+
+    floatParams:
+       emitStrength
+       particleSizeScale
+       particleLifeScale
+       emitRateScale
+       transparency
+       color
+       colorList
+       targetPoint
+       explosionLocation
+       attractorLocation
+       attractorIntensity
+       viewRay
+       emissionVolume
+       positions
+       path
+       shaderParams
+       volume
+       heightRange
+       subdivWindow
+       mapForceScale
+       lodDistanceScale
+       distributeSizeScale
+       user1
+       user2
+       user3
+       user4
+</pre><hr><pre id="effectsManager">
+effectsManager      
+effectsManager 
+    Used for querying and controlling the effects manager.
+
+    Options:
+    -stats 
+        Lists various effect system statistics
+    -listActive [&lt;pattern:string&gt;]
+        Lists all active worlds and their effects
+    -list [&lt;pattern:string&gt;]
+        Lists all worlds and their effects
+    -internal 
+          in addition, shows internally-spawned effects
+    -all 
+          shows all effects: user, internal, and children of either of those
+    -listEffects [&lt;pattern:string&gt;]
+        Lists all or specified effects
+    -where [&lt;pattern:string&gt;]
+        Lists specified effects and shows where in the script files they come from
+    -edit [&lt;name:string&gt;]
+        Opens the given effect for editing
+    -kill [&lt;pattern:string&gt;]
+        Kill any orphaned effects, or, with pattern, the named effects
+    -killAllBut [&lt;pattern:string&gt;]
+        Kill any orphaned effects, and, all effects except the one specified as pattern
+    -showBounds &lt;on:bool&gt;
+        Show particle system bounds
+    -showSurfaces &lt;on:bool&gt;
+        Show collision surfaces
+    -showEffects &lt;on:bool&gt; [&lt;size:float&gt;]
+        Show effect locations
+    -windDir &lt;vector3&gt;
+        Set global wind direction
+    -sunDir &lt;vector3&gt;
+        Set global sun direction
+    -noAlpha &lt;on:bool&gt;
+        Force no alpha in particles -- makes amount of overdraw clearer
+    -appFlag &lt;flag:int&gt; &lt;setting:bool&gt;
+        Set the given application flag
+    -lod &lt;float&gt;
+        Set current LOD.
+    -worlds 
+        List current worlds
+    -createWorld &lt;id:int&gt; [&lt;debugName:string&gt;]
+        Create new effects world with given ID and optional debug name
+    -removeWorld &lt;id:int&gt;
+        Remove effects world with given ID
+    -memStats 
+        Lists various memory statistics
+    -version 
+        Print current effects script version
+    -v 
+        Shorthand for -version
+    -save 
+        Save any resource sections
+    -load &lt;name:string&gt;
+        Load effects from given resource.
+    -unload &lt;name:string&gt;
+        Remove effects from given resource
+    -collections 
+        List currently loaded collections
+    -state &lt;worldState&gt; [&lt;world:string&gt;]
+        Set state of default world, or given world if specified
+
+    worldState:
+       active
+       pause
+       inactive
+       hidden
+       manual
+       shutdown
+</pre><hr><pre id="ev">
+ev                  
+evaluates the given expression
+</pre><hr><pre id="flora">
+flora               
+-clear [&lt;face:int&gt;]
+  clear all plants from planet/planet face
+</pre><hr><pre id="genCubeMap">
+genCubeMap          
+Capture a cube map from selected point 
+    
+
+    Options:
+    -res &lt;int&gt;
+        Cubemap image size
+    -offset &lt;vector3&gt;
+        Center point of cube capture
+    -useCamPos &lt;bool&gt;
+        Just use camera position as center
+    -genSH &lt;bool&gt;
+        Generate Spherical Harmonics coefficients
+    -outCoeffs &lt;string&gt;
+        Write the SH coefficients to a file
+    -brightenDir &lt;vector3&gt;
+        Brighten a sun direction while generating SH coefficients
+    -flip &lt;bool&gt;
+        Flip the camera while capturing
+    -replace &lt;bool&gt;
+        Replace current skybox with captured one
+    -dump 
+        Dump cubemap rasters
+</pre><hr><pre id="genFragments">
+genFragments        
+no description
+</pre><hr><pre id="genSceneViews">
+genSceneViews       
+Capture 6 orthographic views of an object 
+    
+
+    Options:
+    -res &lt;int&gt;
+        Size of captured images
+    -boxCenter &lt;vector3&gt;
+        Center point of cube capture
+    -useCamPos &lt;bool&gt;
+        Just use camera position as center
+    -boxSize &lt;float&gt;
+        How big is your object?
+    -flip &lt;bool&gt;
+        Flip the camera while capturing
+    -file &lt;string&gt;
+        Output file path
+</pre><hr><pre id="globalthermonuclearwar">
+globalthermonuclearwar
+Simulates a bad end to the Cold War
+</pre><hr><pre id="gonzago">
+gonzago             
+gonzago [nouns &lt;show | hide &gt;]
+        [input &lt;show | hide | load (filename) &gt;]
+        [simulators &lt;show | hide | hide #first #last&gt;]
+        [menus &lt;debug | normal&gt;]
+        [citynav &lt;lanes | forces | off&gt;]
+        [physcis &lt;havok | gonzago&gt;]
+        [creatureanim (filename) [numloops]]
+        [herddebug &lt;on | off&gt;]
+        [nestlevel &lt;int:level&gt;]
+        [ban #keytype #keygroup #keyinstance]
+        [numrelationships] ... prints the size of the map in the relationship simulator to the console
+        [name_gen &lt;planet | star | tribe | creature | city | building | vehicle | all&gt; (count)] 
+            ... prints out a list of randomly generated names of the given type, will print 20
+                if no count is specified.
+        [tribes] ... prints info about all the tribes on the planet
+        [dumptelemetry &lt;on | off | inject&gt;] ... inject submits inject.dat to the server. 'on' creates a file for future injection 
+</pre><hr><pre id="help">
+help                
+help [&lt;nameOrPattern:string&gt;]
+   Return help for all cheats, or all cheats matching the given pattern, or the
+   cheat with the given name. Options:
+   -all
+      Include basic script commands as well as cheats.
+</pre><hr><pre id="hints">
+hints               
+enable or disable hints temporarily. use 'hints -off' / 'hints -on' 
+</pre><hr><pre id="history">
+history             
+[&lt;items:int&gt;] Lists the last n commands in the command history
+</pre><hr><pre id="jobs">
+jobs                
+Show job manager status
+</pre><hr><pre id="key">
+key                 
+&lt;keyName:string&gt;
+   Prints corresponding hex key as &lt;type&gt; &lt;group&gt; &lt;instance&gt;
+&lt;type:int&gt; &lt;group:int&gt; &lt;instance:int&gt;
+   Tries to translate numerical key to a name
+-d
+   Prints unsigned decimal instead of hex (useful for level save files with ids)
+</pre><hr><pre id="lights">
+lights              
+ 
+    
+
+    Options:
+    -list 
+        list all lighting worlds
+    -listStates 
+        list all lighting states
+    -set &lt;stateName:string&gt; [&lt;drawSet:int&gt;]
+        switches the lighting state of the current world
+    -world &lt;worldName:string&gt;
+        specifies world to use (otherwise current default world is assumed)
+</pre><hr><pre id="listProps">
+listProps           
+[&lt;pattern:string&gt;]
+  list only properties matching pattern
+-list &lt;name:string&gt;
+  use given list rather than app properties
+</pre><hr><pre id="log">
+log                 
+&lt;group:string&gt; &lt;level:all|min|debug|info|warn|error|fatal|none&gt; &lt;message:string&gt;
+</pre><hr><pre id="logger">
+logger              
+-addFileReporter &lt;name:string&gt; &lt;path:string&gt;
+   Add a reporter that writes to the given file under the given name
+-addDebugReporter &lt;name:string&gt;
+   Add a reporter that writes to debug output
+-addDialogReporter &lt;name:string&gt;
+   Add a reporter that writes to a dialog box
+-globalLevel &lt;level&gt;
+   Set default log level for entire system
+[&lt;reporter:string&gt;]
+   Either act on the given reporter, or list the current set of reporters
+  -level &lt;level&gt;
+     Set the default output level on the reporter.
+  -groupLevel &lt;group:string&gt; &lt;level&gt;
+     Set the output level for the given group on the reporter. (You can specify more than one -groupLevel option.)
+  -format &lt;format1&gt; ...
+     Specify one or more additional display options. Choices: none timeStamp deltaTimeStamp date group level
+    -location &lt;level&gt;
+       Optional addition to -format: at this level or above, the location of the original log statement will be logged.
+</pre><hr><pre id="material">
+material            
+ 
+    
+
+    Options:
+    -scriptHelp &lt;command:string&gt;
+        Get help about material script command.
+    -dumpShaders 
+        enables dumping shaders to disk as they're generated
+    -dumpShaderAsm &lt;bool&gt;
+        sets whether to dump shader assembly too
+    -prefixCount 
+        prefix instruction count to asm filenames for convenient sorting
+    -listEnums 
+        List all script enums.
+    -html 
+        Use html format for listing.
+    -listFragments 
+        List all vertex/pixel shader fragments.
+    -dumpVSFragment &lt;name:string&gt; [&lt;number:int&gt;]
+        Dump shader fragment corresponding to given builder.
+    -dumpPSFragment &lt;name:string&gt; [&lt;number:int&gt;]
+        Dump shader fragment corresponding to given builder.
+    -dumpShaderUse 
+        dump shaders used on next frame render
+    -save 
+        Save out current set of materials/shaders in binary form.
+</pre><hr><pre id="memory">
+memory              
+ 
+    
+
+    Options:
+    -capture &lt;bool&gt;
+        Log allocation callstacks if 'true', stop logging and output results if 'false'
+    -dumpFilter &lt;prefix:string&gt;
+        Dump memory allocations that match the given tag prefix
+    -dumpFrame [&lt;frame_count:int&gt;]
+        Log all memory allocations for next 'frame_count' frames (one frame by default)
+    -dumpLeaks &lt;bool&gt;
+        Enable/disable the memory dump at shutdown (default 'true' in Debug builds only)
+    -dumpVTables &lt;bool&gt;
+        Enable/disable vtable lookup during memory dumps (kind of slow, default is 'false')
+    -dump [&lt;sort_mode:sortType&gt;]
+        Dump all allocated memory blocks to a file in UserData/Debug (optional sort: 'order', 'addr', 'size', 'tag', 'file')
+    -show 
+        Display memory dump in memdirstat
+    -brief 
+        Hide non-essential memory info in the status display
+    -breakdown 
+        Output breakdown of memory usage by system in the status display
+    -filter &lt;prefix_list:string&gt;
+        Track each space-separated tag prefix in the status display (ex: &quot;SP_ EASTL Anon&quot;)
+    -log_size &lt;size:float&gt;
+        If (alloc+free) &gt; log_size, all frame data will be logged. 'size' is assumed to be in MB.
+    -log_factor &lt;size:float&gt;
+        If (alloc+free) &gt; log_factor*(average_alloc+average_free), all frame data will be logged.
+    -smoothing &lt;smoothing:float&gt;
+        Sets the smoothing factor of stats data - between 0 and 1 (smoothest). 
+
+    sortType:
+       addr
+       size
+       tag
+       file
+       vtable
+       sequence
+</pre><hr><pre id="mode">
+mode                
+Show app mode, Set new app mode, or list all modes [-list]
+</pre><hr><pre id="model">
+model               
+ [&lt;modelName:string&gt;]
+    Load and display the named model. See also modelTest.
+
+    Options:
+    -array &lt;n:int&gt; &lt;modelName:string&gt;
+        Instantiate given model n times
+    -load &lt;modelName:string&gt;
+        Load model world model
+    -add &lt;modelName:string&gt;
+        add model world model to existing scene
+    -edit &lt;modelName:string&gt;
+        Edit model definition
+    -loadGroup &lt;modelGroup:string&gt;
+        Load group of model world models
+    -multiBlend 
+        use multi-blender (in combination with -load, -add, -loadGroup)
+    -position &lt;vector3&gt;
+        Set position of new model
+    -highlight [&lt;type:int&gt;]
+        Set model highlight, or clear highlight if no argument
+    -color &lt;rgba&gt;
+        Set color of model
+    -identity &lt;bool&gt;
+        Cycles through identity colors defined in prop
+    -texture &lt;name:string&gt; [&lt;region:int&gt;]
+        Set override texture for model
+    -uvType &lt;uvType&gt; [&lt;constants:float[]&gt;]
+        set custom shader data constants for model material
+    -materialParams &lt;gloss:float&gt; [&lt;specStrength:float&gt; &lt;exponent:float&gt; [&lt;invBump:float&gt;]]
+        set given material params
+    -shaderData &lt;constants:float[]&gt;
+        set custom shader data constants for model material
+    -animIDs 
+        List animation IDs
+    -regions 
+        List regions
+    -visible &lt;bool&gt;
+        Set model visibility
+    -inWorld &lt;bool&gt;
+        Set whether model is in world
+    -effects &lt;running:bool&gt; [&lt;id:int&gt;]
+        Set whether model effects are running
+    -effectsColor &lt;rgba&gt; [&lt;id:int&gt;]
+        Set tint colour on model effects
+    -updatePickMesh 
+        Update model's pick mesh to match any applied (non-rigid) animation
+    -lod &lt;int&gt;
+        Set LOD of model
+    -split 
+        Run Split Test on model
+
+    uvType:
+       projectXY
+       projectXZ
+       projectYZ
+       boxmap
+       cylinder
+       cylinderZ
+       disc
+       cylinderX
+       cylinderY
+       user1
+       user2
+       user3
+       user4
+</pre><hr><pre id="modelTest">
+modelTest           
+ 
+    
+
+    Options:
+    -create &lt;modelType&gt; &lt;modelName:string&gt; [&lt;materialName:string&gt;]
+          Creates the given type of model, and registers it under the given name, with optional material.
+    -tess &lt;tessLevel:int&gt;
+            Sets tessellation level for -create.
+    -pca &lt;pcaTexture:string&gt; &lt;pcaFPS:float&gt;
+            Sets the pca texture for the current model
+    -async &lt;modelName:string&gt;
+        Run asynchronous resource loading test
+    -dump [&lt;modelName:string&gt;]
+        Dump contents of given model's arena
+    -verts &lt;int&gt;
+          Dump up to n vertices from mesh
+    -bake [&lt;modelName:string&gt;]
+        Bake given model, save as ModelViewer!Test, display
+    -indexes &lt;int&gt;
+          Dump up to n indices from mesh
+    -transform 
+          Transform the mesh and redisplay
+    -adj 
+          Finds ajacency info for given model, displays results by colouring edge vertices
+    -weld 
+          Welds positions of given model and redisplays
+    -weldAll 
+          Welds all elements of given model and redisplays
+    -compact 
+          Compact given model
+    -skin 
+          Skin the mesh and redisplay
+    -morph 
+          Display the model using the morph engine
+    -hull 
+          Also create pick hulls when baking
+    -glue 
+          Glue all meshes together when baking
+    -sections 
+          Colours individual mesh sections
+    -bones 
+          Colours mesh bones
+    -prims 
+          Colours individual mesh primitives
+    -stress &lt;count:int&gt;
+          Stress test mesh creation/destruction
+    -cache 
+          Cache resulting model to disk
+    -set &lt;setIndex:int&gt;
+          Select particular data set from mesh
+    -decimate &lt;factor:float&gt;
+          decimate model
+    -cluster [&lt;maxErr:float&gt;]
+          face cluster model
+    -uvgen [&lt;maxErr:float&gt;]
+          generate unique uvs using clusterer and charter
+    -showUVs [&lt;set:int&gt;]
+          show UV chart of meshes
+    -lods 
+          do the full background LOD generation bake, save results to disk cache
+    -texture [&lt;name:string&gt; [&lt;coords:int&gt;]]
+          assign texture to the baked model
+    -stream [&lt;modelName:string&gt;]
+        extract meshes and draw via streaming
+    -simplify &lt;modelName:string&gt; [&lt;targetFaces:int&gt; [&lt;maxError:float&gt;]]
+        Simplify given model, save as ModelViewer!Test, display
+    -skeleton 
+        update skeleton pose xforms from base mesh
+    -runtime &lt;modelName:string&gt;
+        convert current model into runtime model
+    -impostor [&lt;resolution:int&gt;]
+        render impostor textures
+    -res &lt;res:int&gt;
+        dump file res (for impostors, etc)
+    -cellStage &lt;cellStage:float&gt;
+        sets the cell stage shader data
+    -listMeshes [&lt;keyFilter:string&gt;]
+        list info about all the given .gmsh resources. with -dump, dumps mesh info for every single mesh.
+    -instanceSet 
+        show or hide test instance set
+    -dxt3 [&lt;name:string&gt;]
+        DXT3 compresses current texture (or given one), putting the result in ModelViewer!Test
+    -quality &lt;int&gt;
+        Set 0..100 compress quality
+
+    modelType:
+       sphere
+       quad
+       box
+       cylinder
+       cone
+       arrowhead
+       axes
+</pre><hr><pre id="modelWorld">
+modelWorld          
+ 
+    
+
+    Options:
+    -listActive 
+        List active worlds
+    -list [&lt;name:string&gt;]
+        List all worlds, or info about a particular world
+    -all 
+          Additionally show out-of-world models
+        
+    -visible 
+          Show only visible models
+        
+    -counts 
+        With -list, show number of instances of each mesh type
+        
+    -listGroups 
+        List groups and corresponding flag indexes
+    -world &lt;id:int&gt;
+        Use this world rather than the default in operations below
+    -dumpFrame 
+        Dump all models rendered on the next frame
+    -debugPick 
+        Enable debug model picking via control-shift-alt-left-click
+    -resetDebugPick 
+        Disable debug model picking for all worlds
+    -clearPicks 
+        Clear debug selection info (e.g. from debug pick) from all models
+    -debug &lt;shaderDebugType&gt;
+        Set shader debug type for picked objects
+    -sphereQuery &lt;centre:vector3&gt; &lt;r:float&gt;
+        highlight results of sphere query with given settings
+    -boxQuery &lt;min:vector3&gt; &lt;max:vector3&gt;
+        highlight results of box query with given settings
+    -rayQuery &lt;origin:vector3&gt; &lt;dest:vector3&gt; [&lt;width:float&gt;]
+        highlight results of ray query with given settings
+    -lineQuery &lt;p0:vector3&gt; &lt;p1:vector3&gt; [&lt;width:float&gt;]
+        highlight results of line query with given settings
+    -level &lt;pickLevel&gt;
+        set pick level for queries
+    -markMeshes [&lt;count:int&gt;]
+        Highlight models with a large mesh count (defaults to 8).
+    -preload &lt;propName:string&gt; [&lt;set:int&gt;]
+        Preload given list of models
+    -checkModelsHaveLOD 
+        print a list of all .props that can be loaded as a model, but don't have lod distances set
+    -addOcc &lt;p:vector3&gt; &lt;r:float&gt;
+        Add given spherical occluder
+    -updateOcc &lt;id:int&gt; &lt;p:vector3&gt; &lt;r:float&gt;
+        Update given spherical occluder
+    -removeOcc &lt;id:int&gt;
+        Remove given spherical occluder
+
+    pickLevel:
+       sphere
+       box
+       hullTri
+       meshCluster
+       meshTri
+    shaderDebugType:
+       none
+       standard
+       explode
+       uvExplode
+       diffuse
+       specular
+       normal
+       user1
+       user2
+       user3
+       user4
+</pre><hr><pre id="movie">
+movie               
+ [&lt;name:string&gt;]
+    Play movie (or stop current movie with no arguments)
+
+    Options:
+    -scale &lt;float&gt;
+        Set scale factor
+    -pause 
+        pause playback
+    -unpause 
+        unpause playback
+    -draw &lt;drawType&gt;
+        Set draw type for playback
+    -fade &lt;seconds:float&gt;
+        Set fade in/out time
+    -record &lt;name:string&gt; [&lt;time:float&gt;]
+        Record movie. Either give a time, or run 'movie' again with no arguments to stop.
+    -size &lt;width:int&gt; &lt;height:int&gt;
+        Set size for recorded movie
+    -quality &lt;float&gt;
+        Set quality for recorded movie, 0-1
+    -fps &lt;float&gt;
+        Set FPS for recorded movie
+    -noUI 
+        Don't record UI
+    -noAudio 
+        Don't record audio
+
+    drawType:
+       standard
+       bw
+       thresh2
+       thresh4
+</pre><hr><pre id="mtr">
+mtr                 
+Creates a trade route between player's city and all other cities in the world.
+</pre><hr><pre id="noAsserts">
+noAsserts           
+
+-debugger
+   Disables debugger logging
+-console
+   Disables console logging
+</pre><hr><pre id="offlineEffect">
+offlineEffect       
+ &lt;string&gt;
+    print info about texture
+
+    Options:
+    -seed &lt;int&gt;
+        set seed
+    -delta &lt;int&gt;
+        set virtual ms per update
+    -limit &lt;float&gt;
+        set time limit in seconds
+</pre><hr><pre id="option">
+option              
+no arguments       lists all options
+[option]           list value of given option
+[option value]     sets option
+-reset             reset all options to default
+-save              save current options
+</pre><hr><pre id="otdb_test">
+otdb_test           
+
+-get_key_params &lt;SPID key name&gt;
+   dump otdb parameters associated with the given file/key
+-get_id_params &lt;SPID key name&gt;
+   dump otdb parameters associated with the given server id, if that asset has been downloaded.
+-get_asset_breakdown
+   prints the asset breakdown (pollinated/user created/perforce) to the console
+-reindex
+   force otdb re-index.
+</pre><hr><pre id="pausegate">
+pausegate           
+Increments/decrements pause gate counters or prints their current values. Example usage:
+pauseGate 
+pauseGate -inc &lt;gate id:hex&gt; 
+pauseGate -dec &lt;gate id:hex&gt; 
+</pre><hr><pre id="planetImpostor">
+planetImpostor      
+ 
+    
+
+    Options:
+</pre><hr><pre id="planetTestBed">
+planetTestBed       
+ 
+    
+
+    Options:
+    -num &lt;int&gt;
+        number of iterations
+    -seed &lt;int&gt;
+        Seed value (not specifying this will result in a random seed)
+    -snapshot &lt;bool&gt;
+        take a snapshot (outputs to log dir, doesn't work with offline effects)
+    -allScripts &lt;bool&gt;
+        run all current planet scripts
+    -starterScripts &lt;bool&gt;
+        run starter planet scripts
+    -res &lt;int&gt;
+        snapshot res
+    -cubemap &lt;bool&gt;
+        generates a cube map from orthogonal views of the effect
+    -thumbnail &lt;bool&gt;
+        generates thumbnails without atmosphere
+    -random &lt;bool&gt;
+        use random seed within seed range or after specified seed for subsequent iterations
+    -seedIn &lt;int&gt;
+        Seed range in value
+    -current &lt;string&gt;
+        Current planet is first capture
+    -seedOut &lt;int&gt;
+        Seed range out value
+    -png &lt;bool&gt;
+        Output png format (rather than tga
+    -waterLevel &lt;float&gt;
+        Set water level
+    -script &lt;int&gt;
+        Force script number
+</pre><hr><pre id="pollen">
+pollen              
+
+-get &lt;assetID:integer&gt;
+   download the specified asset ID.
+-getBatch &lt;subtype:Creature|TribeCreature|BuildingCityHall...&gt; &lt;count:integer&gt;
+   download &lt;count&gt; assets of type. -1 for ALL assets of type.
+ -serverID [&lt;key name&gt; | &lt;hex triplet&gt;]
+   get server ID of local asset
+</pre><hr><pre id="profiler">
+profiler            
+profiler 
+    
+
+    Options:
+    -show [&lt;mode:int&gt;]
+        Show the profiler (optionally, set display mode: 0/1/2 = brief/normal/extended)
+    -hide 
+        Hide the profiler
+    -alpha &lt;float&gt;
+        Set the profiler's alpha level (1.0 = fully opaque)
+    -pause &lt;bool&gt;
+        Pause or unpause the profiler
+    -history &lt;int&gt;
+        Set number of frames to go back in history (0 = current frame)
+    -dump 
+        Output the current profiler display to the cheat console and logging system
+    -debugDump 
+        Write full heirarchical breakdown of the current frame to the Debug folder
+    -freezeTime &lt;seconds:float&gt;
+        Automatically pause the profiler when frame exceeds time limit (0 to disable)
+    -freezeScope &lt;exactname:string&gt; &lt;seconds:float&gt; [&lt;entrycount:int&gt;]
+        Automatically pause when specific scope exceeds time limit or entry count (&quot;&quot; 0 0 to disable)
+    -filter [&lt;string&gt;]
+        Filter the current profiler view using a substring match (&quot;&quot; to disable)
+    -logTime &lt;seconds:float&gt;
+        Output the profiler display whenever frame exceeds time limit (0 to disable)
+</pre><hr><pre id="prop">
+prop                
+&lt;name:string&gt; &lt;value:bool&gt;   Sets app property
+</pre><hr><pre id="quit">
+quit                
+Quit game
+</pre><hr><pre id="raid">
+raid                
+raid -start &lt;bomberCount fighterCount&gt; will attack the current planet with the specified ships
+raid -stop will clear out any attacking UFOs on the planet
+raid -plunder will attack create a pirate plundering event
+raid -repair repair all of the rubbled buildings on the planet
+raid -turrets fills all cities on the planet with max turrets
+</pre><hr><pre id="refreshplantmaskmask">
+refreshplantmaskmask
+Forces a refresh of the city/tribe map (flora clear mask)
+</pre><hr><pre id="renderer">
+renderer            
+ 
+    
+
+    Options:
+    -list 
+        list currently active layers
+    -select &lt;start:layer&gt; [&lt;end:layer&gt;]
+        only render the given layer or layer range
+    -enable &lt;start:layer&gt; [&lt;end:layer&gt;]
+        enable the given layer or layer range
+    -disable &lt;start:layer&gt; [&lt;end:layer&gt;]
+        disable the given layer or layer range
+    -clear 
+        go back to rendering all layers
+    -setOpaque &lt;layer&gt; &lt;bool&gt;
+        set whether layer is opaque
+    -showTexture &lt;name:string&gt;
+        show given texture
+    -hideTexture &lt;name:string&gt;
+        hide given texture
+    -clearTextures 
+        clear all textures
+    -dumpShaderData 
+        dump shader data after each layer
+    -flushGPU &lt;bool&gt;
+        flush GPU pipeline after every rendering call for accurate profiling
+    -gamma &lt;float&gt;
+        set gamma for device
+    -flip &lt;width:int&gt; &lt;height:int&gt; [&lt;fullscreen:bool&gt; [&lt;display:int&gt;]]
+        flip video mode
+    -debugPS &lt;debugInfo&gt; [&lt;limit:float&gt;]
+        Set type of info to display when DebugPS=1. The optional limit can be used to adjust that max displayed value for things like bone count.
+    -memStats 
+        Show mem stats for GPU resources
+
+    layer:
+       ClearBuffer
+       ShadowMapWorld
+       ShadowMapUpdate
+       Shadows
+       CellBackground
+       Background
+       SolarBackground
+       Planets
+       TerrainRTT
+       Terrain
+       PlanetRibbons1
+       TerrainModels
+       BlobShadows
+       PreMain
+       Main
+       PostMain
+       CreatureAnim
+       EffectsMask
+       Effects
+       ShadowEffects
+       Clouds
+       PostEffects
+       FrameBufferEffects
+       EmpireLines
+       CellGameForeground
+       PlanetRibbons2
+       Overdraw
+       Movie
+       SporepediaShadows
+       UI
+       Swatches
+       ForegroundEffects
+       DebugDraw
+       Profiler
+       ShowTextures
+       MovieRecord
+    debugInfo:
+       none
+       batch
+       instance
+       shaderType
+       shaderID
+       elements
+       elementSize
+       elementAlign
+       vertices
+       indices
+       psInstructions
+       vsInstructions
+       weights
+       bones
+       textures
+       textureSize
+       textureMIPs
+       psConstants
+       vsConstants
+       layer
+</pre><hr><pre id="resource">
+resource            
+dumpEffects 
+    
+
+    Options:
+    -list [&lt;keyFilter:string&gt;]
+        list all resources, optionally filtered.
+    -listMem [&lt;keyFilter:string&gt;]
+        list resources in memory (and registered), optionally filtered by the given type and/or group. e.g. -listMem .prop
+    -listTypes [&lt;keyFilter:string&gt;]
+        list types and counts of all resources
+    -listMemTypes [&lt;keyFilter:string&gt;]
+        list types and counts of resources in memory
+    -listGroups [&lt;keyFilter:string&gt;]
+        list groups of all resources
+    -listMemGroups [&lt;keyFilter:string&gt;]
+        list groups of all resources in memory
+    -flush [&lt;keyFilter:string&gt;]
+        unregister all given manually cached resources in memory
+    -flushCache &lt;cacheType&gt;
+        flush the given specialist cache
+    -load [&lt;keyFilter:string&gt;]
+        load the given resources
+    -save [&lt;keyFilter:string&gt;]
+        save the given resources to Debug directory
+    -as [&lt;type:string&gt;]
+        with -load, overrides the resource type; with -save, overrides the record type
+    -savePacked [&lt;keyFilter:string&gt;]
+        save the given resources to test.package in Debug directory
+    -refs 
+        when listing resources, show the number of references, if any, and cache type
+    -where 
+        show where resource comes from on disk
+    -from &lt;path:string&gt;
+        only show resources that come from the given path on disk
+    -listGroupScheme 
+        list names for group scheme
+    -listCaches 
+        list contents of the various memory caches
+
+    cacheType:
+       manual
+       explicit
+       null
+       shortTerm
+       models
+       texture
+       user1
+       user2
+       user3
+       user4
+</pre><hr><pre id="RTT">
+RTT                 
+ 
+    
+
+    Options:
+    -list 
+        List currently allocated pages
+    -dump 
+        Dump all the render target textures in memory
+</pre><hr><pre id="settime">
+settime             
+Sets the time of day at the avatar's position, and optionally a speed multiplier. Example usage:
+SetTime (h, m) 
+SetTime -speed &lt;multiplier:float&gt; 
+</pre><hr><pre id="showLights">
+showLights          
+ 
+    
+
+    Options:
+    -radius &lt;float&gt;
+        Radius of the sphere on which directional lights will be placed
+</pre><hr><pre id="showpaths">
+showpaths           
+Toggle whether or not to show vehicle path-planning paths
+</pre><hr><pre id="showPause">
+showPause           
+no description
+</pre><hr><pre id="showplantmaskmask">
+showplantmaskmask   
+toggles whether the plant controller shows the city/tribe mask
+</pre><hr><pre id="skinpaint">
+skinpaint           
+skinpaint &lt;string&gt;
+    effect name (no 'skinpaint_' prefix), or 'wipe' or 'splat'
+
+    Options:
+    -seed &lt;int&gt;
+        set seed
+    -vis 
+        enable debug visualization
+</pre><hr><pre id="sound">
+sound               
+Specify on or off to turn audio system on or off.
+</pre><hr><pre id="species_query">
+species_query       
+[-&lt;param&gt; &lt;min&gt; &lt;max&gt; [-&lt;param&gt; &lt;min&gt; &lt;max&gt;]...] | [-dump &lt;param&gt;] | [-dumpFull &lt;param&gt;]
+-cost &lt;min&gt; &lt;max&gt;
+-baseGear &lt;min&gt; &lt;max&gt;
+-height &lt;min&gt; &lt;max&gt;
+-carnivore &lt;min&gt; &lt;max&gt;
+-herbivore &lt;min&gt; &lt;max&gt;
+-numGraspers &lt;min&gt; &lt;max&gt;
+-totalAttack &lt;min&gt; &lt;max&gt;
+-attack &lt;min&gt; &lt;max&gt;
+-cuteness &lt;min&gt; &lt;max&gt;
+-totalSocial &lt;min&gt; &lt;max&gt;
+-social &lt;min&gt; &lt;max&gt;
+-numFeet &lt;min&gt; &lt;max&gt;
+-meanLookingScore &lt;min&gt; &lt;max&gt;
+-biteCapRange &lt;min&gt; &lt;max&gt;
+-strikeCapRange &lt;min&gt; &lt;max&gt;
+-chargeCapRange &lt;min&gt; &lt;max&gt;
+-spitCapRange &lt;min&gt; &lt;max&gt;
+-singCapRange &lt;min&gt; &lt;max&gt;
+-danceCapRange &lt;min&gt; &lt;max&gt;
+-gestureCapRange &lt;min&gt; &lt;max&gt;
+-postureCapRange &lt;min&gt; &lt;max&gt;
+-glideCapRange &lt;min&gt; &lt;max&gt;
+-stealthCapRange &lt;min&gt; &lt;max&gt;
+-sprintCapRange &lt;min&gt; &lt;max&gt;
+-healthCapRange &lt;min&gt; &lt;max&gt;
+</pre><hr><pre id="spinLights">
+spinLights          
+ 
+    
+
+    Options:
+    -radius &lt;float&gt;
+        Radius of the sphere on which directional lights will be placed
+    -phi &lt;float&gt;
+        constant to add to phi value every tick
+    -theta &lt;float&gt;
+        constant to add to theta value every tick
+</pre><hr><pre id="starmanager">
+starmanager         
+starmanager -dump &lt;home|current|empires|status&gt; -test
+</pre><hr><pre id="state">
+state               
+ [&lt;state:string&gt;]
+    Switch to given state.
+
+    Options:
+    -list 
+        List all states
+    -next 
+        Move to next state
+    -prev 
+        Move to previous state
+    -reload 
+        Force script file to reload
+</pre><hr><pre id="status">
+status              
+outputs current status window lines to log
+</pre><hr><pre id="swatchcamera">
+swatchcamera        
+-set &lt;name:string&gt;
+   Switch to the given camera type
+-list
+   Lists current set of cameras
+-bg &lt;rgb:color&gt;
+   Set background colour
+-renderType &lt;type:int&gt;
+   Set render type of viewer
+</pre><hr><pre id="takeSnap">
+takeSnap            
+Capture the screen into cameraSnapshot 
+    
+
+    Options:
+    -dump &lt;string&gt;
+        Save the capture to a file
+    -res &lt;int&gt;
+        Size of captured image
+    -png &lt;int&gt;
+        if 0, output tga, otherwise output PNG
+    -renderUI 
+        Capture UI in snapshot
+</pre><hr><pre id="takeThumb">
+takeThumb           
+Capture thumbnail 
+    
+
+    Options:
+    -res &lt;int&gt;
+        The size of the captured image
+    -dump &lt;string&gt;
+        Save the capture to a file
+    -camera &lt;string&gt;
+        Camera Prop file to use for thumbnail capture
+</pre><hr><pre id="terrain">
+terrain             
+ 
+    
+
+    Options:
+    -loadPlanet &lt;keyName:string&gt;
+        load given planet
+    -definePlanet &lt;keyName:string&gt; &lt;scriptName:string&gt;
+        define planet as using a specific script (rather than it being randomly selected)
+    -info 
+        show script info about the current planet, including which terrain script it's using
+    -waterHeight &lt;float&gt;
+         set water height [0, 1]
+    -waterScore &lt;float&gt;
+         set water score [0, 1]
+    -terraform &lt;temperature:float&gt; &lt;atmosphere:float&gt;
+         set terraform values, and by implication water level.
+    -distTypes 
+         list terrain distribute info.
+    -setDistType &lt;distType:int&gt; &lt;keyName:string&gt;
+        set given dist type to the given model
+    -snap &lt;name:string&gt;
+        save a picture of the current planet to UserData/PlanetCache
+    -showDist &lt;id:int&gt;
+        show locations of samples for the distribute that has the given message ID
+    -footprint &lt;keyName:string&gt; &lt;position:vector3&gt;
+        apply given footprint at given position
+    -clearFootprints 
+        clear all footprints
+    -playerMod &lt;keyName:string&gt; &lt;position:vector3&gt;
+        add given player mod at given position
+    -playerColors &lt;terrainColorID:int&gt; &lt;atmosColorID:int&gt; &lt;waterColorID:int&gt;
+        set given player colors
+    -clearMods 
+        clear all player effects and game model footprints
+    -saveMods 
+        save current planet instance, including player effects and game model footprints
+    -reset [&lt;keyName:string&gt;]
+        save current planet instance, including player effects and game model footprints
+    -showTA 
+        show terraform scores (temperature/atmosphere) of all terraformable (space) planets
+    -lodScale &lt;scale:float&gt;
+        set lod scale factor for current planet
+    -savePlanets &lt;name:string&gt;
+        save planet definitions to given file in UserData/Games
+    -loadPlanets &lt;name:string&gt;
+        load planet definitions from given file in UserData/Games
+    -clearPlanetCache 
+        clear planet definition cache
+    -clearPlanets 
+        clear planet definitions back to starting state
+</pre><hr><pre id="terrainEffectTest">
+terrainEffectTest   
+Terrain Effect Test Cheat
+</pre><hr><pre id="terrainScript">
+terrainScript       
+ 
+    
+
+    Options:
+    -clear 
+        clear the script
+    -list 
+        list current set of effects
+    -undo [&lt;count:int&gt;]
+        undo last effect added to script
+    -play 
+        play the script from the start
+    -save &lt;name:string&gt;
+        save current script under given name in UserData/Planets
+    -load &lt;name:string&gt;
+        load given script
+    -model &lt;modelName:string&gt;
+        set model to place on control-click
+    -undoModel 
+        undo last model added
+    -clearModels 
+        clear all models
+    -theme &lt;propFile:string&gt;
+        set theme to use for this script. (scripts can share categories that define things like ambient effects.)
+    -rotateAll 
+        rotate all effects and models
+</pre><hr><pre id="testBed">
+testBed             
+ &lt;string&gt;
+    print info about effect
+
+    Options:
+    -num &lt;int&gt;
+        number of iterations
+    -seed &lt;int&gt;
+        Seed value (not specifying this will result in a random seed)
+    -snapshot &lt;bool&gt;
+        take a snapshot (outputs to log dir, doesn't work with offline effects)
+    -cubemap &lt;bool&gt;
+        generates a cube map from orthogonal views of the effect
+    -log &lt;bool&gt;
+        output to log
+    -random &lt;bool&gt;
+        use random seed within seed range or after specified seed for subsequent iterations
+    -seedIn &lt;int&gt;
+        Seed range in value
+    -seedOut &lt;int&gt;
+        Seed range out value
+    -delta &lt;int&gt;
+        set virtual ms per update
+    -limit &lt;float&gt;
+        set time limit in seconds
+</pre><hr><pre id="tester">
+tester              
+
+-run &lt;test_name:string&gt;
+   Runs specified test:
+
+-ea_asserts
+   Enable EA Asserts during testing. Optional for -run flag.
+
+-test_asserts
+   Enable Test Asserts during testing. Optional for -run flag.
+
+-min_output
+   Suppress output of commands and sleep messages in AutoTest.log. Optional for -run flag.
+
+Usage example: tester -run TestScript SPG_Serialization
+Usage example: tester -run TestScript Performance\sound_test_space
+
+
+-trackfps
+   Enables TrackFPS system with default arguments.  Output goes to AutoTest log.
+
+-end
+   Explicity ends the TrackFPS session. Optional for -trackfps flag.
+
+-acceptable_fps &lt;float&gt;
+   The minimal acceptable FPS.  If FPS drops below this rate, a framedump will get triggered.  Default: 5. Optional for -trackfps flag.
+
+-framedump_interval &lt;int&gt;
+   The number of frames before another framedump can be triggered to prevent spamming.  Default: 30. Optional for -trackfps flag.
+
+-framedump_screenshots &lt;bool&gt;
+   If true, outputs a screenshot after the framedump.  Default: true. Optional for -trackfps flag.
+
+-sampling_rate &lt;float&gt;
+   Sampling rate in seconds.  If 0, samples every frame.  Default: 0. Optional for -trackfps flag.
+
+-duration &lt;float&gt;
+   Duration of sampling in seconds.  If 0, samples continuous.  Default: 0. Optional for -trackfps flag.
+
+-event &lt;string&gt;
+   Outputs an event tag in a format that can be used by post-process graphing scripts.
+
+-diskhits
+    Enables the DiskHits Tracker.  Output goes to AutoTest log.
+
+Usage example: tester -trackfps -acceptable_fps 5 -framedump_screenshots true
+Usage example: tester -trackfps -end
+
+
+Given no parameters, prints out the list of available tests but only TestScript is supported.
+</pre><hr><pre id="textures">
+textures            
+ [&lt;name:string&gt;]
+    print info about texture
+
+    Options:
+    -list 
+        list all active/cached textures
+    -listAll 
+        list all active/cached textures, including those in model arenas
+    -bySize 
+        sort by size
+    -byKey 
+        sort by key
+    -system 
+        system memory textures only: managed static textures with system memory impact
+    -nonSystem 
+        non-system textures only
+    -dump [&lt;name:string&gt;]
+        Writes specified texture to textures/dump dir.
+</pre><hr><pre id="uilayout">
+uilayout            
+-load &lt;layout_name:string&gt;
+   Loads specified layout. Optional.
+-unload &lt;layout_name:string&gt;
+   Unloads specified layout. Optional.
+-textures [-onDisk]
+   Lists current UI textures, and total size.
+
+Given no parameters, prints out the list of loaded layouts.
+</pre><hr><pre id="uitools">
+uitools             
+[on|off]
+   Dumps information about an object or general info. With no parameters dumps general UI info.
+-info [windows|window|cursor_ui]
+   Dumps information about an object or general info. With no parameters dumps general UI info.
+-enable [rebuild_markers|cursor_info|rollover|mouse_info|capture_window|capture_parent|no_ticks|no_rebuilds|textures]
+   Enables debug features. With no parameters enables UI tools.
+-disable [rebuild_markers|cursor_info|rollover|mouse_info|capture_window|capture_parent|no_ticks|no_rebuilds|textures]
+   Disables debug features. With no parameters disables UI tools.
+-enable_message_log [active|all|tick|rebuild|input|kb|mouse|other|xform|mouse_move]
+   Includes messages in the message log.
+-disable_message_log [active|all|tick|rebuild|input|kb|mouse|other|xform|mouse_move]
+   Excludes messages from the message log.
+-max_widget_polygons [count]
+   Specifies the limit for widget polygons to be drawn.
+
+With no parameters dumps general UI info.
+</pre><hr><pre id="usermusic">
+usermusic           
+no description
+</pre><hr><pre id="validateHeap">
+validateHeap        
+validateHeap [&lt;level&gt;]
+    Check memory blocks for corruption (must specify level or -auto)
+
+    Options:
+    -auto &lt;int&gt; [&lt;level&gt;]
+        Auto check after every N heap operations - use 0 to disable
+
+    level:
+       none
+       basic
+       detail
+       full
+</pre><hr><pre id="ViewManager">
+ViewManager         
+ViewManager [dump] [views &lt;on/off/old_school/standard&gt;]
+</pre><hr><pre id="vwep">
+vwep                
+vwep {weapon number} changes all vehicles in game to given weapon
+</pre>

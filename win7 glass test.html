@@ -1,0 +1,189 @@
+<!DOCTYPE html><html><head>
+<title>windows 7 aero test</title>
+<style>
+:root {
+--hue: 120, 100%
+}
+
+body {
+font: 16px segoe ui, sans-serif;
+background-image: url(files/bgwin7.png);
+background-attachment: fixed;
+}
+a { color: #0000EE; text-decoration: none; }
+a:visited { color: #551A8B; } a:hover, a:focus {text-decoration: underline;}
+
+#main, #main2, #main3 {position: absolute;}
+
+.outer {
+width: 600px;
+backdrop-filter: blur(5px);
+
+background: linear-gradient(50deg, hsla(var(--hue), 72%, 0.72),
+hsla(var(--hue), 72%, 0.72) 3%,  hsla(var(--hue), 58%, 0.58) 6%,  hsla(var(--hue), 72%, 0.72) 13%,
+hsla(var(--hue), 72%, 0.72) 18%, hsla(var(--hue), 54%, 0.54) 23%, hsla(var(--hue), 72%, 0.72) 25%,
+hsla(var(--hue), 72%, 0.72) 29%, hsla(var(--hue), 54%, 0.54) 30%, hsla(var(--hue), 66%, 0.66) 37%, hsla(var(--hue), 66%, 0.66) 41%, hsla(var(--hue), 62%, 0.62) 42%, hsla(var(--hue), 72%, 0.72) 44%,
+hsla(var(--hue), 72%, 0.72) 53%, hsla(var(--hue), 50%, 0.5) 58%, hsla(var(--hue), 68%, 0.68) 59%, hsla(var(--hue), 52%, 0.52) 63%, hsla(var(--hue), 72%, 0.72) 65%,
+hsla(var(--hue), 72%, 0.72) 70%, hsla(var(--hue), 56%, 0.56) 72%, hsla(var(--hue), 72%, 0.72) 77%,
+hsla(var(--hue), 72%, 0.72) 78%, hsla(var(--hue), 64%, 0.64) 80%, hsla(var(--hue), 70%, 0.7) 82%, hsla(var(--hue), 58%, 0.6) 84%, hsla(var(--hue), 72%, 0.72) 86%,
+hsla(var(--hue), 72%, 0.72) 90%, hsla(var(--hue), 58%, 0.58) 91%, hsla(var(--hue), 72%, 0.72) 98%
+);
+
+/*
+hsla(var(--hue), 50%, 0.5)
+hsla(var(--hue), 52%, 0.52)
+hsla(var(--hue), 54%, 0.54)
+hsla(var(--hue), 56%, 0.56)
+hsla(var(--hue), 58%, 0.58)
+hsla(var(--hue), 58%, 0.6)
+hsla(var(--hue), 62%, 0.62)
+hsla(var(--hue), 64%, 0.64)
+hsla(var(--hue), 66%, 0.66)
+hsla(var(--hue), 68%, 0.68)
+hsla(var(--hue), 70%, 0.7)
+hsla(var(--hue), 72%, 0.72)
+
+old
+hsla(var(--hue), 18%, 0.5)
+hsla(var(--hue), 22%, 0.5)
+hsla(var(--hue), 27%, 0.5)
+hsla(var(--hue), 51%, 0.5)
+hsla(var(--hue), 58%, 0.5)
+hsla(var(--hue), 59%, 0.5)
+hsla(var(--hue), 68%, 0.5)
+hsla(var(--hue), 73%, 0.5)
+hsla(var(--hue), 77%, 0.5)
+hsla(var(--hue), 95%, 0.5)
+hsla(var(--hue), 97%, 0.5)
+hsla(var(--hue), 100%, 0.5)
+*/
+
+background-attachment: fixed;
+outline: 1px solid hsl(var(--hue), 10%);
+border: 1px solid #ffffff80;
+border-radius: 5px;
+box-shadow: 5px 5px 20px black;
+}
+
+.inner {
+background-color: white;
+padding: 10px;
+height: 70%;
+border: 1px solid black;
+border-radius: 2px;
+margin: 0px 5px 5px 5px;
+}
+
+.windowtitle {
+text-shadow: 0px 0px 5px white;
+padding: 5px;
+vertical-align: center;
+cursor: default;
+}
+
+.sliderbox {text-align: center; display: inline-block;}
+</style></head><body>
+
+<div class="outer" id="main">
+<div class="windowtitle" id="mainheader"><img src="files/blirper.png" height="15px"> cool window</div>
+<div class="inner">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+<br><br>you can drag the windows around btw. there have been <a target="_blank" href="https://khang-nd.github.io/7.css/">more accurate win 7 recreations</a> but i did this for fun! <a href="index.html">back to index</a>
+</div>
+<!-- <div style="height: 200px">shiny</div> -->
+</div>
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+
+<div class="outer" id="main2" style="width: 350px">
+<div class="windowtitle" id="main2header"><img src="files/blirper.png" height="15px"> bg.png - fake image viewer</div>
+<div class="inner" style="padding: 0">
+<img src="files/bg.png" width="100%">
+</div>
+<div class="windowtitle">pretend window controls</div>
+</div>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+<div class="outer" id="main3" style="width: 200px">
+<div class="windowtitle" id="main3header"><img src="files/blirper.png" height="15px"> color tweak</div>
+<div class="inner">
+
+<div style="margin: 0 auto" class="sliderbox">
+<div class="sliderbox">hue
+<br><input type="range" id="hue" min="0" max="360" value="120" oninput="recolor()">
+</div>
+<div class="sliderbox">saturation
+<br><input type="range" id="saturation" min="0" max="100" value="100" oninput="recolor()">
+</div>
+</div>
+
+</div>
+</div>
+
+</body>
+<script>
+
+// https://www.w3schools.com/howto/howto_js_draggable.asp
+
+// Make the DIV element draggable:
+dragElement(document.getElementById("main"));
+dragElement(document.getElementById("main2"));
+dragElement(document.getElementById("main3"));
+
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    // if present, the header is where you move the DIV from:
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    // otherwise, move the DIV from anywhere inside the DIV:
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    // stop moving when mouse button is released:
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+
+// partly referenced off https://www.w3schools.com/css/css_colors_hsl.asp and https://www.w3schools.com/css/css3_variables_javascript.asp
+var r = document.querySelector(':root');
+
+function recolor() {
+h = document.getElementById("hue").value;
+s = document.getElementById("saturation").value;
+
+hue=h.toString();
+sat=s.toString();
+
+hs = hue + ', ' + sat + ('%');
+r.style.setProperty('--hue', hs);
+}
+
+</script></html>

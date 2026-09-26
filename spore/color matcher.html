@@ -1,0 +1,994 @@
+<!DOCTYPE html><html><head>
+<title>Spore Color Matcher</title>
+<style>
+body { font: 16px trebuchet ms, sans-serif; }
+a { color: #0000EE; text-decoration: none; } a:hover, a:focus {text-decoration: underline;}
+
+#main {
+width: 98%;
+padding: 10px;
+margin: 0 auto;
+border: 1px solid black;
+}
+
+.color {
+width: 10%;
+height: 10%;
+display: inline-block;
+border: 1px solid #383838;
+border-radius: 3px;
+box-shadow: 2px 2px 0px #595959;
+}
+
+.colorcontainer {
+display: inline-block;
+font-size: 0;
+width: 6.5%;
+aspect-ratio: 1 / 1; 
+margin: 10px 0px;
+white-space: nowrap;
+}
+
+.colorinitial {
+width: 78%;
+height: 20%;
+border: 1px solid #383838;
+border-radius: 3px;
+box-shadow: 2px 2px 0px #595959;
+margin: 0px 0px 10px 0px;
+}
+
+.showcolor {
+width: 50px;
+height: 50px;
+display: inline-block;
+}
+
+.showcolorcontainer {
+font-size: 0;
+border: 1px solid #383838;
+border-radius: 3px;
+display: inline-block
+}
+
+#hex000000 {background-color: #000000} #hex252525 {background-color: #252525} #hex4A4A4A {background-color: #4A4A4A} #hex707070 {background-color: #707070} #hex959595 {background-color: #959595} #hexBABABA {background-color: #BABABA} #hexDFDFDF {background-color: #DFDFDF} #hex050505 {background-color: #050505} #hex2A2A2A {background-color: #2A2A2A} #hex505050 {background-color: #505050} #hex757575 {background-color: #757575} #hex9A9A9A {background-color: #9A9A9A} #hexBFBFBF {background-color: #BFBFBF} #hexE4E4E4 {background-color: #E4E4E4} #hex0B0B0B {background-color: #0B0B0B} #hex303030 {background-color: #303030} #hex555555 {background-color: #555555} #hex7A7A7A {background-color: #7A7A7A} #hex9F9F9F {background-color: #9F9F9F} #hexC5C5C5 {background-color: #C5C5C5} #hexEAEAEA {background-color: #EAEAEA} #hex101010 {background-color: #101010} #hex353535 {background-color: #353535} #hex5A5A5A {background-color: #5A5A5A} #hex808080 {background-color: #808080} #hexA5A5A5 {background-color: #A5A5A5} #hexCACACA {background-color: #CACACA} #hexEFEFEF {background-color: #EFEFEF} #hex151515 {background-color: #151515} #hex3A3A3A {background-color: #3A3A3A} #hex606060 {background-color: #606060} #hex858585 {background-color: #858585} #hexAAAAAA {background-color: #AAAAAA} #hexCFCFCF {background-color: #CFCFCF} #hexF4F4F4 {background-color: #F4F4F4} #hex1B1B1B {background-color: #1B1B1B} #hex404040 {background-color: #404040} #hex656565 {background-color: #656565} #hex8A8A8A {background-color: #8A8A8A} #hexAFAFAF {background-color: #AFAFAF} #hexD4D4D4 {background-color: #D4D4D4} #hexFAFAFA {background-color: #FAFAFA} #hex202020 {background-color: #202020} #hex454545 {background-color: #454545} #hex6A6A6A {background-color: #6A6A6A} #hex8F8F8F {background-color: #8F8F8F} #hexB5B5B5 {background-color: #B5B5B5} #hexDADADA {background-color: #DADADA} #hexFFFFFF {background-color: #FFFFFF}
+#hexFFDCE3 {background-color: #FFDCE3} #hexFFBAC7 {background-color: #FFBAC7} #hexFF97AA {background-color: #FF97AA} #hexFF758E {background-color: #FF758E} #hexFF5272 {background-color: #FF5272} #hexFF2F56 {background-color: #FF2F56} #hexFF0D39 {background-color: #FF0D39} #hexE7C7CD {background-color: #E7C7CD} #hexE7A8B4 {background-color: #E7A8B4} #hexE7899A {background-color: #E7899A} #hexE76980 {background-color: #E76980} #hexE74A67 {background-color: #E74A67} #hexE72B4D {background-color: #E72B4D} #hexE70C34 {background-color: #E70C34} #hexCDB1B6 {background-color: #CDB1B6} #hexCD95A0 {background-color: #CD95A0} #hexCD7989 {background-color: #CD7989} #hexCD5E72 {background-color: #CD5E72} #hexCD425B {background-color: #CD425B} #hexCD2645 {background-color: #CD2645} #hexCD0A2E {background-color: #CD0A2E} #hexB1999E {background-color: #B1999E} #hexB1818A {background-color: #B1818A} #hexB16976 {background-color: #B16976} #hexB15163 {background-color: #B15163} #hexB1394F {background-color: #B1394F} #hexB1213B {background-color: #B1213B} #hexB10928 {background-color: #B10928} #hex937F83 {background-color: #937F83} #hex936B72 {background-color: #936B72} #hex935762 {background-color: #935762} #hex934352 {background-color: #934352} #hex932F42 {background-color: #932F42} #hex931B31 {background-color: #931B31} #hex930721 {background-color: #930721} #hex716264 {background-color: #716264} #hex715258 {background-color: #715258} #hex71434B {background-color: #71434B} #hex71343F {background-color: #71343F} #hex712432 {background-color: #712432} #hex711526 {background-color: #711526} #hex710619 {background-color: #710619} #hex483E40 {background-color: #483E40} #hex483438 {background-color: #483438} #hex482B30 {background-color: #482B30} #hex482128 {background-color: #482128} #hex481720 {background-color: #481720} #hex480D18 {background-color: #480D18} #hex480410 {background-color: #480410}
+#hexFFDFDC {background-color: #FFDFDC} #hexFFBFBA {background-color: #FFBFBA} #hexFF9E97 {background-color: #FF9E97} #hexFF7E75 {background-color: #FF7E75} #hexFF5E52 {background-color: #FF5E52} #hexFF3E2F {background-color: #FF3E2F} #hexFF1E0D {background-color: #FF1E0D} #hexE7CAC7 {background-color: #E7CAC7} #hexE7ACA8 {background-color: #E7ACA8} #hexE78F89 {background-color: #E78F89} #hexE77269 {background-color: #E77269} #hexE7554A {background-color: #E7554A} #hexE7382B {background-color: #E7382B} #hexE71B0C {background-color: #E71B0C} #hexCDB3B1 {background-color: #CDB3B1} #hexCD9995 {background-color: #CD9995} #hexCD7F79 {background-color: #CD7F79} #hexCD655E {background-color: #CD655E} #hexCD4C42 {background-color: #CD4C42} #hexCD3226 {background-color: #CD3226} #hexCD180A {background-color: #CD180A} #hexB19B99 {background-color: #B19B99} #hexB18581 {background-color: #B18581} #hexB16E69 {background-color: #B16E69} #hexB15851 {background-color: #B15851} #hexB14139 {background-color: #B14139} #hexB12B21 {background-color: #B12B21} #hexB11509 {background-color: #B11509} #hex93807F {background-color: #93807F} #hex936E6B {background-color: #936E6B} #hex935B57 {background-color: #935B57} #hex934943 {background-color: #934943} #hex93362F {background-color: #93362F} #hex93241B {background-color: #93241B} #hex931107 {background-color: #931107} #hex716362 {background-color: #716362} #hex715452 {background-color: #715452} #hex714643 {background-color: #714643} #hex713834 {background-color: #713834} #hex712A24 {background-color: #712A24} #hex711B15 {background-color: #711B15} #hex710D06 {background-color: #710D06} #hex483F3E {background-color: #483F3E} #hex483634 {background-color: #483634} #hex482D2B {background-color: #482D2B} #hex482421 {background-color: #482421} #hex481B17 {background-color: #481B17} #hex48110D {background-color: #48110D} #hex480804 {background-color: #480804}
+#hexFFE6DC {background-color: #FFE6DC} #hexFFCDBA {background-color: #FFCDBA} #hexFFB497 {background-color: #FFB497} #hexFF9B75 {background-color: #FF9B75} #hexFF8252 {background-color: #FF8252} #hexFF682F {background-color: #FF682F} #hexFF4F0D {background-color: #FF4F0D} #hexE7D0C7 {background-color: #E7D0C7} #hexE7B9A8 {background-color: #E7B9A8} #hexE7A389 {background-color: #E7A389} #hexE78C69 {background-color: #E78C69} #hexE7754A {background-color: #E7754A} #hexE75E2B {background-color: #E75E2B} #hexE7480C {background-color: #E7480C} #hexCDB9B1 {background-color: #CDB9B1} #hexCDA595 {background-color: #CDA595} #hexCD9079 {background-color: #CD9079} #hexCD7C5E {background-color: #CD7C5E} #hexCD6842 {background-color: #CD6842} #hexCD5426 {background-color: #CD5426} #hexCD400A {background-color: #CD400A} #hexB1A099 {background-color: #B1A099} #hexB18E81 {background-color: #B18E81} #hexB17D69 {background-color: #B17D69} #hexB16B51 {background-color: #B16B51} #hexB15A39 {background-color: #B15A39} #hexB14921 {background-color: #B14921} #hexB13709 {background-color: #B13709} #hex93857F {background-color: #93857F} #hex93766B {background-color: #93766B} #hex936857 {background-color: #936857} #hex935943 {background-color: #935943} #hex934B2F {background-color: #934B2F} #hex933C1B {background-color: #933C1B} #hex932E07 {background-color: #932E07} #hex716662 {background-color: #716662} #hex715B52 {background-color: #715B52} #hex715043 {background-color: #715043} #hex714434 {background-color: #714434} #hex713924 {background-color: #713924} #hex712E15 {background-color: #712E15} #hex712306 {background-color: #712306} #hex48413E {background-color: #48413E} #hex483A34 {background-color: #483A34} #hex48332B {background-color: #48332B} #hex482C21 {background-color: #482C21} #hex482517 {background-color: #482517} #hex481D0D {background-color: #481D0D} #hex481604 {background-color: #481604}
+#hexFFF4DC {background-color: #FFF4DC} #hexFFE9BA {background-color: #FFE9BA} #hexFFDE97 {background-color: #FFDE97} #hexFFD375 {background-color: #FFD375} #hexFFC852 {background-color: #FFC852} #hexFFBC2F {background-color: #FFBC2F} #hexFFB10D {background-color: #FFB10D} #hexE7DDC7 {background-color: #E7DDC7} #hexE7D3A8 {background-color: #E7D3A8} #hexE7C989 {background-color: #E7C989} #hexE7BF69 {background-color: #E7BF69} #hexE7B54A {background-color: #E7B54A} #hexE7AA2B {background-color: #E7AA2B} #hexE7A00C {background-color: #E7A00C} #hexCDC4B1 {background-color: #CDC4B1} #hexCDBB95 {background-color: #CDBB95} #hexCDB279 {background-color: #CDB279} #hexCDA95E {background-color: #CDA95E} #hexCDA042 {background-color: #CDA042} #hexCD9726 {background-color: #CD9726} #hexCD8F0A {background-color: #CD8F0A} #hexB1AA99 {background-color: #B1AA99} #hexB1A281 {background-color: #B1A281} #hexB19A69 {background-color: #B19A69} #hexB19251 {background-color: #B19251} #hexB18B39 {background-color: #B18B39} #hexB18321 {background-color: #B18321} #hexB17B09 {background-color: #B17B09} #hex938D7F {background-color: #938D7F} #hex93866B {background-color: #93866B} #hex938057 {background-color: #938057} #hex937943 {background-color: #937943} #hex93732F {background-color: #93732F} #hex936D1B {background-color: #936D1B} #hex936607 {background-color: #936607} #hex716C62 {background-color: #716C62} #hex716752 {background-color: #716752} #hex716243 {background-color: #716243} #hex715D34 {background-color: #715D34} #hex715824 {background-color: #715824} #hex715315 {background-color: #715315} #hex714F06 {background-color: #714F06} #hex48453E {background-color: #48453E} #hex484234 {background-color: #484234} #hex483F2B {background-color: #483F2B} #hex483B21 {background-color: #483B21} #hex483817 {background-color: #483817} #hex48350D {background-color: #48350D} #hex483204 {background-color: #483204}
+#hexFFFCDC {background-color: #FFFCDC} #hexFFFABA {background-color: #FFFABA} #hexFFF797 {background-color: #FFF797} #hexFFF575 {background-color: #FFF575} #hexFFF252 {background-color: #FFF252} #hexFFEF2F {background-color: #FFEF2F} #hexFFED0D {background-color: #FFED0D} #hexE7E4C7 {background-color: #E7E4C7} #hexE7E2A8 {background-color: #E7E2A8} #hexE7E089 {background-color: #E7E089} #hexE7DD69 {background-color: #E7DD69} #hexE7DB4A {background-color: #E7DB4A} #hexE7D92B {background-color: #E7D92B} #hexE7D60C {background-color: #E7D60C} #hexCDCBB1 {background-color: #CDCBB1} #hexCDC995 {background-color: #CDC995} #hexCDC779 {background-color: #CDC779} #hexCDC55E {background-color: #CDC55E} #hexCDC242 {background-color: #CDC242} #hexCDC026 {background-color: #CDC026} #hexCDBE0A {background-color: #CDBE0A} #hexB1AF99 {background-color: #B1AF99} #hexB1AE81 {background-color: #B1AE81} #hexB1AC69 {background-color: #B1AC69} #hexB1AA51 {background-color: #B1AA51} #hexB1A839 {background-color: #B1A839} #hexB1A621 {background-color: #B1A621} #hexB1A509 {background-color: #B1A509} #hex93927F {background-color: #93927F} #hex93906B {background-color: #93906B} #hex938F57 {background-color: #938F57} #hex938D43 {background-color: #938D43} #hex938C2F {background-color: #938C2F} #hex938A1B {background-color: #938A1B} #hex938907 {background-color: #938907} #hex716F52 {background-color: #716F52} #hex716D43 {background-color: #716D43} #hex716C34 {background-color: #716C34} #hex716B24 {background-color: #716B24} #hex716A15 {background-color: #716A15} #hex716A15 {background-color: #716A15} #hex716906 {background-color: #716906} #hex484734 {background-color: #484734} #hex48462B {background-color: #48462B} #hex484521 {background-color: #484521} #hex484417 {background-color: #484417} #hex48440D {background-color: #48440D} #hex48440D {background-color: #48440D} #hex484304 {background-color: #484304}
+#hexF1FFDC {background-color: #F1FFDC} #hexE2FFBA {background-color: #E2FFBA} #hexD4FF97 {background-color: #D4FF97} #hexC6FF75 {background-color: #C6FF75} #hexB8FF52 {background-color: #B8FF52} #hexA9FF2F {background-color: #A9FF2F} #hex9BFF0D {background-color: #9BFF0D} #hexDAE7C7 {background-color: #DAE7C7} #hexCDE7A8 {background-color: #CDE7A8} #hexC0E789 {background-color: #C0E789} #hexB3E769 {background-color: #B3E769} #hexA6E74A {background-color: #A6E74A} #hex99E72B {background-color: #99E72B} #hex8CE70C {background-color: #8CE70C} #hexC1CDB1 {background-color: #C1CDB1} #hexB6CD95 {background-color: #B6CD95} #hexAACD79 {background-color: #AACD79} #hex9FCD5E {background-color: #9FCD5E} #hex94CD42 {background-color: #94CD42} #hex88CD26 {background-color: #88CD26} #hex7DCD0A {background-color: #7DCD0A} #hexA7B199 {background-color: #A7B199} #hex9DB181 {background-color: #9DB181} #hex93B169 {background-color: #93B169} #hex8AB151 {background-color: #8AB151} #hex80B139 {background-color: #80B139} #hex76B121 {background-color: #76B121} #hex6CB109 {background-color: #6CB109} #hex8B937F {background-color: #8B937F} #hex83936B {background-color: #83936B} #hex7A9357 {background-color: #7A9357} #hex729343 {background-color: #729343} #hex6A932F {background-color: #6A932F} #hex62931B {background-color: #62931B} #hex599307 {background-color: #599307} #hex6B7162 {background-color: #6B7162} #hex647152 {background-color: #647152} #hex5E7143 {background-color: #5E7143} #hex587134 {background-color: #587134} #hex517124 {background-color: #517124} #hex4B7115 {background-color: #4B7115} #hex457106 {background-color: #457106} #hex44483E {background-color: #44483E} #hex404834 {background-color: #404834} #hex3C482B {background-color: #3C482B} #hex384821 {background-color: #384821} #hex344817 {background-color: #344817} #hex30480D {background-color: #30480D} #hex2C4804 {background-color: #2C4804}
+#hexDFFFDC {background-color: #DFFFDC} #hexBFFFBA {background-color: #BFFFBA} #hex9EFF97 {background-color: #9EFF97} #hex7EFF75 {background-color: #7EFF75} #hex5EFF52 {background-color: #5EFF52} #hex3EFF2F {background-color: #3EFF2F} #hex1DFF0D {background-color: #1DFF0D} #hexCAE7C7 {background-color: #CAE7C7} #hexACE7A8 {background-color: #ACE7A8} #hex8FE789 {background-color: #8FE789} #hex72E769 {background-color: #72E769} #hex55E74A {background-color: #55E74A} #hex38E72B {background-color: #38E72B} #hex1BE70C {background-color: #1BE70C} #hexB3CDB1 {background-color: #B3CDB1} #hex99CD95 {background-color: #99CD95} #hex7FCD79 {background-color: #7FCD79} #hex65CD5E {background-color: #65CD5E} #hex4BCD42 {background-color: #4BCD42} #hex32CD26 {background-color: #32CD26} #hex18CD0A {background-color: #18CD0A} #hex9BB199 {background-color: #9BB199} #hex84B181 {background-color: #84B181} #hex6EB169 {background-color: #6EB169} #hex58B151 {background-color: #58B151} #hex41B139 {background-color: #41B139} #hex2BB121 {background-color: #2BB121} #hex14B109 {background-color: #14B109} #hex80937F {background-color: #80937F} #hex6E936B {background-color: #6E936B} #hex5B9357 {background-color: #5B9357} #hex499343 {background-color: #499343} #hex36932F {background-color: #36932F} #hex24931B {background-color: #24931B} #hex119307 {background-color: #119307} #hex637162 {background-color: #637162} #hex547152 {background-color: #547152} #hex467143 {background-color: #467143} #hex387134 {background-color: #387134} #hex2A7124 {background-color: #2A7124} #hex1B7115 {background-color: #1B7115} #hex0D7106 {background-color: #0D7106} #hex3F483E {background-color: #3F483E} #hex364834 {background-color: #364834} #hex2D482B {background-color: #2D482B} #hex244821 {background-color: #244821} #hex1A4817 {background-color: #1A4817} #hex11480D {background-color: #11480D} #hex084804 {background-color: #084804}
+#hexDCFFFF {background-color: #DCFFFF} #hexBAFFFF {background-color: #BAFFFF} #hex97FFFF {background-color: #97FFFF} #hex75FFFF {background-color: #75FFFF} #hex52FFFF {background-color: #52FFFF} #hex2FFFFF {background-color: #2FFFFF} #hex0DFFFF {background-color: #0DFFFF} #hexC7E7E7 {background-color: #C7E7E7} #hexA8E7E7 {background-color: #A8E7E7} #hex89E7E7 {background-color: #89E7E7} #hex69E7E7 {background-color: #69E7E7} #hex4AE7E7 {background-color: #4AE7E7} #hex2BE7E7 {background-color: #2BE7E7} #hex0CE7E7 {background-color: #0CE7E7} #hexB1CDCD {background-color: #B1CDCD} #hex95CDCD {background-color: #95CDCD} #hex79CDCD {background-color: #79CDCD} #hex5ECDCD {background-color: #5ECDCD} #hex42CDCD {background-color: #42CDCD} #hex26CDCD {background-color: #26CDCD} #hex0ACDCD {background-color: #0ACDCD} #hex99B1B1 {background-color: #99B1B1} #hex81B1B1 {background-color: #81B1B1} #hex69B1B1 {background-color: #69B1B1} #hex51B1B1 {background-color: #51B1B1} #hex39B1B1 {background-color: #39B1B1} #hex21B1B1 {background-color: #21B1B1} #hex09B1B1 {background-color: #09B1B1} #hex7F9393 {background-color: #7F9393} #hex6B9393 {background-color: #6B9393} #hex579393 {background-color: #579393} #hex439393 {background-color: #439393} #hex2F9393 {background-color: #2F9393} #hex1B9393 {background-color: #1B9393} #hex079393 {background-color: #079393} #hex627171 {background-color: #627171} #hex527171 {background-color: #527171} #hex437171 {background-color: #437171} #hex347171 {background-color: #347171} #hex247171 {background-color: #247171} #hex157171 {background-color: #157171} #hex067171 {background-color: #067171} #hex3E4848 {background-color: #3E4848} #hex344848 {background-color: #344848} #hex2B4848 {background-color: #2B4848} #hex214848 {background-color: #214848} #hex174848 {background-color: #174848} #hex0D4848 {background-color: #0D4848} #hex044848 {background-color: #044848}
+#hexDCEEFF {background-color: #DCEEFF} #hexBADDFF {background-color: #BADDFF} #hex97CCFF {background-color: #97CCFF} #hex75BBFF {background-color: #75BBFF} #hex52AAFF {background-color: #52AAFF} #hex2F99FF {background-color: #2F99FF} #hex0D88FF {background-color: #0D88FF} #hexC7D7E7 {background-color: #C7D7E7} #hexA8C8E7 {background-color: #A8C8E7} #hex89B9E7 {background-color: #89B9E7} #hex69A9E7 {background-color: #69A9E7} #hex4A9AE7 {background-color: #4A9AE7} #hex2B8AE7 {background-color: #2B8AE7} #hex0C7BE7 {background-color: #0C7BE7} #hexB1BFCD {background-color: #B1BFCD} #hex95B2CD {background-color: #95B2CD} #hex79A4CD {background-color: #79A4CD} #hex5E96CD {background-color: #5E96CD} #hex4289CD {background-color: #4289CD} #hex267BCD {background-color: #267BCD} #hex0A6DCD {background-color: #0A6DCD} #hex99A5B1 {background-color: #99A5B1} #hex819AB1 {background-color: #819AB1} #hex698EB1 {background-color: #698EB1} #hex5182B1 {background-color: #5182B1} #hex3976B1 {background-color: #3976B1} #hex216AB1 {background-color: #216AB1} #hex095FB1 {background-color: #095FB1} #hex7F8993 {background-color: #7F8993} #hex6B7F93 {background-color: #6B7F93} #hex577693 {background-color: #577693} #hex436C93 {background-color: #436C93} #hex2F6293 {background-color: #2F6293} #hex1B5893 {background-color: #1B5893} #hex074E93 {background-color: #074E93} #hex626971 {background-color: #626971} #hex526271 {background-color: #526271} #hex435A71 {background-color: #435A71} #hex345371 {background-color: #345371} #hex244B71 {background-color: #244B71} #hex154471 {background-color: #154471} #hex063C71 {background-color: #063C71} #hex3E4348 {background-color: #3E4348} #hex343E48 {background-color: #343E48} #hex2B3A48 {background-color: #2B3A48} #hex213548 {background-color: #213548} #hex173048 {background-color: #173048} #hex0D2B48 {background-color: #0D2B48} #hex042648 {background-color: #042648}
+#hexDCDFFF {background-color: #DCDFFF} #hexBABFFF {background-color: #BABFFF} #hex979FFF {background-color: #979FFF} #hex757FFF {background-color: #757FFF} #hex525FFF {background-color: #525FFF} #hex2F3FFF {background-color: #2F3FFF} #hex0D1FFF {background-color: #0D1FFF} #hexC7CAE7 {background-color: #C7CAE7} #hexA8ADE7 {background-color: #A8ADE7} #hex8990E7 {background-color: #8990E7} #hex6973E7 {background-color: #6973E7} #hex4A56E7 {background-color: #4A56E7} #hex2B39E7 {background-color: #2B39E7} #hex0C1CE7 {background-color: #0C1CE7} #hexB1B3CD {background-color: #B1B3CD} #hex959ACD {background-color: #959ACD} #hex7980CD {background-color: #7980CD} #hex5E66CD {background-color: #5E66CD} #hex424CCD {background-color: #424CCD} #hex2633CD {background-color: #2633CD} #hex0A19CD {background-color: #0A19CD} #hex999BB1 {background-color: #999BB1} #hex8185B1 {background-color: #8185B1} #hex696FB1 {background-color: #696FB1} #hex5158B1 {background-color: #5158B1} #hex3942B1 {background-color: #3942B1} #hex212CB1 {background-color: #212CB1} #hex0916B1 {background-color: #0916B1} #hex7F8193 {background-color: #7F8193} #hex6B6E93 {background-color: #6B6E93} #hex575C93 {background-color: #575C93} #hex434993 {background-color: #434993} #hex2F3793 {background-color: #2F3793} #hex1B2493 {background-color: #1B2493} #hex071293 {background-color: #071293} #hex626371 {background-color: #626371} #hex525571 {background-color: #525571} #hex434671 {background-color: #434671} #hex343871 {background-color: #343871} #hex242A71 {background-color: #242A71} #hex151C71 {background-color: #151C71} #hex060E71 {background-color: #060E71} #hex3E3F48 {background-color: #3E3F48} #hex343648 {background-color: #343648} #hex2B2D48 {background-color: #2B2D48} #hex212448 {background-color: #212448} #hex171B48 {background-color: #171B48} #hex0D1248 {background-color: #0D1248} #hex040948 {background-color: #040948}
+#hexE8DCFF {background-color: #E8DCFF} #hexD0BAFF {background-color: #D0BAFF} #hexB997FF {background-color: #B997FF} #hexA275FF {background-color: #A275FF} #hex8A52FF {background-color: #8A52FF} #hex732FFF {background-color: #732FFF} #hex5C0DFF {background-color: #5C0DFF} #hexD2C7E7 {background-color: #D2C7E7} #hexBDA8E7 {background-color: #BDA8E7} #hexA789E7 {background-color: #A789E7} #hex9269E7 {background-color: #9269E7} #hex7D4AE7 {background-color: #7D4AE7} #hex682BE7 {background-color: #682BE7} #hex530CE7 {background-color: #530CE7} #hexBAB1CD {background-color: #BAB1CD} #hexA795CD {background-color: #A795CD} #hex9579CD {background-color: #9579CD} #hex825ECD {background-color: #825ECD} #hex6F42CD {background-color: #6F42CD} #hex5D26CD {background-color: #5D26CD} #hex4A0ACD {background-color: #4A0ACD} #hexA199B1 {background-color: #A199B1} #hex9181B1 {background-color: #9181B1} #hex8169B1 {background-color: #8169B1} #hex7051B1 {background-color: #7051B1} #hex6039B1 {background-color: #6039B1} #hex5021B1 {background-color: #5021B1} #hex4009B1 {background-color: #4009B1} #hex867F93 {background-color: #867F93} #hex786B93 {background-color: #786B93} #hex6B5793 {background-color: #6B5793} #hex5D4393 {background-color: #5D4393} #hex502F93 {background-color: #502F93} #hex421B93 {background-color: #421B93} #hex350793 {background-color: #350793} #hex676271 {background-color: #676271} #hex5C5271 {background-color: #5C5271} #hex524371 {background-color: #524371} #hex483471 {background-color: #483471} #hex3D2471 {background-color: #3D2471} #hex331571 {background-color: #331571} #hex290671 {background-color: #290671} #hex413E48 {background-color: #413E48} #hex3B3448 {background-color: #3B3448} #hex342B48 {background-color: #342B48} #hex2E2148 {background-color: #2E2148} #hex271748 {background-color: #271748} #hex210D48 {background-color: #210D48} #hex1A0448 {background-color: #1A0448}
+#hexF3DCFF {background-color: #F3DCFF} #hexE7BAFF {background-color: #E7BAFF} #hexDB97FF {background-color: #DB97FF} #hexCF75FF {background-color: #CF75FF} #hexC352FF {background-color: #C352FF} #hexB72FFF {background-color: #B72FFF} #hexAB0DFF {background-color: #AB0DFF} #hexDCC7E7 {background-color: #DCC7E7} #hexD1A8E7 {background-color: #D1A8E7} #hexC689E7 {background-color: #C689E7} #hexBB69E7 {background-color: #BB69E7} #hexB14AE7 {background-color: #B14AE7} #hexA62BE7 {background-color: #A62BE7} #hex9B0CE7 {background-color: #9B0CE7} #hexC3B1CD {background-color: #C3B1CD} #hexBA95CD {background-color: #BA95CD} #hexB079CD {background-color: #B079CD} #hexA65ECD {background-color: #A65ECD} #hex9D42CD {background-color: #9D42CD} #hex9326CD {background-color: #9326CD} #hex8A0ACD {background-color: #8A0ACD} #hexA999B1 {background-color: #A999B1} #hexA181B1 {background-color: #A181B1} #hex9869B1 {background-color: #9869B1} #hex9051B1 {background-color: #9051B1} #hex8839B1 {background-color: #8839B1} #hex7F21B1 {background-color: #7F21B1} #hex7709B1 {background-color: #7709B1} #hex8C7F93 {background-color: #8C7F93} #hex856B93 {background-color: #856B93} #hex7E5793 {background-color: #7E5793} #hex774393 {background-color: #774393} #hex712F93 {background-color: #712F93} #hex6A1B93 {background-color: #6A1B93} #hex630793 {background-color: #630793} #hex6C6271 {background-color: #6C6271} #hex665271 {background-color: #665271} #hex614371 {background-color: #614371} #hex5C3471 {background-color: #5C3471} #hex562471 {background-color: #562471} #hex511571 {background-color: #511571} #hex4C0671 {background-color: #4C0671} #hex453E48 {background-color: #453E48} #hex413448 {background-color: #413448} #hex3E2B48 {background-color: #3E2B48} #hex3A2148 {background-color: #3A2148} #hex371748 {background-color: #371748} #hex340D48 {background-color: #340D48} #hex300448 {background-color: #300448}
+#hexFFDCFB {background-color: #FFDCFB} #hexFFBAF8 {background-color: #FFBAF8} #hexFF97F4 {background-color: #FF97F4} #hexFF75F1 {background-color: #FF75F1} #hexFF52ED {background-color: #FF52ED} #hexFF2FE9 {background-color: #FF2FE9} #hexFF0DE6 {background-color: #FF0DE6} #hexE7C7E3 {background-color: #E7C7E3} #hexE7A8E0 {background-color: #E7A8E0} #hexE789DD {background-color: #E789DD} #hexE769DA {background-color: #E769DA} #hexE74AD6 {background-color: #E74AD6} #hexE72BD3 {background-color: #E72BD3} #hexE70CD0 {background-color: #E70CD0} #hexCDB1CA {background-color: #CDB1CA} #hexCD95C7 {background-color: #CD95C7} #hexCD79C4 {background-color: #CD79C4} #hexCD5EC1 {background-color: #CD5EC1} #hexCD42BE {background-color: #CD42BE} #hexCD26BC {background-color: #CD26BC} #hexCD0AB9 {background-color: #CD0AB9} #hexB199AF {background-color: #B199AF} #hexB181AC {background-color: #B181AC} #hexB169AA {background-color: #B169AA} #hexB151A7 {background-color: #B151A7} #hexB139A5 {background-color: #B139A5} #hexB121A2 {background-color: #B121A2} #hexB109A0 {background-color: #B109A0} #hex937F91 {background-color: #937F91} #hex936B8F {background-color: #936B8F} #hex93578D {background-color: #93578D} #hex93438B {background-color: #93438B} #hex932F89 {background-color: #932F89} #hex931B87 {background-color: #931B87} #hex930784 {background-color: #930784} #hex71626F {background-color: #71626F} #hex71526E {background-color: #71526E} #hex71436C {background-color: #71436C} #hex71346B {background-color: #71346B} #hex712469 {background-color: #712469} #hex711567 {background-color: #711567} #hex710666 {background-color: #710666} #hex483E47 {background-color: #483E47} #hex483446 {background-color: #483446} #hex482B45 {background-color: #482B45} #hex482144 {background-color: #482144} #hex481743 {background-color: #481743} #hex480D42 {background-color: #480D42} #hex480441 {background-color: #480441}
+#hexFFDCEA {background-color: #FFDCEA} #hexFFBAD4 {background-color: #FFBAD4} #hexFF97BF {background-color: #FF97BF} #hexFF75A9 {background-color: #FF75A9} #hexFF5294 {background-color: #FF5294} #hexFF2F7E {background-color: #FF2F7E} #hexFF0D69 {background-color: #FF0D69} #hexE7C7D3 {background-color: #E7C7D3} #hexE7A8C0 {background-color: #E7A8C0} #hexE789AC {background-color: #E789AC} #hexE76999 {background-color: #E76999} #hexE74A86 {background-color: #E74A86} #hexE72B72 {background-color: #E72B72} #hexE70C5F {background-color: #E70C5F} #hexCDB1BC {background-color: #CDB1BC} #hexCD95AA {background-color: #CD95AA} #hexCD7999 {background-color: #CD7999} #hexCD5E88 {background-color: #CD5E88} #hexCD4277 {background-color: #CD4277} #hexCD2666 {background-color: #CD2666} #hexCD0A54 {background-color: #CD0A54} #hexB199A2 {background-color: #B199A2} #hexB18193 {background-color: #B18193} #hexB16985 {background-color: #B16985} #hexB15176 {background-color: #B15176} #hexB13967 {background-color: #B13967} #hexB12158 {background-color: #B12158} #hexB10949 {background-color: #B10949} #hex937F87 {background-color: #937F87} #hex936B7A {background-color: #936B7A} #hex93576E {background-color: #93576E} #hex934362 {background-color: #934362} #hex932F55 {background-color: #932F55} #hex931B49 {background-color: #931B49} #hex93073C {background-color: #93073C} #hex716267 {background-color: #716267} #hex71525E {background-color: #71525E} #hex714354 {background-color: #714354} #hex71344B {background-color: #71344B} #hex712441 {background-color: #712441} #hex711538 {background-color: #711538} #hex71062E {background-color: #71062E} #hex483E42 {background-color: #483E42} #hex48343C {background-color: #48343C} #hex482B36 {background-color: #482B36} #hex482130 {background-color: #482130} #hex48172A {background-color: #48172A} #hex480D24 {background-color: #480D24} #hex48041E {background-color: #48041E}
+#hexA6A6A6 {background-color: #A6A6A6} #hexCB425B {background-color: #CB425B} #hexED4D41 {background-color: #ED4D41} #hexEB7040 {background-color: #EB7040} #hexF8BF43 {background-color: #F8BF43} #hexF2E76D {background-color: #F2E76D} #hexACD96D {background-color: #ACD96D} #hex6ECC66 {background-color: #6ECC66} #hex60BFBF {background-color: #60BFBF} #hex75B1E9 {background-color: #75B1E9} #hex6C76F0 {background-color: #6C76F0} #hex8656E8 {background-color: #8656E8} #hexAD56DA {background-color: #AD56DA} #hexEE71E1 {background-color: #EE71E1} #hexEE6096 {background-color: #EE6096}
+
+</style></head><body>
+
+<div id="main">
+Finds the closest color in the Spore editor palette (not in adventures) to the color you select. Not necessary if you have the <a href="https://github.com/emd4600/EnhancedColorPickerMod">Enhanced Color Picker mod</a>, obviously.<br>
+Colors are arranged in a single row regardless of screen width, so if you use a phone in the portrait orientation, keep this in mind.<br>
+Closest matches might be a bit off (especially for green-cyans), so you might want to fiddle with your chosen color or pick what looks closer to you.<br>
+
+<div class="colorcontainer">
+<div class="colorinitial" id="hexA6A6A6"></div>
+<div class="color" id="hex000000"></div>
+<div class="color" id="hex252525"></div>
+<div class="color" id="hex4A4A4A"></div>
+<div class="color" id="hex707070"></div>
+<div class="color" id="hex959595"></div>
+<div class="color" id="hexBABABA"></div>
+<div class="color" id="hexDFDFDF"></div><br>
+<div class="color" id="hex050505"></div>
+<div class="color" id="hex2A2A2A"></div>
+<div class="color" id="hex505050"></div>
+<div class="color" id="hex757575"></div>
+<div class="color" id="hex9A9A9A"></div>
+<div class="color" id="hexBFBFBF"></div>
+<div class="color" id="hexE4E4E4"></div><br>
+<div class="color" id="hex0B0B0B"></div>
+<div class="color" id="hex303030"></div>
+<div class="color" id="hex555555"></div>
+<div class="color" id="hex7A7A7A"></div>
+<div class="color" id="hex9F9F9F"></div>
+<div class="color" id="hexC5C5C5"></div>
+<div class="color" id="hexEAEAEA"></div><br>
+<div class="color" id="hex101010"></div>
+<div class="color" id="hex353535"></div>
+<div class="color" id="hex5A5A5A"></div>
+<div class="color" id="hex808080"></div>
+<div class="color" id="hexA5A5A5"></div>
+<div class="color" id="hexCACACA"></div>
+<div class="color" id="hexEFEFEF"></div><br>
+<div class="color" id="hex151515"></div>
+<div class="color" id="hex3A3A3A"></div>
+<div class="color" id="hex606060"></div>
+<div class="color" id="hex858585"></div>
+<div class="color" id="hexAAAAAA"></div>
+<div class="color" id="hexCFCFCF"></div>
+<div class="color" id="hexF4F4F4"></div><br>
+<div class="color" id="hex1B1B1B"></div>
+<div class="color" id="hex404040"></div>
+<div class="color" id="hex656565"></div>
+<div class="color" id="hex8A8A8A"></div>
+<div class="color" id="hexAFAFAF"></div>
+<div class="color" id="hexD4D4D4"></div>
+<div class="color" id="hexFAFAFA"></div><br>
+<div class="color" id="hex202020"></div>
+<div class="color" id="hex454545"></div>
+<div class="color" id="hex6A6A6A"></div>
+<div class="color" id="hex8F8F8F"></div>
+<div class="color" id="hexB5B5B5"></div>
+<div class="color" id="hexDADADA"></div>
+<div class="color" id="hexFFFFFF"></div>
+
+</div><div class="colorcontainer">
+<div class="colorinitial" id="hexCB425B"></div>
+
+<div class="color" id="hexFFDCE3"></div>
+<div class="color" id="hexFFBAC7"></div>
+<div class="color" id="hexFF97AA"></div>
+<div class="color" id="hexFF758E"></div>
+<div class="color" id="hexFF5272"></div>
+<div class="color" id="hexFF2F56"></div>
+<div class="color" id="hexFF0D39"></div><br>
+<div class="color" id="hexE7C7CD"></div>
+<div class="color" id="hexE7A8B4"></div>
+<div class="color" id="hexE7899A"></div>
+<div class="color" id="hexE76980"></div>
+<div class="color" id="hexE74A67"></div>
+<div class="color" id="hexE72B4D"></div>
+<div class="color" id="hexE70C34"></div><br>
+<div class="color" id="hexCDB1B6"></div>
+<div class="color" id="hexCD95A0"></div>
+<div class="color" id="hexCD7989"></div>
+<div class="color" id="hexCD5E72"></div>
+<div class="color" id="hexCD425B"></div>
+<div class="color" id="hexCD2645"></div>
+<div class="color" id="hexCD0A2E"></div><br>
+<div class="color" id="hexB1999E"></div>
+<div class="color" id="hexB1818A"></div>
+<div class="color" id="hexB16976"></div>
+<div class="color" id="hexB15163"></div>
+<div class="color" id="hexB1394F"></div>
+<div class="color" id="hexB1213B"></div>
+<div class="color" id="hexB10928"></div><br>
+<div class="color" id="hex937F83"></div>
+<div class="color" id="hex936B72"></div>
+<div class="color" id="hex935762"></div>
+<div class="color" id="hex934352"></div>
+<div class="color" id="hex932F42"></div>
+<div class="color" id="hex931B31"></div>
+<div class="color" id="hex930721"></div><br>
+<div class="color" id="hex716264"></div>
+<div class="color" id="hex715258"></div>
+<div class="color" id="hex71434B"></div>
+<div class="color" id="hex71343F"></div>
+<div class="color" id="hex712432"></div>
+<div class="color" id="hex711526"></div>
+<div class="color" id="hex710619"></div><br>
+<div class="color" id="hex483E40"></div>
+<div class="color" id="hex483438"></div>
+<div class="color" id="hex482B30"></div>
+<div class="color" id="hex482128"></div>
+<div class="color" id="hex481720"></div>
+<div class="color" id="hex480D18"></div>
+<div class="color" id="hex480410"></div>
+
+</div><div class="colorcontainer">
+<div class="colorinitial" id="hexED4D41"></div>
+
+<div class="color" id="hexFFDFDC"></div>
+<div class="color" id="hexFFBFBA"></div>
+<div class="color" id="hexFF9E97"></div>
+<div class="color" id="hexFF7E75"></div>
+<div class="color" id="hexFF5E52"></div>
+<div class="color" id="hexFF3E2F"></div>
+<div class="color" id="hexFF1E0D"></div><br>
+<div class="color" id="hexE7CAC7"></div>
+<div class="color" id="hexE7ACA8"></div>
+<div class="color" id="hexE78F89"></div>
+<div class="color" id="hexE77269"></div>
+<div class="color" id="hexE7554A"></div>
+<div class="color" id="hexE7382B"></div>
+<div class="color" id="hexE71B0C"></div><br>
+<div class="color" id="hexCDB3B1"></div>
+<div class="color" id="hexCD9995"></div>
+<div class="color" id="hexCD7F79"></div>
+<div class="color" id="hexCD655E"></div>
+<div class="color" id="hexCD4C42"></div>
+<div class="color" id="hexCD3226"></div>
+<div class="color" id="hexCD180A"></div><br>
+<div class="color" id="hexB19B99"></div>
+<div class="color" id="hexB18581"></div>
+<div class="color" id="hexB16E69"></div>
+<div class="color" id="hexB15851"></div>
+<div class="color" id="hexB14139"></div>
+<div class="color" id="hexB12B21"></div>
+<div class="color" id="hexB11509"></div><br>
+<div class="color" id="hex93807F"></div>
+<div class="color" id="hex936E6B"></div>
+<div class="color" id="hex935B57"></div>
+<div class="color" id="hex934943"></div>
+<div class="color" id="hex93362F"></div>
+<div class="color" id="hex93241B"></div>
+<div class="color" id="hex931107"></div><br>
+<div class="color" id="hex716362"></div>
+<div class="color" id="hex715452"></div>
+<div class="color" id="hex714643"></div>
+<div class="color" id="hex713834"></div>
+<div class="color" id="hex712A24"></div>
+<div class="color" id="hex711B15"></div>
+<div class="color" id="hex710D06"></div><br>
+<div class="color" id="hex483F3E"></div>
+<div class="color" id="hex483634"></div>
+<div class="color" id="hex482D2B"></div>
+<div class="color" id="hex482421"></div>
+<div class="color" id="hex481B17"></div>
+<div class="color" id="hex48110D"></div>
+<div class="color" id="hex480804"></div>
+
+</div><div class="colorcontainer">
+<div class="colorinitial" id="hexEB7040"></div>
+
+<div class="color" id="hexFFE6DC"></div>
+<div class="color" id="hexFFCDBA"></div>
+<div class="color" id="hexFFB497"></div>
+<div class="color" id="hexFF9B75"></div>
+<div class="color" id="hexFF8252"></div>
+<div class="color" id="hexFF682F"></div>
+<div class="color" id="hexFF4F0D"></div><br>
+<div class="color" id="hexE7D0C7"></div>
+<div class="color" id="hexE7B9A8"></div>
+<div class="color" id="hexE7A389"></div>
+<div class="color" id="hexE78C69"></div>
+<div class="color" id="hexE7754A"></div>
+<div class="color" id="hexE75E2B"></div>
+<div class="color" id="hexE7480C"></div><br>
+<div class="color" id="hexCDB9B1"></div>
+<div class="color" id="hexCDA595"></div>
+<div class="color" id="hexCD9079"></div>
+<div class="color" id="hexCD7C5E"></div>
+<div class="color" id="hexCD6842"></div>
+<div class="color" id="hexCD5426"></div>
+<div class="color" id="hexCD400A"></div><br>
+<div class="color" id="hexB1A099"></div>
+<div class="color" id="hexB18E81"></div>
+<div class="color" id="hexB17D69"></div>
+<div class="color" id="hexB16B51"></div>
+<div class="color" id="hexB15A39"></div>
+<div class="color" id="hexB14921"></div>
+<div class="color" id="hexB13709"></div><br>
+<div class="color" id="hex93857F"></div>
+<div class="color" id="hex93766B"></div>
+<div class="color" id="hex936857"></div>
+<div class="color" id="hex935943"></div>
+<div class="color" id="hex934B2F"></div>
+<div class="color" id="hex933C1B"></div>
+<div class="color" id="hex932E07"></div><br>
+<div class="color" id="hex716662"></div>
+<div class="color" id="hex715B52"></div>
+<div class="color" id="hex715043"></div>
+<div class="color" id="hex714434"></div>
+<div class="color" id="hex713924"></div>
+<div class="color" id="hex712E15"></div>
+<div class="color" id="hex712306"></div><br>
+<div class="color" id="hex48413E"></div>
+<div class="color" id="hex483A34"></div>
+<div class="color" id="hex48332B"></div>
+<div class="color" id="hex482C21"></div>
+<div class="color" id="hex482517"></div>
+<div class="color" id="hex481D0D"></div>
+<div class="color" id="hex481604"></div>
+
+</div><div class="colorcontainer">
+<div class="colorinitial" id="hexF8BF43"></div>
+
+<div class="color" id="hexFFF4DC"></div>
+<div class="color" id="hexFFE9BA"></div>
+<div class="color" id="hexFFDE97"></div>
+<div class="color" id="hexFFD375"></div>
+<div class="color" id="hexFFC852"></div>
+<div class="color" id="hexFFBC2F"></div>
+<div class="color" id="hexFFB10D"></div><br>
+<div class="color" id="hexE7DDC7"></div>
+<div class="color" id="hexE7D3A8"></div>
+<div class="color" id="hexE7C989"></div>
+<div class="color" id="hexE7BF69"></div>
+<div class="color" id="hexE7B54A"></div>
+<div class="color" id="hexE7AA2B"></div>
+<div class="color" id="hexE7A00C"></div><br>
+<div class="color" id="hexCDC4B1"></div>
+<div class="color" id="hexCDBB95"></div>
+<div class="color" id="hexCDB279"></div>
+<div class="color" id="hexCDA95E"></div>
+<div class="color" id="hexCDA042"></div>
+<div class="color" id="hexCD9726"></div>
+<div class="color" id="hexCD8F0A"></div><br>
+<div class="color" id="hexB1AA99"></div>
+<div class="color" id="hexB1A281"></div>
+<div class="color" id="hexB19A69"></div>
+<div class="color" id="hexB19251"></div>
+<div class="color" id="hexB18B39"></div>
+<div class="color" id="hexB18321"></div>
+<div class="color" id="hexB17B09"></div><br>
+<div class="color" id="hex938D7F"></div>
+<div class="color" id="hex93866B"></div>
+<div class="color" id="hex938057"></div>
+<div class="color" id="hex937943"></div>
+<div class="color" id="hex93732F"></div>
+<div class="color" id="hex936D1B"></div>
+<div class="color" id="hex936607"></div><br>
+<div class="color" id="hex716C62"></div>
+<div class="color" id="hex716752"></div>
+<div class="color" id="hex716243"></div>
+<div class="color" id="hex715D34"></div>
+<div class="color" id="hex715824"></div>
+<div class="color" id="hex715315"></div>
+<div class="color" id="hex714F06"></div><br>
+<div class="color" id="hex48453E"></div>
+<div class="color" id="hex484234"></div>
+<div class="color" id="hex483F2B"></div>
+<div class="color" id="hex483B21"></div>
+<div class="color" id="hex483817"></div>
+<div class="color" id="hex48350D"></div>
+<div class="color" id="hex483204"></div>
+
+</div><div class="colorcontainer">
+<div class="colorinitial" id="hexF2E76D"></div>
+
+<div class="color" id="hexFFFCDC"></div>
+<div class="color" id="hexFFFABA"></div>
+<div class="color" id="hexFFF797"></div>
+<div class="color" id="hexFFF575"></div>
+<div class="color" id="hexFFF252"></div>
+<div class="color" id="hexFFEF2F"></div>
+<div class="color" id="hexFFED0D"></div><br>
+<div class="color" id="hexE7E4C7"></div>
+<div class="color" id="hexE7E2A8"></div>
+<div class="color" id="hexE7E089"></div>
+<div class="color" id="hexE7DD69"></div>
+<div class="color" id="hexE7DB4A"></div>
+<div class="color" id="hexE7D92B"></div>
+<div class="color" id="hexE7D60C"></div><br>
+<div class="color" id="hexCDCBB1"></div>
+<div class="color" id="hexCDC995"></div>
+<div class="color" id="hexCDC779"></div>
+<div class="color" id="hexCDC55E"></div>
+<div class="color" id="hexCDC242"></div>
+<div class="color" id="hexCDC026"></div>
+<div class="color" id="hexCDBE0A"></div><br>
+<div class="color" id="hexB1AF99"></div>
+<div class="color" id="hexB1AE81"></div>
+<div class="color" id="hexB1AC69"></div>
+<div class="color" id="hexB1AA51"></div>
+<div class="color" id="hexB1A839"></div>
+<div class="color" id="hexB1A621"></div>
+<div class="color" id="hexB1A509"></div><br>
+<div class="color" id="hex93927F"></div>
+<div class="color" id="hex93906B"></div>
+<div class="color" id="hex938F57"></div>
+<div class="color" id="hex938D43"></div>
+<div class="color" id="hex938C2F"></div>
+<div class="color" id="hex938A1B"></div>
+<div class="color" id="hex938907"></div><br>
+<div class="color" id="hex716F52"></div>
+<div class="color" id="hex716D43"></div>
+<div class="color" id="hex716C34"></div>
+<div class="color" id="hex716B24"></div>
+<div class="color" id="hex716A15"></div>
+<div class="color" id="hex716A15"></div>
+<div class="color" id="hex716906"></div><br>
+<div class="color" id="hex484734"></div>
+<div class="color" id="hex48462B"></div>
+<div class="color" id="hex484521"></div>
+<div class="color" id="hex484417"></div>
+<div class="color" id="hex48440D"></div>
+<div class="color" id="hex48440D"></div>
+<div class="color" id="hex484304"></div>
+
+</div><div class="colorcontainer">
+<div class="colorinitial" id="hexACD96D"></div>
+
+<div class="color" id="hexF1FFDC"></div>
+<div class="color" id="hexE2FFBA"></div>
+<div class="color" id="hexD4FF97"></div>
+<div class="color" id="hexC6FF75"></div>
+<div class="color" id="hexB8FF52"></div>
+<div class="color" id="hexA9FF2F"></div>
+<div class="color" id="hex9BFF0D"></div><br>
+<div class="color" id="hexDAE7C7"></div>
+<div class="color" id="hexCDE7A8"></div>
+<div class="color" id="hexC0E789"></div>
+<div class="color" id="hexB3E769"></div>
+<div class="color" id="hexA6E74A"></div>
+<div class="color" id="hex99E72B"></div>
+<div class="color" id="hex8CE70C"></div><br>
+<div class="color" id="hexC1CDB1"></div>
+<div class="color" id="hexB6CD95"></div>
+<div class="color" id="hexAACD79"></div>
+<div class="color" id="hex9FCD5E"></div>
+<div class="color" id="hex94CD42"></div>
+<div class="color" id="hex88CD26"></div>
+<div class="color" id="hex7DCD0A"></div><br>
+<div class="color" id="hexA7B199"></div>
+<div class="color" id="hex9DB181"></div>
+<div class="color" id="hex93B169"></div>
+<div class="color" id="hex8AB151"></div>
+<div class="color" id="hex80B139"></div>
+<div class="color" id="hex76B121"></div>
+<div class="color" id="hex6CB109"></div><br>
+<div class="color" id="hex8B937F"></div>
+<div class="color" id="hex83936B"></div>
+<div class="color" id="hex7A9357"></div>
+<div class="color" id="hex729343"></div>
+<div class="color" id="hex6A932F"></div>
+<div class="color" id="hex62931B"></div>
+<div class="color" id="hex599307"></div><br>
+<div class="color" id="hex6B7162"></div>
+<div class="color" id="hex647152"></div>
+<div class="color" id="hex5E7143"></div>
+<div class="color" id="hex587134"></div>
+<div class="color" id="hex517124"></div>
+<div class="color" id="hex4B7115"></div>
+<div class="color" id="hex457106"></div><br>
+<div class="color" id="hex44483E"></div>
+<div class="color" id="hex404834"></div>
+<div class="color" id="hex3C482B"></div>
+<div class="color" id="hex384821"></div>
+<div class="color" id="hex344817"></div>
+<div class="color" id="hex30480D"></div>
+<div class="color" id="hex2C4804"></div>
+
+</div><div class="colorcontainer">
+<div class="colorinitial" id="hex6ECC66"></div>
+
+<div class="color" id="hexDFFFDC"></div>
+<div class="color" id="hexBFFFBA"></div>
+<div class="color" id="hex9EFF97"></div>
+<div class="color" id="hex7EFF75"></div>
+<div class="color" id="hex5EFF52"></div>
+<div class="color" id="hex3EFF2F"></div>
+<div class="color" id="hex1DFF0D"></div><br>
+<div class="color" id="hexCAE7C7"></div>
+<div class="color" id="hexACE7A8"></div>
+<div class="color" id="hex8FE789"></div>
+<div class="color" id="hex72E769"></div>
+<div class="color" id="hex55E74A"></div>
+<div class="color" id="hex38E72B"></div>
+<div class="color" id="hex1BE70C"></div><br>
+<div class="color" id="hexB3CDB1"></div>
+<div class="color" id="hex99CD95"></div>
+<div class="color" id="hex7FCD79"></div>
+<div class="color" id="hex65CD5E"></div>
+<div class="color" id="hex4BCD42"></div>
+<div class="color" id="hex32CD26"></div>
+<div class="color" id="hex18CD0A"></div><br>
+<div class="color" id="hex9BB199"></div>
+<div class="color" id="hex84B181"></div>
+<div class="color" id="hex6EB169"></div>
+<div class="color" id="hex58B151"></div>
+<div class="color" id="hex41B139"></div>
+<div class="color" id="hex2BB121"></div>
+<div class="color" id="hex14B109"></div><br>
+<div class="color" id="hex80937F"></div>
+<div class="color" id="hex6E936B"></div>
+<div class="color" id="hex5B9357"></div>
+<div class="color" id="hex499343"></div>
+<div class="color" id="hex36932F"></div>
+<div class="color" id="hex24931B"></div>
+<div class="color" id="hex119307"></div><br>
+<div class="color" id="hex637162"></div>
+<div class="color" id="hex547152"></div>
+<div class="color" id="hex467143"></div>
+<div class="color" id="hex387134"></div>
+<div class="color" id="hex2A7124"></div>
+<div class="color" id="hex1B7115"></div>
+<div class="color" id="hex0D7106"></div><br>
+<div class="color" id="hex3F483E"></div>
+<div class="color" id="hex364834"></div>
+<div class="color" id="hex2D482B"></div>
+<div class="color" id="hex244821"></div>
+<div class="color" id="hex1A4817"></div>
+<div class="color" id="hex11480D"></div>
+<div class="color" id="hex084804"></div>
+
+</div><div class="colorcontainer">
+<div class="colorinitial" id="hex60BFBF"></div>
+
+<div class="color" id="hexDCFFFF"></div>
+<div class="color" id="hexBAFFFF"></div>
+<div class="color" id="hex97FFFF"></div>
+<div class="color" id="hex75FFFF"></div>
+<div class="color" id="hex52FFFF"></div>
+<div class="color" id="hex2FFFFF"></div>
+<div class="color" id="hex0DFFFF"></div><br>
+<div class="color" id="hexC7E7E7"></div>
+<div class="color" id="hexA8E7E7"></div>
+<div class="color" id="hex89E7E7"></div>
+<div class="color" id="hex69E7E7"></div>
+<div class="color" id="hex4AE7E7"></div>
+<div class="color" id="hex2BE7E7"></div>
+<div class="color" id="hex0CE7E7"></div><br>
+<div class="color" id="hexB1CDCD"></div>
+<div class="color" id="hex95CDCD"></div>
+<div class="color" id="hex79CDCD"></div>
+<div class="color" id="hex5ECDCD"></div>
+<div class="color" id="hex42CDCD"></div>
+<div class="color" id="hex26CDCD"></div>
+<div class="color" id="hex0ACDCD"></div><br>
+<div class="color" id="hex99B1B1"></div>
+<div class="color" id="hex81B1B1"></div>
+<div class="color" id="hex69B1B1"></div>
+<div class="color" id="hex51B1B1"></div>
+<div class="color" id="hex39B1B1"></div>
+<div class="color" id="hex21B1B1"></div>
+<div class="color" id="hex09B1B1"></div><br>
+<div class="color" id="hex7F9393"></div>
+<div class="color" id="hex6B9393"></div>
+<div class="color" id="hex579393"></div>
+<div class="color" id="hex439393"></div>
+<div class="color" id="hex2F9393"></div>
+<div class="color" id="hex1B9393"></div>
+<div class="color" id="hex079393"></div><br>
+<div class="color" id="hex627171"></div>
+<div class="color" id="hex527171"></div>
+<div class="color" id="hex437171"></div>
+<div class="color" id="hex347171"></div>
+<div class="color" id="hex247171"></div>
+<div class="color" id="hex157171"></div>
+<div class="color" id="hex067171"></div><br>
+<div class="color" id="hex3E4848"></div>
+<div class="color" id="hex344848"></div>
+<div class="color" id="hex2B4848"></div>
+<div class="color" id="hex214848"></div>
+<div class="color" id="hex174848"></div>
+<div class="color" id="hex0D4848"></div>
+<div class="color" id="hex044848"></div>
+
+</div><div class="colorcontainer">
+<div class="colorinitial" id="hex75B1E9"></div>
+
+<div class="color" id="hexDCEEFF"></div>
+<div class="color" id="hexBADDFF"></div>
+<div class="color" id="hex97CCFF"></div>
+<div class="color" id="hex75BBFF"></div>
+<div class="color" id="hex52AAFF"></div>
+<div class="color" id="hex2F99FF"></div>
+<div class="color" id="hex0D88FF"></div><br>
+<div class="color" id="hexC7D7E7"></div>
+<div class="color" id="hexA8C8E7"></div>
+<div class="color" id="hex89B9E7"></div>
+<div class="color" id="hex69A9E7"></div>
+<div class="color" id="hex4A9AE7"></div>
+<div class="color" id="hex2B8AE7"></div>
+<div class="color" id="hex0C7BE7"></div><br>
+<div class="color" id="hexB1BFCD"></div>
+<div class="color" id="hex95B2CD"></div>
+<div class="color" id="hex79A4CD"></div>
+<div class="color" id="hex5E96CD"></div>
+<div class="color" id="hex4289CD"></div>
+<div class="color" id="hex267BCD"></div>
+<div class="color" id="hex0A6DCD"></div><br>
+<div class="color" id="hex99A5B1"></div>
+<div class="color" id="hex819AB1"></div>
+<div class="color" id="hex698EB1"></div>
+<div class="color" id="hex5182B1"></div>
+<div class="color" id="hex3976B1"></div>
+<div class="color" id="hex216AB1"></div>
+<div class="color" id="hex095FB1"></div><br>
+<div class="color" id="hex7F8993"></div>
+<div class="color" id="hex6B7F93"></div>
+<div class="color" id="hex577693"></div>
+<div class="color" id="hex436C93"></div>
+<div class="color" id="hex2F6293"></div>
+<div class="color" id="hex1B5893"></div>
+<div class="color" id="hex074E93"></div><br>
+<div class="color" id="hex626971"></div>
+<div class="color" id="hex526271"></div>
+<div class="color" id="hex435A71"></div>
+<div class="color" id="hex345371"></div>
+<div class="color" id="hex244B71"></div>
+<div class="color" id="hex154471"></div>
+<div class="color" id="hex063C71"></div><br>
+<div class="color" id="hex3E4348"></div>
+<div class="color" id="hex343E48"></div>
+<div class="color" id="hex2B3A48"></div>
+<div class="color" id="hex213548"></div>
+<div class="color" id="hex173048"></div>
+<div class="color" id="hex0D2B48"></div>
+<div class="color" id="hex042648"></div>
+
+</div><div class="colorcontainer">
+<div class="colorinitial" id="hex6C76F0"></div>
+
+<div class="color" id="hexDCDFFF"></div>
+<div class="color" id="hexBABFFF"></div>
+<div class="color" id="hex979FFF"></div>
+<div class="color" id="hex757FFF"></div>
+<div class="color" id="hex525FFF"></div>
+<div class="color" id="hex2F3FFF"></div>
+<div class="color" id="hex0D1FFF"></div><br>
+<div class="color" id="hexC7CAE7"></div>
+<div class="color" id="hexA8ADE7"></div>
+<div class="color" id="hex8990E7"></div>
+<div class="color" id="hex6973E7"></div>
+<div class="color" id="hex4A56E7"></div>
+<div class="color" id="hex2B39E7"></div>
+<div class="color" id="hex0C1CE7"></div><br>
+<div class="color" id="hexB1B3CD"></div>
+<div class="color" id="hex959ACD"></div>
+<div class="color" id="hex7980CD"></div>
+<div class="color" id="hex5E66CD"></div>
+<div class="color" id="hex424CCD"></div>
+<div class="color" id="hex2633CD"></div>
+<div class="color" id="hex0A19CD"></div><br>
+<div class="color" id="hex999BB1"></div>
+<div class="color" id="hex8185B1"></div>
+<div class="color" id="hex696FB1"></div>
+<div class="color" id="hex5158B1"></div>
+<div class="color" id="hex3942B1"></div>
+<div class="color" id="hex212CB1"></div>
+<div class="color" id="hex0916B1"></div><br>
+<div class="color" id="hex7F8193"></div>
+<div class="color" id="hex6B6E93"></div>
+<div class="color" id="hex575C93"></div>
+<div class="color" id="hex434993"></div>
+<div class="color" id="hex2F3793"></div>
+<div class="color" id="hex1B2493"></div>
+<div class="color" id="hex071293"></div><br>
+<div class="color" id="hex626371"></div>
+<div class="color" id="hex525571"></div>
+<div class="color" id="hex434671"></div>
+<div class="color" id="hex343871"></div>
+<div class="color" id="hex242A71"></div>
+<div class="color" id="hex151C71"></div>
+<div class="color" id="hex060E71"></div><br>
+<div class="color" id="hex3E3F48"></div>
+<div class="color" id="hex343648"></div>
+<div class="color" id="hex2B2D48"></div>
+<div class="color" id="hex212448"></div>
+<div class="color" id="hex171B48"></div>
+<div class="color" id="hex0D1248"></div>
+<div class="color" id="hex040948"></div>
+
+</div><div class="colorcontainer">
+<div class="colorinitial" id="hex8656E8"></div>
+
+<div class="color" id="hexE8DCFF"></div>
+<div class="color" id="hexD0BAFF"></div>
+<div class="color" id="hexB997FF"></div>
+<div class="color" id="hexA275FF"></div>
+<div class="color" id="hex8A52FF"></div>
+<div class="color" id="hex732FFF"></div>
+<div class="color" id="hex5C0DFF"></div><br>
+<div class="color" id="hexD2C7E7"></div>
+<div class="color" id="hexBDA8E7"></div>
+<div class="color" id="hexA789E7"></div>
+<div class="color" id="hex9269E7"></div>
+<div class="color" id="hex7D4AE7"></div>
+<div class="color" id="hex682BE7"></div>
+<div class="color" id="hex530CE7"></div><br>
+<div class="color" id="hexBAB1CD"></div>
+<div class="color" id="hexA795CD"></div>
+<div class="color" id="hex9579CD"></div>
+<div class="color" id="hex825ECD"></div>
+<div class="color" id="hex6F42CD"></div>
+<div class="color" id="hex5D26CD"></div>
+<div class="color" id="hex4A0ACD"></div><br>
+<div class="color" id="hexA199B1"></div>
+<div class="color" id="hex9181B1"></div>
+<div class="color" id="hex8169B1"></div>
+<div class="color" id="hex7051B1"></div>
+<div class="color" id="hex6039B1"></div>
+<div class="color" id="hex5021B1"></div>
+<div class="color" id="hex4009B1"></div><br>
+<div class="color" id="hex867F93"></div>
+<div class="color" id="hex786B93"></div>
+<div class="color" id="hex6B5793"></div>
+<div class="color" id="hex5D4393"></div>
+<div class="color" id="hex502F93"></div>
+<div class="color" id="hex421B93"></div>
+<div class="color" id="hex350793"></div><br>
+<div class="color" id="hex676271"></div>
+<div class="color" id="hex5C5271"></div>
+<div class="color" id="hex524371"></div>
+<div class="color" id="hex483471"></div>
+<div class="color" id="hex3D2471"></div>
+<div class="color" id="hex331571"></div>
+<div class="color" id="hex290671"></div><br>
+<div class="color" id="hex413E48"></div>
+<div class="color" id="hex3B3448"></div>
+<div class="color" id="hex342B48"></div>
+<div class="color" id="hex2E2148"></div>
+<div class="color" id="hex271748"></div>
+<div class="color" id="hex210D48"></div>
+<div class="color" id="hex1A0448"></div>
+
+</div><div class="colorcontainer">
+<div class="colorinitial" id="hexAD56DA"></div>
+
+<div class="color" id="hexF3DCFF"></div>
+<div class="color" id="hexE7BAFF"></div>
+<div class="color" id="hexDB97FF"></div>
+<div class="color" id="hexCF75FF"></div>
+<div class="color" id="hexC352FF"></div>
+<div class="color" id="hexB72FFF"></div>
+<div class="color" id="hexAB0DFF"></div><br>
+<div class="color" id="hexDCC7E7"></div>
+<div class="color" id="hexD1A8E7"></div>
+<div class="color" id="hexC689E7"></div>
+<div class="color" id="hexBB69E7"></div>
+<div class="color" id="hexB14AE7"></div>
+<div class="color" id="hexA62BE7"></div>
+<div class="color" id="hex9B0CE7"></div><br>
+<div class="color" id="hexC3B1CD"></div>
+<div class="color" id="hexBA95CD"></div>
+<div class="color" id="hexB079CD"></div>
+<div class="color" id="hexA65ECD"></div>
+<div class="color" id="hex9D42CD"></div>
+<div class="color" id="hex9326CD"></div>
+<div class="color" id="hex8A0ACD"></div><br>
+<div class="color" id="hexA999B1"></div>
+<div class="color" id="hexA181B1"></div>
+<div class="color" id="hex9869B1"></div>
+<div class="color" id="hex9051B1"></div>
+<div class="color" id="hex8839B1"></div>
+<div class="color" id="hex7F21B1"></div>
+<div class="color" id="hex7709B1"></div><br>
+<div class="color" id="hex8C7F93"></div>
+<div class="color" id="hex856B93"></div>
+<div class="color" id="hex7E5793"></div>
+<div class="color" id="hex774393"></div>
+<div class="color" id="hex712F93"></div>
+<div class="color" id="hex6A1B93"></div>
+<div class="color" id="hex630793"></div><br>
+<div class="color" id="hex6C6271"></div>
+<div class="color" id="hex665271"></div>
+<div class="color" id="hex614371"></div>
+<div class="color" id="hex5C3471"></div>
+<div class="color" id="hex562471"></div>
+<div class="color" id="hex511571"></div>
+<div class="color" id="hex4C0671"></div><br>
+<div class="color" id="hex453E48"></div>
+<div class="color" id="hex413448"></div>
+<div class="color" id="hex3E2B48"></div>
+<div class="color" id="hex3A2148"></div>
+<div class="color" id="hex371748"></div>
+<div class="color" id="hex340D48"></div>
+<div class="color" id="hex300448"></div>
+
+</div><div class="colorcontainer">
+<div class="colorinitial" id="hexEE71E1"></div>
+
+<div class="color" id="hexFFDCFB"></div>
+<div class="color" id="hexFFBAF8"></div>
+<div class="color" id="hexFF97F4"></div>
+<div class="color" id="hexFF75F1"></div>
+<div class="color" id="hexFF52ED"></div>
+<div class="color" id="hexFF2FE9"></div>
+<div class="color" id="hexFF0DE6"></div><br>
+<div class="color" id="hexE7C7E3"></div>
+<div class="color" id="hexE7A8E0"></div>
+<div class="color" id="hexE789DD"></div>
+<div class="color" id="hexE769DA"></div>
+<div class="color" id="hexE74AD6"></div>
+<div class="color" id="hexE72BD3"></div>
+<div class="color" id="hexE70CD0"></div><br>
+<div class="color" id="hexCDB1CA"></div>
+<div class="color" id="hexCD95C7"></div>
+<div class="color" id="hexCD79C4"></div>
+<div class="color" id="hexCD5EC1"></div>
+<div class="color" id="hexCD42BE"></div>
+<div class="color" id="hexCD26BC"></div>
+<div class="color" id="hexCD0AB9"></div><br>
+<div class="color" id="hexB199AF"></div>
+<div class="color" id="hexB181AC"></div>
+<div class="color" id="hexB169AA"></div>
+<div class="color" id="hexB151A7"></div>
+<div class="color" id="hexB139A5"></div>
+<div class="color" id="hexB121A2"></div>
+<div class="color" id="hexB109A0"></div><br>
+<div class="color" id="hex937F91"></div>
+<div class="color" id="hex936B8F"></div>
+<div class="color" id="hex93578D"></div>
+<div class="color" id="hex93438B"></div>
+<div class="color" id="hex932F89"></div>
+<div class="color" id="hex931B87"></div>
+<div class="color" id="hex930784"></div><br>
+<div class="color" id="hex71626F"></div>
+<div class="color" id="hex71526E"></div>
+<div class="color" id="hex71436C"></div>
+<div class="color" id="hex71346B"></div>
+<div class="color" id="hex712469"></div>
+<div class="color" id="hex711567"></div>
+<div class="color" id="hex710666"></div><br>
+<div class="color" id="hex483E47"></div>
+<div class="color" id="hex483446"></div>
+<div class="color" id="hex482B45"></div>
+<div class="color" id="hex482144"></div>
+<div class="color" id="hex481743"></div>
+<div class="color" id="hex480D42"></div>
+<div class="color" id="hex480441"></div>
+
+</div><div class="colorcontainer">
+<div class="colorinitial" id="hexEE6096"></div>
+
+<div class="color" id="hexFFDCEA"></div>
+<div class="color" id="hexFFBAD4"></div>
+<div class="color" id="hexFF97BF"></div>
+<div class="color" id="hexFF75A9"></div>
+<div class="color" id="hexFF5294"></div>
+<div class="color" id="hexFF2F7E"></div>
+<div class="color" id="hexFF0D69"></div><br>
+<div class="color" id="hexE7C7D3"></div>
+<div class="color" id="hexE7A8C0"></div>
+<div class="color" id="hexE789AC"></div>
+<div class="color" id="hexE76999"></div>
+<div class="color" id="hexE74A86"></div>
+<div class="color" id="hexE72B72"></div>
+<div class="color" id="hexE70C5F"></div><br>
+<div class="color" id="hexCDB1BC"></div>
+<div class="color" id="hexCD95AA"></div>
+<div class="color" id="hexCD7999"></div>
+<div class="color" id="hexCD5E88"></div>
+<div class="color" id="hexCD4277"></div>
+<div class="color" id="hexCD2666"></div>
+<div class="color" id="hexCD0A54"></div><br>
+<div class="color" id="hexB199A2"></div>
+<div class="color" id="hexB18193"></div>
+<div class="color" id="hexB16985"></div>
+<div class="color" id="hexB15176"></div>
+<div class="color" id="hexB13967"></div>
+<div class="color" id="hexB12158"></div>
+<div class="color" id="hexB10949"></div><br>
+<div class="color" id="hex937F87"></div>
+<div class="color" id="hex936B7A"></div>
+<div class="color" id="hex93576E"></div>
+<div class="color" id="hex934362"></div>
+<div class="color" id="hex932F55"></div>
+<div class="color" id="hex931B49"></div>
+<div class="color" id="hex93073C"></div><br>
+<div class="color" id="hex716267"></div>
+<div class="color" id="hex71525E"></div>
+<div class="color" id="hex714354"></div>
+<div class="color" id="hex71344B"></div>
+<div class="color" id="hex712441"></div>
+<div class="color" id="hex711538"></div>
+<div class="color" id="hex71062E"></div><br>
+<div class="color" id="hex483E42"></div>
+<div class="color" id="hex48343C"></div>
+<div class="color" id="hex482B36"></div>
+<div class="color" id="hex482130"></div>
+<div class="color" id="hex48172A"></div>
+<div class="color" id="hex480D24"></div>
+<div class="color" id="hex48041E"></div>
+
+</div>
+
+<br>
+Select the color you want to match. A green border around the color is an exact match, a yellow border is the closest match.<br>
+Manually enter a hex, or select a color:<br>
+<input id="hexinput" name="hexinput" type="text" style="width: 60px;" onchange="colorinput2()">
+<input type="color" id="selectcolor" name="selectcolor" value="#6ECC66" onchange="colorinput1()" style="width: 60px;"><br>
+
+<br>Selected color on the left, closest match on the right:<br>
+<div class="showcolorcontainer"><div class="showcolor" id="showcolorpicked"></div><div class="showcolor" id="showcolorclosest"></div></div>
+
+<br><br>Color matching code edited from <a href="https://nesin.io/blog/find-closest-color-javascript">nesin.io</a>.
+
+</div></div>
+
+</body>
+
+<script>
+  let prevhex = 'hex000000';
+  let prevhex2 = 'hex050505';
+  
+  //oh my god
+  const colorArray = ["#000000", "#252525", "#4A4A4A", "#707070", "#959595", "#BABABA", "#DFDFDF", "#050505", "#2A2A2A", "#505050", "#757575", "#9A9A9A", "#BFBFBF", "#E4E4E4", "#0B0B0B", "#303030", "#555555", "#7A7A7A", "#9F9F9F", "#C5C5C5", "#EAEAEA", "#101010", "#353535", "#5A5A5A", "#808080", "#A5A5A5", "#CACACA", "#EFEFEF", "#151515", "#3A3A3A", "#606060", "#858585", "#AAAAAA", "#CFCFCF", "#F4F4F4", "#1B1B1B", "#404040", "#656565", "#8A8A8A", "#AFAFAF", "#D4D4D4", "#FAFAFA", "#202020", "#454545", "#6A6A6A", "#8F8F8F", "#B5B5B5", "#DADADA", "#FFFFFF", "#FFDCE3", "#FFBAC7", "#FF97AA", "#FF758E", "#FF5272", "#FF2F56", "#FF0D39", "#E7C7CD", "#E7A8B4", "#E7899A", "#E76980", "#E74A67", "#E72B4D", "#E70C34", "#CDB1B6", "#CD95A0", "#CD7989", "#CD5E72", "#CD425B", "#CD2645", "#CD0A2E", "#B1999E", "#B1818A", "#B16976", "#B15163", "#B1394F", "#B1213B", "#B10928", "#937F83", "#936B72", "#935762", "#934352", "#932F42", "#931B31", "#930721", "#716264", "#715258", "#71434B", "#71343F", "#712432", "#711526", "#710619", "#483E40", "#483438", "#482B30", "#482128", "#481720", "#480D18", "#480410", "#FFDFDC", "#FFBFBA", "#FF9E97", "#FF7E75", "#FF5E52", "#FF3E2F", "#FF1E0D", "#E7CAC7", "#E7ACA8", "#E78F89", "#E77269", "#E7554A", "#E7382B", "#E71B0C", "#CDB3B1", "#CD9995", "#CD7F79", "#CD655E", "#CD4C42", "#CD3226", "#CD180A", "#B19B99", "#B18581", "#B16E69", "#B15851", "#B14139", "#B12B21", "#B11509", "#93807F", "#936E6B", "#935B57", "#934943", "#93362F", "#93241B", "#931107", "#716362", "#715452", "#714643", "#713834", "#712A24", "#711B15", "#710D06", "#483F3E", "#483634", "#482D2B", "#482421", "#481B17", "#48110D", "#480804", "#FFE6DC", "#FFCDBA", "#FFB497", "#FF9B75", "#FF8252", "#FF682F", "#FF4F0D", "#E7D0C7", "#E7B9A8", "#E7A389", "#E78C69", "#E7754A", "#E75E2B", "#E7480C", "#CDB9B1", "#CDA595", "#CD9079", "#CD7C5E", "#CD6842", "#CD5426", "#CD400A", "#B1A099", "#B18E81", "#B17D69", "#B16B51", "#B15A39", "#B14921", "#B13709", "#93857F", "#93766B", "#936857", "#935943", "#934B2F", "#933C1B", "#932E07", "#716662", "#715B52", "#715043", "#714434", "#713924", "#712E15", "#712306", "#48413E", "#483A34", "#48332B", "#482C21", "#482517", "#481D0D", "#481604", "#FFF4DC", "#FFE9BA", "#FFDE97", "#FFD375", "#FFC852", "#FFBC2F", "#FFB10D", "#E7DDC7", "#E7D3A8", "#E7C989", "#E7BF69", "#E7B54A", "#E7AA2B", "#E7A00C", "#CDC4B1", "#CDBB95", "#CDB279", "#CDA95E", "#CDA042", "#CD9726", "#CD8F0A", "#B1AA99", "#B1A281", "#B19A69", "#B19251", "#B18B39", "#B18321", "#B17B09", "#938D7F", "#93866B", "#938057", "#937943", "#93732F", "#936D1B", "#936607", "#716C62", "#716752", "#716243", "#715D34", "#715824", "#715315", "#714F06", "#48453E", "#484234", "#483F2B", "#483B21", "#483817", "#48350D", "#483204", "#FFFCDC", "#FFFABA", "#FFF797", "#FFF575", "#FFF252", "#FFEF2F", "#FFED0D", "#E7E4C7", "#E7E2A8", "#E7E089", "#E7DD69", "#E7DB4A", "#E7D92B", "#E7D60C", "#CDCBB1", "#CDC995", "#CDC779", "#CDC55E", "#CDC242", "#CDC026", "#CDBE0A", "#B1AF99", "#B1AE81", "#B1AC69", "#B1AA51", "#B1A839", "#B1A621", "#B1A509", "#93927F", "#93906B", "#938F57", "#938D43", "#938C2F", "#938A1B", "#938907", "#716F52", "#716D43", "#716C34", "#716B24", "#716A15", "#716A15", "#716906", "#484734", "#48462B", "#484521", "#484417", "#48440D", "#48440D", "#484304", "#F1FFDC", "#E2FFBA", "#D4FF97", "#C6FF75", "#B8FF52", "#A9FF2F", "#9BFF0D", "#DAE7C7", "#CDE7A8", "#C0E789", "#B3E769", "#A6E74A", "#99E72B", "#8CE70C", "#C1CDB1", "#B6CD95", "#AACD79", "#9FCD5E", "#94CD42", "#88CD26", "#7DCD0A", "#A7B199", "#9DB181", "#93B169", "#8AB151", "#80B139", "#76B121", "#6CB109", "#8B937F", "#83936B", "#7A9357", "#729343", "#6A932F", "#62931B", "#599307", "#6B7162", "#647152", "#5E7143", "#587134", "#517124", "#4B7115", "#457106", "#44483E", "#404834", "#3C482B", "#384821", "#344817", "#30480D", "#2C4804", "#DFFFDC", "#BFFFBA", "#9EFF97", "#7EFF75", "#5EFF52", "#3EFF2F", "#1DFF0D", "#CAE7C7", "#ACE7A8", "#8FE789", "#72E769", "#55E74A", "#38E72B", "#1BE70C", "#B3CDB1", "#99CD95", "#7FCD79", "#65CD5E", "#4BCD42", "#32CD26", "#18CD0A", "#9BB199", "#84B181", "#6EB169", "#58B151", "#41B139", "#2BB121", "#14B109", "#80937F", "#6E936B", "#5B9357", "#499343", "#36932F", "#24931B", "#119307", "#637162", "#547152", "#467143", "#387134", "#2A7124", "#1B7115", "#0D7106", "#3F483E", "#364834", "#2D482B", "#244821", "#1A4817", "#11480D", "#084804", "#DCFFFF", "#BAFFFF", "#97FFFF", "#75FFFF", "#52FFFF", "#2FFFFF", "#0DFFFF", "#C7E7E7", "#A8E7E7", "#89E7E7", "#69E7E7", "#4AE7E7", "#2BE7E7", "#0CE7E7", "#B1CDCD", "#95CDCD", "#79CDCD", "#5ECDCD", "#42CDCD", "#26CDCD", "#0ACDCD", "#99B1B1", "#81B1B1", "#69B1B1", "#51B1B1", "#39B1B1", "#21B1B1", "#09B1B1", "#7F9393", "#6B9393", "#579393", "#439393", "#2F9393", "#1B9393", "#079393", "#627171", "#527171", "#437171", "#347171", "#247171", "#157171", "#067171", "#3E4848", "#344848", "#2B4848", "#214848", "#174848", "#0D4848", "#044848", "#DCEEFF", "#BADDFF", "#97CCFF", "#75BBFF", "#52AAFF", "#2F99FF", "#0D88FF", "#C7D7E7", "#A8C8E7", "#89B9E7", "#69A9E7", "#4A9AE7", "#2B8AE7", "#0C7BE7", "#B1BFCD", "#95B2CD", "#79A4CD", "#5E96CD", "#4289CD", "#267BCD", "#0A6DCD", "#99A5B1", "#819AB1", "#698EB1", "#5182B1", "#3976B1", "#216AB1", "#095FB1", "#7F8993", "#6B7F93", "#577693", "#436C93", "#2F6293", "#1B5893", "#074E93", "#626971", "#526271", "#435A71", "#345371", "#244B71", "#154471", "#063C71", "#3E4348", "#343E48", "#2B3A48", "#213548", "#173048", "#0D2B48", "#042648", "#DCDFFF", "#BABFFF", "#979FFF", "#757FFF", "#525FFF", "#2F3FFF", "#0D1FFF", "#C7CAE7", "#A8ADE7", "#8990E7", "#6973E7", "#4A56E7", "#2B39E7", "#0C1CE7", "#B1B3CD", "#959ACD", "#7980CD", "#5E66CD", "#424CCD", "#2633CD", "#0A19CD", "#999BB1", "#8185B1", "#696FB1", "#5158B1", "#3942B1", "#212CB1", "#0916B1", "#7F8193", "#6B6E93", "#575C93", "#434993", "#2F3793", "#1B2493", "#071293", "#626371", "#525571", "#434671", "#343871", "#242A71", "#151C71", "#060E71", "#3E3F48", "#343648", "#2B2D48", "#212448", "#171B48", "#0D1248", "#040948", "#E8DCFF", "#D0BAFF", "#B997FF", "#A275FF", "#8A52FF", "#732FFF", "#5C0DFF", "#D2C7E7", "#BDA8E7", "#A789E7", "#9269E7", "#7D4AE7", "#682BE7", "#530CE7", "#BAB1CD", "#A795CD", "#9579CD", "#825ECD", "#6F42CD", "#5D26CD", "#4A0ACD", "#A199B1", "#9181B1", "#8169B1", "#7051B1", "#6039B1", "#5021B1", "#4009B1", "#867F93", "#786B93", "#6B5793", "#5D4393", "#502F93", "#421B93", "#350793", "#676271", "#5C5271", "#524371", "#483471", "#3D2471", "#331571", "#290671", "#413E48", "#3B3448", "#342B48", "#2E2148", "#271748", "#210D48", "#1A0448", "#F3DCFF", "#E7BAFF", "#DB97FF", "#CF75FF", "#C352FF", "#B72FFF", "#AB0DFF", "#DCC7E7", "#D1A8E7", "#C689E7", "#BB69E7", "#B14AE7", "#A62BE7", "#9B0CE7", "#C3B1CD", "#BA95CD", "#B079CD", "#A65ECD", "#9D42CD", "#9326CD", "#8A0ACD", "#A999B1", "#A181B1", "#9869B1", "#9051B1", "#8839B1", "#7F21B1", "#7709B1", "#8C7F93", "#856B93", "#7E5793", "#774393", "#712F93", "#6A1B93", "#630793", "#6C6271", "#665271", "#614371", "#5C3471", "#562471", "#511571", "#4C0671", "#453E48", "#413448", "#3E2B48", "#3A2148", "#371748", "#340D48", "#300448", "#FFDCFB", "#FFBAF8", "#FF97F4", "#FF75F1", "#FF52ED", "#FF2FE9", "#FF0DE6", "#E7C7E3", "#E7A8E0", "#E789DD", "#E769DA", "#E74AD6", "#E72BD3", "#E70CD0", "#CDB1CA", "#CD95C7", "#CD79C4", "#CD5EC1", "#CD42BE", "#CD26BC", "#CD0AB9", "#B199AF", "#B181AC", "#B169AA", "#B151A7", "#B139A5", "#B121A2", "#B109A0", "#937F91", "#936B8F", "#93578D", "#93438B", "#932F89", "#931B87", "#930784", "#71626F", "#71526E", "#71436C", "#71346B", "#712469", "#711567", "#710666", "#483E47", "#483446", "#482B45", "#482144", "#481743", "#480D42", "#480441", "#FFDCEA", "#FFBAD4", "#FF97BF", "#FF75A9", "#FF5294", "#FF2F7E", "#FF0D69", "#E7C7D3", "#E7A8C0", "#E789AC", "#E76999", "#E74A86", "#E72B72", "#E70C5F", "#CDB1BC", "#CD95AA", "#CD7999", "#CD5E88", "#CD4277", "#CD2666", "#CD0A54", "#B199A2", "#B18193", "#B16985", "#B15176", "#B13967", "#B12158", "#B10949", "#937F87", "#936B7A", "#93576E", "#934362", "#932F55", "#931B49", "#93073C", "#716267", "#71525E", "#714354", "#71344B", "#712441", "#711538", "#71062E", "#483E42", "#48343C", "#482B36", "#482130", "#48172A", "#480D24", "#48041E", "#A6A6A6", "#CB425B", "#ED4D41", "#EB7040", "#F8BF43", "#F2E76D", "#ACD96D", "#6ECC66", "#60BFBF", "#75B1E9", "#6C76F0", "#8656E8", "#AD56DA", "#EE71E1", "#EE6096"]
+  
+function colorinput1() {
+  let inputted1 = document.getElementById("selectcolor").value;
+  inputted1 = inputted1.toUpperCase();
+  document.getElementById("hexinput").value = inputted1;
+  colorinput2()
+}
+  
+function colorinput2() {
+  let inputted = document.getElementById("hexinput").value;
+  inputted = inputted.toUpperCase();
+  let findhex = inputted.replace("#", "");
+  findhex = 'hex' + findhex;
+  //for the script i just copied to find closest color match
+  closestColor = colorfinder(inputted, colorArray);
+  hexclosestColor = 'hex' + closestColor.replace("#", "")
+  
+  //sets colors on the showcolors
+  let showcolor = inputted.replace("#", ""); //this is just covering cases if it starts with a hex
+  showcolor = '#' + showcolor //and then puts it back anyways.
+  document.getElementById('showcolorpicked').style.backgroundColor = showcolor
+  document.getElementById('showcolorclosest').style.backgroundColor = closestColor
+  
+  //removes existing highlights
+  document.getElementById(prevhex2).style.border = "1px solid #383838";
+  document.getElementById(prevhex2).style.outline = "0px solid transparent";
+  prevhex2 = hexclosestColor;
+  document.getElementById(prevhex).style.border = "1px solid #383838";
+  document.getElementById(prevhex).style.outline = "0px solid transparent";
+  
+  //sets closest color first
+  document.getElementById(hexclosestColor).style.border = "1px solid #ffff00";
+  document.getElementById(hexclosestColor).style.outline = "2px solid #383838";
+  //overwrites if its an exact match
+  document.getElementById(findhex).style.border = "1px solid #00ff00";
+  document.getElementById(findhex).style.outline = "2px solid #383838";
+  
+  //updates highlights
+  prevhex = findhex;
+}
+
+/* this was from here https://nesin.io/blog/find-closest-color-javascript i had to edit it a lot. */
+/**
+ * Converts a hex color code to an RGB color object.
+ * @param {string} hex - The hex color code to convert.
+ * @returns {object} An object with the red, green, and blue components of the RGB color.
+ */
+function hexToRGB(hex) {
+  // Remove the # character from the beginning of the hex code
+  hex = hex.replace("#", "");
+  
+  // Convert the red, green, and blue components from hex to decimal
+  // you can substring instead of slice as well
+  const r = parseInt(hex.slice(0, 2), 16);
+  const g = parseInt(hex.slice(2, 4), 16);
+  const b = parseInt(hex.slice(4, 6), 16);
+  
+  // Return the RGB value as an object with properties r, g, and b
+  return [r, g, b];
+}
+
+
+/**
+ * Finds the color in the given array that is closest to the target color.
+ * @param {string} targetColor - The target color in hex string format (#RRGGBB).
+ * @param {string[]} colorArray - An array of colors to compare against the target color.
+ * @returns {string} The color in the array that is closest to the target color.
+ */
+function colorfinder(targetColor, colorArray){
+  //they literally forgot to properly set the closest distance (it was null initially) oh my god of course its not going to work
+  let closestDistance = 10000;
+  let closestColor = null;
+  
+  // Convert target color from hex string to RGB values
+  let [r1, g1, b1] = hexToRGB(targetColor);
+  
+  // Loop through the array of colors
+  colorArray.forEach((color) => {
+    // Convert current color from hex string to RGB values
+    let [r2, g2, b2] = hexToRGB(color);
+    
+    // Calculate the Euclidean distance between the target color and current color
+    let distance = Math.sqrt(
+      (r1 - r2) ** 2 +
+      (g1 - g2) ** 2 +
+      (b1 - b2) ** 2
+    );
+    
+    // Update closest color and distance if the current distance is smaller than the closest distance
+    if (distance < closestDistance) {
+      closestDistance = distance;
+      closestColor = color;
+    }
+  });
+  
+  return closestColor;
+}
+
+</script>
+</html>

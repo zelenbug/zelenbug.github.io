@@ -1,0 +1,621 @@
+<!DOCTYPE html><html><head>
+<style>
+.texts {font-family: trebuchet ms, sans-serif;}
+
+.red {                  background: red; }
+.crimson {              background: crimson; }
+.firebrick {            background: firebrick; color: white; }
+.darkred {              background: darkred; color: white; }
+.maroon {               background: maroon; color: white; }
+.indianred {            background: indianred; }
+.orangered {            background: orangered; }
+.coral {                background: coral; }
+.darkorange {           background: darkorange; }
+.orange {               background: orange; }
+.gold {                 background: gold; }
+.yellow {               background: yellow; }
+.lemonchiffon {         background: lemonchiffon; }
+.lightgoldenrodyellow { background: lightgoldenrodyellow; }
+.lightyellow {          background: lightyellow; }
+.palegoldenrod {        background: palegoldenrod; }
+.khaki {                background: khaki; }
+.darkkhaki {            background: darkkhaki; }
+.goldenrod {            background: goldenrod; }
+.darkgoldenrod {        background: darkgoldenrod; }
+.olive {                background: olive; }
+.olivedrab {            background: olivedrab; }
+.darkolivegreen {       background: darkolivegreen; color: white; }
+.darkgreen {            background: darkgreen; color: white; }
+.green {                background: green; color: white; }
+.forestgreen {          background: forestgreen; color: white; }
+.seagreen {             background: seagreen; color: white; }
+.lightseagreen {        background: lightseagreen; }
+.mediumseagreen {       background: mediumseagreen; }
+.darkseagreen {         background: darkseagreen; }
+.limegreen {            background: limegreen; }
+.yellowgreen {          background: yellowgreen; }
+.lime {                 background: lime; }
+.lawngreen {            background: lawngreen; }
+.chartreuse {           background: chartreuse; }
+.greenyellow {          background: greenyellow; }
+.palegreen {            background: palegreen; }
+.lightgreen {           background: lightgreen; }
+.springgreen {          background: springgreen; }
+.mediumspringgreen {    background: mediumspringgreen; }
+.aquamarine {           background: aquamarine; }
+.paleturquoise {        background: paleturquoise; }
+.lightcyan {            background: lightcyan; }
+.aqua {                 background: aqua; }
+.turquoise {            background: turquoise; }
+.mediumaquamarine {     background: mediumaquamarine; }
+.mediumturquoise {      background: mediumturquoise; }
+.darkturquoise {        background: darkturquoise; }
+.darkcyan {             background: darkcyan; color: white; }
+.teal {                 background: teal; color: white; }
+.cadetblue {            background: cadetblue; }
+.lightsteelblue {       background: lightsteelblue; }
+.skyblue {              background: skyblue; }
+.lightblue {            background: lightblue; }
+.powderblue {           background: powderblue; }
+.lightskyblue {         background: lightskyblue; }
+.deepskyblue {          background: deepskyblue; }
+.cornflowerblue {       background: cornflowerblue; }
+.dodgerblue {           background: dodgerblue; }
+.steelblue {            background: steelblue; }
+.royalblue {            background: royalblue; }
+.blue {                 background: blue; color: white; }
+.mediumblue {           background: mediumblue; color: white; }
+.darkblue {             background: darkblue; color: white; }
+.navy {                 background: navy; color: white; }
+.midnightblue {         background: midnightblue; color: white; }
+.darkslateblue {        background: darkslateblue; color: white; }
+.slateblue {            background: slateblue; }
+.mediumslateblue {      background: mediumslateblue; }
+.lavender {             background: lavender; }
+.thistle {              background: thistle; }
+.plum {                 background: plum; }
+.violet {               background: violet; }
+.orchid {               background: orchid; }
+.mediumpurple {         background: mediumpurple; }
+.mediumorchid {         background: mediumorchid; }
+.darkorchid {           background: darkorchid; color: white; }
+.blueviolet {           background: blueviolet; color: white; }
+.darkviolet {           background: darkviolet; color: white; }
+.rebeccapurple {        background: rebeccapurple; color: white; }
+.indigo {               background: indigo; color: white; }
+.purple {               background: purple; color: white; }
+.darkmagenta {          background: darkmagenta; color: white; }
+.mediumvioletred {      background: mediumvioletred; color: white; }
+.deeppink {             background: deeppink; }
+.fuchsia {              background: fuchsia; }
+.palevioletred {        background: palevioletred; }
+.hotpink {              background: hotpink; }
+.lightpink {            background: lightpink; }
+.pink {                 background: pink; }
+.mistyrose {            background: mistyrose; }
+.lavenderblush {        background: lavenderblush; }
+.white {                background: white; }
+.snow {                 background: snow; }
+.ghostwhite {           background: ghostwhite; }
+.mintcream {            background: mintcream; }
+.azure {                background: azure; }
+.aliceblue {            background: aliceblue; }
+.honeydew {             background: honeydew; }
+.beige {                background: beige; }
+.blanchedalmond {       background: blanchedalmond; }
+.antiquewhite {         background: antiquewhite; }
+.papayawhip {           background: papayawhip; }
+.linen {                background: linen; }
+.cornsilk {             background: cornsilk; }
+.oldlace {              background: oldlace; }
+.seashell {             background: seashell; }
+.floralwhite {          background: floralwhite; }
+.ivory {                background: ivory; }
+.whitesmoke {           background: whitesmoke; }
+.gainsboro {            background: gainsboro; }
+.lightgray {            background: lightgray; }
+.silver {               background: silver; }
+.darkgray {             background: darkgray; }
+.lightslategray {       background: lightslategray; }
+.gray {                 background: gray; }
+.slategray {            background: slategray; }
+.dimgray {              background: dimgray; color: white; }
+.darkslategray {        background: darkslategray; color: white; }
+.black {                background: black; color: white; }
+.saddlebrown {          background: saddlebrown; color: white; }
+.brown {                background: brown; color: white; }
+.sienna {               background: sienna; }
+.chocolate {            background: chocolate; }
+.peru {                 background: peru; }
+.rosybrown {            background: rosybrown; }
+.sandybrown {           background: sandybrown; }
+.tan {                  background: tan; }
+.burlywood {            background: burlywood; }
+.wheat {                background: wheat; }
+.bisque {               background: bisque; }
+.moccasin {             background: moccasin; }
+.navajowhite {          background: navajowhite; }
+.peachpuff {            background: peachpuff; }
+.lightsalmon {          background: lightsalmon; }
+.darksalmon {           background: darksalmon; }
+.salmon {               background: salmon; }
+.lightcoral {           background: lightcoral; }
+.tomato {               background: tomato; }
+
+.colorbox {width: 100px; height: 100px; background-color: #ffffff; border: 1px solid black; display: inline-block}
+
+.containbox {
+border: 1px solid black;
+height: 200px;
+width: 316px;
+padding: 10px;
+}
+
+.main {margin: auto; width: 680px;}
+
+select {display: block; margin: 10px}
+</style>
+
+<script>
+function colorchange1() {
+  let colorchanged = document.getElementById("colorinput1").value;
+  document.getElementById("colorchangeinput1").style.backgroundColor = colorchanged;
+}
+function colorchange2() {
+  let colorchanged = document.getElementById("colorinput2").value;
+  document.getElementById("colorchangeinput2").style.backgroundColor = colorchanged;
+}
+function colorchange3() {
+  let colorchanged = document.getElementById("colorinput3").value;
+  document.getElementById("colorchangeinput3").style.backgroundColor = colorchanged;
+}
+</script>
+
+<title>color selection</title>
+
+</head>
+<body><div class="main"><h1 class="texts">some kinda color selection</h1>
+<div class="texts">yeah i based this on flight rising
+<br><a href="index.html">back to index</a></div><br>
+<table></tr>
+
+<td class="containbox">
+<div class="colorbox" id="colorchangeinput1"></div>
+<div class="colorbox" id="colorchangeinput2"></div>
+<div class="colorbox" id="colorchangeinput3"></div>
+</td>
+
+<td class="containbox">
+
+<select id="colorinput1" oninput="colorchange1()">
+<option value="none"                                              >Select a color...   </option>
+<option value="red"                  class="red"                  >Red                 </option>
+<option value="crimson"              class="crimson"              >Crimson             </option>
+<option value="firebrick"            class="firebrick"            >Firebrick           </option>
+<option value="darkred"              class="darkred"              >DarkRed             </option>
+<option value="maroon"               class="maroon"               >Maroon              </option>
+<option value="indianred"            class="indianred"            >IndianRed           </option>
+<option value="orangered"            class="orangered"            >OrangeRed           </option>
+<option value="coral"                class="coral"                >Coral               </option>
+<option value="darkorange"           class="darkorange"           >DarkOrange          </option>
+<option value="orange"               class="orange"               >Orange              </option>
+<option value="gold"                 class="gold"                 >Gold                </option>
+<option value="yellow"               class="yellow"               >Yellow              </option>
+<option value="lemonchiffon"         class="lemonchiffon"         >LemonChiffon        </option>
+<option value="lightgoldenrodyellow" class="lightgoldenrodyellow" >LightGoldenrodYellow</option>
+<option value="lightyellow"          class="lightyellow"          >LightYellow         </option>
+<option value="palegoldenrod"        class="palegoldenrod"        >PaleGoldenrod       </option>
+<option value="khaki"                class="khaki"                >Khaki               </option>
+<option value="darkkhaki"            class="darkkhaki"            >DarkKhaki           </option>
+<option value="goldenrod"            class="goldenrod"            >Goldenrod           </option>
+<option value="darkgoldenrod"        class="darkgoldenrod"        >DarkGoldenrod       </option>
+<option value="olive"                class="olive"                >Olive               </option>
+<option value="olivedrab"            class="olivedrab"            >OliveDrab           </option>
+<option value="darkolivegreen"       class="darkolivegreen"       >DarkOliveGreen      </option>
+<option value="darkgreen"            class="darkgreen"            >DarkGreen           </option>
+<option value="green"                class="green"                >Green               </option>
+<option value="forestgreen"          class="forestgreen"          >ForestGreen         </option>
+<option value="seagreen"             class="seagreen"             >SeaGreen            </option>
+<option value="lightseagreen"        class="lightseagreen"        >LightSeaGreen       </option>
+<option value="mediumseagreen"       class="mediumseagreen"       >MediumSeaGreen      </option>
+<option value="darkseagreen"         class="darkseagreen"         >DarkSeaGreen        </option>
+<option value="limegreen"            class="limegreen"            >LimeGreen           </option>
+<option value="yellowgreen"          class="yellowgreen"          >YellowGreen         </option>
+<option value="lime"                 class="lime"                 >Lime                </option>
+<option value="lawngreen"            class="lawngreen"            >LawnGreen           </option>
+<option value="chartreuse"           class="chartreuse"           >Chartreuse          </option>
+<option value="greenyellow"          class="greenyellow"          >GreenYellow         </option>
+<option value="palegreen"            class="palegreen"            >PaleGreen           </option>
+<option value="lightgreen"           class="lightgreen"           >LightGreen          </option>
+<option value="springgreen"          class="springgreen"          >SpringGreen         </option>
+<option value="mediumspringgreen"    class="mediumspringgreen"    >MediumSpringGreen   </option>
+<option value="aquamarine"           class="aquamarine"           >Aquamarine          </option>
+<option value="paleturquoise"        class="paleturquoise"        >PaleTurquoise       </option>
+<option value="lightcyan"            class="lightcyan"            >LightCyan           </option>
+<option value="aqua"                 class="aqua"                 >Aqua                </option>
+<option value="turquoise"            class="turquoise"            >Turquoise           </option>
+<option value="mediumaquamarine"     class="mediumaquamarine"     >MediumAquamarine    </option>
+<option value="mediumturquoise"      class="mediumturquoise"      >MediumTurquoise     </option>
+<option value="darkturquoise"        class="darkturquoise"        >DarkTurquoise       </option>
+<option value="darkcyan"             class="darkcyan"             >DarkCyan            </option>
+<option value="teal"                 class="teal"                 >Teal                </option>
+<option value="cadetblue"            class="cadetblue"            >CadetBlue           </option>
+<option value="lightsteelblue"       class="lightsteelblue"       >LightSteelBlue      </option>
+<option value="skyblue"              class="skyblue"              >SkyBlue             </option>
+<option value="lightblue"            class="lightblue"            >LightBlue           </option>
+<option value="powderblue"           class="powderblue"           >PowderBlue          </option>
+<option value="lightskyblue"         class="lightskyblue"         >LightSkyBlue        </option>
+<option value="deepskyblue"          class="deepskyblue"          >DeepSkyBlue         </option>
+<option value="cornflowerblue"       class="cornflowerblue"       >CornflowerBlue      </option>
+<option value="dodgerblue"           class="dodgerblue"           >DodgerBlue          </option>
+<option value="steelblue"            class="steelblue"            >SteelBlue           </option>
+<option value="royalblue"            class="royalblue"            >RoyalBlue           </option>
+<option value="blue"                 class="blue"                 >Blue                </option>
+<option value="mediumblue"           class="mediumblue"           >MediumBlue          </option>
+<option value="darkblue"             class="darkblue"             >DarkBlue            </option>
+<option value="navy"                 class="navy"                 >Navy                </option>
+<option value="midnightblue"         class="midnightblue"         >MidnightBlue        </option>
+<option value="darkslateblue"        class="darkslateblue"        >DarkSlateBlue       </option>
+<option value="slateblue"            class="slateblue"            >SlateBlue           </option>
+<option value="mediumslateblue"      class="mediumslateblue"      >MediumSlateBlue     </option>
+<option value="lavender"             class="lavender"             >Lavender            </option>
+<option value="thistle"              class="thistle"              >Thistle             </option>
+<option value="plum"                 class="plum"                 >Plum                </option>
+<option value="violet"               class="violet"               >Violet              </option>
+<option value="orchid"               class="orchid"               >Orchid              </option>
+<option value="mediumpurple"         class="mediumpurple"         >MediumPurple        </option>
+<option value="mediumorchid"         class="mediumorchid"         >MediumOrchid        </option>
+<option value="darkorchid"           class="darkorchid"           >DarkOrchid          </option>
+<option value="blueviolet"           class="blueviolet"           >BlueViolet          </option>
+<option value="darkviolet"           class="darkviolet"           >DarkViolet          </option>
+<option value="rebeccapurple"        class="rebeccapurple"        >RebeccaPurple       </option>
+<option value="indigo"               class="indigo"               >Indigo              </option>
+<option value="purple"               class="purple"               >Purple              </option>
+<option value="darkmagenta"          class="darkmagenta"          >DarkMagenta         </option>
+<option value="mediumvioletred"      class="mediumvioletred"      >MediumVioletRed     </option>
+<option value="deeppink"             class="deeppink"             >DeepPink            </option>
+<option value="fuchsia"              class="fuchsia"              >Fuchsia             </option>
+<option value="palevioletred"        class="palevioletred"        >PaleVioletRed       </option>
+<option value="hotpink"              class="hotpink"              >HotPink             </option>
+<option value="lightpink"            class="lightpink"            >LightPink           </option>
+<option value="pink"                 class="pink"                 >Pink                </option>
+<option value="mistyrose"            class="mistyrose"            >MistyRose           </option>
+<option value="lavenderblush"        class="lavenderblush"        >LavenderBlush       </option>
+<option value="white"                class="white"                >White               </option>
+<option value="snow"                 class="snow"                 >Snow                </option>
+<option value="ghostwhite"           class="ghostwhite"           >GhostWhite          </option>
+<option value="mintcream"            class="mintcream"            >MintCream           </option>
+<option value="azure"                class="azure"                >Azure               </option>
+<option value="aliceblue"            class="aliceblue"            >AliceBlue           </option>
+<option value="honeydew"             class="honeydew"             >Honeydew            </option>
+<option value="beige"                class="beige"                >Beige               </option>
+<option value="blanchedalmond"       class="blanchedalmond"       >BlanchedAlmond      </option>
+<option value="antiquewhite"         class="antiquewhite"         >AntiqueWhite        </option>
+<option value="papayawhip"           class="papayawhip"           >PapayaWhip          </option>
+<option value="linen"                class="linen"                >Linen               </option>
+<option value="cornsilk"             class="cornsilk"             >Cornsilk            </option>
+<option value="oldlace"              class="oldlace"              >OldLace             </option>
+<option value="seashell"             class="seashell"             >Seashell            </option>
+<option value="floralwhite"          class="floralwhite"          >FloralWhite         </option>
+<option value="ivory"                class="ivory"                >Ivory               </option>
+<option value="whitesmoke"           class="whitesmoke"           >WhiteSmoke          </option>
+<option value="gainsboro"            class="gainsboro"            >Gainsboro           </option>
+<option value="lightgray"            class="lightgray"            >LightGray           </option>
+<option value="silver"               class="silver"               >Silver              </option>
+<option value="darkgray"             class="darkgray"             >DarkGray            </option>
+<option value="lightslategray"       class="lightslategray"       >LightSlateGray      </option>
+<option value="gray"                 class="gray"                 >Gray                </option>
+<option value="slategray"            class="slategray"            >SlateGray           </option>
+<option value="dimgray"              class="dimgray"              >DimGray             </option>
+<option value="darkslategray"        class="darkslategray"        >DarkSlateGray       </option>
+<option value="black"                class="black"                >Black               </option>
+<option value="saddlebrown"          class="saddlebrown"          >SaddleBrown         </option>
+<option value="brown"                class="brown"                >Brown               </option>
+<option value="sienna"               class="sienna"               >Sienna              </option>
+<option value="chocolate"            class="chocolate"            >Chocolate           </option>
+<option value="peru"                 class="peru"                 >Peru                </option>
+<option value="rosybrown"            class="rosybrown"            >RosyBrown           </option>
+<option value="sandybrown"           class="sandybrown"           >SandyBrown          </option>
+<option value="tan"                  class="tan"                  >Tan                 </option>
+<option value="burlywood"            class="burlywood"            >Burlywood           </option>
+<option value="wheat"                class="wheat"                >Wheat               </option>
+<option value="bisque"               class="bisque"               >Bisque              </option>
+<option value="moccasin"             class="moccasin"             >Moccasin            </option>
+<option value="navajowhite"          class="navajowhite"          >NavajoWhite         </option>
+<option value="peachpuff"            class="peachpuff"            >PeachPuff           </option>
+<option value="lightsalmon"          class="lightsalmon"          >LightSalmon         </option>
+<option value="darksalmon"           class="darksalmon"           >DarkSalmon          </option>
+<option value="salmon"               class="salmon"               >Salmon              </option>
+<option value="lightcoral"           class="lightcoral"           >LightCoral          </option>
+<option value="tomato"               class="tomato"               >Tomato              </option>
+</select>
+
+<select id="colorinput2" oninput="colorchange2()">
+<option value="none"                                              >Select a color...   </option>
+<option value="red"                  class="red"                  >Red                 </option>
+<option value="crimson"              class="crimson"              >Crimson             </option>
+<option value="firebrick"            class="firebrick"            >Firebrick           </option>
+<option value="darkred"              class="darkred"              >DarkRed             </option>
+<option value="maroon"               class="maroon"               >Maroon              </option>
+<option value="indianred"            class="indianred"            >IndianRed           </option>
+<option value="orangered"            class="orangered"            >OrangeRed           </option>
+<option value="coral"                class="coral"                >Coral               </option>
+<option value="darkorange"           class="darkorange"           >DarkOrange          </option>
+<option value="orange"               class="orange"               >Orange              </option>
+<option value="gold"                 class="gold"                 >Gold                </option>
+<option value="yellow"               class="yellow"               >Yellow              </option>
+<option value="lemonchiffon"         class="lemonchiffon"         >LemonChiffon        </option>
+<option value="lightgoldenrodyellow" class="lightgoldenrodyellow" >LightGoldenrodYellow</option>
+<option value="lightyellow"          class="lightyellow"          >LightYellow         </option>
+<option value="palegoldenrod"        class="palegoldenrod"        >PaleGoldenrod       </option>
+<option value="khaki"                class="khaki"                >Khaki               </option>
+<option value="darkkhaki"            class="darkkhaki"            >DarkKhaki           </option>
+<option value="goldenrod"            class="goldenrod"            >Goldenrod           </option>
+<option value="darkgoldenrod"        class="darkgoldenrod"        >DarkGoldenrod       </option>
+<option value="olive"                class="olive"                >Olive               </option>
+<option value="olivedrab"            class="olivedrab"            >OliveDrab           </option>
+<option value="darkolivegreen"       class="darkolivegreen"       >DarkOliveGreen      </option>
+<option value="darkgreen"            class="darkgreen"            >DarkGreen           </option>
+<option value="green"                class="green"                >Green               </option>
+<option value="forestgreen"          class="forestgreen"          >ForestGreen         </option>
+<option value="seagreen"             class="seagreen"             >SeaGreen            </option>
+<option value="lightseagreen"        class="lightseagreen"        >LightSeaGreen       </option>
+<option value="mediumseagreen"       class="mediumseagreen"       >MediumSeaGreen      </option>
+<option value="darkseagreen"         class="darkseagreen"         >DarkSeaGreen        </option>
+<option value="limegreen"            class="limegreen"            >LimeGreen           </option>
+<option value="yellowgreen"          class="yellowgreen"          >YellowGreen         </option>
+<option value="lime"                 class="lime"                 >Lime                </option>
+<option value="lawngreen"            class="lawngreen"            >LawnGreen           </option>
+<option value="chartreuse"           class="chartreuse"           >Chartreuse          </option>
+<option value="greenyellow"          class="greenyellow"          >GreenYellow         </option>
+<option value="palegreen"            class="palegreen"            >PaleGreen           </option>
+<option value="lightgreen"           class="lightgreen"           >LightGreen          </option>
+<option value="springgreen"          class="springgreen"          >SpringGreen         </option>
+<option value="mediumspringgreen"    class="mediumspringgreen"    >MediumSpringGreen   </option>
+<option value="aquamarine"           class="aquamarine"           >Aquamarine          </option>
+<option value="paleturquoise"        class="paleturquoise"        >PaleTurquoise       </option>
+<option value="lightcyan"            class="lightcyan"            >LightCyan           </option>
+<option value="aqua"                 class="aqua"                 >Aqua                </option>
+<option value="turquoise"            class="turquoise"            >Turquoise           </option>
+<option value="mediumaquamarine"     class="mediumaquamarine"     >MediumAquamarine    </option>
+<option value="mediumturquoise"      class="mediumturquoise"      >MediumTurquoise     </option>
+<option value="darkturquoise"        class="darkturquoise"        >DarkTurquoise       </option>
+<option value="darkcyan"             class="darkcyan"             >DarkCyan            </option>
+<option value="teal"                 class="teal"                 >Teal                </option>
+<option value="cadetblue"            class="cadetblue"            >CadetBlue           </option>
+<option value="lightsteelblue"       class="lightsteelblue"       >LightSteelBlue      </option>
+<option value="skyblue"              class="skyblue"              >SkyBlue             </option>
+<option value="lightblue"            class="lightblue"            >LightBlue           </option>
+<option value="powderblue"           class="powderblue"           >PowderBlue          </option>
+<option value="lightskyblue"         class="lightskyblue"         >LightSkyBlue        </option>
+<option value="deepskyblue"          class="deepskyblue"          >DeepSkyBlue         </option>
+<option value="cornflowerblue"       class="cornflowerblue"       >CornflowerBlue      </option>
+<option value="dodgerblue"           class="dodgerblue"           >DodgerBlue          </option>
+<option value="steelblue"            class="steelblue"            >SteelBlue           </option>
+<option value="royalblue"            class="royalblue"            >RoyalBlue           </option>
+<option value="blue"                 class="blue"                 >Blue                </option>
+<option value="mediumblue"           class="mediumblue"           >MediumBlue          </option>
+<option value="darkblue"             class="darkblue"             >DarkBlue            </option>
+<option value="navy"                 class="navy"                 >Navy                </option>
+<option value="midnightblue"         class="midnightblue"         >MidnightBlue        </option>
+<option value="darkslateblue"        class="darkslateblue"        >DarkSlateBlue       </option>
+<option value="slateblue"            class="slateblue"            >SlateBlue           </option>
+<option value="mediumslateblue"      class="mediumslateblue"      >MediumSlateBlue     </option>
+<option value="lavender"             class="lavender"             >Lavender            </option>
+<option value="thistle"              class="thistle"              >Thistle             </option>
+<option value="plum"                 class="plum"                 >Plum                </option>
+<option value="violet"               class="violet"               >Violet              </option>
+<option value="orchid"               class="orchid"               >Orchid              </option>
+<option value="mediumpurple"         class="mediumpurple"         >MediumPurple        </option>
+<option value="mediumorchid"         class="mediumorchid"         >MediumOrchid        </option>
+<option value="darkorchid"           class="darkorchid"           >DarkOrchid          </option>
+<option value="blueviolet"           class="blueviolet"           >BlueViolet          </option>
+<option value="darkviolet"           class="darkviolet"           >DarkViolet          </option>
+<option value="rebeccapurple"        class="rebeccapurple"        >RebeccaPurple       </option>
+<option value="indigo"               class="indigo"               >Indigo              </option>
+<option value="purple"               class="purple"               >Purple              </option>
+<option value="darkmagenta"          class="darkmagenta"          >DarkMagenta         </option>
+<option value="mediumvioletred"      class="mediumvioletred"      >MediumVioletRed     </option>
+<option value="deeppink"             class="deeppink"             >DeepPink            </option>
+<option value="fuchsia"              class="fuchsia"              >Fuchsia             </option>
+<option value="palevioletred"        class="palevioletred"        >PaleVioletRed       </option>
+<option value="hotpink"              class="hotpink"              >HotPink             </option>
+<option value="lightpink"            class="lightpink"            >LightPink           </option>
+<option value="pink"                 class="pink"                 >Pink                </option>
+<option value="mistyrose"            class="mistyrose"            >MistyRose           </option>
+<option value="lavenderblush"        class="lavenderblush"        >LavenderBlush       </option>
+<option value="white"                class="white"                >White               </option>
+<option value="snow"                 class="snow"                 >Snow                </option>
+<option value="ghostwhite"           class="ghostwhite"           >GhostWhite          </option>
+<option value="mintcream"            class="mintcream"            >MintCream           </option>
+<option value="azure"                class="azure"                >Azure               </option>
+<option value="aliceblue"            class="aliceblue"            >AliceBlue           </option>
+<option value="honeydew"             class="honeydew"             >Honeydew            </option>
+<option value="beige"                class="beige"                >Beige               </option>
+<option value="blanchedalmond"       class="blanchedalmond"       >BlanchedAlmond      </option>
+<option value="antiquewhite"         class="antiquewhite"         >AntiqueWhite        </option>
+<option value="papayawhip"           class="papayawhip"           >PapayaWhip          </option>
+<option value="linen"                class="linen"                >Linen               </option>
+<option value="cornsilk"             class="cornsilk"             >Cornsilk            </option>
+<option value="oldlace"              class="oldlace"              >OldLace             </option>
+<option value="seashell"             class="seashell"             >Seashell            </option>
+<option value="floralwhite"          class="floralwhite"          >FloralWhite         </option>
+<option value="ivory"                class="ivory"                >Ivory               </option>
+<option value="whitesmoke"           class="whitesmoke"           >WhiteSmoke          </option>
+<option value="gainsboro"            class="gainsboro"            >Gainsboro           </option>
+<option value="lightgray"            class="lightgray"            >LightGray           </option>
+<option value="silver"               class="silver"               >Silver              </option>
+<option value="darkgray"             class="darkgray"             >DarkGray            </option>
+<option value="lightslategray"       class="lightslategray"       >LightSlateGray      </option>
+<option value="gray"                 class="gray"                 >Gray                </option>
+<option value="slategray"            class="slategray"            >SlateGray           </option>
+<option value="dimgray"              class="dimgray"              >DimGray             </option>
+<option value="darkslategray"        class="darkslategray"        >DarkSlateGray       </option>
+<option value="black"                class="black"                >Black               </option>
+<option value="saddlebrown"          class="saddlebrown"          >SaddleBrown         </option>
+<option value="brown"                class="brown"                >Brown               </option>
+<option value="sienna"               class="sienna"               >Sienna              </option>
+<option value="chocolate"            class="chocolate"            >Chocolate           </option>
+<option value="peru"                 class="peru"                 >Peru                </option>
+<option value="rosybrown"            class="rosybrown"            >RosyBrown           </option>
+<option value="sandybrown"           class="sandybrown"           >SandyBrown          </option>
+<option value="tan"                  class="tan"                  >Tan                 </option>
+<option value="burlywood"            class="burlywood"            >Burlywood           </option>
+<option value="wheat"                class="wheat"                >Wheat               </option>
+<option value="bisque"               class="bisque"               >Bisque              </option>
+<option value="moccasin"             class="moccasin"             >Moccasin            </option>
+<option value="navajowhite"          class="navajowhite"          >NavajoWhite         </option>
+<option value="peachpuff"            class="peachpuff"            >PeachPuff           </option>
+<option value="lightsalmon"          class="lightsalmon"          >LightSalmon         </option>
+<option value="darksalmon"           class="darksalmon"           >DarkSalmon          </option>
+<option value="salmon"               class="salmon"               >Salmon              </option>
+<option value="lightcoral"           class="lightcoral"           >LightCoral          </option>
+<option value="tomato"               class="tomato"               >Tomato              </option>
+</select>
+
+<select id="colorinput3" oninput="colorchange3()">
+<option value="none"                                              >Select a color...   </option>
+<option value="red"                  class="red"                  >Red                 </option>
+<option value="crimson"              class="crimson"              >Crimson             </option>
+<option value="firebrick"            class="firebrick"            >Firebrick           </option>
+<option value="darkred"              class="darkred"              >DarkRed             </option>
+<option value="maroon"               class="maroon"               >Maroon              </option>
+<option value="indianred"            class="indianred"            >IndianRed           </option>
+<option value="orangered"            class="orangered"            >OrangeRed           </option>
+<option value="coral"                class="coral"                >Coral               </option>
+<option value="darkorange"           class="darkorange"           >DarkOrange          </option>
+<option value="orange"               class="orange"               >Orange              </option>
+<option value="gold"                 class="gold"                 >Gold                </option>
+<option value="yellow"               class="yellow"               >Yellow              </option>
+<option value="lemonchiffon"         class="lemonchiffon"         >LemonChiffon        </option>
+<option value="lightgoldenrodyellow" class="lightgoldenrodyellow" >LightGoldenrodYellow</option>
+<option value="lightyellow"          class="lightyellow"          >LightYellow         </option>
+<option value="palegoldenrod"        class="palegoldenrod"        >PaleGoldenrod       </option>
+<option value="khaki"                class="khaki"                >Khaki               </option>
+<option value="darkkhaki"            class="darkkhaki"            >DarkKhaki           </option>
+<option value="goldenrod"            class="goldenrod"            >Goldenrod           </option>
+<option value="darkgoldenrod"        class="darkgoldenrod"        >DarkGoldenrod       </option>
+<option value="olive"                class="olive"                >Olive               </option>
+<option value="olivedrab"            class="olivedrab"            >OliveDrab           </option>
+<option value="darkolivegreen"       class="darkolivegreen"       >DarkOliveGreen      </option>
+<option value="darkgreen"            class="darkgreen"            >DarkGreen           </option>
+<option value="green"                class="green"                >Green               </option>
+<option value="forestgreen"          class="forestgreen"          >ForestGreen         </option>
+<option value="seagreen"             class="seagreen"             >SeaGreen            </option>
+<option value="lightseagreen"        class="lightseagreen"        >LightSeaGreen       </option>
+<option value="mediumseagreen"       class="mediumseagreen"       >MediumSeaGreen      </option>
+<option value="darkseagreen"         class="darkseagreen"         >DarkSeaGreen        </option>
+<option value="limegreen"            class="limegreen"            >LimeGreen           </option>
+<option value="yellowgreen"          class="yellowgreen"          >YellowGreen         </option>
+<option value="lime"                 class="lime"                 >Lime                </option>
+<option value="lawngreen"            class="lawngreen"            >LawnGreen           </option>
+<option value="chartreuse"           class="chartreuse"           >Chartreuse          </option>
+<option value="greenyellow"          class="greenyellow"          >GreenYellow         </option>
+<option value="palegreen"            class="palegreen"            >PaleGreen           </option>
+<option value="lightgreen"           class="lightgreen"           >LightGreen          </option>
+<option value="springgreen"          class="springgreen"          >SpringGreen         </option>
+<option value="mediumspringgreen"    class="mediumspringgreen"    >MediumSpringGreen   </option>
+<option value="aquamarine"           class="aquamarine"           >Aquamarine          </option>
+<option value="paleturquoise"        class="paleturquoise"        >PaleTurquoise       </option>
+<option value="lightcyan"            class="lightcyan"            >LightCyan           </option>
+<option value="aqua"                 class="aqua"                 >Aqua                </option>
+<option value="turquoise"            class="turquoise"            >Turquoise           </option>
+<option value="mediumaquamarine"     class="mediumaquamarine"     >MediumAquamarine    </option>
+<option value="mediumturquoise"      class="mediumturquoise"      >MediumTurquoise     </option>
+<option value="darkturquoise"        class="darkturquoise"        >DarkTurquoise       </option>
+<option value="darkcyan"             class="darkcyan"             >DarkCyan            </option>
+<option value="teal"                 class="teal"                 >Teal                </option>
+<option value="cadetblue"            class="cadetblue"            >CadetBlue           </option>
+<option value="lightsteelblue"       class="lightsteelblue"       >LightSteelBlue      </option>
+<option value="skyblue"              class="skyblue"              >SkyBlue             </option>
+<option value="lightblue"            class="lightblue"            >LightBlue           </option>
+<option value="powderblue"           class="powderblue"           >PowderBlue          </option>
+<option value="lightskyblue"         class="lightskyblue"         >LightSkyBlue        </option>
+<option value="deepskyblue"          class="deepskyblue"          >DeepSkyBlue         </option>
+<option value="cornflowerblue"       class="cornflowerblue"       >CornflowerBlue      </option>
+<option value="dodgerblue"           class="dodgerblue"           >DodgerBlue          </option>
+<option value="steelblue"            class="steelblue"            >SteelBlue           </option>
+<option value="royalblue"            class="royalblue"            >RoyalBlue           </option>
+<option value="blue"                 class="blue"                 >Blue                </option>
+<option value="mediumblue"           class="mediumblue"           >MediumBlue          </option>
+<option value="darkblue"             class="darkblue"             >DarkBlue            </option>
+<option value="navy"                 class="navy"                 >Navy                </option>
+<option value="midnightblue"         class="midnightblue"         >MidnightBlue        </option>
+<option value="darkslateblue"        class="darkslateblue"        >DarkSlateBlue       </option>
+<option value="slateblue"            class="slateblue"            >SlateBlue           </option>
+<option value="mediumslateblue"      class="mediumslateblue"      >MediumSlateBlue     </option>
+<option value="lavender"             class="lavender"             >Lavender            </option>
+<option value="thistle"              class="thistle"              >Thistle             </option>
+<option value="plum"                 class="plum"                 >Plum                </option>
+<option value="violet"               class="violet"               >Violet              </option>
+<option value="orchid"               class="orchid"               >Orchid              </option>
+<option value="mediumpurple"         class="mediumpurple"         >MediumPurple        </option>
+<option value="mediumorchid"         class="mediumorchid"         >MediumOrchid        </option>
+<option value="darkorchid"           class="darkorchid"           >DarkOrchid          </option>
+<option value="blueviolet"           class="blueviolet"           >BlueViolet          </option>
+<option value="darkviolet"           class="darkviolet"           >DarkViolet          </option>
+<option value="rebeccapurple"        class="rebeccapurple"        >RebeccaPurple       </option>
+<option value="indigo"               class="indigo"               >Indigo              </option>
+<option value="purple"               class="purple"               >Purple              </option>
+<option value="darkmagenta"          class="darkmagenta"          >DarkMagenta         </option>
+<option value="mediumvioletred"      class="mediumvioletred"      >MediumVioletRed     </option>
+<option value="deeppink"             class="deeppink"             >DeepPink            </option>
+<option value="fuchsia"              class="fuchsia"              >Fuchsia             </option>
+<option value="palevioletred"        class="palevioletred"        >PaleVioletRed       </option>
+<option value="hotpink"              class="hotpink"              >HotPink             </option>
+<option value="lightpink"            class="lightpink"            >LightPink           </option>
+<option value="pink"                 class="pink"                 >Pink                </option>
+<option value="mistyrose"            class="mistyrose"            >MistyRose           </option>
+<option value="lavenderblush"        class="lavenderblush"        >LavenderBlush       </option>
+<option value="white"                class="white"                >White               </option>
+<option value="snow"                 class="snow"                 >Snow                </option>
+<option value="ghostwhite"           class="ghostwhite"           >GhostWhite          </option>
+<option value="mintcream"            class="mintcream"            >MintCream           </option>
+<option value="azure"                class="azure"                >Azure               </option>
+<option value="aliceblue"            class="aliceblue"            >AliceBlue           </option>
+<option value="honeydew"             class="honeydew"             >Honeydew            </option>
+<option value="beige"                class="beige"                >Beige               </option>
+<option value="blanchedalmond"       class="blanchedalmond"       >BlanchedAlmond      </option>
+<option value="antiquewhite"         class="antiquewhite"         >AntiqueWhite        </option>
+<option value="papayawhip"           class="papayawhip"           >PapayaWhip          </option>
+<option value="linen"                class="linen"                >Linen               </option>
+<option value="cornsilk"             class="cornsilk"             >Cornsilk            </option>
+<option value="oldlace"              class="oldlace"              >OldLace             </option>
+<option value="seashell"             class="seashell"             >Seashell            </option>
+<option value="floralwhite"          class="floralwhite"          >FloralWhite         </option>
+<option value="ivory"                class="ivory"                >Ivory               </option>
+<option value="whitesmoke"           class="whitesmoke"           >WhiteSmoke          </option>
+<option value="gainsboro"            class="gainsboro"            >Gainsboro           </option>
+<option value="lightgray"            class="lightgray"            >LightGray           </option>
+<option value="silver"               class="silver"               >Silver              </option>
+<option value="darkgray"             class="darkgray"             >DarkGray            </option>
+<option value="lightslategray"       class="lightslategray"       >LightSlateGray      </option>
+<option value="gray"                 class="gray"                 >Gray                </option>
+<option value="slategray"            class="slategray"            >SlateGray           </option>
+<option value="dimgray"              class="dimgray"              >DimGray             </option>
+<option value="darkslategray"        class="darkslategray"        >DarkSlateGray       </option>
+<option value="black"                class="black"                >Black               </option>
+<option value="saddlebrown"          class="saddlebrown"          >SaddleBrown         </option>
+<option value="brown"                class="brown"                >Brown               </option>
+<option value="sienna"               class="sienna"               >Sienna              </option>
+<option value="chocolate"            class="chocolate"            >Chocolate           </option>
+<option value="peru"                 class="peru"                 >Peru                </option>
+<option value="rosybrown"            class="rosybrown"            >RosyBrown           </option>
+<option value="sandybrown"           class="sandybrown"           >SandyBrown          </option>
+<option value="tan"                  class="tan"                  >Tan                 </option>
+<option value="burlywood"            class="burlywood"            >Burlywood           </option>
+<option value="wheat"                class="wheat"                >Wheat               </option>
+<option value="bisque"               class="bisque"               >Bisque              </option>
+<option value="moccasin"             class="moccasin"             >Moccasin            </option>
+<option value="navajowhite"          class="navajowhite"          >NavajoWhite         </option>
+<option value="peachpuff"            class="peachpuff"            >PeachPuff           </option>
+<option value="lightsalmon"          class="lightsalmon"          >LightSalmon         </option>
+<option value="darksalmon"           class="darksalmon"           >DarkSalmon          </option>
+<option value="salmon"               class="salmon"               >Salmon              </option>
+<option value="lightcoral"           class="lightcoral"           >LightCoral          </option>
+<option value="tomato"               class="tomato"               >Tomato              </option>
+</select>
+
+</td>
+
+</tr></table></div></body></html>

@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<head><title>Archetype converter</title>
+<style>
+body { font: 14px trebuchet ms, sans-serif }
+
+.r { background-color: #CC3E16 }
+.g { background-color: #4CEA5E }
+.b { background-color: #49BBD9 }
+:root {
+--greenbg: linear-gradient(#A5F4AE, #ffffff);
+--bluebg: linear-gradient(#ADE0ED, #ffffff);
+--redbg: linear-gradient(#F0C7BB, #ffffff);
+
+--bardbg: linear-gradient(#B0E1CD, #ffffff);
+--diplbg: linear-gradient(#E1E3A2, #ffffff);
+--ecolbg: linear-gradient(#CFE5A2, #ffffff);
+--knitbg: linear-gradient(#EEC1DD, #ffffff);
+--sciebg: linear-gradient(#D5D2F2, #ffffff);
+--wandbg: linear-gradient(#D3D3D4, #ffffff);
+--zealbg: linear-gradient(#E3C6EF, #ffffff);
+}
+
+
+.descbox {
+border: 1px solid black;
+width: 300px;
+height: 500px;
+display: inline-block;
+padding: 0px;
+}
+
+.desctext {
+display: none;
+padding: 5px;
+height: 450px;
+}
+
+.selectbox {
+height: 25px;
+padding: 5px;
+border-bottom: 1px solid black;
+}
+
+.abilitydesc {height: 96px;}
+
+select {width: 290px}
+</style>
+</head><body>
+
+<h1>Spore archetype converter</h1>
+
+<table><tr>
+
+<td class="descbox">
+
+<div class="selectbox">
+<select name="cell" id="cell" onchange="displaydesc()">
+  <option value="none">None</option>
+  <option class="g" value="herbivore">Herbivore</option>
+  <option class="b" value="omnivore">Omnivore</option>
+  <option class="r" value="carnivore">Carnivore</option>
+</select></div>
+
+<div id="clg1desc" style="background: var(--greenbg)" class="desctext">
+<div class="abilitydesc">Herbivorous cells consume a diet of plant matter.
+</div>
+<div class="abilitydesc"><b>Creature Stage ability:</b>
+<br>Siren Song
+<br>Use this ability to temporarily enthrall all creatures in your vicinity. This makes it easier for you to socialize with them.
+</div>
+<div class="abilitydesc"><b>Tribal Stage ability:</b>
+<br>Refreshing Storm
+<br>This ability allows the chieftain to summon a storm causing fruit to be replenished and fall from trees. 
+</div>
+<div class="abilitydesc"><b>Civilization Stage ability:</b>
+<br>Healing Aura
+<br>This ability repairs all of your vehicles and buildings. 
+</div>
+<div class="abilitydesc"><b>Space Stage ability:</b>
+<br>Social Suave
+<br>This ability gives you an immediate negotiation discount on all social tools.
+</div></div>
+<div id="clg2desc" style="background: var(--bluebg)" class="desctext">
+<div class="abilitydesc">Omnivorous cells eat any type of food available.
+</div>
+<div class="abilitydesc"><b>Creature Stage ability:</b>
+<br>Summon Flock
+<br>Use this ability to summon a flock of minions to help you socialize or fight.
+</div>
+<div class="abilitydesc"><b>Tribal Stage ability:</b>
+<br>Flying Fish
+<br>This ability allows the chieftain to summon a serpent to scare fish from the sea.
+</div>
+<div class="abilitydesc"><b>Civilization Stage ability:</b>
+<br>Static Bomb
+<br>This ability temporarily immobilizes vehicles, turrets and buildings.
+</div>
+<div class="abilitydesc"><b>Space Stage ability:</b>
+<br>Gentle Generalist
+<br>This ability gives you a discount on all standard equipment.
+</div></div>
+<div id="clg3desc" style="background: var(--redbg)" class="desctext">
+<div class="abilitydesc">Carnivorous cells consume a diet of meat.
+</div>
+<div class="abilitydesc"><b>Creature Stage ability:</b>
+<br>Raging Roar
+<br>Use this ability to make all surrounding creatures run in fear.
+</div>
+<div class="abilitydesc"><b>Tribal Stage ability:</b>
+<br>Traps
+<br>This ability allows the chieftain to lay traps to ensnare wild animals.
+</div>
+<div class="abilitydesc"><b>Civilization Stage ability:</b>
+<br>Invulnerability
+<br>This ability makes your vehicles impervious to damage for a limited time.
+</div>
+<div class="abilitydesc"><b>Space Stage ability:</b>
+<br>Power Monger
+<br>This ability increases the effectiveness of all weapons.
+</div></div>
+
+</td>
+
+<td class="descbox">
+
+<div class="selectbox">
+<select name="creature" id="creature" onchange="displaydesc()">
+  <option value="none">None</option>
+  <option class="g" value="social">Social</option>
+  <option class="b" value="adaptable">Adaptable</option>
+  <option class="r" value="predator">Predator</option>
+</select></div>
+
+<div id="crg1desc" style="background: var(--greenbg)" class="desctext">
+<div class="abilitydesc">Social creatures are constantly searching for new friends and allies.  Meeting a new species is the highlight of their day.
+</div>
+<div class="abilitydesc"></div>
+<div class="abilitydesc"><b>Tribal Stage ability:</b>
+<br>Fireworks
+<br>This ability allows the chieftain to set off fireworks that increase relationships with neighbors.
+</div>
+<div class="abilitydesc"><b>Civilization Stage ability:</b>
+<br>Diplo Dervish
+<br>This ability raises your relationship with a nation you target.
+</div>
+<div class="abilitydesc"><b>Space Stage ability:</b>
+<br>Pleasing Performance
+<br>This ability makes all of your colonies happy and reduces the likelihood of revolt.
+</div></div>
+<div id="crg2desc" style="background: var(--bluebg)" class="desctext">
+<div class="abilitydesc">Adaptable creatures have many friends and many enemies.  They make choices based on the current situation.
+</div>
+<div class="abilitydesc"></div>
+<div class="abilitydesc"><b>Tribal Stage ability:</b>
+<br>Beastmaster
+<br>This ability allows the chieftain to enchant nearby animals who will help you socialize or fight.
+</div>
+<div class="abilitydesc"><b>Civilization Stage ability:</b>
+<br>Bribe Bomb
+<br>This ability causes enemy vehicles within the bomb's radius to attack each other. 
+</div>
+<div class="abilitydesc"><b>Space Stage ability:</b>
+<br>Speed Demon
+<br>This ability makes interstellar space travel zippier.
+</div></div>
+<div id="crg3desc" style="background: var(--redbg)" class="desctext">
+<div class="abilitydesc">Predatory creatures spend their lives searching for prey.  They'd sooner make extinct an entire species than "dance" or "charm".
+</div>
+<div class="abilitydesc"></div>
+<div class="abilitydesc"><b>Tribal Stage ability:</b>
+<br>Fire Bombs
+<br>This ability allows the chieftain to throw fire bombs that damage nearby opponents and structures.
+</div>
+<div class="abilitydesc"><b>Civilization Stage ability:</b>
+<br>Mighty Bomb
+<br>This ability damages all buildings and vehicles within its radius.
+</div>
+<div class="abilitydesc"><b>Space Stage ability:</b>
+<br>Prime Specimen
+<br>This ability increases your spaceship's total health.
+</div></div>
+
+</td>
+
+<td class="descbox">
+
+<div class="selectbox">
+<select name="tribe" id="tribe" onchange="displaydesc()">
+  <option value="none">None</option>
+  <option class="g" value="friendly">Friendly</option>
+  <option class="b" value="industrious">Industrious</option>
+  <option class="r" value="aggressive">Aggressive</option>
+</select></div>
+
+<div id="trg1desc" style="background: var(--greenbg)" class="desctext">
+<div class="abilitydesc">Friendly tribes understand the importance of teamwork.  They form alliances to share resources and prosper with other tribes.
+</div>
+<div class="abilitydesc"></div><div class="abilitydesc"></div>
+<div class="abilitydesc"><b>Civilization Stage ability:</b>
+<br>Black Cloud (+ Fanatical Uprising)
+<br>This ability Shuts down entertainment buildings and turrets causing unhappiness.
+</div>
+<div class="abilitydesc"><b>Space Stage ability:</b>
+<br>Gracious Greeting
+<br>This ability boosts your initial relationship with alien races.
+</div></div>
+<div id="trg2desc" style="background: var(--bluebg)" class="desctext">
+<div class="abilitydesc">Industrious tribes seize the moment, attacking or forming alliances when necessary.  They make great allies, but watch out.
+</div>
+<div class="abilitydesc"></div><div class="abilitydesc"></div>
+<div class="abilitydesc"><b>Civilization Stage ability:</b>
+<br>Ad Blitz (+ Global Merger)
+<br>This ability enables faster city buyout.
+</div>
+<div class="abilitydesc"><b>Space Stage ability:</b>
+<br>Colony Craze
+<br>This ability gives you a discount on all colonization tool trades.
+</div></div>
+<div id="trg3desc" style="background: var(--redbg)" class="desctext">
+<div class="abilitydesc">Aggressive tribes try to exterminate the competition.  They ruthlessly attack and hoard all the resources for themselves.
+</div>
+<div class="abilitydesc"></div><div class="abilitydesc"></div>
+<div class="abilitydesc"><b>Civilization Stage ability:</b>
+<br>Gadget Bomb (+ ICBM)
+<br>This ability causes damage to buildings and vehicles and can help capture cities.
+</div>
+<div class="abilitydesc"><b>Space Stage ability:</b>
+<br>Arms Dealer
+<br>This ability gives you discounts on all combat tool trades.
+</div></div>
+
+</td>
+
+<td class="descbox">
+
+<div class="selectbox">
+<select name="civilization" id="civilization" onchange="displaydesc()">
+  <option value="none">None</option>
+  <option class="b" value="economic">Economic</option>
+  <option class="r" value="military">Military</option>
+  <option class="g" value="religious">Religious</option>
+</select></div>
+
+<div id="cvg1desc" style="background: var(--bluebg)" class="desctext">
+<div class="abilitydesc">Economic civilizations use cash and trade routes to influence other nations.  They'll make alliances, but it's usually a better deal for them.
+</div>
+<div class="abilitydesc"></div><div class="abilitydesc"></div><div class="abilitydesc"></div>
+<div class="abilitydesc"><b>Space Stage ability:</b>
+<br>Spice Savant
+<br>This ability increases spice production from all your colonies.
+</div></div>
+<div id="cvg2desc" style="background: var(--redbg)" class="desctext">
+<div class="abilitydesc">Military civilizations thrive on weapons and force.  They'll use every resource available to destroy other nations.
+</div>
+<div class="abilitydesc"></div><div class="abilitydesc"></div><div class="abilitydesc"></div>
+<div class="abilitydesc"><b>Space Stage ability:</b>
+<br>Pirates-B-Gone
+<br>This ability acts as pirate repellant reducing the likelihood of raids.
+</div></div>
+<div id="cvg3desc" style="background: var(--greenbg)" class="desctext">
+<div class="abilitydesc">Religious civilizations harness the power of words and ideas to convert other nations to their way of thinking.
+</div>
+<div class="abilitydesc"></div><div class="abilitydesc"></div><div class="abilitydesc"></div>
+<div class="abilitydesc"><b>Space Stage ability:</b>
+<br>Green Keeper
+<br>This ability decreases the rate of biodisasters on all of your colonies.
+</div></div>
+
+</td>
+
+<td class="descbox">
+<div id="spg1desc" style="background: var(--bardbg)" class="desctext">
+Bard
+<br><br>
+<div class="abilitydesc">Bards are the social, outgoing entertainers of the cosmos. The galaxy is their personal playground.
+</div>
+<div class="abilitydesc"><b>Superpower:</b>
+<br>Soothing Song
+<br>Use to produce a calming effect on alien races, temporarily boosting your relationship.
+</div></div>
+<div id="spg2desc" style="background: var(--ecolbg)" class="desctext">
+Ecologist
+<br><br>
+<div class="abilitydesc">Ecologists are the protectors of nature. Species that attempt to exploit and corrupt the galaxy must be exterminated.
+</div>
+<div class="abilitydesc"><b>Superpower:</b>
+<br>Safari Vacuum
+<br>Instantly fills your cargo with all species from a planet.
+</div></div>
+<div id="spg3desc" style="background: var(--zealbg)" class="desctext">
+Zealot
+<br><br>
+<div class="abilitydesc">Zealots are certain that their beliefs are the only truth that matters. Those who do not feel the same way are not worthy to exist in this galaxy.
+</div>
+<div class="abilitydesc"><b>Superpower:</b>
+<br>Fanatical Frenzy
+<br>Converts alien owned systems to your empire.
+</div></div>
+<div id="spg4desc" style="background: var(--diplbg)" class="desctext">
+Diplomat
+<br><br>
+<div class="abilitydesc">Diplomats are negotiators and problem solvers. Peace will come to the galaxy only through open communication between species.
+</div>
+<div class="abilitydesc"><b>Superpower:</b>
+<br>Static Cling
+<br>Immobilizes all enemy ships and turrets on the planet.
+</div></div>
+<div id="spg5desc" style="background: var(--sciebg)" class="desctext">
+Scientist
+<br><br>
+<div class="abilitydesc">Scientists are logical and calculating. The galaxy exists to be studied and understood.
+</div>
+<div class="abilitydesc"><b>Superpower:</b>
+<br>Gravitation Wave
+<br>Levels cultures and buildings back to the stone age.
+</div></div>
+<div id="spg6desc" style="background: var(--bluebg)" class="desctext">
+Trader
+<br><br>
+<div class="abilitydesc">Traders are in it for the profit. Their only allegiance is to the almighty Sporebuck.
+</div>
+<div class="abilitydesc"><b>Superpower:</b>
+<br>Cash Infusion
+<br>Instantly makes trading systems available for purchase.
+</div></div>
+<div id="spg7desc" style="background: var(--greenbg)" class="desctext">
+Shaman
+<br><br>
+<div class="abilitydesc">Shamans understand that all life shares a common bond. The entire galaxy exists within us all.
+</div>
+<div class="abilitydesc"><b>Superpower:</b>
+<br>Return Ticket
+<br>Returns you to your home system in one hop.
+</div></div>
+<div id="spg8desc" style="background: var(--redbg)" class="desctext">
+Warrior
+<br><br>
+<div class="abilitydesc">Warriors take what they want and never ask for permission. The galaxy is a prize to be claimed by the strongest.
+</div>
+<div class="abilitydesc"><b>Superpower:</b>
+<br>Raider Rally
+<br>Opens a mystical pirate portal which creates chaos on the planet.
+</div></div>
+<div id="spg9desc" style="background: var(--wandbg); display: block;" class="desctext">
+Wanderer
+<br><br>
+<div class="abilitydesc">Wanderers want to sample a little bit of everything. The galaxy is vast and they want to experience it all.
+</div></div>
+<div id="spg10desc" style="background: var(--knitbg)" class="desctext">
+Knight
+<br><br>
+<div class="abilitydesc">Knights are noble warriors that fight for right, not for personal gain. Peace will come to the galaxy only when evil has been vanquished.
+</div>
+<div class="abilitydesc"><b>Superpower:</b>
+<br>Summon Mini-U
+<br>Summons a miniature clone of your spaceship to assist you in your adventures.
+</div></div>
+
+</td>
+
+</tr></table>
+
+</body>
+
+<script>
+function displaydesc() {
+  //i dont care if using var is bad practice lol
+  
+  var cllarch = document.getElementById("cell").value;
+  var crgarch = document.getElementById("creature").value;
+  var trgarch = document.getElementById("tribe").value;
+  var cvgarch = document.getElementById("civilization").value;
+  
+  // -------------------------------------------------------
+  
+  if (cllarch == "herbivore") {
+  document.getElementById("clg1desc").style.display='block';
+  document.getElementById("clg2desc").style.display='none';
+  document.getElementById("clg3desc").style.display='none';
+  var clgg = 1;
+  var clgb = 0;
+  var clgr = 0;
+  var clgn = 0;
+  }
+  else if (cllarch == "omnivore") {
+  document.getElementById("clg1desc").style.display='none';
+  document.getElementById("clg2desc").style.display='block';
+  document.getElementById("clg3desc").style.display='none';
+  var clgg = 0;
+  var clgb = 1;
+  var clgr = 0;
+  var clgn = 0;
+  }
+  else if (cllarch == "carnivore") {
+  document.getElementById("clg1desc").style.display='none';
+  document.getElementById("clg2desc").style.display='none';
+  document.getElementById("clg3desc").style.display='block';
+  var clgg = 0;
+  var clgb = 0;
+  var clgr = 1;
+  var clgn = 0;
+  }
+  else if (cllarch == "none") {
+  document.getElementById("clg1desc").style.display='none';
+  document.getElementById("clg2desc").style.display='none';
+  document.getElementById("clg3desc").style.display='none';
+  var clgg = 0;
+  var clgb = 0;
+  var clgr = 0;
+  var clgn = 1;
+  }
+  
+  // -------------------------------------------------------
+  
+  if (crgarch == "social") {
+  document.getElementById("crg1desc").style.display='block';
+  document.getElementById("crg2desc").style.display='none';
+  document.getElementById("crg3desc").style.display='none';
+  var crgg = 1;
+  var crgb = 0;
+  var crgr = 0;
+  var crgn = 0;
+  }
+  else if (crgarch == "adaptable") {
+  document.getElementById("crg1desc").style.display='none';
+  document.getElementById("crg2desc").style.display='block';
+  document.getElementById("crg3desc").style.display='none';
+  var crgg = 0;
+  var crgb = 1;
+  var crgr = 0;
+  var crgn = 0;
+  }
+  else if (crgarch == "predator") {
+  document.getElementById("crg1desc").style.display='none';
+  document.getElementById("crg2desc").style.display='none';
+  document.getElementById("crg3desc").style.display='block';
+  var crgg = 0;
+  var crgb = 0;
+  var crgr = 1;
+  var crgn = 0;
+  }
+  else if (crgarch == "none") {
+  document.getElementById("crg1desc").style.display='none';
+  document.getElementById("crg2desc").style.display='none';
+  document.getElementById("crg3desc").style.display='none';
+  var crgg = 0;
+  var crgb = 0;
+  var crgr = 0;
+  var crgn = 1;
+  }
+  
+  // -------------------------------------------------------
+  
+  if (trgarch == "friendly") {
+  document.getElementById("trg1desc").style.display='block';
+  document.getElementById("trg2desc").style.display='none';
+  document.getElementById("trg3desc").style.display='none';
+  var trgg = 1;
+  var trgb = 0;
+  var trgr = 0;
+  var trgn = 0;
+  }
+  else if (trgarch == "industrious") {
+  document.getElementById("trg1desc").style.display='none';
+  document.getElementById("trg2desc").style.display='block';
+  document.getElementById("trg3desc").style.display='none';
+  var trgg = 0;
+  var trgb = 1;
+  var trgr = 0;
+  var trgn = 0;
+  }
+  else if (trgarch == "aggressive") {
+  document.getElementById("trg1desc").style.display='none';
+  document.getElementById("trg2desc").style.display='none';
+  document.getElementById("trg3desc").style.display='block';
+  var trgg = 0;
+  var trgb = 0;
+  var trgr = 1;
+  var trgn = 0;
+  }
+  else if (trgarch == "none") {
+  document.getElementById("trg1desc").style.display='none';
+  document.getElementById("trg2desc").style.display='none';
+  document.getElementById("trg3desc").style.display='none';
+  var trgg = 0;
+  var trgb = 0;
+  var trgr = 0;
+  var trgn = 1;
+  }
+  
+  // -------------------------------------------------------
+  
+  if (cvgarch == "economic") {
+  document.getElementById("cvg1desc").style.display='block';
+  document.getElementById("cvg2desc").style.display='none';
+  document.getElementById("cvg3desc").style.display='none';
+  var cvgg = 0;
+  var cvgb = 1;
+  var cvgr = 0;
+  var cvgn = 0;
+  }
+  else if (cvgarch == "military") {
+  document.getElementById("cvg1desc").style.display='none';
+  document.getElementById("cvg2desc").style.display='block';
+  document.getElementById("cvg3desc").style.display='none';
+  var cvgg = 0;
+  var cvgb = 0;
+  var cvgr = 1;
+  var cvgn = 0;
+  }
+  else if (cvgarch == "religious") {
+  document.getElementById("cvg1desc").style.display='none';
+  document.getElementById("cvg2desc").style.display='none';
+  document.getElementById("cvg3desc").style.display='block';
+  var cvgg = 1;
+  var cvgb = 0;
+  var cvgr = 0;
+  var cvgn = 0;
+  }
+  else if (cvgarch == "none") {
+  document.getElementById("cvg1desc").style.display='none';
+  document.getElementById("cvg2desc").style.display='none';
+  document.getElementById("cvg3desc").style.display='none';
+  var cvgg = 0;
+  var cvgb = 0;
+  var cvgr = 0;
+  var cvgn = 1;
+  }
+  
+  // -------------------------------------------------------
+  // calc
+  // -------------------------------------------------------
+  
+  var g = clgg + crgg + trgg + cvgg
+  var b = clgb + crgb + trgb + cvgb
+  var r = clgr + crgr + trgr + cvgr
+  var skip = clgn + crgn + trgn + cvgn
+  
+  // -------------------------------------------------------
+  // SPACE!!!!!!!!!
+  // -------------------------------------------------------
+  
+  if ((r>2)||(r==2 & skip==2)||(r==1 & skip==3)||(skip==1 & r==1 & b==1 & g==1 & cvgarch == "military")) { //warrior
+  document.getElementById("spg1desc").style.display='none';  //bard
+  document.getElementById("spg2desc").style.display='none';  //ecologist
+  document.getElementById("spg3desc").style.display='none';  //zealot
+  document.getElementById("spg4desc").style.display='none';  //diplomat
+  document.getElementById("spg5desc").style.display='none';  //scientist
+  document.getElementById("spg6desc").style.display='none';  //trader
+  document.getElementById("spg7desc").style.display='none';  //shaman
+  document.getElementById("spg8desc").style.display='block';  //warrior
+  document.getElementById("spg9desc").style.display='none';  //wanderer
+  document.getElementById("spg10desc").style.display='none'; //knight
+  }
+  else if ((g>2)||(g==2 & skip==2)||(g==1 & skip==3)||(skip==1 & r==1 & b==1 & g==1 & cvgarch == "religious")) { //shaman
+  document.getElementById("spg1desc").style.display='none';  //bard
+  document.getElementById("spg2desc").style.display='none';  //ecologist
+  document.getElementById("spg3desc").style.display='none';  //zealot
+  document.getElementById("spg4desc").style.display='none';  //diplomat
+  document.getElementById("spg5desc").style.display='none';  //scientist
+  document.getElementById("spg6desc").style.display='none';  //trader
+  document.getElementById("spg7desc").style.display='block';  //shaman
+  document.getElementById("spg8desc").style.display='none';  //warrior
+  document.getElementById("spg9desc").style.display='none';  //wanderer
+  document.getElementById("spg10desc").style.display='none'; //knight
+  }
+  else if ((b>2)||(b==2 & skip==2)||(b==1 & skip==3)||(skip==1 & r==1 & b==1 & g==1 & cvgarch == "economic")) { //trader
+  document.getElementById("spg1desc").style.display='none';  //bard
+  document.getElementById("spg2desc").style.display='none';  //ecologist
+  document.getElementById("spg3desc").style.display='none';  //zealot
+  document.getElementById("spg4desc").style.display='none';  //diplomat
+  document.getElementById("spg5desc").style.display='none';  //scientist
+  document.getElementById("spg6desc").style.display='block';  //trader
+  document.getElementById("spg7desc").style.display='none';  //shaman
+  document.getElementById("spg8desc").style.display='none';  //warrior
+  document.getElementById("spg9desc").style.display='none';  //wanderer
+  document.getElementById("spg10desc").style.display='none'; //knight
+  }
+  
+  // ----------------------------------------------------------------------------
+  
+  else if ((g==2 & r==2)||(g>0 & r>0 & b==0 & skip==1)||(g==1 & r==1 & skip==2)) { //zealot
+  document.getElementById("spg1desc").style.display='none';  //bard
+  document.getElementById("spg2desc").style.display='none';  //ecologist
+  document.getElementById("spg3desc").style.display='block';  //zealot
+  document.getElementById("spg4desc").style.display='none';  //diplomat
+  document.getElementById("spg5desc").style.display='none';  //scientist
+  document.getElementById("spg6desc").style.display='none';  //trader
+  document.getElementById("spg7desc").style.display='none';  //shaman
+  document.getElementById("spg8desc").style.display='none';  //warrior
+  document.getElementById("spg9desc").style.display='none';  //wanderer
+  document.getElementById("spg10desc").style.display='none'; //knight
+  }
+  else if ((g==2 & b==2)||(g>0 & b>0 & r==0 & skip==1)||(g==1 & b==1 & skip==2)) { //diplomat
+  document.getElementById("spg1desc").style.display='none';  //bard
+  document.getElementById("spg2desc").style.display='none';  //ecologist
+  document.getElementById("spg3desc").style.display='none';  //zealot
+  document.getElementById("spg4desc").style.display='block';  //diplomat
+  document.getElementById("spg5desc").style.display='none';  //scientist
+  document.getElementById("spg6desc").style.display='none';  //trader
+  document.getElementById("spg7desc").style.display='none';  //shaman
+  document.getElementById("spg8desc").style.display='none';  //warrior
+  document.getElementById("spg9desc").style.display='none';  //wanderer
+  document.getElementById("spg10desc").style.display='none'; //knight
+  }
+  else if ((r==2 & b==2)||(r>0 & b>0 & g==0 & skip==1)||(r==1 & b==1 & skip==2)) { //scientist
+  document.getElementById("spg1desc").style.display='none';  //bard
+  document.getElementById("spg2desc").style.display='none';  //ecologist
+  document.getElementById("spg3desc").style.display='none';  //zealot
+  document.getElementById("spg4desc").style.display='none';  //diplomat
+  document.getElementById("spg5desc").style.display='block';  //scientist
+  document.getElementById("spg6desc").style.display='none';  //trader
+  document.getElementById("spg7desc").style.display='none';  //shaman
+  document.getElementById("spg8desc").style.display='none';  //warrior
+  document.getElementById("spg9desc").style.display='none';  //wanderer
+  document.getElementById("spg10desc").style.display='none'; //knight
+  }
+  
+  // ----------------------------------------------------------------------------
+  
+  else if ((r==2 & g==1 & b==1)) { //knight
+  document.getElementById("spg1desc").style.display='none';  //bard
+  document.getElementById("spg2desc").style.display='none';  //ecologist
+  document.getElementById("spg3desc").style.display='none';  //zealot
+  document.getElementById("spg4desc").style.display='none';  //diplomat
+  document.getElementById("spg5desc").style.display='none';  //scientist
+  document.getElementById("spg6desc").style.display='none';  //trader
+  document.getElementById("spg7desc").style.display='none';  //shaman
+  document.getElementById("spg8desc").style.display='none';  //warrior
+  document.getElementById("spg9desc").style.display='none';  //wanderer
+  document.getElementById("spg10desc").style.display='block'; //knight
+  }
+  else if ((r==1 & g==2 & b==1)) { //ecologist
+  document.getElementById("spg1desc").style.display='none';  //bard
+  document.getElementById("spg2desc").style.display='block';  //ecologist
+  document.getElementById("spg3desc").style.display='none';  //zealot
+  document.getElementById("spg4desc").style.display='none';  //diplomat
+  document.getElementById("spg5desc").style.display='none';  //scientist
+  document.getElementById("spg6desc").style.display='none';  //trader
+  document.getElementById("spg7desc").style.display='none';  //shaman
+  document.getElementById("spg8desc").style.display='none';  //warrior
+  document.getElementById("spg9desc").style.display='none';  //wanderer
+  document.getElementById("spg10desc").style.display='none'; //knight
+  }
+  else if ((r==1 & g==1 & b==2)) { //bard
+  document.getElementById("spg1desc").style.display='block';  //bard
+  document.getElementById("spg2desc").style.display='none';  //ecologist
+  document.getElementById("spg3desc").style.display='none';  //zealot
+  document.getElementById("spg4desc").style.display='none';  //diplomat
+  document.getElementById("spg5desc").style.display='none';  //scientist
+  document.getElementById("spg6desc").style.display='none';  //trader
+  document.getElementById("spg7desc").style.display='none';  //shaman
+  document.getElementById("spg8desc").style.display='none';  //warrior
+  document.getElementById("spg9desc").style.display='none';  //wanderer
+  document.getElementById("spg10desc").style.display='none'; //knight
+  }
+  
+  // ----------------------------------------------------------------------------
+  
+  else if (skip==4) { //wanderer (i was copying and editing my python script and ended up with W&erer)
+  document.getElementById("spg1desc").style.display='none';  //bard
+  document.getElementById("spg2desc").style.display='none';  //ecologist
+  document.getElementById("spg3desc").style.display='none';  //zealot
+  document.getElementById("spg4desc").style.display='none';  //diplomat
+  document.getElementById("spg5desc").style.display='none';  //scientist
+  document.getElementById("spg6desc").style.display='none';  //trader
+  document.getElementById("spg7desc").style.display='none';  //shaman
+  document.getElementById("spg8desc").style.display='none';  //warrior
+  document.getElementById("spg9desc").style.display='block';  //wanderer
+  document.getElementById("spg10desc").style.display='none'; //knight
+  }
+  
+}
+</script>

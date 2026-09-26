@@ -1,0 +1,229 @@
+<!DOCTYPE html><html><head>
+<title>draggable images</title>
+<style>
+body {
+font: 16px trebuchet ms, sans-serif;
+}
+
+#draggablediv1, #draggablediv2, #draggablediv3, #draggablediv4, #draggablediv5, #draggablediv6, #draggablediv7, #draggablediv8, #draggablediv9, #draggablediv10 {
+  position: absolute;
+  background-repeat: no-repeat;
+  width: 200px;
+  height: 200px;
+}
+#draggablediv1:hover, #draggablediv2:hover, #draggablediv3:hover, #draggablediv4:hover, #draggablediv5:hover, #draggablediv6:hover, #draggablediv7:hover, #draggablediv8:hover, #draggablediv9:hover, #draggablediv10:hover {
+  background-color: #8000FF40
+}
+
+</style></head><body>
+
+images taller/wider than 200px get cropped (inspect element to change size). selection has the image in the top left. drag and dropping images onto uploaders works! <a href="index.html">back to index</a><br>
+<input type="file" class="file-uploader1" name="pic1" accept ="image/*" onchange="upload1()"><br>
+<input type="file" class="file-uploader2" name="pic2" accept ="image/*" onchange="upload2()"><br>
+<input type="file" class="file-uploader3" name="pic3" accept ="image/*" onchange="upload3()"><br>
+<input type="file" class="file-uploader4" name="pic4" accept ="image/*" onchange="upload4()"><br>
+<input type="file" class="file-uploader5" name="pic5" accept ="image/*" onchange="upload5()"><br>
+<input type="file" class="file-uploader6" name="pic6" accept ="image/*" onchange="upload6()"><br>
+<input type="file" class="file-uploader7" name="pic7" accept ="image/*" onchange="upload7()"><br>
+<input type="file" class="file-uploader8" name="pic8" accept ="image/*" onchange="upload8()"><br>
+<input type="file" class="file-uploader9" name="pic9" accept ="image/*" onchange="upload9()"><br>
+<input type="file" class="file-uploader10" name="pic10" accept ="image/*" onchange="upload10()">
+
+<div id="draggablediv1"></div>
+<br><br><br>
+<div id="draggablediv2"></div>
+<br><br><br>
+<div id="draggablediv3"></div>
+<br><br><br>
+<div id="draggablediv4"></div>
+<br><br><br>
+<div id="draggablediv5"></div>
+<br><br><br>
+<div id="draggablediv6"></div>
+<br><br><br>
+<div id="draggablediv7"></div>
+<br><br><br>
+<div id="draggablediv8"></div>
+<br><br><br>
+<div id="draggablediv9"></div>
+<br><br><br>
+<div id="draggablediv10"></div>
+<br><br><br>
+
+</body><script>
+// https://www.w3schools.com/howto/howto_js_draggable.asp
+
+// Make the DIV element draggable:
+dragElement(document.getElementById("draggablediv1"));
+dragElement(document.getElementById("draggablediv2"));
+dragElement(document.getElementById("draggablediv3"));
+dragElement(document.getElementById("draggablediv4"));
+dragElement(document.getElementById("draggablediv5"));
+dragElement(document.getElementById("draggablediv6"));
+dragElement(document.getElementById("draggablediv7"));
+dragElement(document.getElementById("draggablediv8"));
+dragElement(document.getElementById("draggablediv9"));
+dragElement(document.getElementById("draggablediv10"));
+
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    // if present, the header is where you move the DIV from:
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    // otherwise, move the DIV from anywhere inside the DIV:
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    // stop moving when mouse button is released:
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+
+
+
+// https://dev.to/mirzaleka/upload-the-image-with-a-preview-using-html-css-javascript-53cb
+
+function upload1() {
+const fileUploadInput = document.querySelector('.file-uploader1');
+const uploadimage = fileUploadInput.files[0];
+const fileReader = new FileReader();
+fileReader.readAsDataURL(uploadimage);
+
+fileReader.onload = (fileReaderEvent) => {
+const picturething = document.getElementById("draggablediv1");
+picturething.style.backgroundImage = `url(${fileReaderEvent.target.result})`;
+
+}
+
+//trying to resize it & failed
+
+//const imagewidth = fileReader.naturalWidth
+//const imageheight = fileReader.naturalHeight
+//console.log(imageheight); 
+//console.log(imagewidth); 
+//
+//document.getElementById("draggablediv1").style.width = imagewidth+"px";
+//document.getElementById("draggablediv1").style.height = imageheight+"px";
+
+}
+
+//im so sorry
+
+function upload2() {
+const fileUploadInput = document.querySelector('.file-uploader2');
+const uploadimage = fileUploadInput.files[0];
+const fileReader = new FileReader();
+fileReader.readAsDataURL(uploadimage);
+fileReader.onload = (fileReaderEvent) => {
+const picturething = document.getElementById("draggablediv2");
+picturething.style.backgroundImage = `url(${fileReaderEvent.target.result})`;
+}}
+
+function upload3() {
+const fileUploadInput = document.querySelector('.file-uploader3');
+const uploadimage = fileUploadInput.files[0];
+const fileReader = new FileReader();
+fileReader.readAsDataURL(uploadimage);
+fileReader.onload = (fileReaderEvent) => {
+const picturething = document.getElementById("draggablediv3");
+picturething.style.backgroundImage = `url(${fileReaderEvent.target.result})`;
+}}
+
+function upload4() {
+const fileUploadInput = document.querySelector('.file-uploader4');
+const uploadimage = fileUploadInput.files[0];
+const fileReader = new FileReader();
+fileReader.readAsDataURL(uploadimage);
+fileReader.onload = (fileReaderEvent) => {
+const picturething = document.getElementById("draggablediv4");
+picturething.style.backgroundImage = `url(${fileReaderEvent.target.result})`;
+}}
+
+function upload5() {
+const fileUploadInput = document.querySelector('.file-uploader5');
+const uploadimage = fileUploadInput.files[0];
+const fileReader = new FileReader();
+fileReader.readAsDataURL(uploadimage);
+fileReader.onload = (fileReaderEvent) => {
+const picturething = document.getElementById("draggablediv5");
+picturething.style.backgroundImage = `url(${fileReaderEvent.target.result})`;
+}}
+
+function upload6() {
+const fileUploadInput = document.querySelector('.file-uploader6');
+const uploadimage = fileUploadInput.files[0];
+const fileReader = new FileReader();
+fileReader.readAsDataURL(uploadimage);
+fileReader.onload = (fileReaderEvent) => {
+const picturething = document.getElementById("draggablediv6");
+picturething.style.backgroundImage = `url(${fileReaderEvent.target.result})`;
+}}
+
+function upload7() {
+const fileUploadInput = document.querySelector('.file-uploader7');
+const uploadimage = fileUploadInput.files[0];
+const fileReader = new FileReader();
+fileReader.readAsDataURL(uploadimage);
+fileReader.onload = (fileReaderEvent) => {
+const picturething = document.getElementById("draggablediv7");
+picturething.style.backgroundImage = `url(${fileReaderEvent.target.result})`;
+}}
+
+function upload8() {
+const fileUploadInput = document.querySelector('.file-uploader8');
+const uploadimage = fileUploadInput.files[0];
+const fileReader = new FileReader();
+fileReader.readAsDataURL(uploadimage);
+fileReader.onload = (fileReaderEvent) => {
+const picturething = document.getElementById("draggablediv8");
+picturething.style.backgroundImage = `url(${fileReaderEvent.target.result})`;
+}}
+
+function upload9() {
+const fileUploadInput = document.querySelector('.file-uploader9');
+const uploadimage = fileUploadInput.files[0];
+const fileReader = new FileReader();
+fileReader.readAsDataURL(uploadimage);
+fileReader.onload = (fileReaderEvent) => {
+const picturething = document.getElementById("draggablediv9");
+picturething.style.backgroundImage = `url(${fileReaderEvent.target.result})`;
+}}
+
+function upload10() {
+const fileUploadInput = document.querySelector('.file-uploader10');
+const uploadimage = fileUploadInput.files[0];
+const fileReader = new FileReader();
+fileReader.readAsDataURL(uploadimage);
+fileReader.onload = (fileReaderEvent) => {
+const picturething = document.getElementById("draggablediv10");
+picturething.style.backgroundImage = `url(${fileReaderEvent.target.result})`;
+}}
+
+</script></html>

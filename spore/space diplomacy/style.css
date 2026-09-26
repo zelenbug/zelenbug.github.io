@@ -1,0 +1,58 @@
+body { font: 16px trebuchet ms, sans-serif; background: #1B2D3C; }
+a { color: #0000EE; text-decoration: none; }
+a:hover, a:focus {text-decoration: underline;}
+
+#main {
+width: 80%;
+min-width: 500px;
+padding: 25px;
+margin: 0 auto;
+background: #3B687F;
+border-radius: 10px;
+}
+
+.files {
+padding: 10px;
+margin: 20px 0px;
+background: #B1C8D3;
+border-radius: 10px;
+}
+
+.dialogs {
+padding: 10px;
+margin: 20px 10px;
+background: #ffffff80;
+border-radius: 10px;
+}
+
+p {
+background: white;
+margin: 8px 0px;
+padding: 5px;
+border-radius: 10px;
+}
+
+.spoilerbutton {
+background-color: #3B687F;
+color: white;
+width: 80%;
+margin: 0 auto;
+border-radius: 5px 5px 0px 0px;
+display: block;
+padding: 5px 10px;
+text-align: center;
+cursor: default;
+}
+.spoilerbutton:hover {background-color: #638FA5}
+
+#spoiler {
+background-color: white;
+width: 80%;
+margin: 0 auto;
+padding: 10px;
+border-radius: 0px 0px 5px 5px;
+border-top: 0px solid transparent;
+}
+
+hr { height: 2px; border-width: 0; background-color: #3B687F; float: left; display: block; width: 100%; }
+.shorthr {width: 50%;}
