@@ -1,0 +1,67 @@
+<!DOCTYPE html><html><head>
+<title>title</title>
+<style>
+body { font: 16px trebuchet ms, sans-serif; }
+a { color: #0000EE; text-decoration: none; }
+a:visited { color: #551A8B; } a:hover, a:focus {text-decoration: underline;}
+
+#movey {width: 64px; height: 64px; background-image: url(pinky1.png); position: relative;}
+</style></head><body>
+<div id="container">
+
+click in the window, use arrow keys to move slowly and wasd to move quickly
+<div id="movey"></div>
+
+</div>
+</body>
+
+<script>
+var posx=0
+var posy=0
+window.addEventListener("keydown", function (event) {
+//slow
+  if (event.key === "ArrowUp") {
+posy=posy-2;
+document.getElementById("movey").style.top = posy + "px";
+document.getElementById("movey").style.backgroundImage = "url(pinky1.png)";
+  }
+  if (event.key === "ArrowRight") {
+posx=posx+2;
+document.getElementById("movey").style.left = posx + "px";
+document.getElementById("movey").style.backgroundImage = "url(pinky2.png)";
+  }
+  if (event.key === "ArrowDown") {
+posy=posy+2;
+document.getElementById("movey").style.top = posy + "px";
+document.getElementById("movey").style.backgroundImage = "url(pinky3.png)";
+  }
+  if (event.key === "ArrowLeft") {
+posx=posx-2;
+document.getElementById("movey").style.left = posx + "px";
+document.getElementById("movey").style.backgroundImage = "url(pinky4.png)";
+  }
+//fast
+  if (event.key === "w") {
+posy=posy-4;
+document.getElementById("movey").style.top = posy + "px";
+document.getElementById("movey").style.backgroundImage = "url(pinky1.png)";
+  }
+  if (event.key === "d") {
+posx=posx+4;
+document.getElementById("movey").style.left = posx + "px";
+document.getElementById("movey").style.backgroundImage = "url(pinky2.png)";
+  }
+  if (event.key === "s") {
+posy=posy+4;
+document.getElementById("movey").style.top = posy + "px";
+document.getElementById("movey").style.backgroundImage = "url(pinky3.png)";
+  }
+  if (event.key === "a") {
+posx=posx-4;
+document.getElementById("movey").style.left = posx + "px";
+document.getElementById("movey").style.backgroundImage = "url(pinky4.png)";
+  }
+});
+</script>
+
+</html>

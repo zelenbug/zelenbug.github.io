@@ -6,7 +6,9 @@ font: 16px trebuchet ms, sans-serif;
 color: white;
 background-image: url(files/bg.png);
 background-attachment: fixed;
-background-size: cover;
+background-size: auto 100%; /* i think this should work to loop the image horizontally but clip the size vertically */
+background-repeat: repeat-x;
+background-position: center;
 }
 a { color: #00FFFF; text-decoration: none; }
 a:hover, a:focus {text-decoration: underline;}
@@ -15,9 +17,10 @@ h1 {font-family: "Palatino Sans EA", "Palatino Sans", "Calluna Sans", sans-serif
 #main {
 background: linear-gradient(#000000bf, #1D2A51bf);
 width: 1000px;
-padding: 40px;
+padding: 30px;
 margin: 0 auto;
-box-shadow: 3px 3px 5px #c6f3ff80 inset; border-radius: 5px;
+box-shadow: 3px 3px 5px #c6f3ff80 inset;
+border-radius: 15px;
 backdrop-filter: blur(5px);
 }
 
@@ -27,7 +30,8 @@ display: inline-block;
 text-align: center;
 padding: 10px;
 margin: 5px;
-box-shadow: 3px 3px 5px #c6f3ff80 inset; border-radius: 5px;
+box-shadow: 3px 3px 5px #c6f3ff80 inset;
+border-radius: 10px;
 }
 
 .desc {
@@ -38,32 +42,34 @@ vertical-align: top;
 .desc h1 {margin-top: 0px; margin-bottom: 10px;}
 
 hr { height: 2px; border-width: 0; background-color: #c6f3ff80 }
+
+@font-face { font-family: "Palatino Sans EA"; src: url(files/palatinosanseabold.ttf); font-weight: bold; }
+
+#footerthingy {
+width: 800px;
+margin: 0 auto;
+text-align: center;
+}
+html {scrollbar-color: #7AA195 #29334C;}
 </style></head><body><div id="main">
 
 <img src="files/blirper.png" height="200px" class="desc">
 <div class="desc" style="width: 750px;">
 <h1>zel's page</h1>
 she/her
-<br>i like playing around with html and css and javascript, i made this because i wanted a convenient place to host my js toys and tools
-<br>
-<br><a href="https://zelenbug.tumblr.com/">tumblr main blog</a>
-<br><a href="https://zelenbug-art.tumblr.com/">tumblr art blog</a>
-<br><a href="https://randomsporefacts.tumblr.com/">random spore facts</a>
+<br>i like playing around with html and css and javascript, i made this because i wanted a convenient place to host my js toys and tools &amp; some other stuff
+<br><br><img src="files/badge1.png" alt="no ai in sight!!! screw that!!!!!!"> <img src="files/badge2.png" alt="'coded on these things', with icons of firefox and notepad++"> <img src="files/badge3.png" alt="i love bryce 4 / 7.1"> <img src="files/badge4.png" alt="'my favorite game is very obvious' on a screenshot of spore">
+<br><br><a target="_blank" href="https://zelenbug.tumblr.com/">tumblr main blog</a> | <a target="_blank" href="https://zelenbug-art.tumblr.com/">tumblr art blog</a> | <a target="_blank" href="https://randomsporefacts.tumblr.com/">random spore facts</a>
 </div>
 
 <hr>
 
-random javascript toys<br>
+random javascript toys &amp; others<br>
 
 <div class="sitebox"><a href="insert pic to drag it around.html">
 <img src="files/draggablegifs.png">
-<br>draggable tiny images
-</a><br>upload & drag gifs around!</div>
-
-<div class="sitebox"><a href="color selector.html">
-<img src="files/colorselector.png">
-<br>color selector test
-</a><br>with default html colors</div>
+<br>draggable images
+</a><br>upload &amp; drag gifs around!</div>
 
 <div class="sitebox"><a href="all timezones.html">
 <img src="files/timezoneviewer.png">
@@ -75,14 +81,19 @@ random javascript toys<br>
 <br>windows 7 aero test
 </a><br>its even recolorable!</div>
 
-<br><br>
+<div class="sitebox"><a href="misc.html">
+<img src="files/misc.png">
+<br>other misc pages
+</a><br>mostly little tests</div>
 
-spore javascript tools and such<br>
+<hr>
+
+spore javascript tools and useful pages<br>
 
 <div class="sitebox"><a href="spore/color value converter2.html">
 <img src="files/sporecolorconverter.png">
 <br>color value &amp; skinpaint converter
-</a><br>(converts float rgb colors, also)</div>
+</a><br>can convert float rgb colors, also</div>
 
 <div class="sitebox"><a href="spore/archetype converter3.html">
 <img src="files/sporearchetypeconverter.png">
@@ -99,16 +110,38 @@ spore javascript tools and such<br>
 <br>creation hash converter
 </a><br>for hashes in creation xml files</div>
 
+<div class="sitebox"><a href="spore/every part/creature.html">
+<img src="files/sporecrparts.png">
+<br>parts &amp; paints [WIP]
+</a><br>with stats &amp; internal info</div>
+
 <div class="sitebox"><a href="spore/space diplomacy/main.html">
 <img src="files/sporedialogue.png">
 <br>space diplomacy [WIP]
 </a><br>space and civ comms dialogue</div>
 
+<div class="sitebox"><a href="spore/part randomizer.html">
+<img src="files/sporerandom.png">
+<br>part/paint randomizer
+</a><br>make random creatures!!</div>
+
 <br><a href="spore/all feb 19 cheats.html">all cheats from the feb 19 2008 spore build</a>
 
-<br><br>
+<hr>
 
-MORE TO COME LATER
+Fan Nonsense<br>
+
+<div class="sitebox"><a href="have files/paper doll remake/candy.html">
+<img src="files/candy.png">
+<br>candy paper doll remake
+</a><br>put her in silly clothes!!</div>
+
+<br><a href="misc/stupid invaders subs.html">organized stupid invaders subtitles for reference</a>, <a href="have files/starbound rayman/!pics.html">starbound rayman mod items</a>
+
+<hr>
+
+and heres some of my bryce creatures<br><br>
+<img src="files/anotherbryceguy.gif" style="height: 135px"><img src="files/anotherbryceguy2.gif" style="height: 135px">
 
 </div>
 </body></html>

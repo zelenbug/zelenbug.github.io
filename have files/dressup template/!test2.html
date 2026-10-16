@@ -1,0 +1,331 @@
+<!DOCTYPE html><html><head>
+<title>dress up test</title>
+<style>
+body { font: 16px trebuchet ms, sans-serif; }
+a { color: #0000EE; text-decoration: none; }
+a:visited { color: #551A8B; } a:hover, a:focus {text-decoration: underline;}
+
+.outfit {
+width: 500px;
+height: 500px;
+position: absolute;
+}
+
+.piccontainer {
+width: 500px;
+height: 500px;
+}
+
+.inputblock {
+width: 200px;
+}
+
+.inline {
+display: inline-block;
+}
+
+</style></head><body>
+<div class="piccontainer inline">
+<div class="outfit" style="background-image: url(pics/bg.png)"></div>
+
+<div class="outfit" id="layer1_0" style="background-image: url(pics/base0.png)"></div>
+<div class="outfit" id="layer1_1" style="background-image: url(pics/base1.png); filter: hue-rotate(152deg) saturate(178%) brightness(154%)"></div>
+<div class="outfit" id="layer1_2" style="background-image: url(pics/base2.png); filter: hue-rotate(64deg) saturate(71%) brightness(300%)"></div>
+<div class="outfit" id="layer1_3" style="background-image: url(pics/base3.png); filter: hue-rotate(174deg) saturate(300%) brightness(94%)"></div>
+
+<div class="outfit" id="layer2_0" style="background-image: url(pics/!empty.png)"></div>
+<div class="outfit" id="layer2_1" style="background-image: url(pics/!empty.png)"></div>
+<div class="outfit" id="layer2_2" style="background-image: url(pics/!empty.png)"></div>
+<div class="outfit" id="layer2_3" style="background-image: url(pics/!empty.png)"></div>
+</div>
+
+<div class="inline">
+<input type="button" value="use scarf" onclick="layer2scarf()"><br><br>
+<input type="button" value="use socks" onclick="layer2socks()"><br><br>
+<input type="button" value="use hat"   onclick="layer2hat()"><br><br>
+<input type="button" value="remove"    onclick="layer2remove()">
+</div>
+
+<div class="inline">
+
+<div class="inputblock inline">
+<label for="layer1_1_hue">layer 1 color 1 hue</label><br>
+<input type="range" id="layer1_1_hue" value="152" min="0" max="360" oninput="color_layer1_1()">
+<div id="layer1_1_hue_label" class="inline">152</div><br>
+
+<label for="layer1_1_sat">layer 1 color 1 saturation</label><br>
+<input type="range" id="layer1_1_sat" value="178" min="0" max="300" oninput="color_layer1_1()">
+<div id="layer1_1_sat_label" class="inline">178</div><br>
+
+<label for="layer1_1_bri">layer 1 color 1 brightness</label><br>
+<input type="range" id="layer1_1_bri" value="154" min="0" max="300" oninput="color_layer1_1()">
+<div id="layer1_1_bri_label" class="inline">154</div><br>
+
+</div>
+
+<div class="inputblock inline">
+<label for="layer1_2_hue">layer 1 color 2 hue</label><br>
+<input type="range" id="layer1_2_hue" value="64" min="0" max="360" oninput="color_layer1_2()">
+<div id="layer1_2_hue_label" class="inline">64</div><br>
+
+<label for="layer1_2_sat">layer 1 color 2 saturation</label><br>
+<input type="range" id="layer1_2_sat" value="71" min="0" max="300" oninput="color_layer1_2()">
+<div id="layer1_2_sat_label" class="inline">71</div><br>
+
+<label for="layer1_2_bri">layer 1 color 2 brightness</label><br>
+<input type="range" id="layer1_2_bri" value="300" min="0" max="300" oninput="color_layer1_2()">
+<div id="layer1_2_bri_label" class="inline">300</div><br>
+
+</div>
+
+<div class="inputblock inline">
+<label for="layer1_3_hue">layer 1 color 3 hue</label><br>
+<input type="range" id="layer1_3_hue" value="174" min="0" max="360" oninput="color_layer1_3()">
+<div id="layer1_3_hue_label" class="inline">174</div><br>
+
+<label for="layer1_3_sat">layer 1 color 3 saturation</label><br>
+<input type="range" id="layer1_3_sat" value="300" min="0" max="300" oninput="color_layer1_3()">
+<div id="layer1_3_sat_label" class="inline">300</div><br>
+
+<label for="layer1_3_bri">layer 1 color 3 brightness</label><br>
+<input type="range" id="layer1_3_bri" value="94" min="0" max="300" oninput="color_layer1_3()">
+<div id="layer1_3_bri_label" class="inline">94</div><br>
+
+</div>
+
+<hr>
+
+<div class="inputblock inline">
+<label for="layer2_1_hue">layer 2 color 1 hue</label><br>
+<input type="range" id="layer2_1_hue" value="0" min="0" max="360" oninput="color_layer2_1()">
+<div id="layer2_1_hue_label" class="inline">0</div><br>
+
+<label for="layer2_1_sat">layer 2 color 1 saturation</label><br>
+<input type="range" id="layer2_1_sat" value="100" min="0" max="300" oninput="color_layer2_1()">
+<div id="layer2_1_sat_label" class="inline">100</div><br>
+
+<label for="layer2_1_bri">layer 2 color 1 brightness</label><br>
+<input type="range" id="layer2_1_bri" value="100" min="0" max="300" oninput="color_layer2_1()">
+<div id="layer2_1_bri_label" class="inline">100</div><br>
+
+</div>
+
+<div class="inputblock inline">
+<label for="layer2_2_hue">layer 2 color 2 hue</label><br>
+<input type="range" id="layer2_2_hue" value="0" min="0" max="360" oninput="color_layer2_2()">
+<div id="layer2_2_hue_label" class="inline">0</div><br>
+
+<label for="layer2_2_sat">layer 2 color 2 saturation</label><br>
+<input type="range" id="layer2_2_sat" value="100" min="0" max="300" oninput="color_layer2_2()">
+<div id="layer2_2_sat_label" class="inline">100</div><br>
+
+<label for="layer2_2_bri">layer 2 color 2 brightness</label><br>
+<input type="range" id="layer2_2_bri" value="100" min="0" max="300" oninput="color_layer2_2()">
+<div id="layer2_2_bri_label" class="inline">100</div><br>
+
+</div>
+
+<div class="inputblock inline">
+<label for="layer2_3_hue">layer 2 color 3 hue</label><br>
+<input type="range" id="layer2_3_hue" value="0" min="0" max="360" oninput="color_layer2_3()">
+<div id="layer2_3_hue_label" class="inline">0</div><br>
+
+<label for="layer2_3_sat">layer 2 color 3 saturation</label><br>
+<input type="range" id="layer2_3_sat" value="100" min="0" max="300" oninput="color_layer2_3()">
+<div id="layer2_3_sat_label" class="inline">100</div><br>
+
+<label for="layer2_3_bri">layer 2 color 3 brightness</label><br>
+<input type="range" id="layer2_3_bri" value="100" min="0" max="300" oninput="color_layer2_3()">
+<div id="layer2_3_bri_label" class="inline">100</div><br>
+
+</div>
+
+</div>
+
+<hr>
+
+</body>
+
+<script>
+
+//layer 1
+
+function color_layer1_1() {
+var hue = document.getElementById("layer1_1_hue").value;
+var sat = document.getElementById("layer1_1_sat").value;
+var bri = document.getElementById("layer1_1_bri").value;
+hue = hue.toString();
+sat = sat.toString();
+bri = bri.toString();
+
+document.getElementById("layer1_1_hue_label").innerHTML = hue;
+document.getElementById("layer1_1_sat_label").innerHTML = sat;
+document.getElementById("layer1_1_bri_label").innerHTML = bri;
+
+hue = "hue-rotate("+hue+"deg)";
+sat = "saturate("+sat+"%)";
+bri = "brightness("+bri+"%)";
+
+document.getElementById("layer1_1").style.filter = hue+sat+bri;
+}
+
+function color_layer1_2() {
+var hue = document.getElementById("layer1_2_hue").value;
+var sat = document.getElementById("layer1_2_sat").value;
+var bri = document.getElementById("layer1_2_bri").value;
+hue = hue.toString();
+sat = sat.toString();
+bri = bri.toString();
+
+document.getElementById("layer1_2_hue_label").innerHTML = hue;
+document.getElementById("layer1_2_sat_label").innerHTML = sat;
+document.getElementById("layer1_2_bri_label").innerHTML = bri;
+
+hue = "hue-rotate("+hue+"deg)";
+sat = "saturate("+sat+"%)";
+bri = "brightness("+bri+"%)";
+document.getElementById("layer1_2").style.filter = hue+sat+bri;
+}
+
+function color_layer1_3() {
+var hue = document.getElementById("layer1_3_hue").value;
+var sat = document.getElementById("layer1_3_sat").value;
+var bri = document.getElementById("layer1_3_bri").value;
+hue = hue.toString();
+sat = sat.toString();
+bri = bri.toString();
+
+document.getElementById("layer1_3_hue_label").innerHTML = hue;
+document.getElementById("layer1_3_sat_label").innerHTML = sat;
+document.getElementById("layer1_3_bri_label").innerHTML = bri;
+
+hue = "hue-rotate("+hue+"deg)";
+sat = "saturate("+sat+"%)";
+bri = "brightness("+bri+"%)";
+document.getElementById("layer1_3").style.filter = hue+sat+bri;
+}
+
+//layer 2
+
+function color_layer2_1() {
+var hue = document.getElementById("layer2_1_hue").value;
+var sat = document.getElementById("layer2_1_sat").value;
+var bri = document.getElementById("layer2_1_bri").value;
+hue = hue.toString();
+sat = sat.toString();
+bri = bri.toString();
+
+document.getElementById("layer2_1_hue_label").innerHTML = hue;
+document.getElementById("layer2_1_sat_label").innerHTML = sat;
+document.getElementById("layer2_1_bri_label").innerHTML = bri;
+
+hue = "hue-rotate("+hue+"deg)";
+sat = "saturate("+sat+"%)";
+bri = "brightness("+bri+"%)";
+document.getElementById("layer2_1").style.filter = hue+sat+bri;
+}
+
+function color_layer2_2() {
+var hue = document.getElementById("layer2_2_hue").value;
+var sat = document.getElementById("layer2_2_sat").value;
+var bri = document.getElementById("layer2_2_bri").value;
+hue = hue.toString();
+sat = sat.toString();
+bri = bri.toString();
+
+document.getElementById("layer2_2_hue_label").innerHTML = hue;
+document.getElementById("layer2_2_sat_label").innerHTML = sat;
+document.getElementById("layer2_2_bri_label").innerHTML = bri;
+
+hue = "hue-rotate("+hue+"deg)";
+sat = "saturate("+sat+"%)";
+bri = "brightness("+bri+"%)";
+document.getElementById("layer2_2").style.filter = hue+sat+bri;
+}
+
+function color_layer2_3() {
+var hue = document.getElementById("layer2_3_hue").value;
+var sat = document.getElementById("layer2_3_sat").value;
+var bri = document.getElementById("layer2_3_bri").value;
+hue = hue.toString();
+sat = sat.toString();
+bri = bri.toString();
+
+document.getElementById("layer2_3_hue_label").innerHTML = hue;
+document.getElementById("layer2_3_sat_label").innerHTML = sat;
+document.getElementById("layer2_3_bri_label").innerHTML = bri;
+
+hue = "hue-rotate("+hue+"deg)";
+sat = "saturate("+sat+"%)";
+bri = "brightness("+bri+"%)";
+document.getElementById("layer2_3").style.filter = hue+sat+bri;
+}
+
+// -------------------------------------------
+//clothes
+
+function layer2scarf() {
+document.getElementById("layer2_0").style.backgroundImage = "url(pics/scarf0.png)";
+document.getElementById("layer2_1").style.backgroundImage = "url(pics/scarf1.png)";
+document.getElementById("layer2_2").style.backgroundImage = "url(pics/!empty.png)";
+document.getElementById("layer2_3").style.backgroundImage = "url(pics/!empty.png)";
+
+document.getElementById("layer2_1_hue").value = 69;
+document.getElementById("layer2_1_sat").value = 300;
+document.getElementById("layer2_1_bri").value = 300;
+color_layer2_1();
+
+}
+
+function layer2socks() {
+document.getElementById("layer2_0").style.backgroundImage = "url(pics/socks0.png)";
+document.getElementById("layer2_1").style.backgroundImage = "url(pics/socks1.png)";
+document.getElementById("layer2_2").style.backgroundImage = "url(pics/socks2.png)";
+document.getElementById("layer2_3").style.backgroundImage = "url(pics/!empty.png)";
+
+document.getElementById("layer2_1_hue").value = 262;
+document.getElementById("layer2_1_sat").value = 26;
+document.getElementById("layer2_1_bri").value = 274;
+color_layer2_1();
+
+document.getElementById("layer2_2_hue").value = 267;
+document.getElementById("layer2_2_sat").value = 60;
+document.getElementById("layer2_2_bri").value = 135;
+color_layer2_2();
+
+}
+
+function layer2hat() {
+document.getElementById("layer2_0").style.backgroundImage = "url(pics/hat0.png)";
+document.getElementById("layer2_1").style.backgroundImage = "url(pics/hat1.png)";
+document.getElementById("layer2_2").style.backgroundImage = "url(pics/hat2.png)";
+document.getElementById("layer2_3").style.backgroundImage = "url(pics/hat3.png)";
+
+document.getElementById("layer2_1_hue").value = 247;
+document.getElementById("layer2_1_sat").value = 300;
+document.getElementById("layer2_1_bri").value = 43;
+color_layer2_1();
+
+document.getElementById("layer2_2_hue").value = 226;
+document.getElementById("layer2_2_sat").value = 300;
+document.getElementById("layer2_2_bri").value = 300;
+color_layer2_2();
+
+document.getElementById("layer2_3_hue").value = 247;
+document.getElementById("layer2_3_sat").value = 300;
+document.getElementById("layer2_3_bri").value = 43;
+color_layer2_3();
+}
+
+function layer2remove() {
+document.getElementById("layer2_0").style.backgroundImage = "url(pics/!empty.png)";
+document.getElementById("layer2_1").style.backgroundImage = "url(pics/!empty.png)";
+document.getElementById("layer2_2").style.backgroundImage = "url(pics/!empty.png)";
+document.getElementById("layer2_3").style.backgroundImage = "url(pics/!empty.png)";
+}
+
+</script>
+
+
+
+</html>

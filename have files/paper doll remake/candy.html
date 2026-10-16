@@ -1,0 +1,421 @@
+<!DOCTYPE html><html><head>
+<title>Candy Paper Doll remake</title>
+<script src="files/colorchange.js"></script>
+<script src="files/clotheschange.js"></script>
+<script src="files/tab.js"></script>
+<link rel="stylesheet" href="files/style.css">
+</head><body>
+
+<h1>Candy Paper Doll remake</h1>
+
+<div style="display: flex; flex-wrap: wrap; justify-content: center; max-width: 1500px; margin: 0 auto;">
+
+<div class="piccontainer">
+<div class="outfit" style="background-image: url(files/base.png)"></div>
+<!-- shoes -->
+<div class="outfit" id="layer5_0"></div>
+<div class="outfit" id="layer5_1"></div>
+<div class="outfit" id="layer5_2"></div>
+<div class="outfit" id="layer5_3"></div>
+<!-- pants/skirts -->
+<div class="outfit" id="layer4_0" style="background-image: url(files/4_default0.png)"></div>
+<div class="outfit" id="layer4_1" style="background-image: url(files/4_default1.png); filter: hue-rotate(51deg) saturate(95%) brightness(270%)"></div>
+<div class="outfit" id="layer4_2" style="background-image: url(files/4_default2.png); filter: hue-rotate(0deg) saturate(100%) brightness(57%)"></div>
+<div class="outfit" id="layer4_3"></div>
+<!-- hats, forced to layer under shirts to allow for longer wigs and such -->
+<div class="outfit" id="layer1_0"></div>
+<div class="outfit" id="layer1_1"></div>
+<div class="outfit" id="layer1_2"></div>
+<div class="outfit" id="layer1_3"></div>
+<!-- shirts -->
+<div class="outfit" id="layer3_0"></div>
+<div class="outfit" id="layer3_1"></div>
+<div class="outfit" id="layer3_2"></div>
+<div class="outfit" id="layer3_3"></div>
+<!-- coats -->
+<div class="outfit" id="layer2_0"></div>
+<div class="outfit" id="layer2_1"></div>
+<div class="outfit" id="layer2_2"></div>
+<div class="outfit" id="layer2_3"></div>
+</div>
+
+
+<div> <!-- clothes block -->
+
+<div class="tab">
+  <div class="tablinks clicky active" onclick="opentab(event, 'tablayer1')">Layer 1<br>(hats/wigs)</div>
+  <div class="tablinks clicky" onclick="opentab(event, 'tablayer2')"       >Layer 2<br>(coats)</div>
+  <div class="tablinks clicky" onclick="opentab(event, 'tablayer3')"       >Layer 3<br>(shirts)</div>
+  <div class="tablinks clicky" onclick="opentab(event, 'tablayer4')"       >Layer 4<br>(pants/skirts)</div>
+  <div class="tablinks clicky" onclick="opentab(event, 'tablayer5')"       >Layer 5<br>(shoes)</div>
+  <div class="tablinks clicky" onclick="opentab(event, 'tabbackground')"   >Background<br>(wip)</div>
+  <div class="tablinks clicky" onclick="opentab(event, 'tabhelp')"         >Info<br>&nbsp;</div> <!-- the non breaking space is a hacky way to get the buttons to be all the same height -->
+</div>
+
+<!-- layer 1 hats ------------------------------------------------------- -->
+
+<div class="tabcontent" id="tablayer1" style="display: block;">
+
+<div class="selectclothes clicky" onclick="layer1remove()"><img loading="lazy" src="files/emptybutton.png"><span class="tooltip">Remove layer</span></div>
+<br>
+<div class="selectclothes clicky" onclick="layer1fit2()"><img loading="lazy" src="files/1_fit2.png"><span class="tooltip">2nd outfit from the original</span></div>
+<div class="selectclothes clicky" onclick="layer1fit5()"><img loading="lazy" src="files/1_fit5.png"><span class="tooltip">5th outfit from the original</span></div>
+<div class="selectclothes clicky" onclick="layer1headband()"><img loading="lazy" src="files/1_headband.png"><span class="tooltip">Headband</span></div> <!-- from time for a change which i think is a bad episode but it was a good piece of clothing to add -->
+<div class="selectclothes clicky" onclick="layer1biker()"><img loading="lazy" src="files/1_biker.png"><span class="tooltip">Biker wig</span></div>
+<div class="selectclothes clicky" onclick="layer1witch()"><img loading="lazy" src="files/1_witch.png"><span class="tooltip">Witch hat from some DVD cover</span></div>
+
+<hr>
+
+<div class="inputblock inline">
+<label for="layer1_1_hue">Color 1 hue</label><br>
+<input type="range" class="slider" id="layer1_1_hue" value="0" min="0" max="360" oninput="color_layer1_1()">
+<input type="text" id="layer1_1_hue_label" class="inline" value="0" onfocusout="color_layer1_1_label()"><br>
+
+<label for="layer1_1_sat">Color 1 saturation</label><br>
+<input type="range" class="slider" id="layer1_1_sat" value="100" min="0" max="400" oninput="color_layer1_1()">
+<input type="text" id="layer1_1_sat_label" class="inline" value="100" onfocusout="color_layer1_1_label()"><br>
+
+<label for="layer1_1_bri">Color 1 brightness</label><br>
+<input type="range" class="slider" id="layer1_1_bri" value="100" min="0" max="400" oninput="color_layer1_1()">
+<input type="text" id="layer1_1_bri_label" class="inline" value="100" onfocusout="color_layer1_1_label()"><br>
+
+<div class="usedcolor" id="layer1_1_used"></div>
+</div>
+
+<div class="inputblock inline">
+<label for="layer1_2_hue">Color 2 hue<br>
+<input type="range" class="slider" id="layer1_2_hue" value="0" min="0" max="360" oninput="color_layer1_2()">
+<input type="text" id="layer1_2_hue_label" class="inline" value="0" onfocusout="color_layer1_2_label()"><br>
+
+<label for="layer1_2_sat">Color 2 saturation</label><br>
+<input type="range" class="slider" id="layer1_2_sat" value="100" min="0" max="400" oninput="color_layer1_2()">
+<input type="text" id="layer1_2_sat_label" class="inline" value="100" onfocusout="color_layer1_2_label()"><br>
+
+<label for="layer1_2_bri">Color 2 brightness</label><br>
+<input type="range" class="slider" id="layer1_2_bri" value="100" min="0" max="400" oninput="color_layer1_2()">
+<input type="text" id="layer1_2_bri_label" class="inline" value="100" onfocusout="color_layer1_2_label()"><br>
+
+<div class="usedcolor" id="layer1_2_used"></div>
+</div> <!-- what problem does firefoxs view-source have with this closing div tag specifically -->
+
+<div class="inputblock inline">
+<label for="layer1_3_hue">Color 3 hue</label><br>
+<input type="range" class="slider" id="layer1_3_hue" value="0" min="0" max="360" oninput="color_layer1_3()">
+<input type="text" id="layer1_3_hue_label" class="inline" value="0" onfocusout="color_layer1_3_label()"><br>
+
+<label for="layer1_3_sat">Color 3 saturation</label><br>
+<input type="range" class="slider" id="layer1_3_sat" value="100" min="0" max="400" oninput="color_layer1_3()">
+<input type="text" id="layer1_3_sat_label" class="inline" value="100" onfocusout="color_layer1_3_label()"><br>
+
+<label for="layer1_3_bri">Color 3 brightness</label><br>
+<input type="range" class="slider" id="layer1_3_bri" value="100" min="0" max="400" oninput="color_layer1_3()">
+<input type="text" id="layer1_3_bri_label" class="inline" value="100" onfocusout="color_layer1_3_label()"><br>
+
+<div class="usedcolor" id="layer1_3_used"></div>
+</div>
+
+</div>
+
+<!-- layer 2 coats ------------------------------------------------------- -->
+
+<div class="tabcontent" id="tablayer2">
+
+<div class="selectclothes clicky" onclick="layer2remove()"><img loading="lazy" src="files/emptybutton.png"><span class="tooltip">Remove layer</span></div>
+<br>
+<div class="selectclothes clicky" onclick="layer2fit5()"><img loading="lazy" src="files/2_fit5.png"><span class="tooltip">5th outfit from the original (overalls)</span></div>
+<div class="selectclothes clicky" onclick="layer2vamp()"><img loading="lazy" src="files/2_vamp.png"><span class="tooltip">Vampire cloak (clips with most shirts poorly)</span></div>
+
+<hr>
+
+<div class="inputblock inline">
+<label for="layer2_1_hue">Color 1 hue</label><br>
+<input type="range" class="slider" id="layer2_1_hue" value="0" min="0" max="360" oninput="color_layer2_1()">
+<input type="text" id="layer2_1_hue_label" class="inline" value="0" onfocusout="color_layer2_1_label()"><br>
+
+<label for="layer2_1_sat">Color 1 saturation</label><br>
+<input type="range" class="slider" id="layer2_1_sat" value="100" min="0" max="400" oninput="color_layer2_1()">
+<input type="text" id="layer2_1_sat_label" class="inline" value="100" onfocusout="color_layer2_1_label()"><br>
+
+<label for="layer2_1_bri">Color 1 brightness</label><br>
+<input type="range" class="slider" id="layer2_1_bri" value="100" min="0" max="400" oninput="color_layer2_1()">
+<input type="text" id="layer2_1_bri_label" class="inline" value="100" onfocusout="color_layer2_1_label()"><br>
+
+<div class="usedcolor" id="layer2_1_used"></div>
+</div>
+
+<div class="inputblock inline">
+<label for="layer2_2_hue">Color 2 hue</label><br>
+<input type="range" class="slider" id="layer2_2_hue" value="0" min="0" max="360" oninput="color_layer2_2()">
+<input type="text" id="layer2_2_hue_label" class="inline" value="0" onfocusout="color_layer2_2_label()"><br>
+
+<label for="layer2_2_sat">Color 2 saturation</label><br>
+<input type="range" class="slider" id="layer2_2_sat" value="100" min="0" max="400" oninput="color_layer2_2()">
+<input type="text" id="layer2_2_sat_label" class="inline" value="100" onfocusout="color_layer2_2_label()"><br>
+
+<label for="layer2_2_bri">Color 2 brightness</label><br>
+<input type="range" class="slider" id="layer2_2_bri" value="100" min="0" max="400" oninput="color_layer2_2()">
+<input type="text" id="layer2_2_bri_label" class="inline" value="100" onfocusout="color_layer2_2_label()"><br>
+
+<div class="usedcolor" id="layer2_2_used"></div>
+</div>
+
+<div class="inputblock inline">
+<label for="layer2_3_hue">Color 3 hue</label><br>
+<input type="range" class="slider" id="layer2_3_hue" value="0" min="0" max="360" oninput="color_layer2_3()">
+<input type="text" id="layer2_3_hue_label" class="inline" value="0" onfocusout="color_layer2_3_label()"><br>
+
+<label for="layer2_3_sat">Color 3 saturation</label><br>
+<input type="range" class="slider" id="layer2_3_sat" value="100" min="0" max="400" oninput="color_layer2_3()">
+<input type="text" id="layer2_3_sat_label" class="inline" value="100" onfocusout="color_layer2_3_label()"><br>
+
+<label for="layer2_3_bri">Color 3 brightness</label><br>
+<input type="range" class="slider" id="layer2_3_bri" value="100" min="0" max="400" oninput="color_layer2_3()">
+<input type="text" id="layer2_3_bri_label" class="inline" value="100" onfocusout="color_layer2_3_label()"><br>
+
+<div class="usedcolor" id="layer2_3_used"></div>
+</div>
+
+</div>
+
+<!-- layer 3 shirts ------------------------------------------------------- -->
+
+<div class="tabcontent" id="tablayer3">
+
+<div class="selectclothes clicky" onclick="layer3remove()"><img loading="lazy" src="files/emptybutton.png"><span class="tooltip">Remove layer</span></div>
+<br>
+<div class="selectclothes clicky" onclick="layer3fit2()"><img loading="lazy" src="files/3_fit2.png"><span class="tooltip">2nd outfit from the original</span></div>
+<div class="selectclothes clicky" onclick="layer3fit5()"><img loading="lazy" src="files/3_fit5.png"><span class="tooltip">5th outfit from the original</span></div>
+<div class="selectclothes clicky" onclick="layer3fit6()"><img loading="lazy" src="files/3_fit6.png"><span class="tooltip">6th outfit from the original</span></div>
+<div class="selectclothes clicky" onclick="layer3fit12()"><img loading="lazy" src="files/3_fit12.png"><span class="tooltip">12th outfit from the original</span></div>
+<div class="selectclothes clicky" onclick="layer3biker()"><img loading="lazy" src="files/3_biker.png"><span class="tooltip">Biker shirt(?)</span></div>
+<div class="selectclothes clicky" onclick="layer3turtleneck()"><img loading="lazy" src="files/3_turtleneck.png"><span class="tooltip">Turtleneck</span></div> <!-- s2 disguise works with overalls -->
+
+<hr>
+
+<div class="inputblock inline">
+<label for="layer3_1_hue">Color 1 hue</label><br>
+<input type="range" class="slider" id="layer3_1_hue" value="0" min="0" max="360" oninput="color_layer3_1()">
+<input type="text" id="layer3_1_hue_label" class="inline" value="0" onfocusout="color_layer3_1_label()"><br>
+
+<label for="layer3_1_sat">Color 1 saturation</label><br>
+<input type="range" class="slider" id="layer3_1_sat" value="100" min="0" max="400" oninput="color_layer3_1()">
+<input type="text" id="layer3_1_sat_label" class="inline" value="100" onfocusout="color_layer3_1_label()"><br>
+
+<label for="layer3_1_bri">Color 1 brightness</label><br>
+<input type="range" class="slider" id="layer3_1_bri" value="100" min="0" max="400" oninput="color_layer3_1()">
+<input type="text" id="layer3_1_bri_label" class="inline" value="100" onfocusout="color_layer3_1_label()"><br>
+
+<div class="usedcolor" id="layer3_1_used"></div>
+</div>
+
+<div class="inputblock inline">
+<label for="layer3_2_hue">Color 2 hue</label><br>
+<input type="range" class="slider" id="layer3_2_hue" value="0" min="0" max="360" oninput="color_layer3_2()">
+<input type="text" id="layer3_2_hue_label" class="inline" value="0" onfocusout="color_layer3_2_label()"><br>
+
+<label for="layer3_2_sat">Color 2 saturation</label><br>
+<input type="range" class="slider" id="layer3_2_sat" value="100" min="0" max="400" oninput="color_layer3_2()">
+<input type="text" id="layer3_2_sat_label" class="inline" value="100" onfocusout="color_layer3_2_label()"><br>
+
+<label for="layer3_2_bri">Color 2 brightness</label><br>
+<input type="range" class="slider" id="layer3_2_bri" value="100" min="0" max="400" oninput="color_layer3_2()">
+<input type="text" id="layer3_2_bri_label" class="inline" value="100" onfocusout="color_layer3_2_label()"><br>
+
+<div class="usedcolor" id="layer3_2_used"></div>
+</div>
+
+<div class="inputblock inline">
+<label for="layer3_3_hue">Color 3 hue</label><br>
+<input type="range" class="slider" id="layer3_3_hue" value="0" min="0" max="360" oninput="color_layer3_3()">
+<input type="text" id="layer3_3_hue_label" class="inline" value="0" onfocusout="color_layer3_3_label()"><br>
+
+<label for="layer3_3_sat">Color 3 saturation</label><br>
+<input type="range" class="slider" id="layer3_3_sat" value="100" min="0" max="400" oninput="color_layer3_3()">
+<input type="text" id="layer3_3_sat_label" class="inline" value="100" onfocusout="color_layer3_3_label()"><br>
+
+<label for="layer3_3_bri">Color 3 brightness</label><br>
+<input type="range" class="slider" id="layer3_3_bri" value="100" min="0" max="400" oninput="color_layer3_3()">
+<input type="text" id="layer3_3_bri_label" class="inline" value="100" onfocusout="color_layer3_3_label()"><br>
+
+<div class="usedcolor" id="layer3_3_used"></div>
+</div>
+
+</div>
+
+<!-- layer 4 pants skirts ------------------------------------------------------- -->
+
+<div class="tabcontent" id="tablayer4">
+
+<div class="selectclothes clicky" onclick="layer4default()"><img loading="lazy" src="files/4_default.png"><span class="tooltip">Skirt apron thingy</span></div>
+<div class="selectclothes clicky" onclick="layer4remove()"><img loading="lazy" src="files/emptybutton.png"><span class="tooltip">Remove layer</span></div>
+<br>
+<div class="selectclothes clicky" onclick="layer4fit2()"><img loading="lazy" src="files/4_fit2.png"><span class="tooltip">2nd outfit from the original</span></div>
+<div class="selectclothes clicky" onclick="layer4fit5()"><img loading="lazy" src="files/4_fit5.png"><span class="tooltip">5th outfit from the original (overalls)</span></div>
+<div class="selectclothes clicky" onclick="layer4fit6()"><img loading="lazy" src="files/4_fit6.png"><span class="tooltip">6th outfit from the original</span></div>
+<div class="selectclothes clicky" onclick="layer4fit12()"><img loading="lazy" src="files/4_fit12.png"><span class="tooltip">12th outfit from the original</span></div>
+<div class="selectclothes clicky" onclick="layer4biker()"><img loading="lazy" src="files/4_biker.png"><span class="tooltip">Biker skirt</span></div>
+
+<hr>
+
+<div class="inputblock inline">
+<label for="layer4_1_hue">Color 1 hue</label><br>
+<input type="range" class="slider" id="layer4_1_hue" value="55" min="0" max="360" oninput="color_layer4_1()">
+<input type="text" id="layer4_1_hue_label" class="inline" value="51" onfocusout="color_layer4_1_label()"><br>
+
+<label for="layer4_1_sat">Color 1 saturation</label><br>
+<input type="range" class="slider" id="layer4_1_sat" value="100" min="0" max="400" oninput="color_layer4_1()">
+<input type="text" id="layer4_1_sat_label" class="inline" value="95" onfocusout="color_layer4_1_label()"><br>
+
+<label for="layer4_1_bri">Color 1 brightness</label><br>
+<input type="range" class="slider" id="layer4_1_bri" value="300" min="0" max="400" oninput="color_layer4_1()">
+<input type="text" id="layer4_1_bri_label" class="inline" value="270" onfocusout="color_layer4_1_label()"><br>
+
+<div class="usedcolor" id="layer4_1_used" style="background-color: var(--pink)"></div>
+</div>
+
+<div class="inputblock inline">
+<label for="layer4_2_hue">Color 2 hue</label><br>
+<input type="range" class="slider" id="layer4_2_hue" value="0" min="0" max="360" oninput="color_layer4_2()">
+<input type="text" id="layer4_2_hue_label" class="inline" value="0" onfocusout="color_layer4_2_label()"><br>
+
+<label for="layer4_2_sat">Color 2 saturation</label><br>
+<input type="range" class="slider" id="layer4_2_sat" value="100" min="0" max="400" oninput="color_layer4_2()">
+<input type="text" id="layer4_2_sat_label" class="inline" value="100" onfocusout="color_layer4_2_label()"><br>
+
+<label for="layer4_2_bri">Color 2 brightness</label><br>
+<input type="range" class="slider" id="layer4_2_bri" value="60" min="0" max="400" oninput="color_layer4_2()">
+<input type="text" id="layer4_2_bri_label" class="inline" value="57" onfocusout="color_layer4_2_label()"><br>
+
+<div class="usedcolor" id="layer4_2_used" style="background-color: var(--pink)"></div>
+</div>
+
+<div class="inputblock inline">
+<label for="layer4_3_hue">Color 3 hue</label><br>
+<input type="range" class="slider" id="layer4_3_hue" value="0" min="0" max="360" oninput="color_layer4_3()">
+<input type="text" id="layer4_3_hue_label" class="inline" value="0" onfocusout="color_layer4_3_label()"><br>
+
+<label for="layer4_3_sat">Color 3 saturation</label><br>
+<input type="range" class="slider" id="layer4_3_sat" value="100" min="0" max="400" oninput="color_layer4_3()">
+<input type="text" id="layer4_3_sat_label" class="inline" value="100" onfocusout="color_layer4_3_label()"><br>
+
+<label for="layer4_3_bri">Color 3 brightness</label><br>
+<input type="range" class="slider" id="layer4_3_bri" value="100" min="0" max="400" oninput="color_layer4_3()">
+<input type="text" id="layer4_3_bri_label" class="inline" value="100" onfocusout="color_layer4_3_label()"><br>
+
+<div class="usedcolor" id="layer4_3_used"></div>
+</div>
+
+</div>
+
+<!-- layer 5 shoes ------------------------------------------------------- -->
+
+<div class="tabcontent" id="tablayer5">
+
+<div class="selectclothes clicky" onclick="layer5remove()"><img loading="lazy" src="files/emptybutton.png"><span class="tooltip">Remove layer</span></div>
+<br>
+<div class="selectclothes clicky" onclick="layer5fit2()"><img loading="lazy" src="files/5_fit2.png"><span class="tooltip">2nd outfit from the original</span></div>
+<div class="selectclothes clicky" onclick="layer5fit5()"><img loading="lazy" src="files/5_fit5.png"><span class="tooltip">5th outfit from the original</span></div>
+<div class="selectclothes clicky" onclick="layer5fit6()"><img loading="lazy" src="files/5_fit6.png"><span class="tooltip">6th outfit from the original</span></div>
+<div class="selectclothes clicky" onclick="layer5fit12()"><img loading="lazy" src="files/5_fit12.png"><span class="tooltip">12th outfit from the original</span></div>
+<div class="selectclothes clicky" onclick="layer5fit12alt()"><img loading="lazy" src="files/5_fit12alt.png"><span class="tooltip">12th outfit from the original (alternate)</span></div>
+
+<hr>
+
+<div class="inputblock inline">
+<label for="layer5_1_hue">Color 1 hue</label><br>
+<input type="range" class="slider" id="layer5_1_hue" value="0" min="0" max="360" oninput="color_layer5_1()">
+<input type="text" id="layer5_1_hue_label" class="inline" value="0" onfocusout="color_layer5_1_label()"><br>
+
+<label for="layer5_1_sat">Color 1 saturation</label><br>
+<input type="range" class="slider" id="layer5_1_sat" value="100" min="0" max="400" oninput="color_layer5_1()">
+<input type="text" id="layer5_1_sat_label" class="inline" value="100" onfocusout="color_layer5_1_label()"><br>
+
+<label for="layer5_1_bri">Color 1 brightness</label><br>
+<input type="range" class="slider" id="layer5_1_bri" value="100" min="0" max="400" oninput="color_layer5_1()">
+<input type="text" id="layer5_1_bri_label" class="inline" value="100" onfocusout="color_layer5_1_label()"><br>
+
+<div class="usedcolor" id="layer5_1_used"></div>
+</div>
+
+<div class="inputblock inline">
+<label for="layer5_2_hue">Color 2 hue</label><br>
+<input type="range" class="slider" id="layer5_2_hue" value="0" min="0" max="360" oninput="color_layer5_2()">
+<input type="text" id="layer5_2_hue_label" class="inline" value="0" onfocusout="color_layer5_2_label()"><br>
+
+<label for="layer5_2_sat">Color 2 saturation</label><br>
+<input type="range" class="slider" id="layer5_2_sat" value="100" min="0" max="400" oninput="color_layer5_2()">
+<input type="text" id="layer5_2_sat_label" class="inline" value="100" onfocusout="color_layer5_2_label()"><br>
+
+<label for="layer5_2_bri">Color 2 brightness</label><br>
+<input type="range" class="slider" id="layer5_2_bri" value="100" min="0" max="400" oninput="color_layer5_2()">
+<input type="text" id="layer5_2_bri_label" class="inline" value="100" onfocusout="color_layer5_2_label()"><br>
+
+<div class="usedcolor" id="layer5_2_used"></div>
+</div>
+
+<div class="inputblock inline">
+<label for="layer5_3_hue">Color 3 hue</label><br>
+<input type="range" class="slider" id="layer5_3_hue" value="0" min="0" max="360" oninput="color_layer5_3()">
+<input type="text" id="layer5_3_hue_label" class="inline" value="0" onfocusout="color_layer5_3_label()"><br>
+
+<label for="layer5_3_sat">Color 3 saturation</label><br>
+<input type="range" class="slider" id="layer5_3_sat" value="100" min="0" max="400" oninput="color_layer5_3()">
+<input type="text" id="layer5_3_sat_label" class="inline" value="100" onfocusout="color_layer5_3_label()"><br>
+
+<label for="layer5_3_bri">Color 3 brightness</label><br>
+<input type="range" class="slider" id="layer5_3_bri" value="100" min="0" max="400" oninput="color_layer5_3()">
+<input type="text" id="layer5_3_bri_label" class="inline" value="100" onfocusout="color_layer5_3_label()"><br>
+
+<div class="usedcolor" id="layer5_3_used"></div>
+</div>
+
+</div>
+
+<!-- backgrounds --------------------------------------------------- -->
+
+<div class="tabcontent" id="tabbackground">
+
+to add flat recolorable background and just regular background options. not a priority right now
+<!-- <input type="color"> use that -->
+
+</div>
+
+<!-- help ---------------------------------------------------------- -->
+
+<div class="tabcontent" id="tabhelp">
+
+this is a Space Goofs fan project, based on the original flash game by Xilam (redrawn with more clothing options and recolorability). the original game is available on <a href="https://flashpointarchive.org/" target="_blank">flashpoint</a>
+<br>art &amp; coding by <a href="https://zelenbug.github.io" target="_blank">zelenbug</a>. not affiliated with xilam in any way
+
+<p>the color sliders actually modify an image with filters, and it can be difficult to get a color right, so try fiddling around with the sliders. even tweaking the hue on something with 0 brightness and 400 saturation (like if you want white clothes) will affect its brightness!
+<br>the pink box under a color just marks that its used by the selected clothing piece</p>
+
+<p>you can click on the value of a color slider and type it in manually to set it more precisely as well. the color will update once you click away from the input box</p>
+
+<p>the colors will reset if you switch to a different outfit piece for the layer, so be warned!!</p>
+
+<p>some of the clothes are based on the original game, and go together in sets here as well, but it should be easier to mix them together now (with the ability to actually recolor clothes). here are all the original sets</p>
+<img loading="lazy" src="files/z.png" style="max-width: 100%">
+<a href="files/z.png" target="_blank">(view in full)</a>
+<p>(excuse the french LOL, i made these screenshots before i finished curating the game for flashpoint, and before i figured out how to actually get the game working in english. of course i was the one who curated it, it was my first curation even)</p>
+
+<p>todo
+<br>backgrounds..........
+<br>add ability to save and load outfits
+</p>
+
+<p>changelog
+<br>2026.10.16 - release!!!
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+
+
+
+</html>

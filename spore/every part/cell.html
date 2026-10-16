@@ -1,0 +1,28 @@
+<!DOCTYPE html><html><head>
+<title>Cell parts</title>
+<link rel="stylesheet" href="pages/files/style.css">
+</head><body style="margin: 0px;">
+
+<div id="main">
+
+<div class="tab">
+<a href="pages/cell normal.html"   class="tabbutton cell"     target="iframe"><span class="tooltip">Normal cell editor palette</span></a>
+<a href="pages/cell full.html"     class="tabbutton unused"   target="iframe"><span class="tooltip">Hidden cell editor palette</span></a>
+<a href="pages/cell arranged.html" class="tabbutton unused"   target="iframe"><span class="tooltip">Rearranged cell parts</span></a>
+<div class="divider"></div>
+<div class="tabtext">
+You need a minimum screen width of 1510px for convenience.<br>I dunno if the iframes are reasonable to use
+
+<script src="pages/files/spoiler.js"></script>
+<button type="button" style="display: block;" onclick="spoiler()">Part lists</button>
+<div id="spoiler" style="visibility: hidden;">
+<a href="creature.html">Creature parts</a><br>
+Cell parts<br>
+<a href="paints.html">All paints</a><br>
+</div></div></div>
+
+<iframe src="pages/cell normal.html" name="iframe"></iframe>
+
+</div></body>
+
+</html>

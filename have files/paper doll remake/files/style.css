@@ -1,0 +1,127 @@
+:root{ /* adding this here to make coloring the rest easier */
+--darkpurple: #473272;
+--pink: #FF66FF;
+--purple: #9900CC;
+--dullblue: #54588B;
+--darkblue: #0F1A4F;
+--darkerblue: #10003F;
+}
+body { font: 16px trebuchet ms, sans-serif; background-color: var(--darkpurple); color: white; }
+a { color: var(--pink); text-decoration: none; }
+a:hover, a:focus {text-decoration: underline;}
+
+.inline {display: inline-block;}
+
+.outfit {
+width: 500px;
+height: 500px;
+position: absolute;
+}
+
+.piccontainer {
+width: 500px;
+height: 500px;
+border: 2px solid var(--pink);
+border-radius: 3px;
+margin: 0 5px 5px 5px;
+background-color: white;
+}
+
+.inputblock {width: 245px; white-space: nowrap;}
+.inputblock input[type=text] {
+width: 25px;
+border: 1px solid var(--purple);
+background-color: var(--darkerblue);
+color: white;
+}
+
+.tabcontent {
+display: none;
+padding: 20px;
+width: 800px;
+height: 80vh;
+box-sizing: border-box;
+overflow: auto;
+border: 2px solid var(--purple);
+border-radius: 0 0 10px 10px;
+background: var(--darkblue);
+scrollbar-color: var(--dullblue) var(--darkerblue);
+}
+.tabcontent hr { height: 2px; border-width: 0; background-color: var(--purple) }
+
+.clicky {
+border: 2px solid var(--purple);
+border-radius: 7.5px;
+background: var(--darkblue);
+cursor: pointer;
+}
+.clicky:hover, .active {background: var(--darkpurple); border-color: var(--pink);}
+.clicky:active {background: var(--dullblue);}
+
+.selectclothes {
+width: 100px;
+height: 100px;
+display: inline-block;
+}
+.selectclothes img {width: 100px; height: 100px; object-fit: scale-down;}
+
+.tab {font-size: 0px;} /* so the whitespace between the tab buttons doesnt happen */
+.tablinks {
+font-size: 14px;
+padding: 5px;
+width: calc(100% / 7); /* makes all the buttons the same width and fits all 7 */
+box-sizing: border-box;
+display: inline-block;
+border-radius: 7.5px 7.5px 0 0;
+text-align: center;
+border-bottom: none;
+}
+
+h1 {text-align: center; font-family: "potrzebie", serif; font-weight: normal;}
+
+/* slider code im just editing from https://www.w3schools.com/howto/howto_js_rangeslider.asp , if the sliders look screwed outside of firefox then my bad */
+/* The slider itself */
+.slider {
+width: 205px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--dullblue);
+  outline: none;
+  height: 7px;
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb, .slider::-moz-range-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  background: var(--pink);
+  border: 1px solid var(--purple);
+}
+
+/* adding potrzebie */
+@font-face { font-family: "potrzebie"; src: url(POTRZEBI.TTF); }
+
+/* https://www.w3schools.com/css/css_tooltip.asp */
+.tooltip {
+  visibility: hidden; /* Hidden by default */
+border: 2px solid var(--purple);
+border-radius: 7.5px;
+background: var(--darkblue);
+  height: 20px;
+  padding: 0px 7px;
+  position: absolute;
+  z-index: 1; /* Ensure tooltip is displayed above content */
+  margin: -32px 0 0 -102px; /* hacky way to move it above the icon */
+}
+.selectclothes:hover .tooltip {visibility: visible;}
+
+/* indicators of whether a color is used or not */
+.usedcolor {
+width: 15px;
+height: 15px;
+border-radius: 5px;
+margin: 10px auto;
+background-color: transparent;
+}

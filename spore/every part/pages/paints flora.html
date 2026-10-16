@@ -1,0 +1,923 @@
+<!DOCTYPE html><html><head><link rel="stylesheet" href="files/style.css"></head><style>
+.part {width: 300px; margin: 10px 8px;}
+.emptypart {width: 314px; margin: 10px 8px;}
+</style><body>
+
+<h1>Flora paints</h1>
+
+Colors, used paints and descriptions come from the skinPaint_script~ files. Colors shown are as converted from floats in SporeModder FX, and might be ever so slightly off from their actual ingame color
+<br><br>You can view all flora paints applied to creatures (it's much easier to see here how they look like, in comparison to the paint icon) in the following posts from my blog:
+<a target="_blank" href="https://randomsporefacts.tumblr.com/post/771305149234855936/some-flora-paints-applied-onto-a-creature-with">post 1</a>,
+<a target="_blank" href="https://randomsporefacts.tumblr.com/post/771460529761943552/continuing-flora-paints-research-applied-onto-a">post 2</a>,
+<a target="_blank" href="https://randomsporefacts.tumblr.com/post/771641764094296064/more-flora-paints-viewed-via-cheat-engine-and">post 3</a>,
+<a target="_blank" href="https://randomsporefacts.tumblr.com/post/771822973643636737/more-flora-paints-compared-to-their-creature">post 4</a>,
+<a target="_blank" href="https://randomsporefacts.tumblr.com/post/772004126355750912/more-looking-at-flora-paints-via-cheat-engine-and">post 5</a>,
+<a target="_blank" href="https://randomsporefacts.tumblr.com/post/772457100000493568/heres-the-flora-paint-themes-now-finally-viewed">post 6</a>
+<br>The really weird arrangement of paints (with random empty slots) is entirely accurate to the game
+<br>Another note: a color of (0, 0, 0) isn't actually pitch black, it just leaves the current base/coat/detail color on the creation intact (so most of the theme paints will not change any of the plant's colors, for example). Similarly, an unset paint (uses hash 0x00000000) doesn't change the respective paint slot
+
+<br><br> <!-- divider!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+</div><hr>
+<h2>Base</h2>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_florabase_blankMatte.png"><br>fe_skinpaint_florabase_blankMatte<hr>
+<span class="miscinfo">"skinpaint_florabase_blankMatte"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_florabase_blankShiny.png"><br>fe_skinpaint_florabase_blankShiny<hr>
+<span class="miscinfo">"skinpaint_florabase_blankShiny"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_florabase_valueGradientLight.png"><br>fe_skinpaint_florabase_valueGradientLight<hr>
+<span class="miscinfo">"skinpaint_florabase_valueGradientLight"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_florabase_valueGradientDark.png"><br>fe_skinpaint_florabase_valueGradientDark<hr>
+<span class="miscinfo">"skinpaint_florabase_valueGradientDark"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+<br>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_florabase_leather.png"><br>fe_skinpaint_florabase_leather<hr>
+<span class="miscinfo">"skinpaint_florabase_leather"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_florabase_eggshell.png"><br>fe_skinpaint_florabase_eggshell<hr>
+<span class="miscinfo">"skinpaint_florabase_eggshell"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_florabase_spotted.png"><br>fe_skinpaint_florabase_spotted<hr>
+<span class="miscinfo">"skinpaint_florabase_spotted"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_florabase_amphibian.png"><br>fe_skinpaint_florabase_amphibian<hr>
+<span class="miscinfo">"skinpaint_florabase_amphibian"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+<br>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_florabase_mantelloid.png"><br>fe_skinpaint_florabase_mantelloid<hr>
+<span class="miscinfo">"skinpaint_florabase_mantelloid"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_florabase_zebroid.png"><br>fe_skinpaint_florabase_zebroid<hr>
+<span class="miscinfo">"skinpaint_florabase_zebroid"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_florabase_gradient.png"><br>fe_skinpaint_florabase_gradient<hr>
+<span class="miscinfo">"skinpaint_florabase_gradient"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_florabase_marble.png"><br>fe_skinpaint_florabase_marble<hr>
+<span class="miscinfo">"skinpaint_florabase_marble"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+<br>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_florabase_snakescales.png"><br>fe_skinpaint_florabase_snakescales<hr>
+<span class="miscinfo">"skinpaint_florabase_snakescales"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_florabase_walrus.png"><br>fe_skinpaint_florabase_walrus<hr>
+<span class="miscinfo">"skinpaint_florabase_walrus"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_florabase_zebra.png"><br>fe_skinpaint_florabase_zebra<hr>
+<span class="miscinfo">"skinpaint_florabase_zebra"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_florabase_shortfur.png"><br>fe_skinpaint_florabase_shortfur<hr>
+<span class="miscinfo">"skinpaint_florabase_shortfur"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+<br>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_florabase_lumpy.png"><br>fe_skinpaint_florabase_lumpy<hr>
+<span class="miscinfo">"skinpaint_florabase_lumpy"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="emptypart"></div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_florabase_giraffe.png"><br>fe_skinpaint_florabase_giraffe<hr>
+<span class="miscinfo">"skinpaint_florabase_giraffe"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+<br>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_florabase_striated.png"><br>fe_skinpaint_florabase_striated<hr>
+<span class="miscinfo">"skinpaint_florabase_striated"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_florabase_amigurumi.png"><br>fe_skinpaint_florabase_amigurumi<hr>
+<span class="miscinfo">"skinpaint_florabase_amigurumi"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_florabase_auratus.png"><br>fe_skinpaint_florabase_auratus<hr>
+<span class="miscinfo">"skinpaint_florabase_auratus"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+<br>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_florabase_platesSmall.png"><br>fe_skinpaint_florabase_platesSmall<hr>
+<span class="miscinfo">"skinpaint_florabase_platesSmall"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_florabase_platesLarge.png"><br>fe_skinpaint_florabase_platesLarge<hr>
+<span class="miscinfo">"skinpaint_florabase_platesLarge"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_florabase_melt.png"><br>fe_skinpaint_florabase_melt<hr>
+<span class="miscinfo">"skinpaint_florabase_melt"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+<br>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_florabase_bark.png"><br>fe_skinpaint_florabase_bark<hr>
+<span class="miscinfo">"skinpaint_florabase_bark"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_florabase_morinda.png"><br>fe_skinpaint_florabase_morinda<hr>
+<span class="miscinfo">"skinpaint_florabase_morinda"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="emptypart"></div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_florabase_granite.png"><br>fe_skinpaint_florabase_granite<hr>
+<span class="miscinfo">"skinpaint_florabase_granite"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+<br>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_florabase_longFur.png"><br>fe_skinpaint_florabase_longFur<hr>
+<span class="miscinfo">"skinpaint_florabase_longFur"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_florabase_vittatum2.png"><br>fe_skinpaint_florabase_vittatum2<hr>
+<span class="miscinfo">"skinpaint_florabase_vittatum2"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_florabase_vittatum3.png"><br>fe_skinpaint_florabase_vittatum3<hr>
+<span class="miscinfo">"skinpaint_florabase_vittatum3"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="emptypart"></div></div>
+
+
+<br><br> <!-- divider!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+</div><hr>
+<h2>Coat</h2>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floracoat_blank.png"><br>fe_skinpaint_floracoat_blank<hr>
+<span class="miscinfo">"skinpaint_floracoat_blank"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="emptypart"></div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floracoat_zebra.png"><br>fe_skinpaint_floracoat_zebra<hr>
+<span class="miscinfo">"skinpaint_floracoat_zebra"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+<br>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floracoat_washMatte.png"><br>fe_skinpaint_floracoat_washMatte<hr>
+<span class="miscinfo">"skinpaint_floracoat_washMatte"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floracoat_washShiny.png"><br>fe_skinpaint_floracoat_washShiny<hr>
+<span class="miscinfo">"skinpaint_floracoat_washShiny"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+<br>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floracoat_banded.png"><br>fe_skinpaint_floracoat_banded<hr>
+<span class="miscinfo">"skinpaint_floracoat_banded"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floracoat_turtle.png"><br>fe_skinpaint_floracoat_turtle<hr>
+<span class="miscinfo">"skinpaint_floracoat_turtle"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floracoat_pebble.png"><br>fe_skinpaint_floracoat_pebble<hr>
+<span class="miscinfo">"skinpaint_floracoat_pebble"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floracoat_waldo.png"><br>fe_skinpaint_floracoat_waldo<hr>
+<span class="miscinfo">"skinpaint_floracoat_waldo"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+<br>
+
+<div class="partcontainer"><div class="emptypart"></div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floracoat_kidney.png"><br>fe_skinpaint_floracoat_kidney<hr>
+<span class="miscinfo">"skinpaint_floracoat_kidney"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+<br>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floracoat_polkadot.png"><br>fe_skinpaint_floracoat_polkadot<hr>
+<span class="miscinfo">"skinpaint_floracoat_polkadot"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floracoat_cow.png"><br>fe_skinpaint_floracoat_cow<hr>
+<span class="miscinfo">"skinpaint_floracoat_cow"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="emptypart"></div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floracoat_rubberband.png"><br>fe_skinpaint_floracoat_rubberband<hr>
+<span class="miscinfo">"skinpaint_floracoat_rubberband"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+<br>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floracoat_granite.png"><br>fe_skinpaint_floracoat_granite<hr>
+<span class="miscinfo">"skinpaint_floracoat_granite"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floracoat_halftone.png"><br>fe_skinpaint_floracoat_halftone<hr>
+<span class="miscinfo">"skinpaint_floracoat_halftone"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floracoat_platesSmall.png"><br>fe_skinpaint_floracoat_platesSmall<hr>
+<span class="miscinfo">"skinpaint_floracoat_platesSmall"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+<br>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floracoat_stripesML.png"><br>fe_skinpaint_floracoat_stripesML<hr>
+<span class="miscinfo">"skinpaint_floracoat_stripesML"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floracoat_stripesLL.png"><br>fe_skinpaint_floracoat_stripesLL<hr>
+<span class="miscinfo">"skinpaint_floracoat_stripesLL"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+<br>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floracoat_toupee.png"><br>fe_skinpaint_floracoat_toupee<hr>
+<span class="miscinfo">"skinpaint_floracoat_toupee"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="emptypart"></div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floracoat_ridgesLateral.png"><br>fe_skinpaint_floracoat_ridgesLateral<hr>
+<span class="miscinfo">"skinpaint_floracoat_ridgesLateral"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+<br>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floracoat_suckers.png"><br>fe_skinpaint_floracoat_suckers<hr>
+<span class="miscinfo">"skinpaint_floracoat_suckers"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<br><br> <!-- divider!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+</div><hr>
+<h2>Detail</h2>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floradetail_blank.png"><br>fe_skinpaint_floradetail_blank<hr>
+<span class="miscinfo">"skinpaint_floradetail_blank"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floradetail_sideWash.png"><br>fe_skinpaint_floradetail_sideWash<hr>
+<span class="miscinfo">"skinpaint_floradetail_sideWash"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="emptypart"></div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floradetail_zebra.png"><br>fe_skinpaint_floradetail_zebra<hr>
+<span class="miscinfo">"skinpaint_floradetail_zebra"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+<br>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floradetail_polkadot.png"><br>fe_skinpaint_floradetail_polkadot<hr>
+<span class="miscinfo">"skinpaint_floradetail_polkadot"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floradetail_cow.png"><br>fe_skinpaint_floradetail_cow<hr>
+<span class="miscinfo">"skinpaint_floradetail_cow"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floradetail_halftoneLimbs.png"><br>fe_skinpaint_floradetail_halftoneLimbs<hr>
+<span class="miscinfo">"skinpaint_floradetail_halftoneLimbs"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+<br>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floradetail_amigurumi.png"><br>fe_skinpaint_floradetail_amigurumi<hr>
+<span class="miscinfo">"skinpaint_floradetail_amigurumi"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="emptypart"></div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floradetail_clydesdale.png"><br>fe_skinpaint_floradetail_clydesdale<hr>
+<span class="miscinfo">"skinpaint_floradetail_clydesdale"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floradetail_banded.png"><br>fe_skinpaint_floradetail_banded<hr>
+<span class="miscinfo">"skinpaint_floradetail_banded"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+<br>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floradetail_meltLimbs.png"><br>fe_skinpaint_floradetail_meltLimbs<hr>
+<span class="miscinfo">"skinpaint_floradetail_meltLimbs"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floradetail_meltTopside.png"><br>fe_skinpaint_floradetail_meltTopside<hr>
+<span class="miscinfo">"skinpaint_floradetail_meltTopside"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floradetail_mantellaTopside.png"><br>fe_skinpaint_floradetail_mantellaTopside<hr>
+<span class="miscinfo">"skinpaint_floradetail_mantellaTopside"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floradetail_turtle.png"><br>fe_skinpaint_floradetail_turtle<hr>
+<span class="miscinfo">"skinpaint_floradetail_turtle"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+<br>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floradetail_gooLimbs.png"><br>fe_skinpaint_floradetail_gooLimbs<hr>
+<span class="miscinfo">"skinpaint_floradetail_gooLimbs"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floradetail_gooTopside.png"><br>fe_skinpaint_floradetail_gooTopside<hr>
+<span class="miscinfo">"skinpaint_floradetail_gooTopside"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="emptypart"></div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floradetail_lumpySides.png"><br>fe_skinpaint_floradetail_lumpySides<hr>
+<span class="miscinfo">"skinpaint_floradetail_lumpySides"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+<br>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floradetail_kidney.png"><br>fe_skinpaint_floradetail_kidney<hr>
+<span class="miscinfo">"skinpaint_floradetail_kidney"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floradetail_ridgesTiger.png"><br>fe_skinpaint_floradetail_ridgesTiger<hr>
+<span class="miscinfo">"skinpaint_floradetail_ridgesTiger"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floradetail_stripesML.png"><br>fe_skinpaint_floradetail_stripesML<hr>
+<span class="miscinfo">"skinpaint_floradetail_stripesML"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floradetail_stripesLL.png"><br>fe_skinpaint_floradetail_stripesLL<hr>
+<span class="miscinfo">"skinpaint_floradetail_stripesLL"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+<br>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floradetail_graniteLimbs.png"><br>fe_skinpaint_floradetail_graniteLimbs<hr>
+<span class="miscinfo">"skinpaint_floradetail_graniteLimbs"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floradetail_walrus.png"><br>fe_skinpaint_floradetail_walrus<hr>
+<span class="miscinfo">"skinpaint_floradetail_walrus"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floradetail_walrusLimbs.png"><br>fe_skinpaint_floradetail_walrusLimbs<hr>
+<span class="miscinfo">"skinpaint_floradetail_walrusLimbs"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floradetail_walrusTopside.png"><br>fe_skinpaint_floradetail_walrusTopside<hr>
+<span class="miscinfo">"skinpaint_floradetail_walrusTopside"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+<br>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floradetail_giraffeLimbs.png"><br>fe_skinpaint_floradetail_giraffeLimbs<hr>
+<span class="miscinfo">"skinpaint_floradetail_giraffeLimbs"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floradetail_giraffeTopside.png"><br>fe_skinpaint_floradetail_giraffeTopside<hr>
+<span class="miscinfo">"skinpaint_floradetail_giraffeTopside"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floradetail_platesLarge.png"><br>fe_skinpaint_floradetail_platesLarge<hr>
+<span class="miscinfo">"skinpaint_floradetail_platesLarge"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floradetail_platesSmall.png"><br>fe_skinpaint_floradetail_platesSmall<hr>
+<span class="miscinfo">"skinpaint_floradetail_platesSmall"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+<br>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floradetail_rubberband.png"><br>fe_skinpaint_floradetail_rubberband<hr>
+<span class="miscinfo">"skinpaint_floradetail_rubberband"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floradetail_giraffe.png"><br>fe_skinpaint_floradetail_giraffe<hr>
+<span class="miscinfo">"skinpaint_floradetail_giraffe"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floradetail_vittatum.png"><br>fe_skinpaint_floradetail_vittatum<hr>
+<span class="miscinfo">"skinpaint_floradetail_vittatum"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floradetail_mantellaJoints.png"><br>fe_skinpaint_floradetail_mantellaJoints<hr>
+<span class="miscinfo">"skinpaint_floradetail_mantellaJoints"</span></div>
+Color: (0, 0, 0) <div class="color" style="background-color: #000000"></div>
+</div></div>
+
+<br><br> <!-- divider!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+</div><hr>
+<h2>Themes</h2>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floratheme_01.png"><br>fe_skinpaint_floratheme_01<hr>
+<span class="miscinfo">"fe_skinpaint_floratheme_01"</span>
+<br>Used paints:</div>
+skinpaint_florabase_blankMatte<br>
+<span class="miscinfo">(0.75, 0.75, 0.75)</span><div class="color themecolor" style="background-color: #BFBFBF"></div><br>
+skinpaint_floracoat_blank<br>
+<span class="miscinfo">(0.75, 0.75, 0.75)</span><div class="color themecolor" style="background-color: #BFBFBF"></div><br>
+skinpaint_floradetail_blank<br>
+<span class="miscinfo">(0.75, 0.75, 0.75)</span><div class="color themecolor" style="background-color: #BFBFBF"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floratheme_02.png"><br>fe_skinpaint_floratheme_02<hr>
+<span class="miscinfo">"starter1_L"</span>
+<br>Used paints:</div>
+skinpaint_florabase_valueGradientDark<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+skinpaint_floracoat_blank<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+skinpaint_floradetail_halftoneLimbs<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floratheme_03.png"><br>fe_skinpaint_floratheme_03<hr>
+<span class="miscinfo">"fe_skinpaint_floratheme_03"</span>
+<br>Used paints:</div>
+skinpaint_florabase_zebroid<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+skinpaint_floracoat_platesSmall<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+skinpaint_floradetail_blank<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floratheme_04.png"><br>fe_skinpaint_floratheme_04<hr>
+<span class="miscinfo">"fe_skinpaint_floratheme_04"</span>
+<br>Used paints:</div>
+skinpaint_florabase_valueGradientDark<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+skinpaint_floracoat_blank<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+skinpaint_floradetail_halftoneLimbs<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div>
+</div></div>
+<br>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floratheme_05.png"><br>fe_skinpaint_floratheme_05<hr>
+<span class="miscinfo">"bumpy1 L"</span>
+<br>Used paints:</div>
+skinpaint_florabase_valueGradientDark<br>
+<span class="miscinfo">(0.443137, 0.321569, 0.345098)</span><div class="color themecolor" style="background-color: #705257"></div><br>
+skinpaint_floracoat_washMatte<br>
+<span class="miscinfo">(0.803922, 0.407843, 0.258824)</span><div class="color themecolor" style="background-color: #CD6742"></div><br>
+skinpaint_floradetail_mantellaTopside<br>
+<span class="miscinfo">(0.168627, 0.176471, 0.282353)</span><div class="color themecolor" style="background-color: #2A2D48"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floratheme_06.png"><br>fe_skinpaint_floratheme_06<hr>
+<span class="miscinfo">"bumpy2 L"</span>
+<br>Used paints:</div>
+skinpaint_florabase_spotted<br>
+<span class="miscinfo">(0.443137, 0.356863, 0.321569)</span><div class="color themecolor" style="background-color: #705B52"></div><br>
+-<br>
+<span class="miscinfo">(0.262745, 0.286275, 0.576471)</span><div class="color themecolor" style="background-color: #424993"></div><br>
+skinpaint_floradetail_sideWash<br>
+<span class="miscinfo">(0.509804, 0.368627, 0.803922)</span><div class="color themecolor" style="background-color: #825DCD"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floratheme_07.png"><br>fe_skinpaint_floratheme_07<hr>
+<span class="miscinfo">"bumpy3 L"</span>
+<br>Used paints:</div>
+skinpaint_florabase_marble<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+skinpaint_floracoat_cow<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+skinpaint_floradetail_rubberband<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floratheme_08.png"><br>fe_skinpaint_floratheme_08<hr>
+<span class="miscinfo">"mesa1 L"</span>
+<br>Used paints:</div>
+skinpaint_florabase_marble<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+-<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+skinpaint_floradetail_sideWash<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div>
+</div></div>
+<br>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floratheme_09.png"><br>fe_skinpaint_floratheme_09<hr>
+<span class="miscinfo">"bumpyGranite1 L"</span>
+<br>Used paints:</div>
+skinpaint_florabase_amphibian<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+skinpaint_floracoat_washShiny<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+skinpaint_floradetail_sideWash<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floratheme_10.png"><br>fe_skinpaint_floratheme_10<hr>
+<span class="miscinfo">"fe_skinpaint_floratheme_10"</span>
+<br>Used paints:</div>
+skinpaint_florabase_valueGradientDark<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+skinpaint_floracoat_cow<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+skinpaint_floradetail_cow<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floratheme_11.png"><br>fe_skinpaint_floratheme_11<hr>
+<span class="miscinfo">"bumpyGranite3 L"</span>
+<br>Used paints:</div>
+skinpaint_florabase_valueGradientDark<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+skinpaint_floracoat_toupee<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+skinpaint_floradetail_rubberband<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floratheme_12.png"><br>fe_skinpaint_floratheme_12<hr>
+<span class="miscinfo">"mountains1 L"</span>
+<br>Used paints:</div>
+skinpaint_florabase_valueGradientDark<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+skinpaint_floracoat_pebble<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+skinpaint_floradetail_cow<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div>
+</div></div>
+<br>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floratheme_13.png"><br>fe_skinpaint_floratheme_13<hr>
+<span class="miscinfo">"mountains2 L"</span>
+<br>Used paints:</div>
+skinpaint_florabase_valueGradientDark<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+skinpaint_floracoat_zebra<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+-<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floratheme_14.png"><br>fe_skinpaint_floratheme_14<hr>
+<span class="miscinfo">"mountains3 L"</span>
+<br>Used paints:</div>
+skinpaint_florabase_valueGradientDark<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+skinpaint_floracoat_rubberband<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+-<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floratheme_15.png"><br>fe_skinpaint_floratheme_15<hr>
+<span class="miscinfo">"rivers1 L"</span>
+<br>Used paints:</div>
+skinpaint_florabase_auratus<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+-<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+skinpaint_floradetail_sideWash<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floratheme_16.png"><br>fe_skinpaint_floratheme_16<hr>
+<span class="miscinfo">"river2 L"</span>
+<br>Used paints:</div>
+skinpaint_florabase_lumpy<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+skinpaint_floracoat_turtle<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+skinpaint_floradetail_halftoneLimbs<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div>
+</div></div>
+<br>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floratheme_17.png"><br>fe_skinpaint_floratheme_17<hr>
+<span class="miscinfo">"rivers3 L"</span>
+<br>Used paints:</div>
+skinpaint_florabase_morinda<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+skinpaint_floracoat_toupee<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+-<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floratheme_18.png"><br>fe_skinpaint_floratheme_18<hr>
+<span class="miscinfo">"layers1 L"</span>
+<br>Used paints:</div>
+skinpaint_florabase_platesLarge<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+skinpaint_floracoat_platesSmall<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+skinpaint_floradetail_sideWash<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floratheme_19.png"><br>fe_skinpaint_floratheme_19<hr>
+<span class="miscinfo">"layers2 L"</span>
+<br>Used paints:</div>
+skinpaint_florabase_valueGradientDark<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+skinpaint_floracoat_zebra<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+skinpaint_floradetail_cow<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floratheme_20.png"><br>fe_skinpaint_floratheme_20<hr>
+<span class="miscinfo">"layers3 L"</span>
+<br>Used paints:</div>
+skinpaint_florabase_valueGradientDark<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+skinpaint_floracoat_pebble<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+skinpaint_floradetail_giraffeLimbs<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div>
+</div></div>
+<br>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floratheme_21.png"><br>fe_skinpaint_floratheme_21<hr>
+<span class="miscinfo">"crystalGreen1 L"</span>
+<br>Used paints:</div>
+skinpaint_florabase_valueGradientDark<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+skinpaint_floracoat_toupee<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+skinpaint_floradetail_mantellaTopside<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floratheme_22.png"><br>fe_skinpaint_floratheme_22<hr>
+<span class="miscinfo">"crystalGreen3 L"</span>
+<br>Used paints:</div>
+skinpaint_florabase_platesSmall<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+skinpaint_floracoat_toupee<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+skinpaint_floradetail_gooTopside<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floratheme_23.png"><br>fe_skinpaint_floratheme_23<hr>
+<span class="miscinfo">"fe_skinpaint_floratheme_23"</span>
+<br>Used paints:</div>
+skinpaint_florabase_platesLarge<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+-<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+-<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floratheme_24.png"><br>fe_skinpaint_floratheme_24<hr>
+<span class="miscinfo">"fe_skinpaint_floratheme_24"</span>
+<br>Used paints:</div>
+skinpaint_florabase_platesSmall<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+-<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+-<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div>
+</div></div>
+<br>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floratheme_25.png"><br>fe_skinpaint_floratheme_25<hr>
+<span class="miscinfo">"fe_skinpaint_floratheme_25"</span>
+<br>Used paints:</div>
+skinpaint_florabase_amigurumi<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+-<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+-<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floratheme_26.png"><br>fe_skinpaint_floratheme_26<hr>
+<span class="miscinfo">"fe_skinpaint_floratheme_26"</span>
+<br>Used paints:</div>
+skinpaint_florabase_amphibian<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+-<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+-<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floratheme_27.png"><br>fe_skinpaint_floratheme_27<hr>
+<span class="miscinfo">"fe_skinpaint_floratheme_27"</span>
+<br>Used paints:</div>
+skinpaint_florabase_snakescales<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+-<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+-<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floratheme_28.png"><br>fe_skinpaint_floratheme_28<hr>
+<span class="miscinfo">"fe_skinpaint_floratheme_28"</span>
+<br>Used paints:</div>
+skinpaint_florabase_longFur<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+-<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+-<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div>
+</div></div>
+<br>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floratheme_29.png"><br>fe_skinpaint_floratheme_29<hr>
+<span class="miscinfo">"fe_skinpaint_floratheme_29"</span>
+<br>Used paints:</div>
+skinpaint_florabase_morinda<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+-<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+-<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floratheme_30.png"><br>fe_skinpaint_floratheme_30<hr>
+<span class="miscinfo">"fe_skinpaint_floratheme_30"</span>
+<br>Used paints:</div>
+skinpaint_florabase_spotted<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+-<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+-<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floratheme_31.png"><br>fe_skinpaint_floratheme_31<hr>
+<span class="miscinfo">"fe_skinpaint_floratheme_31"</span>
+<br>Used paints:</div>
+skinpaint_florabase_gradient<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+-<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+-<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floratheme_32.png"><br>fe_skinpaint_floratheme_32<hr>
+<span class="miscinfo">"fe_skinpaint_floratheme_32"</span>
+<br>Used paints:</div>
+skinpaint_florabase_granite<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+-<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+-<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div>
+</div></div>
+<br>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floratheme_33.png"><br>fe_skinpaint_floratheme_33<hr>
+<span class="miscinfo">"fe_skinpaint_floratheme_33"</span>
+<br>Used paints:</div>
+skinpaint_florabase_striated<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+-<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+-<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floratheme_34.png"><br>fe_skinpaint_floratheme_34<hr>
+<span class="miscinfo">"fe_skinpaint_floratheme_34"</span>
+<br>Used paints:</div>
+skinpaint_florabase_rubberband<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+-<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+-<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floratheme_35.png"><br>fe_skinpaint_floratheme_35<hr>
+<span class="miscinfo">"fe_skinpaint_floratheme_35"</span>
+<br>Used paints:</div>
+skinpaint_florabase_quilted<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+-<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+-<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div>
+</div></div>
+
+<div class="partcontainer"><div class="part"><div class="center"><img class="partimg" loading="lazy" src="files/fepaints/fe_skinpaint_floratheme_36.png"><br>fe_skinpaint_floratheme_36<hr>
+<span class="miscinfo">"fe_skinpaint_floratheme_36"</span>
+<br>Used paints:</div>
+skinpaint_florabase_lumpy<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+-<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div><br>
+-<br>
+<span class="miscinfo">(0, 0, 0)</span><div class="color themecolor" style="background-color: #000000"></div>
+</div></div>
+
+<br><hr>
+Fun fact: these last several theme paints are genuinely identical (aside from description) to just applying the same base paint by itself! Compare these files:<br>
+<div class="part" style="width: 500px"><div class="partheader">fe_skinpaint_floratheme_36.prop</div><pre>
+key parent skinPaint_script~!TemplateSkinPaintTheme.prop
+string16 description "fe_skinpaint_floratheme_36"
+colorRGBs paintThemeColor1s
+	(0, 0, 0)
+	(0, 0, 0)
+	(0, 0, 0)
+end
+keys paintThemePaints
+	skinpaint_florabase_lumpy
+	animations~
+	animations~
+end</pre></div>
+<div class="part" style="width: 500px"><div class="partheader">fe_skinpaint_florabase_lumpy.prop</div><pre>
+key parent skinPaint_script~!TemplateSkinPaintTheme.prop
+string16 description "skinpaint_florabase_lumpy"
+colorRGBs paintThemeColor1s
+	(0, 0, 0)
+	(0, 0, 0)
+	(0, 0, 0)
+end
+keys paintThemePaints
+	skinpaint_florabase_lumpy
+	animations~
+	animations~
+end</pre></div>
+
+</body></html>

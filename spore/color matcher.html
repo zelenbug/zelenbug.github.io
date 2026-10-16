@@ -1,14 +1,20 @@
 <!DOCTYPE html><html><head>
 <title>Spore Color Matcher</title>
 <style>
-body { font: 16px trebuchet ms, sans-serif; }
-a { color: #0000EE; text-decoration: none; } a:hover, a:focus {text-decoration: underline;}
+body {
+font: 16px trebuchet ms, sans-serif;
+color: #ffffff;
+background-color: #0F1C24
+}
+a { color: #66EFF7; text-decoration: none; } a:hover, a:focus {text-decoration: underline;}
 
 #main {
 width: 98%;
 padding: 10px;
 margin: 0 auto;
-border: 1px solid black;
+background: #1A303F;
+border: 2px solid #3D505C;
+border-radius: 20px;
 }
 
 .color {
@@ -16,7 +22,7 @@ width: 10%;
 height: 10%;
 display: inline-block;
 border: 1px solid #383838;
-border-radius: 3px;
+border-radius: 25%;
 box-shadow: 2px 2px 0px #595959;
 }
 
@@ -33,7 +39,7 @@ white-space: nowrap;
 width: 78%;
 height: 20%;
 border: 1px solid #383838;
-border-radius: 3px;
+border-radius: 0.3vw; /* it was better than border radius 25%??? */
 box-shadow: 2px 2px 0px #595959;
 margin: 0px 0px 10px 0px;
 }
@@ -46,9 +52,18 @@ display: inline-block;
 
 .showcolorcontainer {
 font-size: 0;
-border: 1px solid #383838;
+border: 2px solid #3D505C;
 border-radius: 3px;
 display: inline-block
+}
+
+.texts {
+width: 60%;
+margin: 0 auto;
+border: 2px solid #3D505C;
+border-radius: 10px;
+padding: 5px;
+text-align: center;
 }
 
 #hex000000 {background-color: #000000} #hex252525 {background-color: #252525} #hex4A4A4A {background-color: #4A4A4A} #hex707070 {background-color: #707070} #hex959595 {background-color: #959595} #hexBABABA {background-color: #BABABA} #hexDFDFDF {background-color: #DFDFDF} #hex050505 {background-color: #050505} #hex2A2A2A {background-color: #2A2A2A} #hex505050 {background-color: #505050} #hex757575 {background-color: #757575} #hex9A9A9A {background-color: #9A9A9A} #hexBFBFBF {background-color: #BFBFBF} #hexE4E4E4 {background-color: #E4E4E4} #hex0B0B0B {background-color: #0B0B0B} #hex303030 {background-color: #303030} #hex555555 {background-color: #555555} #hex7A7A7A {background-color: #7A7A7A} #hex9F9F9F {background-color: #9F9F9F} #hexC5C5C5 {background-color: #C5C5C5} #hexEAEAEA {background-color: #EAEAEA} #hex101010 {background-color: #101010} #hex353535 {background-color: #353535} #hex5A5A5A {background-color: #5A5A5A} #hex808080 {background-color: #808080} #hexA5A5A5 {background-color: #A5A5A5} #hexCACACA {background-color: #CACACA} #hexEFEFEF {background-color: #EFEFEF} #hex151515 {background-color: #151515} #hex3A3A3A {background-color: #3A3A3A} #hex606060 {background-color: #606060} #hex858585 {background-color: #858585} #hexAAAAAA {background-color: #AAAAAA} #hexCFCFCF {background-color: #CFCFCF} #hexF4F4F4 {background-color: #F4F4F4} #hex1B1B1B {background-color: #1B1B1B} #hex404040 {background-color: #404040} #hex656565 {background-color: #656565} #hex8A8A8A {background-color: #8A8A8A} #hexAFAFAF {background-color: #AFAFAF} #hexD4D4D4 {background-color: #D4D4D4} #hexFAFAFA {background-color: #FAFAFA} #hex202020 {background-color: #202020} #hex454545 {background-color: #454545} #hex6A6A6A {background-color: #6A6A6A} #hex8F8F8F {background-color: #8F8F8F} #hexB5B5B5 {background-color: #B5B5B5} #hexDADADA {background-color: #DADADA} #hexFFFFFF {background-color: #FFFFFF}
@@ -871,16 +886,25 @@ Closest matches might be a bit off (especially for green-cyans), so you might wa
 
 </div>
 
-<br>
-Select the color you want to match. A green border around the color is an exact match, a yellow border is the closest match.<br>
-Manually enter a hex, or select a color:<br>
-<input id="hexinput" name="hexinput" type="text" style="width: 60px;" onchange="colorinput2()">
-<input type="color" id="selectcolor" name="selectcolor" value="#6ECC66" onchange="colorinput1()" style="width: 60px;"><br>
+<br><br>
 
-<br>Selected color on the left, closest match on the right:<br>
+<div class="texts">
+Select the color you want to match. A green border around the color is an exact match, a yellow border is the closest match.
+
+<br><br>
+
+Manually enter a hex, or select a color:<br>
+<input type="color" id="selectcolor" name="selectcolor" value="#6ECC66" onchange="colorinput1()" style="width: 68px;"><br>
+<input id="hexinput" name="hexinput" type="text" style="width: 60px;" onchange="colorinput2()">
+
+<br><br>
+
+Selected color on the left, closest match on the right:<br>
 <div class="showcolorcontainer"><div class="showcolor" id="showcolorpicked"></div><div class="showcolor" id="showcolorclosest"></div></div>
 
-<br><br>Color matching code edited from <a href="https://nesin.io/blog/find-closest-color-javascript">nesin.io</a>.
+<br><br>
+
+Color matching code edited from <a href="https://nesin.io/blog/find-closest-color-javascript" target="_blank">nesin.io</a>. In retrospect the original might've been vibecoded :\
 
 </div></div>
 

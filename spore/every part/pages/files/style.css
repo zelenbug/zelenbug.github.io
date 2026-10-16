@@ -1,0 +1,237 @@
+body {
+font: 14px trebuchet ms, sans-serif;
+background: #203A4A;
+color: white;
+}
+a { color: #66EFF7; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+#main {
+min-width: 1500px;
+margin: 0 auto;
+}
+
+.partcontainer {
+display: inline-block;
+}
+
+.part, #spoiler {
+background-color: #192735b0;
+padding: 5px;
+border: 2px solid #4598B9b0;
+border-radius: 6px;
+display: inline-block;
+width: 200px;
+}
+
+.partheader {
+background-color: #889a9f8c;
+padding: 5px;
+border-radius: 7px;
+text-shadow: 0px 0px 3px #000000, 0px 0px 3px #000000;
+font-weight: bold;
+}
+.price {float: right;}
+.modelcap {
+border-bottom: 1px solid #4598B9b0;
+text-shadow: 1px 1px 2px #000000;
+min-height: 32px;
+}
+.modelcaps {padding: 3px;}
+
+.caplevel {
+float: right;
+color: #FFE50A;
+text-shadow: 0px 0px 3px #000000, 0px 0px 3px #000000;
+margin: 8px 0 0 0; /* centering */
+}
+/* this is for parts */
+.caplevel img {
+height: 25px;
+}
+
+.verbicon {
+display: inline-block;
+padding: 2px;
+border: 1px solid #00000080;
+border-radius: 5px;
+width: 15px;
+height: 15px;
+box-shadow: 1px 1px 3px #000000aa;
+margin: 5px;
+}
+.blue {background-color: #3B4FA8;}
+.red {background-color: #A41209;}
+.green {background-color: #55A046;}
+.verbicon > img {
+filter: drop-shadow(0.2px 0.2px 0 #1F1F3F) drop-shadow(-0.2px -0.2px 0 #1F1F3F) drop-shadow(-0.2px 0.2px 0 #1F1F3F) drop-shadow(0.2px -0.2px 0 #1F1F3F);
+opacity: 0.90;
+width: 15px;
+height: 15px;
+}
+
+.miscinfo {
+color: #C0C0C0;
+padding-top: 5px;
+font-size: 12px;
+}
+hr { height: 1px; border-width: 0; background-color: #4598B9b0 }
+
+td:first-of-type {border-right: 1px solid #4598B9b0;}
+td {padding-right: 5px; padding-left: 5px;}
+
+iframe {
+width: 100%;
+border: none;
+height: calc(100vh - 79px); /* making sure it fits, though it still cuts off a little at the bottom */
+}
+
+.tab {background: linear-gradient(#3C5767 48%, #273642 52%, #19222A);}
+
+.tabbutton {
+display: inline-block;
+width: 60px;
+height: 65px;
+background: no-repeat center;
+}
+
+.divider {
+display: inline-block;
+background-color: #14212D;
+height: 45px;
+width: 1px;
+margin: 5px 0; /* centering */
+}
+
+.tabtext {
+display: inline-block;
+}
+
+#spoiler {
+position: absolute;
+z-index: 1;
+backdrop-filter: blur(5px);
+}
+
+/* buttons */
+
+button {
+background-color: #BEAA4C;
+border: 2px solid #978128;
+border-top-color: #F7F5EF;
+border-left-color: #F7F5EF;
+outline: 1px solid black;
+border-radius: 5px;
+margin: 5px 0px;
+}
+button:hover {
+background-color: #E2CD6B;
+border: 2px solid #C0A63E;
+border-top-color: white;
+border-left-color: white;
+}
+button:active {
+background-color: #A69234;
+border: 2px solid #7B6612;
+border-top-color: #EDE9D9;
+border-left-color: #EDE9D9;
+outline: 1px solid #3E2904;
+}
+
+/* https://www.w3schools.com/css/css_tooltip.asp */
+.tooltip {
+  visibility: hidden; /* Hidden by default */
+  background-color: #0F152Dc2;
+  color: white;
+  height: 20px;
+  border: 1px solid #FFFFFF69;
+  padding: 0px 7px;
+  border-radius: 15px;
+  position: absolute;
+  z-index: 1; /* Ensure tooltip is displayed above content */
+  margin: 55px 0 0 0; /* hacky way to put it below the icon lol */
+}
+.tabbutton:hover .tooltip {visibility: visible;}
+
+/* colors for paints */
+.color {
+width: 30px;
+height: 15px;
+display: inline-block;
+float: right;
+border-radius: 4px;
+}
+.themecolor { height: 30px; top: -15px; position: relative; }
+
+.center {text-align: center;}
+
+.partimg { width: 128px; height: 128px; }
+
+/* buttons with icons!!!!!!!!!! */
+
+.mouths        {background-image: url(buttons/button-mouth-norm.png);}
+.mouths:hover  {background-image: url(buttons/button-mouth-hl.png);}
+.mouths:active {background-image: url(buttons/button-mouth-act.png);}
+
+.senses        {background-image: url(buttons/button-eye-norm.png);}
+.senses:hover  {background-image: url(buttons/button-eye-hl.png);}
+.senses:active {background-image: url(buttons/button-eye-act.png);}
+
+.limbs        {background-image: url(buttons/button-limbs-norm.png);}
+.limbs:hover  {background-image: url(buttons/button-limbs-hl.png);}
+.limbs:active {background-image: url(buttons/button-limbs-act.png);}
+
+.graspers        {background-image: url(buttons/button-hands-norm.png);}
+.graspers:hover  {background-image: url(buttons/button-hands-hl.png);}
+.graspers:active {background-image: url(buttons/button-hands-act.png);}
+
+.feet        {background-image: url(buttons/button-feet-norm.png);}
+.feet:hover  {background-image: url(buttons/button-feet-hl.png);}
+.feet:active {background-image: url(buttons/button-feet-act.png);}
+
+.weapons        {background-image: url(buttons/button-weapon-norm.png);}
+.weapons:hover  {background-image: url(buttons/button-weapon-hl.png);}
+.weapons:active {background-image: url(buttons/button-weapon-act.png);}
+
+.details        {background-image: url(buttons/button-detail-norm.png);}
+.details:hover  {background-image: url(buttons/button-detail-hl.png);}
+.details:active {background-image: url(buttons/button-detail-act.png);}
+
+.legs        {background-image: url(buttons/EDT_creature_legs-norm.png);}
+.legs:hover  {background-image: url(buttons/EDT_creature_legs-hl.png);}
+.legs:active {background-image: url(buttons/EDT_creature_legs-act.png);}
+
+.cell        {background-image: url(buttons/EDT_creature_cell-norm.png);}
+.cell:hover  {background-image: url(buttons/EDT_creature_cell-hl.png);}
+.cell:active {background-image: url(buttons/EDT_creature_cell-act.png);}
+
+.other        {background-image: url(buttons/cip-music-butt-dice-norm2.png);}
+.other:hover  {background-image: url(buttons/cip-music-butt-dice-hl.png);}
+.other:active {background-image: url(buttons/cip-music-butt-dice-on-norm.png);}
+
+.unused        {background-image: url(buttons/arcd-tab-buttn-invtry-norm.png);}
+.unused:hover  {background-image: url(buttons/arcd-tab-buttn-invtry-hl.png);}
+.unused:active {background-image: url(buttons/arcd-tab-buttn-invtry-act.png);}
+
+.crepaints        {background-image: url(buttons/button-layer-norm.png);}
+.crepaints:hover  {background-image: url(buttons/button-layer-hl.png);}
+.crepaints:active {background-image: url(buttons/button-layer-act.png);}
+
+.blepaints        {background-image: url(buttons/BE-butn-build-paint-partial-norm.png);}
+.blepaints:hover  {background-image: url(buttons/BE-butn-build-paint-partial-hl.png);}
+.blepaints:active {background-image: url(buttons/BE-butn-build-paint-partial-act.png);}
+
+.vlepaints        {background-image: url(buttons/VE-butn-build-paint-partial-norm.png);}
+.vlepaints:hover  {background-image: url(buttons/VE-butn-build-paint-partial-hl.png);}
+.vlepaints:active {background-image: url(buttons/VE-butn-build-paint-partial-act.png);}
+
+.flepaints        {background-image: url(buttons/CIP_butn-section-civc-norm.png);}
+.flepaints:hover  {background-image: url(buttons/CIP_butn-section-civc-hl.png);}
+.flepaints:active {background-image: url(buttons/CIP_butn-section-civc-norm.png);}
+
+/* to copy
+
+.asdasd        {background-image: url(buttons/asdasd.png);}
+.asdasd:hover  {background-image: url(buttons/asdasd.png);}
+.asdasd:active {background-image: url(buttons/asdasd.png);}
+*/

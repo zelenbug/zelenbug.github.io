@@ -5,477 +5,645 @@
 
 <div id="main">
 <div class="files">
-this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy~.locale, and Spore_Game.package\space_conversations~\space_diplomacy~.cnv, as well as other fles from this folder
-<br>the line breaks in the original locales were just "~p~"
-<br>ive retained some values and actions that i cant make sense of, but might be useful
-<br>i also kept the dialogue order the same for both the sets of dialogues and also the lines within them. if the order seems weird thats on the original space_diplomacy~.cnv file
-<br>however all the eventlog strings from the mission localization files were excluded
+These are referenced from both locale/en-us/Text.package - locale~/space_diplomacy~.locale, and Spore_Game.package\space_conversations~\space_diplomacy~.cnv, as well as other files from this folder
+<br>The line breaks in the original locales were just "~<!--inserting this comment in here just so it doesnt end up being hit by find and replace-->p~", I retained the ones that were present at the end of a dialogue entry, which is why some will have empty line breaks.
+<br>I've retained some values and actions that I can't make sense of, but might be useful? However I excluded all the eventlog strings from the mission and event localization files.
+<br>I also kept the dialogue order the same for both the sets of dialogues and also the lines within them. If the order seems weird, that's on the original .cnv files.
 <br>
 <script src="spoiler.js"></script>
 <br><div style="display: block;" class="spoilerbutton" onclick="spoiler()">navigation</div>
 <div id="spoiler" style="display: none;">
-<br><a href="main.html">main</html>
-<br><a href="civ.html">civ</html>
-<br><a href="misc.html">misc</a>
-<br>mission_balance.cnv
-<br>mission_change_archetype_bard.cnv
-<br>mission_change_archetype_diplomat.cnv
-<br>mission_change_archetype_ecologist.cnv
-<br>mission_change_archetype_scientist.cnv
-<br>mission_change_archetype_shaman.cnv
-<br>mission_change_archetype_trader.cnv
-<br>mission_change_archetype_warrior.cnv
-<br>mission_change_archetype_zealot.cnv
-<br>mission_destroy_turrets.cnv
-<br>mission_eradicate_animals.cnv
-<br>mission_eradicate_city_citizens.cnv
-<br>mission_fetch_animal.cnv
-<br>mission_fetch_artifact.cnv
-<br>mission_fetch_civ_citizen.cnv
-<br>mission_fetch_commodity.cnv
-<br>mission_fetch_empire_citizen.cnv
-<br>mission_fetch_plant.cnv
-<br>mission_fetch_tribe_citizen.cnv
-<br>mission_multi_delivery.cnv
-<br>mission_sample_collection.cnv
-<br>mission_scan_fetch.cnv
-<br>mission_terraform.cnv
-<br>mission_tutorial_alliance_batch1.cnv
-<br>mission_tutorial_colonize.cnv
-<br>mission_tutorial_colonize_batch1.cnv
-<br>mission_tutorial_colonize_batch2.cnv
-<br>mission_tutorial_color_terrain_purple.cnv
-<br>mission_tutorial_contact_grob.cnv
-<br>mission_tutorial_find_aliens.cnv
-<br>mission_tutorial_find_rare.cnv
-<br>mission_tutorial_flight_101.cnv
-<br>mission_tutorial_make_ally.cnv
-<br>mission_tutorial_setup_trade_route.cnv
-<br>mission_tutorial_story_201.cnv
-<br>mission_tutorial_terraform.cnv
-<br>mission_tutorial_trade_rare.cnv
-<br>mission_tutorial_trade_spice.cnv
-<br>mission_tutorial_war.cnv
-<br>mission_war.cnv
-<br>mission_adventure.cnv
-<br>mission_adventure101.cnv
-<br>mission_bard_02.cnv
-<br>mission_diplomat_01.cnv
-<br>mission_ecologist_01.cnv
-<br>mission_scientist_04.cnv
-<br>mission_shaman_04.cnv
-<br>mission_trader_03.cnv
-<br>mission_warrior_03.cnv
-<br>mission_zealot_01.cnv
+<a href="main.html">main</a> | <a href="civ.html">civ</a> | missions | <a href="misc.html">misc</a>
+<hr>
+<br><a href="#mission_balance"                      >mission_balance.cnv</a>
+<br><a href="#mission_change_archetype_bard"        >mission_change_archetype_bard.cnv</a>
+<br><a href="#mission_change_archetype_diplomat"    >mission_change_archetype_diplomat.cnv</a>    [wip]
+<br><a href="#mission_change_archetype_ecologist"   >mission_change_archetype_ecologist.cnv</a>   [wip]
+<br><a href="#mission_change_archetype_scientist"   >mission_change_archetype_scientist.cnv</a>   [wip]
+<br><a href="#mission_change_archetype_shaman"      >mission_change_archetype_shaman.cnv</a>      [wip]
+<br><a href="#mission_change_archetype_trader"      >mission_change_archetype_trader.cnv</a>      [wip]
+<br><a href="#mission_change_archetype_warrior"     >mission_change_archetype_warrior.cnv</a>     [wip]
+<br><a href="#mission_change_archetype_zealot"      >mission_change_archetype_zealot.cnv</a>      [wip]
+<br><a href="#mission_destroy_turrets"              >mission_destroy_turrets.cnv</a>              [wip]
+<br><a href="#mission_eradicate_animals"            >mission_eradicate_animals.cnv</a>            [wip]
+<br><a href="#mission_eradicate_city_citizens"      >mission_eradicate_city_citizens.cnv</a>      [wip]
+<br><a href="#mission_fetch_animal"                 >mission_fetch_animal.cnv</a>                 [wip]
+<br><a href="#mission_fetch_artifact"               >mission_fetch_artifact.cnv</a>               [wip]
+<br><a href="#mission_fetch_civ_citizen"            >mission_fetch_civ_citizen.cnv</a>            [wip]
+<br><a href="#mission_fetch_commodity"              >mission_fetch_commodity.cnv</a>              [wip]
+<br><a href="#mission_fetch_empire_citizen"         >mission_fetch_empire_citizen.cnv</a>         [wip]
+<br><a href="#mission_fetch_plant"                  >mission_fetch_plant.cnv</a>                  [wip]
+<br><a href="#mission_fetch_tribe_citizen"          >mission_fetch_tribe_citizen.cnv</a>          [wip]
+<br><a href="#mission_multi_delivery"               >mission_multi_delivery.cnv</a>               [wip]
+<br><a href="#mission_sample_collection"            >mission_sample_collection.cnv</a>            [wip]
+<br><a href="#mission_scan_fetch"                   >mission_scan_fetch.cnv</a>                   [wip]
+<br><a href="#mission_terraform"                    >mission_terraform.cnv</a>                    [wip]
+<br><a href="#mission_tutorial_alliance_batch1"     >mission_tutorial_alliance_batch1.cnv</a>     [wip]
+<br><a href="#mission_tutorial_colonize"            >mission_tutorial_colonize.cnv</a>            [wip]
+<br><a href="#mission_tutorial_colonize_batch1"     >mission_tutorial_colonize_batch1.cnv</a>     [wip]
+<br><a href="#mission_tutorial_colonize_batch2"     >mission_tutorial_colonize_batch2.cnv</a>     [wip]
+<br><a href="#mission_tutorial_color_terrain_purple">mission_tutorial_color_terrain_purple.cnv</a>[wip]
+<br><a href="#mission_tutorial_contact_grob"        >mission_tutorial_contact_grob.cnv</a>        [wip]
+<br><a href="#mission_tutorial_find_aliens"         >mission_tutorial_find_aliens.cnv</a>         [wip]
+<br><a href="#mission_tutorial_find_rare"           >mission_tutorial_find_rare.cnv</a>           [wip]
+<br><a href="#mission_tutorial_flight_101"          >mission_tutorial_flight_101.cnv</a>          [wip]
+<br><a href="#mission_tutorial_make_ally"           >mission_tutorial_make_ally.cnv</a>           [wip]
+<br><a href="#mission_tutorial_setup_trade_route"   >mission_tutorial_setup_trade_route.cnv</a>   [wip]
+<br><a href="#mission_tutorial_story_201"           >mission_tutorial_story_201.cnv</a>           [wip]
+<br><a href="#mission_tutorial_terraform"           >mission_tutorial_terraform.cnv</a>           [wip]
+<br><a href="#mission_tutorial_trade_rare"          >mission_tutorial_trade_rare.cnv</a>          [wip]
+<br><a href="#mission_tutorial_trade_spice"         >mission_tutorial_trade_spice.cnv</a>         [wip]
+<br><a href="#mission_tutorial_war"                 >mission_tutorial_war.cnv</a>                 [wip]
+<br><a href="#mission_war"                          >mission_war.cnv</a>                          [wip]
+<br><a href="#mission_adventure"                    >mission_adventure.cnv</a>                    [wip]
+<br><a href="#mission_adventure101"                 >mission_adventure101.cnv</a>                 [wip]
+<br><a href="#mission_bard_02"                      >mission_bard_02.cnv</a>                      [wip]
+<br><a href="#mission_diplomat_01"                  >mission_diplomat_01.cnv</a>                  [wip]
+<br><a href="#mission_ecologist_01"                 >mission_ecologist_01.cnv</a>                 [wip]
+<br><a href="#mission_scientist_04"                 >mission_scientist_04.cnv</a>                 [wip]
+<br><a href="#mission_shaman_04"                    >mission_shaman_04.cnv</a>                    [wip]
+<br><a href="#mission_trader_03"                    >mission_trader_03.cnv</a>                    [wip]
+<br><a href="#mission_warrior_03"                   >mission_warrior_03.cnv</a>                   [wip]
+<br><a href="#mission_zealot_01"                    >mission_zealot_01.cnv</a>                    [wip]
 </div>
-</div><div class="files"><h2>mission_balance.cnv</h2>
+</div><div class="files"><h2 id="mission_balance">mission_balance.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
-<br>text mission_balance!animations~ -emotion Neutral -require Diplomat
-<br>text mission_balance!0x00000007 -emotion Neutral -require Diplomat
-<br>text mission_balance!0x00000008 -emotion Neutral -require Diplomat
-<br>text mission_balance!0x00000009 -emotion Neutral -require Diplomat
+<br>-emotion Neutral -require Diplomat
+<p>0x00000000<br>A large group of wealthy colonialists intend to settle on the planet ~mission_target_planet~. These well-heeled patrons of the Empire are hunting fans, but the ecosystem of planet ~mission_target_planet~ lacks the proper mixture of species to support their hobby. We need you to properly seed the planet for their arrival.</p>
+<p>0x00000007<br>Our covenant guarantees that our citizens will remain free from want. Yet a plague has removed certain species from the Life Web of our farming planet ~mission_target_planet~ and imperiled production of food. Will you undertake a mission to save the Life Web and keep this food source vital?</p>
+<p>0x00000008<br>A shift of the magnetic poles of planet ~mission_target_planet~ has resulted in a cosmic ray bombardment that has destroyed important links in the planet's Food Web. The Grand Council is doing its best to prevent bio-disaster. Perhaps you can be of service?</p>
+<p>0x00000009<br>A biological strike by domestic terrorists has badly damaged the Food Web of planet ~mission_target_planet~. The Grand Council is attempting to restore security, but in the meantime our concern is to restore the planet to vitality. Can you help us?</p>
 <hr class="shorthr">
-<br>text mission_balance!0x0000000A -emotion Neutral -require Ecologist
-<br>text mission_balance!0x0000000B -emotion Neutral -require Ecologist
-<br>text mission_balance!0x0000000C -emotion Neutral -require Ecologist
+<br>-emotion Neutral -require Ecologist
+<p>0x0000000A<br>One of our gardening planets is in jeopardy! The extinction of crucial species has unbalanced the ecology of ~mission_target_planet~. Our great compact with the natural world is in danger! Will you help us save planet ~mission_target_planet~ and its inhabitants?</p>
+<p>0x0000000B<br>An ecological catastrophe has engulfed planet ~mission_target_planet~! A plague has destroyed certain species that are crucial to stability. Will you help us bring the ecosystem back into harmony?</p>
+<p>0x0000000C<br>An extinction-level event threatens planet ~mission_target_planet~! The death of certain species could tip the entire ecology toward annihilation! Can you help us with a rescue mission?</p>
 <hr class="shorthr">
-<br>text mission_balance!0x0000000D -emotion Neutral -require Zealot
-<br>text mission_balance!0x0000000E -emotion Neutral -require Zealot
-<br>text mission_balance!0x0000000F -emotion Neutral -require Zealot
+<br>-emotion Neutral -require Zealot
+<p>0x0000000D<br>Demonic forces opposed to the Will of Spode have contrived to unbalance the ecology of planet ~mission_target_planet~. We solemnly vow to protect Spode's Creation. Will you aid us?  </p>
+<p>0x0000000E<br>Our campaign against plants and animals deemed unclean by Spode has been successful on planet ~mission_target_planet~! Unfortunately this has resulted in a damaged Food Web. Can you help us restore the harmony of Creation?</p>
+<p>0x0000000F<br>Our theologians are having difficulty with the Food Web on planet ~mission_target_planet~. This planet is a vital food source to our people? Can you give us aid? </p>
 <hr class="shorthr">
-<br>text mission_balance!0x00000010 -emotion Neutral -require Scientist
-<br>text mission_balance!0x00000011 -emotion Neutral -require Scientist
-<br>text mission_balance!0x00000012 -emotion Neutral -require Scientist
+<br>-emotion Neutral -require Scientist
+<p>0x00000010<br>An unfortunate reliance on monoculture resulted in a dangerous ecological imbalance when certain species proved vulnerable to a plague. Unfortunately this has endangered a fragile bio-diversity at planet ~mission_target_planet~. Can you give us aid? </p>
+<p>0x00000011<br>Radiation from a gamma ray burster has resulted in the extinction of species on planet ~mission_target_planet~. Can you help us restore the Life Web after this catastrophe?</p>
+<p>0x00000012<br>One of our scientists got a bit space happy and created a plague! He managed to exterminate several species on planet ~mission_target_planet~, and the world is now facing environmental catastrophe. Can you help us restore the Life Web?</p>
 <hr class="shorthr">
-<br>text mission_balance!0x00000013 -emotion Neutral -require Bard
-<br>text mission_balance!0x00000014 -emotion Neutral -require Bard
-<br>text mission_balance!0x00000015 -emotion Neutral -require Bard
+<br>-emotion Neutral -require Bard
+<p>0x00000013<br>A spoilsport meteor went and dropped right on our planet! Now the whole ecosystem of planet ~mission_target_planet~ has gone kerflooey. Can you help us restore this playground? </p>
+<p>0x00000014<br>planet ~mission_target_planet~ was a perfect place for people who wanted to lose weight, since the ecosystem was so incomplete that it was difficult to find any food at all. But now we're totally into self-acceptance, and diets are a thing of the past! Can you help planet ~mission_target_planet~ become fashionable again?</p>
+<p>0x00000015<br>During the Autumn Festival, our people go out into the wilderness and eat nuts, berries, and wild animals. Unfortunately the people on planet ~mission_target_planet~ were having such a good time that the party went on and on, and now whole species are extinct. There's nothing left to eat! Can you fix the biome so we can plan picnics again?</p>
 <hr class="shorthr">
-<br>text mission_balance!0x00000016 -emotion Neutral -require Trader
-<br>text mission_balance!0x00000017 -emotion Neutral -require Trader
-<br>text mission_balance!0x00000018 -emotion Neutral -require Trader
+<br>-emotion Neutral -require Trader
+<p>0x00000016<br>This miserable being regrets the necessity of bringing this matter to the attention of a being of your puissance. An important farming planet, ~mission_target_planet~ has endured an environmental catastrophe. Will your mightiness save the Life Web on planet ~mission_target_planet~ and restore this vital resource? Great rewards can be yours.</p>
+<p>0x00000017<br>Alas, that catastrophe has overwhelmed planet ~mission_target_planet~! A meteor strike has eliminated crucial species, leaving the rest vulnerable to slow starvation!<br><br>Only a being of your greatness could possibly save our people! Naturally, we will offer considerable rewards.</p>
+<p>0x00000018<br>Such an insignificant being as myself can barely bring herself to trouble such a magnificent one as you, but I am compelled by necessity. A series of plagues have eradicated key life-forms on planet ~mission_target_planet~, and now our settlement is threatened with extinction. Could you possibly be bothered to aid them, in exchange of course, for munificent rewards?</p>
 <hr class="shorthr">
-<br>text mission_balance!0x00000019 -emotion Neutral -require Shaman
-<br>text mission_balance!0x0000001A -emotion Neutral -require Shaman
-<br>text mission_balance!0x0000001B -emotion Neutral -require Shaman
+<br>-emotion Neutral -require Shaman
+<p>0x00000019<br>Despite our sacrificing flowers to the Volcano Goddess, a massive eruption blocked the sun's rays from planet ~mission_target_planet~, and resulted in the extinction of several species. Now the whole planet is dying! Can you help us restore the balance of nature?</p>
+<p>0x0000001A<br>The uses of Natural Wellness Tonic from planet ~mission_target_planet~ was widespread throughout our civilization, but overuse resulted in the species that provided the ingredients facing extinction! Can you restore the wellness both of planet ~mission_target_planet~ and of ourselves?</p>
+<p>0x0000001B<br>Despite the unprecedented healing chants that we performed, a plague eliminated a number of species on planet ~mission_target_planet~, badly affecting the Food Web! Can you help us before these small beings starve to death?</p>
 <hr class="shorthr">
-<br>text mission_balance!0x0000001C -emotion Neutral -require Warrior
-<br>text mission_balance!0x0000001D -emotion Neutral -require Warrior
-<br>text mission_balance!0x0000001E -emotion Neutral -require Warrior
+<br>-emotion Neutral -require Warrior
+<p>0x0000001C<br>Even though we routed their attack, enemy bio-strikes have nevertheless disabled the ecology on planet ~mission_target_planet~. We are now dangerously weak in the agricultural sector. Would you be willing to restore our Food Web? </p>
+<p>0x0000001D<br>We wrested planet ~mission_target_planet~ from a defeated enemy, but the ecosystem was subject to collateral damage. You are invited to aid us in restoring the biome.</p>
+<p>0x0000001E<br>Radiation from a gamma-ray burster has disabled the ecosystem on planet ~mission_target_planet~. Can you help us restore it?</p>
 <hr class="shorthr">
-<br>text mission_balance!0x00000039 -emotion Neutral -require Grob
-<br>text mission_balance!0x0000009A -emotion Neutral -require Grob
-<br>text mission_balance!0x0000009B -emotion Neutral -require Grob
+<br>-emotion Neutral -require Grob
+<p>0x00000039<br>Our experimental research station at planet ~mission_target_planet~ requires maintenance. You shall provide this. </p>
+<p>0x0000009A<br>The biome of planet ~mission_target_planet~ that provides food for some of our organic servants is under stress. You will relieve the situation.</p>
+<p>0x0000009B<br>An experiment in selectively destroying organic life has succeeded on planet ~mission_target_planet~. You will restore the ecosystem so that we may perform more experiments.</p>
 <hr class="shorthr">
-<br>text mission_balance!0x0000009C -emotion Neutral -require MySpecies
-<br>text mission_balance!0x0000009D -emotion Neutral -require MySpecies
-<br>text mission_balance!0x0000009E -emotion Neutral -require MySpecies
+<br>-emotion Neutral -require MySpecies
+<p>0x0000009C<br>A plague has wiped out several important species at planet ~mission_target_planet~. We need you to restore the balance before the ecosystem collapses! </p>
+<p>0x0000009D<br>The valuable ecology of planet ~mission_target_planet~ has been destroyed by a meteor strike. Captain, you are our best hope.</p>
+<p>0x0000009E<br>Planet ~mission_target_planet~ has suffered a burst of gamma radiation that has destroyed several crucial species. We need you to restore the Food Web! </p>
 <hr><!-- hr here-->
 <br>response
 <br>action kCnvCommEvent~ mission_balance!mission_accept.cnv
-<br>text mission_balance!0x0000001F
+<p>0x0000001F<br>Balancing is one of the things I do best.</p>
+<hr class="shorthr">
 <br>response
 <br>action kCnvCommEvent~ mission_balance!mission_more.cnv
-<br>text mission_balance!0x00000020
+<p>0x00000020<br>Remind me how I balance again...</p>
+<hr class="shorthr">
 <br>response
 <br>action kCnvCommEvent~ mission_balance!mission_reject.cnv
-<br>text mission_balance!0x00000001 -exclude Grob
-<br>text mission_balance!0x00000002 -exclude Grob
-<br>text mission_balance!0x00000003 -exclude Grob
-<br>text mission_balance!0x00000004 -exclude Grob
-<br>text mission_balance!0x00000005 -require Grob
+<br>-exclude Grob
+<p>0x00000001<br>I prefer to be unbalanced.</p>
+<p>0x00000002<br>I'm not going to do this, for several reasons.</p>
+<p>0x00000003<br>I appreciate the offer, but have to decline.</p>
+<p>0x00000004<br>I must decline, but I can't tell you why.</p>
+<br>-require Grob
+<p>0x00000005<br>I regret that I must say no. </p>
 <br>
 </div>
 <div class="dialogs"><h3>dialog dynamic_response_to_source</h3>
-<hr><!-- hr here-->
-<br>text mission_balance!0x00000088
+<hr><!-- hr here--><br>
+<p>0x00000088<br>...</p>
 <hr><!-- hr here-->
 <br>response
 <br>action kCnvCommEvent~ mission_balance!mission_incomplete.cnv
-<br>text mission_balance!0x000000AF
-<br>text mission_balance!0x000000B0
-<br>text mission_balance!0x000000AB
-<br>text mission_balance!0x000000AC
-<br>text mission_balance!0x000000AD
+<p>0x000000AF<br>I need a little refresher on the mission...</p>
+<p>0x000000B0<br>Uhh... What am I supposed to do again?</p>
+<p>0x000000AB<br>I spaced on my mission. What is it again?</p>
+<p>0x000000AC<br>I forgot what I doing. What's my mission?</p>
+<p>0x000000AD<br>Can you remind me of my mission?</p>
+<hr class="shorthr">
 <br>response
 <br>action continue
-<br>text mission_balance!0x000000AE
-<br>text mission_balance!0x000000BF
-<br>text mission_balance!0x000000C0
-<br>text mission_balance!0x000000C1
+<p>0x000000AE<br>Ah, of course! The mission log. I will look there!</p>
+<p>0x000000BF<br>Before I go, I have other questions...</p>
+<p>0x000000C0<br>Also...</p>
+<p>0x000000C1<br>One more thing...</p>
+<hr class="shorthr">
 <br>response
 <br>action kCnvCommEvent~ mission_balance!abort.cnv
-<br>text mission_balance!0x000000CF -exclude Grob
-<br>text mission_balance!0x000000D0 -exclude Grob
-<br>text mission_balance!0x000000D1 -exclude Grob
-<br>text mission_balance!0x000000D2 -require Grob
+<br>-exclude Grob
+<p>0x000000CF<br>I'd rather do something else.</p>
+<p>0x000000D0<br>I need to decline this task.</p>
+<p>0x000000D1<br>This task no longer fits into my schedule.</p>
+<br>-require Grob
+<p>0x000000D2<br>I beg to be released from this task.</p>
+<hr class="shorthr">
 <br>response
 <br>action exit
-<br>text mission_balance!0x000000D3 -exclude Grob
-<br>text mission_balance!0x000000D4 -exclude Grob
-<br>text mission_balance!0x000000D5 -exclude Grob
-<br>text mission_balance!0x000000D6 -require Grob
+<br>-exclude Grob
+<p>0x000000D3<br>Very sorry to have bothered you. So long.</p>
+<p>0x000000D4<br>Until we speak again. So long.</p>
+<p>0x000000D5<br>I can see you are busy. We'll speak later.</p>
+<br>-require Grob
+<p>0x000000D6<br>I beg your understanding. </p>
 <br>
 </div>
 <div class="dialogs"><h3>dialog mission_reject</h3>action action_mission_reject
 <hr><!-- hr here-->
-<br>text mission_balance!0x0000006A -emotion Neutral -require MySpecies
-<br>text mission_balance!0x0000006B -emotion Neutral -require Diplomat
-<br>text mission_balance!0x0000006C -emotion Neutral -require Shaman
-<br>text mission_balance!0x0000006D -emotion Neutral -require Ecologist
-<br>text mission_balance!0x0000006E -emotion Neutral -require Scientist
-<br>text mission_balance!0x0000006F -emotion Neutral -require Trader
-<br>text mission_balance!0x00000070 -emotion Neutral -require Bard
-<br>text mission_balance!0x00000071 -emotion Neutral -require Warrior
-<br>text mission_balance!0x00000072 -emotion Angry -require Zealot
-<br>text mission_balance!0x00000073 -emotion Gasp -require Grob
-<br>text mission_balance!0x00000074 -emotion Angry -require Grob
+<br>-emotion Neutral -require MySpecies
+<p>0x0000006A<br>Perfectly understandable, Captain.<br><br>Sorry to trouble you with such matters.<br><br></p>
+<hr class="shorthr">
+<br>-emotion Neutral -require Diplomat
+<p>0x0000006B<br>Understood, ~player_title~ ~player_creature_name~. We appreciate your decorum.<br><br>It will actually save us a bit of paperwork. The sub-contract approval process for interplanetary creature transport requires only three hundred and sixty-two separate forms signed and stamped in triplicate. <br><br>Of course, this is well below the guidelines established in the Standard Operating Procedure... You should see the required forms for transporting fermented spices. </p>
+<hr class="shorthr">
+<br>-emotion Neutral -require Shaman
+<p>0x0000006C<br>You must follow your own path.<br><br>Be well my friend.</p>
+<hr class="shorthr">
+<br>-emotion Neutral -require Ecologist
+<p>0x0000006D<br>Oooh... okay... Yes, that's alright. <br><br>If your heart is not in it, we wouldn't want you interacting with another life form... <br><br></p>
+<hr class="shorthr">
+<br>-emotion Neutral -require Scientist
+<p>0x0000006E<br>Interesting choice ~player_title~ ~player_creature_name~. Perhaps you have some information we do not, although that seems unlikely.</p>
+<hr class="shorthr">
+<br>-emotion Neutral -require Trader
+<p>0x0000006F<br>Of course, of course. I knew it was hopeless to bring such a trivial matter to so glorious a one as yourself. Perhaps you could console me by spending money in the boutique?</p>
+<hr class="shorthr">
+<br>-emotion Neutral -require Bard
+<p>0x00000070<br>Such silliness! All you had to do was follow the droppings!</p>
+<hr class="shorthr">
+<br>-emotion Neutral -require Warrior
+<p>0x00000071<br>Quit is not something ~race~ understand. ~player_creature_name~ is not ~race~.</p>
+<hr class="shorthr">
+<br>-emotion Angry -require Zealot
+<p>0x00000072<br>The ~race~ questions your indecision. It is clear you lack a strong force guiding your direction. How unfortunate.</p>
+<hr class="shorthr">
+<br>-emotion Gasp -require Grob
+<p>0x00000073<br>You dare to go back on your word to the Grox! Insolent fool!</p>
+<br>-emotion Angry -require Grob
+<p>0x00000074<br>We wonder who is more intelligent, ~player_creature_name~ or ~mission_item~ animal.</p>
 <hr><!-- hr here-->
 <br>response
 <br>action continue
-<br>text mission_balance!0x0000008A
-<br>text mission_balance!0x0000008B
-<br>text mission_balance!0x0000008C
-<br>text mission_balance!0x0000008D
+<p>0x0000008A<br>I'd like to ask you something else...</p>
+<p>0x0000008B<br>Before I go, I have other questions.</p>
+<p>0x0000008C<br>Also...</p>
+<p>0x0000008D<br>One more thing...</p>
 <hr class="shorthr">
 <br>response
 <br>action exit
-<br>text mission_balance!0x0000008E -exclude Grob
-<br>text mission_balance!0x0000008F -exclude Grob
-<br>text mission_balance!0x00000090 -exclude Grob
-<br>text mission_balance!0x00000091 -exclude Grob
-<br>text mission_balance!0x00000089 -require Grob
+<br>-exclude Grob
+<p>0x0000008E<br>Very sorry to have bothered you. So long.</p>
+<p>0x0000008F<br>Perhaps another time. So long.</p>
+<p>0x00000090<br>I can see you are busy. We'll speak later.</p>
+<p>0x00000091<br>I can see you need a moment. Farewell.</p>
+<br>-require Grob
+<p>0x00000089<br>I beg your understanding.</p>
 <br>
 </div>
 <div class="dialogs"><h3>dialog mission_more</h3>
 <hr><!-- hr here-->
-<br>text mission_balance!0x00000022 -emotion Neutral -require Diplomat
-<br>text mission_balance!0x00000023 -emotion Neutral -require MySpecies
-<br>text mission_balance!0x00000024 -emotion Neutral -require Trader
-<br>text mission_balance!0x00000025 -emotion Neutral -require Ecologist
-<br>text mission_balance!0x00000026 -emotion Neutral -require Warrior
-<br>text mission_balance!0x00000027 -emotion Neutral -require Bard
-<br>text mission_balance!0x00000029 -emotion Neutral -require Diplomat
-<br>text mission_balance!0x0000002A -emotion Neutral -require Ecologist
-<br>text mission_balance!0x0000002B -emotion Neutral -require Zealot
-<br>text mission_balance!0x0000002C -emotion Neutral -require Scientist
-<br>text mission_balance!0x0000002D -emotion Neutral -require Bard
-<br>text mission_balance!0x0000002E -emotion Neutral -require Trader
-<br>text mission_balance!0x0000002F -emotion Neutral -require Shaman
-<br>text mission_balance!0x00000030 -emotion Neutral -require Warrior
-<br>text mission_balance!0x0000009F -emotion Neutral -require Grob
-<br>text mission_balance!0x000000A0 -emotion Neutral -require MySpecies
+<br>-emotion Neutral -require Diplomat
+<p>0x00000022<br>Examine the Food Web option of your Minimap, found in the lower left corner of your controls. It will help determine the available gaps in the planet's ecosystem.<br><br>Order is important! Unlock cells by placing supporting plants or animals.</p>
+<hr class="shorthr">
+<br>-emotion Neutral -require MySpecies
+<p>0x00000023<br>Examine the Food Web option of your Minimap, found in the lower left corner of your controls. It will help determine the available gaps in the planet's ecosystem.<br><br>Order is important! Unlock cells by placing supporting plants or animals.</p>
+<hr class="shorthr">
+<br>-emotion Neutral -require Trader
+<p>0x00000024<br>Examine the Food Web option of your Minimap, found in the lower left corner of your controls. It will help determine the available gaps in the planet's ecosystem.<br><br>Order is important! Unlock cells by placing supporting plants or animals.</p>
+<hr class="shorthr">
+<br>-emotion Neutral -require Ecologist
+<p>0x00000025<br>Examine the Food Web option of your Minimap, found in the lower left corner of your controls. It will help determine the available gaps in the planet's ecosystem.<br><br>Order is important! Unlock cells by placing supporting plants or animals.</p>
+<hr class="shorthr">
+<br>-emotion Neutral -require Warrior
+<p>0x00000026<br>Examine the Food Web option of your Minimap, found in the lower left corner of your controls. It will help determine the available gaps in the planet's ecosystem.<br><br>Order is important! Unlock cells by placing supporting plants or animals.</p>
+<hr class="shorthr">
+<br>-emotion Neutral -require Bard
+<p>0x00000027<br>Examine the Food Web option of your Minimap, found in the lower left corner of your controls. It will help determine the available gaps in the planet's ecosystem.<br><br>Order is important! Unlock cells by placing supporting plants or animals.</p>
+<hr class="shorthr">
+<br>-emotion Neutral -require Diplomat
+<p>0x00000029<br>Examine the Food Web option of your Minimap. It will help determine the available gaps in the planet's ecosystem.<br><br>Order is important! Unlock cells by placing supporting plants or animals.<br><br>Don't forget to collect some samples of flora and fauna to round out the Food Web of planet ~mission_target_planet~.</p>
+<hr class="shorthr">
+<br>-emotion Neutral -require Ecologist
+<p>0x0000002A<br>Examine the Food Web option of your Minimap. It will help determine the available gaps in the planet's ecosystem.<br><br>Order is important! Unlock cells by placing supporting plants or animals.<br><br>Don't forget to collect some samples of flora and fauna to round out the Food Web of planet ~mission_target_planet~.</p>
+<hr class="shorthr">
+<br>-emotion Neutral -require Zealot
+<p>0x0000002B<br>Examine the Food Web option of your Minimap. It will help determine the available gaps in the planet's ecosystem.<br><br>Order is important! Unlock cells by placing supporting plants or animals.<br><br>Don't forget to collect some samples of flora and fauna to round out the Food Web of planet ~mission_target_planet~.</p>
+<hr class="shorthr">
+<br>-emotion Neutral -require Scientist
+<p>0x0000002C<br>Examine the Food Web option of your Minimap. It will help determine the available gaps in the planet's ecosystem.<br><br>Order is important! Unlock cells by placing supporting plants or animals.<br><br>Don't forget to collect some samples of flora and fauna to round out the Food Web of planet ~mission_target_planet~.</p>
+<hr class="shorthr">
+<br>-emotion Neutral -require Bard
+<p>0x0000002D<br>Examine the Food Web option of your Minimap. It will help determine the available gaps in the planet's ecosystem.<br><br>Order is important! Unlock cells by placing supporting plants or animals.<br><br>Don't forget to collect some samples of flora and fauna to round out the Food Web of planet ~mission_target_planet~.</p>
+<hr class="shorthr">
+<br>-emotion Neutral -require Trader
+<p>0x0000002E<br>Examine the Food Web option of your Minimap. It will help determine the available gaps in the planet's ecosystem.<br><br>Order is important! Unlock cells by placing supporting plants or animals.<br><br>Don't forget to collect some samples of flora and fauna to round out the Food Web of planet ~mission_target_planet~.</p>
+<hr class="shorthr">
+<br>-emotion Neutral -require Shaman
+<p>0x0000002F<br>Examine the Food Web option of your Minimap. It will help determine the available gaps in the planet's ecosystem.<br><br>Order is important! Unlock cells by placing supporting plants or animals.<br><br>Don't forget to collect some samples of flora and fauna to round out the Food Web of planet ~mission_target_planet~.</p>
+<hr class="shorthr">
+<br>-emotion Neutral -require Warrior
+<p>0x00000030<br>Examine the Food Web option of your Minimap. It will help determine the available gaps in the planet's ecosystem.<br><br>Order is important! Unlock cells by placing supporting plants or animals.<br><br>Don't forget to collect some samples of flora and fauna to round out the Food Web of planet ~mission_target_planet~.</p>
+<hr class="shorthr">
+<br>-emotion Neutral -require Grob
+<p>0x0000009F<br>Examine the Food Web option of your Minimap. It will help determine the available gaps in the planet's ecosystem.<br><br>Order is important! Unlock cells by placing supporting plants or animals.<br><br>Don't forget to collect some samples of flora and fauna to round out the Food Web of planet ~mission_target_planet~.</p>
+<hr class="shorthr">
+<br>-emotion Neutral -require MySpecies
+<p>0x000000A0<br>Examine the Food Web option of your Minimap. It will help determine the available gaps in the planet's ecosystem.<br><br>Order is important! Unlock cells by placing supporting plants or animals.<br><br>Don't forget to collect some samples of flora and fauna to round out the Food Web of planet ~mission_target_planet~.</p>
 <hr><!-- hr here-->
 <br>response
 <br>action kCnvCommEvent~ mission_balance!mission_accept.cnv
-<br>text mission_balance!0x00000021
+<p>0x00000021<br>Now I remember! I love to balance!</p>
 <hr class="shorthr">
 <br>response
 <br>action kCnvCommEvent~ mission_balance!mission_reject.cnv
-<br>text mission_balance!0x00000034 -exclude Grob
-<br>text mission_balance!0x00000036 -exclude Grob
-<br>text mission_balance!0x00000042 -exclude Grob
-<br>text mission_balance!0x00000038 -exclude Grob
-<br>text mission_balance!0x00000035 -require Grob
+<br>-exclude Grob
+<p>0x00000034<br>I prefer to be unbalanced.</p>
+<p>0x00000036<br>I'm not going to do this, for several reasons.</p>
+<p>0x00000042<br>I appreciate the offer, but have to decline.</p>
+<p>0x00000038<br>I must decline, but I can't tell you why.</p>
+<p>0x00000035<br>I regret that I must say no. </p>
 <hr class="shorthr">
 <br>response
 <br>action exit
-<br>text mission_balance!0x00000031
-<br>text mission_balance!0x00000032
-<br>text mission_balance!0x00000033
+<p>0x00000031<br>Makes sense. Guess I'll be on my way.</p>
+<p>0x00000032<br>Seems pretty straightforward. I'm off!</p>
+<p>0x00000033<br>Okay, yeah. I know what to do.</p>
 <br>
 </div>
 <div class="dialogs"><h3>dialog abort</h3>action action_mission_abort
 <hr><!-- hr here-->
-<br>text mission_balance!0x00000075 -emotion Neutral -require MySpecies
-<br>text mission_balance!0x00000076 -emotion Neutral -require Diplomat
-<br>text mission_balance!0x00000077 -emotion Neutral -require Shaman
-<br>text mission_balance!0x0000007D -emotion Neutral -require Ecologist
-<br>text mission_balance!0x0000007E -emotion Neutral -require Scientist
-<br>text mission_balance!0x0000007F -emotion Neutral -require Trader
-<br>text mission_balance!0x00000080 -emotion Neutral -require Bard
-<br>text mission_balance!0x00000081 -emotion Neutral -require Warrior
-<br>text mission_balance!0x00000082 -emotion Angry -require Zealot
-<br>text mission_balance!0x00000083 -emotion Gasp -require Grob
-<br>text mission_balance!0x00000084 -emotion Angry -require Grob
+<br>-emotion Neutral -require MySpecies
+<p>0x00000075<br>Perfectly understandable, Captain.<br><br>Sorry to trouble you with such matters.</p>
+<hr class="shorthr">
+<br>-emotion Neutral -require Diplomat
+<p>0x00000076<br>Understood, ~player_title~ ~player_creature_name~. We appreciate your decorum.<br><br>It will actually save us a bit of paperwork. The sub-contract approval process for interplanetary creature transport requires only three hundred and sixty-two separate forms signed and stamped in triplicate. <br><br>Of course, this is well below the guidelines established in the Standard Operating Procedure... You should see the required forms for transporting fermented spices. </p>
+<hr class="shorthr">
+<br>-emotion Neutral -require Shaman
+<p>0x00000077<br>You must follow your own path.<br><br>Be well my friend.</p>
+<hr class="shorthr">
+<br>-emotion Neutral -require Ecologist
+<p>0x0000007D<br>Oooh... okay... Yes, that's alright. <br><br>If your heart is not in it, we wouldn't want you interacting with another life form... <br><br></p>
+<hr class="shorthr">
+<br>-emotion Neutral -require Scientist
+<p>0x0000007E<br>Interesting choice ~player_title~ ~player_creature_name~. Perhaps you have some information we do not, although that seems unlikely.</p>
+<hr class="shorthr">
+<br>-emotion Neutral -require Trader
+<p>0x0000007F<br>Of course, of course. I knew it was hopeless to bring such a trivial matter to so glorious a one as yourself. Perhaps you could console me by spending money in the boutique?</p>
+<hr class="shorthr">
+<br>-emotion Neutral -require Bard
+<p>0x00000080<br>Such silliness! All you had to do was follow the droppings!</p>
+<hr class="shorthr">
+<br>-emotion Neutral -require Warrior
+<p>0x00000081<br>Quit is not something ~race~ understand. ~player_creature_name~ is not ~race~.</p>
+<hr class="shorthr">
+<br>-emotion Angry -require Zealot
+<p>0x00000082<br>The ~race~ questions your indecision. It is clear you lack a strong force guiding your direction. How unfortunate.</p>
+<hr class="shorthr">
+<br>-emotion Gasp -require Grob
+<p>0x00000083<br>You dare to go back on your word to the Grox! Insolent fool!</p>
+<br>-emotion Angry -require Grob
+<p>0x00000084<br>We wonder who is more intelligent, ~player_creature_name~ or ~mission_item~ animal.</p>
 <hr><!-- hr here-->
 <br>response
 <br>action continue
-<br>text mission_balance!0x00000006
-<br>text mission_balance!0x00000028
-<br>text mission_balance!0x00000078
-<br>text mission_balance!0x00000079
+<p>0x00000006<br>I'd like to ask you something else...</p>
+<p>0x00000028<br>Before I go, I have other questions.</p>
+<p>0x00000078<br>Also...</p>
+<p>0x00000079<br>One more thing...</p>
 <hr class="shorthr">
 <br>response
 <br>action exit
-<br>text mission_balance!0x0000007A -exclude Grob
-<br>text mission_balance!0x0000007B -exclude Grob
-<br>text mission_balance!0x0000007C -exclude Grob
-<br>text mission_balance!0x00000086 -exclude Grob
-<br>text mission_balance!0x00000087 -require Grob
+<br>-exclude Grob
+<p>0x0000007A<br>Very sorry to have bothered you. So long.</p>
+<p>0x0000007B<br>Perhaps another time. So long.</p>
+<p>0x0000007C<br>I can see you are busy. We'll speak later.</p>
+<p>0x00000086<br>I can see you need a moment. Farewell.</p>
+<br>-require Grob
+<p>0x00000087<br>I beg your understanding. </p>
 <br>
 </div>
 <div class="dialogs"><h3>dialog mission_complete</h3>action action_mission_complete
 <hr><!-- hr here-->
-<br>text mission_balance!0x0000003A -emotion Happy -require Diplomat
-<br>text mission_balance!0x0000003B -emotion Happy -require Ecologist
-<br>text mission_balance!0x0000003C -emotion Happy -require Zealot
-<br>text mission_balance!0x0000003D -emotion Neutral -require Scientist
-<br>text mission_balance!0x0000003E -emotion Happy -require Bard
-<br>text mission_balance!0x0000003F -emotion Happy -require Trader
-<br>text mission_balance!0x00000040 -emotion Happy -require Shaman
-<br>text mission_balance!0x00000041 -emotion Neutral -require Warrior
-<br>text mission_balance!0x000000A1 -emotion Neutral -require Grob
-<br>text mission_balance!0x000000A2 -emotion Neutral -require MySpecies
+<br>-emotion Happy -require Diplomat
+<p>0x0000003A<br>You have acted in accord with the highest ideals of civilization. On behalf of the Grand Council, I am authorized to offer you mission rewards and this Certificate of Commendation, Second Class.</p>
+<hr class="shorthr">
+<br>-emotion Happy -require Ecologist
+<p>0x0000003B<br>You have helped save many irreplaceable bioforms! We're happy to offer you ~mission_rewards~ Sporebucks, and the title, Friend of the Cosmos!</p>
+<hr class="shorthr">
+<br>-emotion Happy -require Zealot
+<p>0x0000003C<br>The believers of planet ~mission_target_planet~ sing Spode's praises! You have shown yourself to be a Friend of Spode. Take ~mission_rewards~ Sporebucks in Spode's name, along with a copy of the Word of Spode.</p>
+<hr class="shorthr">
+<br>-emotion Neutral -require Scientist
+<p>0x0000003D<br>In the past, we have discovered recompense to be useful in gaining the cooperation of another species. We therefore offer ~mission_rewards~ Sporebucks to you.</p>
+<hr class="shorthr">
+<br>-emotion Happy -require Bard
+<p>0x0000003E<br>The word of the day is 'lush', my friends! You've turned planet ~mission_target_planet~ into a biome brimming with flora and fauna! Enjoy ~mission_rewards~ Sporebucks and be sure we'll call on you again! </p>
+<hr class="shorthr">
+<br>-emotion Happy -require Trader
+<p>0x0000003F<br>You have saved a valuable resource on planet ~mission_target_planet~! We howl and prance with delight! Please accept ~mission_rewards~ Sporebucks and a free tour of our excellent boutique.</p>
+<hr class="shorthr">
+<br>-emotion Happy -require Shaman
+<p>0x00000040<br>Thank you for restoring the world of planet ~mission_target_planet~! Please take ~mission_rewards~ Sporebucks, and we'll be sure to adjust your ship's feng shui before you leave!</p>
+<hr class="shorthr">
+<br>-emotion Neutral -require Warrior
+<p>0x00000041<br>You have aided us, and you will not find us ungrateful. Please take ~mission_rewards~ Sporebucks.</p>
+<hr class="shorthr">
+<br>-emotion Neutral -require Grob
+<p>0x000000A1<br>You have completed your mission satisfactorily. These ~mission_rewards~ Sporebucks are useless to us, but they may be of service to you.</p>
+<hr class="shorthr">
+<br>-emotion Neutral -require MySpecies
+<p>0x000000A2<br>You've saved planet ~mission_target_planet~ from eco-collapse! We're so totally impressed! Have ~mission_rewards~ Sporebucks and our complete gratitude!</p>
 <hr><!-- hr here-->
 <br>response
 <br>action continue
-<br>text mission_balance!0x00000043
-<br>text mission_balance!0x00000044
-<br>text mission_balance!0x0000004F
-<br>text mission_balance!0x000000B3
+<p>0x00000043<br>I'd like to ask you something else...</p>
+<p>0x00000044<br>Before I go, I have other questions...</p>
+<p>0x0000004F<br>Another assignment may be the right thing.</p>
+<p>0x000000B3<br>One more thing...</p>
 <hr class="shorthr">
 <br>response
 <br>action exit
-<br>text mission_balance!0x000000B4 -exclude Grob
-<br>text mission_balance!0x000000B5 -exclude Grob
-<br>text mission_balance!0x000000B6 -exclude Grob
-<br>text mission_balance!0x000000B7 -require Grob
+<br>-exclude Grob
+<p>0x000000B4<br>A pleasure to help. So long.</p>
+<p>0x000000B5<br>No trouble at all. Farewell.</p>
+<p>0x000000B6<br>Anytime. See you later.</p>
+<br>-require Grob
+<p>0x000000B7<br>You are most generous. </p>
 <br>
 </div>
 <div class="dialogs"><h3>dialog mission_incomplete</h3>
 <hr><!-- hr here-->
-<br>text mission_balance!0x00000046 -emotion Urgent -require MySpecies
-<br>text mission_balance!0x00000047 -emotion Urgent -require Diplomat
-<br>text mission_balance!0x00000048 -emotion Urgent -require Ecologist
-<br>text mission_balance!0x00000049 -emotion Urgent -require Zealot
-<br>text mission_balance!0x0000004A -emotion Urgent -require Scientist
-<br>text mission_balance!0x0000004B -emotion Urgent -require Bard
-<br>text mission_balance!0x0000004C -emotion Urgent -require Trader
-<br>text mission_balance!0x0000004D -emotion Urgent -require Shaman
-<br>text mission_balance!0x0000004E -emotion Urgent -require Warrior
-<br>text mission_balance!0x000000A3 -emotion Urgent -require Grob
-<br>text mission_balance!0x000000A4 -emotion Urgent -require MySpecies
+<br>-emotion Urgent -require MySpecies
+<p>0x00000046<br>Still haven't balanced the Food Wed on planet ~mission_target_planet~??<br><br>But it's so easy!<br><br>Gather some samples of plants and animals. Identify the gaps in the Food Web and fill them in the right order. Quickly!</p>
+<hr class="shorthr">
+<br>-emotion Urgent -require Diplomat
+<p>0x00000047<br>Our food sources are still in peril. The details of the mission should be spelled out in your Mission Log. Will you save the Life-Web of planet ~mission_target_planet~ or not?</p>
+<hr class="shorthr">
+<br>-emotion Urgent -require Ecologist
+<p>0x00000048<br>The Life Web on planet ~mission_target_planet~ is still endangered! Can you restore this delicate balance? All the important data should be in your Mission Log. </p>
+<hr class="shorthr">
+<br>-emotion Urgent -require Zealot
+<p>0x00000049<br>The righteous balance of Spode's Creation on planet ~mission_target_planet~ is still in jeopardy. Will you restore it, as you are sworn to do, a promise witnessed in your Mission Log?</p>
+<hr class="shorthr">
+<br>-emotion Urgent -require Scientist
+<p>0x0000004A<br>Despite the data in your Mission Log, you seem to have left uncompleted your task on planet ~mission_target_planet~. The Food Web is still incomplete, and the ecosystem is still in danger. Your choice is binary. Will you aid us or not?</p>
+<hr class="shorthr">
+<br>-emotion Urgent -require Bard
+<p>0x0000004B<br>Planet ~mission_target_planet~ is still agog with anticipation! What plants and animals will you bring them? The requirements are in your Mission Log?</p>
+<hr class="shorthr">
+<br>-emotion Urgent -require Trader
+<p>0x0000004C<br>Our people on planet ~mission_target_planet~ are still in danger, and now we've spent all this money on party hats because we thought you'd save them and we could celebrate.<br><br>Will you save the Life-Web? All necessary information should be found in your Mission Log.</p>
+<hr class="shorthr">
+<br>-emotion Urgent -require Shaman
+<p>0x0000004D<br>Planet ~mission_target_planet~ is still teetering on the edge of mass extinctions. Will you bring them new species, as spelled out in your Mission Log?</p>
+<hr class="shorthr">
+<br>-emotion Urgent -require Warrior
+<p>0x0000004E<br>Despite the data in your Mission Log, you have not fulfilled your task on planet ~mission_target_planet~. Will you act with honor, or cowardice?</p>
+<hr class="shorthr">
+<br>-emotion Urgent -require Grob
+<p>0x000000A3<br>Despite the data downloaded into your Mission Log, you have not completed your assignment on planet ~mission_target_planet~. Will you obey? </p>
+<hr class="shorthr">
+<br>-emotion Urgent -require MySpecies
+<p>0x000000A4<br>Despite the data downloaded into your Mission Log, you haven't restored the Food Web on planet ~mission_target_planet~. Will you act now and avert this disaster?</p>
 <hr><!-- hr here-->
 <br>response
 <br>action continue
-<br>text mission_balance!0x000000B8
-<br>text mission_balance!0x000000B9
-<br>text mission_balance!0x000000BA
-<br>text mission_balance!0x000000BB
+<p>0x000000B8<br>I'd like to ask you something else...</p>
+<p>0x000000B9<br>Before I go, I have other questions...</p>
+<p>0x000000BA<br>Also...</p>
+<p>0x000000BB<br>One more thing...</p>
 <hr class="shorthr">
 <br>response
 <br>action kCnvCommEvent~ mission_balance!mission_reject.cnv
-<br>text mission_balance!0x000000BC -require Grob
-<br>text mission_balance!0x00000055 -exclude Grob
-<br>text mission_balance!0x00000056 -exclude Grob
-<br>text mission_balance!0x00000057 -exclude Grob
-<br>text mission_balance!0x00000058 -exclude Grob
-<br>text mission_balance!0x00000059 -exclude Grob
+<br>-require Grob
+<p>0x000000BC<br>I apologize, but must decline to continue this project.</p>
+<br>-exclude Grob
+<p>0x00000055<br>I don't work for 'The Man'! No deal!</p>
+<p>0x00000056<br>Never! Clearly, I abhor violence.</p>
+<p>0x00000057<br>I'm not going to do this, for several reasons.</p>
+<p>0x00000058<br>This just doesn't feel right. No.</p>
+<p>0x00000059<br>No. The whole thing feels... unsporting.</p>
 <hr class="shorthr">
 <br>response
 <br>action exit
-<br>text mission_balance!0x00000050
-<br>text mission_balance!0x00000051
-<br>text mission_balance!0x00000052
-<br>text mission_balance!0x00000054
+<p>0x00000050<br>Understood. Bye</p>
+<p>0x00000051<br>Got it. See ya.</p>
+<p>0x00000052<br>Will do! Take it easy!</p>
+<p>0x00000054<br>I see. I'll be back soon.</p>
 <br>
 </div>
 <div class="dialogs"><h3>dialog mission_accept</h3>action action_mission_accept
 <hr><!-- hr here-->
-<br>text mission_balance!0x0000005A -emotion Neutral -require Diplomat
-<br>text mission_balance!0x0000005B -emotion Neutral -require Diplomat
-<br>text mission_balance!0x0000005C -emotion Urgent -require Ecologist
-<br>text mission_balance!0x0000005D -emotion Urgent -require Ecologist
-<br>text mission_balance!0x0000005E -emotion Urgent -require Ecologist
-<br>text mission_balance!0x0000005F -emotion Urgent -require Zealot
-<br>text mission_balance!0x00000060 -emotion Urgent -require Scientist
-<br>text mission_balance!0x00000061 -emotion Happy -require Bard
-<br>text mission_balance!0x00000062 -emotion Urgent -require Trader
-<br>text mission_balance!0x00000063 -emotion Happy -require Shaman
-<br>text mission_balance!0x00000064 -emotion Neutral -require Warrior
-<br>text mission_balance!0x000000A5 -emotion Urgent -require Grob
-<br>text mission_balance!0x000000A6 -emotion Neutral -require MySpecies
+<br>-emotion Neutral -require Diplomat
+<p>0x0000005A<br>Terrific! Collect some samples of flora and fauna to round out the Food Web of planet ~mission_target_planet~. Report back to us when you are done.</p>
+<p>0x0000005B<br>I commend your attitude on behalf of the Grand Council. Many future settlers will be deeply grateful.</p>
+<hr class="shorthr">
+<br>-emotion Urgent -require Ecologist
+<p>0x0000005C<br>Travel at once to the ~mission_target_star~ system and save the creatures of planet ~mission_target_planet~. The life of the entire planet is at stake!</p>
+<p>0x0000005D<br>You could prevent the extinction of an entire ecosystem! Thank you for your help at star system ~mission_target_star~!</p>
+<p>0x0000005E<br>We won't forget your efforts. Save the ecosystem of planet ~mission_target_planet~!</p>
+<hr class="shorthr">
+<br>-emotion Urgent -require Zealot
+<p>0x0000005F<br>Spode will reward you if you travel to star system ~mission_target_star~ and save Spode's Creation on planet ~mission_target_planet~. </p>
+<hr class="shorthr">
+<br>-emotion Urgent -require Scientist
+<p>0x00000060<br>Please journey at once to planet ~mission_target_planet~, in star system ~mission_target_star~, and restore equilibrium. A balanced food web will prove invaluable to all species, even yours.</p>
+<hr class="shorthr">
+<br>-emotion Happy -require Bard
+<p>0x00000061<br>We completely admire your way with trees and furry things! </p>
+<hr class="shorthr">
+<br>-emotion Urgent -require Trader
+<p>0x00000062<br>In multipart harmony our species sings your praises! Please travel to the ~mission_target_star~ system and restore balance to planet ~mission_target_planet~. </p>
+<hr class="shorthr">
+<br>-emotion Happy -require Shaman
+<p>0x00000063<br>Thank you! We'll send you aid through the luminiferous ether!</p>
+<hr class="shorthr">
+<br>-emotion Neutral -require Warrior
+<p>0x00000064<br>Thank you. Travel to planet ~mission_target_planet~, in star system ~mission_target_star~, and restore the ecosystem. </p>
+<hr class="shorthr">
+<br>-emotion Urgent -require Grob
+<p>0x000000A5<br>Travel immediately to planet ~mission_target_planet~, in star system ~mission_target_star~. Balance the Food Web.</p>
+<hr class="shorthr">
+<br>-emotion Neutral -require MySpecies
+<p>0x000000A6<br>Planet ~mission_target_planet~ in star system ~mission_target_star~. Balance the Food Web, and hurry!</p>
 <hr><!-- hr here-->
 <br>response
 <br>action continue
-<br>text mission_balance!0x00000037
-<br>text mission_balance!0x00000045
-<br>text mission_balance!0x00000053
-<br>text mission_balance!0x00000068
+<p>0x00000037<br>I'd like to ask you something else...</p>
+<p>0x00000045<br>Before I go, I have other questions.</p>
+<p>0x00000053<br>Also...</p>
+<p>0x00000068<br>One more thing...</p>
 <hr class="shorthr">
 <br>response
 <br>action exit
-<br>text mission_balance!0x00000065 -exclude Grob
-<br>text mission_balance!0x00000066 -exclude Grob
-<br>text mission_balance!0x00000067 -exclude Grob
-<br>text mission_balance!0x00000069 -require Grob
+<br>-exclude Grob
+<p>0x00000065<br>Understood. Bye</p>
+<p>0x00000066<br>Got it. See ya.</p>
+<p>0x00000067<br>Will do! Take it easy!</p>
+<br>-require Grob
+<p>0x00000069<br>I understand. I'll be back soon.</p>
 <br>
-</div></div><div class="files"><h2>mission_change_archetype_bard.cnv</h2>
+</div></div><div class="files"><h2 id="mission_change_archetype_bard">mission_change_archetype_bard.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
-<br>text mission_change_archetype_bard!0x00000001 -emotion Laugh
-<br>text mission_change_archetype_bard!0x00000003 -emotion Happy
+<br>-emotion Laugh
+<p>0x00000001<br>Ahoy! You want to join our fateful crew! We are sure there's a lot for you to do.<br><!--~br~-->We know we are incredibly jolly, if you fail to join us that is your folly!<br><!--~br~-->It won't be easy on that you can bet! But you can probably get through it not soaking wet!!<br><br>Ho ho! We crack ourselves up. <br><br>Seriously though, it ain't gonna be easy! And... it's gonna cost ya! ~mission_accept_cost~ Spucks, in fact!<br><br>To take on the Philosophy of Chance is to give up your old super power in exchange for the new... so, be sure of what you do.</p>
+<br>-emotion Happy
+<p>0x00000003<br>You want to be like us, the ~race~??? Well, well! That is a big commitment, you know. It is a big decision that you should spend a proper amount of time thinking about.<br><br>TIMES UP!<br><br>Hoohoo! Just kidding! But you will have to give up your super power in exchange for ours, you will need to adhere to the Philosophy of Chance, and pay the tiny little tuition fee of ~mission_accept_cost~ Spucks.<br><br>What say you, oh Serious One...? Ready to take a chance on Chance? If you ask us though... it would be a step up for you!</p>
 <hr><!-- hr here-->
 <br>response
 <br>action kCnvCommEvent~ mission_change_archetype_bard!mission_assign2.cnv
-<br>text mission_change_archetype_bard!0x00000007
+<p>0x00000007<br>Tell me more. I'm fascinated!</p>
 <hr class="shorthr">
 <br>response
 <br>action kCnvCommEvent~ mission_change_archetype_bard!mission_reject.cnv
-<br>text mission_change_archetype_bard!0x0000000B
+<p>0x0000000B<br>I'm not interested right now. Maybe later.</p>
 <br>
 </div>
 <div class="dialogs"><h3>dialog dynamic_response_to_source</h3>
-<hr><!-- hr here-->
-<br>text mission_change_archetype_bard!0x00000084
+<hr><!-- hr here--><br>
+<p>0x00000084<br>...</p>
 <hr><!-- hr here-->
 <br>response
 <br>action kCnvCommEvent~ mission_change_archetype_bard!mission_incomplete.cnv
-<br>text mission_change_archetype_bard!0x00000008
+<p>0x00000008<br>I'm supposed to do what, now?</p>
 <hr class="shorthr">
 <br>response
 <br>action continue
-<br>text mission_change_archetype_bard!0x00000009
+<p>0x00000009<br>I'd like to ask you about something else...</p>
 <hr class="shorthr">
 <br>response
 <br>action exit
-<br>text mission_change_archetype_bard!0x00000085
+<p>0x00000085<br>Now you see me, now you don't.</p>
 <br>
 </div>
 <div class="dialogs"><h3>dialog mission_assign2</h3>
 <hr><!-- hr here-->
-<br>text mission_change_archetype_bard!0x00000002 -emotion Happy
+<br>-emotion Happy
+<p>0x00000002<br>Those that follow the Philosophy of Chance, such as the adorable ~race~...Who us? Why, thank you! Don't mention it!... *ahem*... Love the unexpected and the twists and turns of life. The meaning of life is both simple and complex... is it not? No, I think it is.<br><br>But most importance is happiness... That, and surprises... And also cake.<br><br>To sing and make merry is our favorite ritual and by this we have invented a very special song... the Soothing Song. That is our super power! It makes even your worst enemy friendly... until it wears off. Wowsers!<br><br>Will you be joining us in our song?</p>
 <hr><!-- hr here-->
 <br>response
 <br>action kCnvCommEvent~ mission_change_archetype_bard!mission_accept.cnv
-<br>text mission_change_archetype_bard!0x00000022
-<br>enableRequire CanAffordMission
+<p>0x00000022<br>I accept your Philosophy and wish to begin my training!</p>
+<br>enableRequire CanAffordMission<br>
 <hr class="shorthr">
 <br>response
 <br>action kCnvCommEvent~ mission_change_archetype_bard!mission_reject.cnv
-<br>text mission_change_archetype_bard!0x00000029
+<p>0x00000029<br>I've changed my mind. I will stay as I am for now.</p>
 <br>
 </div>
 <div class="dialogs"><h3>dialog mission_reject</h3>value1 true
 <br>value4 true
 <br>action action_mission_reject
 <hr><!-- hr here-->
-<br>text mission_change_archetype_bard!0x0000000F -emotion Neutral
+<br>-emotion Neutral
+<p>0x0000000F<br>Skiddledee-skee if you must. Survey the rest... you will choose the Philosophy of Chance when you see how boring the rest are. Dreck!</p>
 <hr><!-- hr here-->
 <br>response
 <br>action continue
-<br>text mission_change_archetype_bard!0x0000006B
+<p>0x0000006B<br>I'd like to ask you about something else...</p>
 <hr class="shorthr">
 <br>response
 <br>action exit
-<br>text mission_change_archetype_bard!0x00000071
+<p>0x00000071<br>Now you see me, now you don't.</p>
 <br>
 </div>
 <div class="dialogs"><h3>dialog abort</h3>value1 true
 <br>value4 true
 <br>action action_mission_abort
 <hr><!-- hr here-->
-<br>text mission_change_archetype_bard!0x00000010 -emotion Gasp
+<br>-emotion Gasp
+<p>0x00000010<br>Now, this is just plain silliness! Why would you leave us when we are by far the cutest Empire you ever did see!<br><br>We will just have to sit right here... Right Here... until you change your mind.</p>
 <hr><!-- hr here-->
 <br>response
 <br>action continue
-<br>text mission_change_archetype_bard!0x00000006
+<p>0x00000006<br>I'd like to ask you about something else...</p>
 <hr class="shorthr">
 <br>response
 <br>action exit
-<br>text mission_change_archetype_bard!0x0000007E
+<p>0x0000007E<br>Now you see me, now you don't.</p>
 <br>
 </div>
 <div class="dialogs"><h3>dialog mission_complete</h3>value1 true
 <br>value4 true
 <br>action action_mission_complete
 <hr><!-- hr here-->
-<br>text mission_change_archetype_bard!0x00000033 -emotion Happy
+<br>-emotion Happy
+<p>0x00000033<br>Hip Hip Hooray! Look at you! Look at us! You DID IT!<br><br>Let's all sing a happy tune, and raise our glasses to the moon! OH man! We are excited! It's not every day we make such great new friends...<br><br>Ha ha! Let's make more! The Soothing Song is yours!! </p>
 <hr><!-- hr here-->
 <br>response
 <br>action continue
-<br>text mission_change_archetype_bard!0x00000034
+<p>0x00000034<br>Yippee! Before I go...</p>
 <hr class="shorthr">
 <br>response
 <br>action exit
-<br>text mission_change_archetype_bard!0x0000003A
+<p>0x0000003A<br>I'm off to try my Soothing Song!</p>
 <br>
 </div>
 <div class="dialogs"><h3>dialog mission_incomplete</h3>value1 true
 <br>value4 true
 <hr><!-- hr here-->
-<br>text mission_change_archetype_bard!0x00000004 -emotion Laugh
+<br>-emotion Laugh
+<p>0x00000004<br>Alas and alack! You are back and slack! Did you forget... Such silliness.<br><br>You, of course, must collect ~mission_num_actions_left_to_perform~ more rare ~^p^mission_num_actions_left_to_perform^object^objects~ before your training in the Philosophy of Chance is complete.<br><br>Did you by Chance think we would let you slide! Ho ho!</p>
 <hr><!-- hr here-->
 <br>response
 <br>action continue
-<br>text mission_change_archetype_bard!0x0000004A
+<p>0x0000004A<br>Got it. One other thing...</p>
 <hr class="shorthr">
 <br>response
 <br>action kCnvCommEvent~ mission_change_archetype_bard!abort.cnv
-<br>text mission_change_archetype_bard!0x0000004E
+<p>0x0000004E<br>Keep the training fee... but I'm dropping out.</p>
 <hr class="shorthr">
 <br>response
 <br>action exit
-<br>text mission_change_archetype_bard!0x00000053
+<p>0x00000053<br>Now you see me, now you don't.</p>
 <br>
 </div>
 <div class="dialogs"><h3>dialog mission_accept</h3>value1 true
 <br>value4 true
 <br>action action_mission_accept
 <hr><!-- hr here-->
-<br>text mission_change_archetype_bard!0x0000000E -emotion Happy
+<br>-emotion Happy
+<p>0x0000000E<br>Hooray! As it is said in the Blocks of Chance, the meaning of life is about the unexpected surprises. To embrace the Philosophy of Chance you must seek those rare surprises found on planets near and far.<br><br>Collect ~mission_num_actions_left_to_perform~ galactic ~^p^mission_num_actions_left_to_perform^treasure^treasures~ and then you too will know the patience and luck of our kind.<br><br>Happy exSporeing! </p>
 <hr><!-- hr here-->
 <br>response
 <br>action continue
-<br>text mission_change_archetype_bard!0x00000005
+<p>0x00000005<br>I'd like to ask you about something else...</p>
 <hr class="shorthr">
 <br>response
 <br>action exit
-<br>text mission_change_archetype_bard!0x0000005F
+<p>0x0000005F<br>Now you see me, now you don't.</p>
 <br>
-</div></div><div class="files"><h2>mission_change_archetype_diplomat.cnv</h2>
+</div></div><div class="files"><h2 id="mission_change_archetype_diplomat">mission_change_archetype_diplomat.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
 <br>text mission_change_archetype_diplomat!0x00000001 -emotion Happy
@@ -491,7 +659,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 </div>
 <div class="dialogs"><h3>dialog dynamic_response_to_source</h3>value1 true
 <br>value4 true
-<hr><!-- hr here-->
+<hr><!-- hr here--><br>
 <br>text mission_change_archetype_diplomat!0x0000000A
 <hr><!-- hr here-->
 <br>response
@@ -598,7 +766,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <br>action exit
 <br>text mission_change_archetype_diplomat!0x0000005F
 <br>
-</div></div><div class="files"><h2>mission_change_archetype_ecologist.cnv</h2>
+</div></div><div class="files"><h2 id="mission_change_archetype_ecologist">mission_change_archetype_ecologist.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
 <br>text mission_change_archetype_ecologist!0x00000001 -emotion Neutral
@@ -614,7 +782,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 </div>
 <div class="dialogs"><h3>dialog dynamic_response_to_source</h3>value1 true
 <br>value4 true
-<hr><!-- hr here-->
+<hr><!-- hr here--><br>
 <br>text mission_change_archetype_ecologist!0x00000084
 <hr><!-- hr here-->
 <br>response
@@ -721,7 +889,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <br>action exit
 <br>text mission_change_archetype_ecologist!0x0000005F
 <br>
-</div></div><div class="files"><h2>mission_change_archetype_scientist.cnv</h2>
+</div></div><div class="files"><h2 id="mission_change_archetype_scientist">mission_change_archetype_scientist.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
 <br>text mission_change_archetype_scientist!0x00000001 -emotion Neutral
@@ -737,7 +905,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 </div>
 <div class="dialogs"><h3>dialog dynamic_response_to_source</h3>value1 true
 <br>value4 true
-<hr><!-- hr here-->
+<hr><!-- hr here--><br>
 <br>text mission_change_archetype_scientist!0x00000084
 <hr><!-- hr here-->
 <br>response
@@ -844,7 +1012,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <br>action exit
 <br>text mission_change_archetype_scientist!0x0000005F
 <br>
-</div></div><div class="files"><h2>mission_change_archetype_shaman.cnv</h2>
+</div></div><div class="files"><h2 id="mission_change_archetype_shaman">mission_change_archetype_shaman.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
 <br>text mission_change_archetype_shaman!0x00000001 -emotion Happy
@@ -860,7 +1028,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 </div>
 <div class="dialogs"><h3>dialog dynamic_response_to_source</h3>value1 true
 <br>value4 true
-<hr><!-- hr here-->
+<hr><!-- hr here--><br>
 <br>text mission_change_archetype_shaman!0x00000084
 <hr><!-- hr here-->
 <br>response
@@ -967,7 +1135,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <br>action exit
 <br>text mission_change_archetype_shaman!0x0000005F
 <br>
-</div></div><div class="files"><h2>mission_change_archetype_trader.cnv</h2>
+</div></div><div class="files"><h2 id="mission_change_archetype_trader">mission_change_archetype_trader.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
 <br>text mission_change_archetype_trader!0x00000001 -emotion Happy
@@ -983,7 +1151,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 </div>
 <div class="dialogs"><h3>dialog dynamic_response_to_source</h3>value1 true
 <br>value4 true
-<hr><!-- hr here-->
+<hr><!-- hr here--><br>
 <br>text mission_change_archetype_trader!0x00000084
 <hr><!-- hr here-->
 <br>response
@@ -1090,7 +1258,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <br>action exit
 <br>text mission_change_archetype_trader!0x0000005F
 <br>
-</div></div><div class="files"><h2>mission_change_archetype_warrior.cnv</h2>
+</div></div><div class="files"><h2 id="mission_change_archetype_warrior">mission_change_archetype_warrior.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
 <br>text mission_change_archetype_warrior!0x00000001 -emotion Neutral
@@ -1106,7 +1274,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 </div>
 <div class="dialogs"><h3>dialog dynamic_response_to_source</h3>value1 true
 <br>value4 true
-<hr><!-- hr here-->
+<hr><!-- hr here--><br>
 <br>text mission_change_archetype_warrior!0x00000084
 <hr><!-- hr here-->
 <br>response
@@ -1211,7 +1379,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <br>action exit
 <br>text mission_change_archetype_warrior!0x0000005F
 <br>
-</div></div><div class="files"><h2>mission_change_archetype_zealot.cnv</h2>
+</div></div><div class="files"><h2 id="mission_change_archetype_zealot">mission_change_archetype_zealot.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
 <br>text mission_change_archetype_zealot!0x00000001 -emotion Neutral
@@ -1227,7 +1395,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 </div>
 <div class="dialogs"><h3>dialog dynamic_response_to_source</h3>value1 true
 <br>value4 true
-<hr><!-- hr here-->
+<hr><!-- hr here--><br>
 <br>text mission_change_archetype_zealot!0x00000006
 <hr><!-- hr here-->
 <br>response
@@ -1334,7 +1502,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <br>action exit
 <br>text mission_change_archetype_zealot!0x0000005F
 <br>
-</div></div><div class="files"><h2>mission_destroy_turrets.cnv</h2>
+</div></div><div class="files"><h2 id="mission_destroy_turrets">mission_destroy_turrets.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
 <br>text mission_destroy_turrets!0x00000000 -emotion Neutral -require MySpecies
@@ -1832,7 +2000,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <br>text mission_destroy_turrets!0x00000118
 <br>text mission_destroy_turrets!0x00000119
 <br>
-</div></div><div class="files"><h2>mission_eradicate_animals.cnv</h2>
+</div></div><div class="files"><h2 id="mission_eradicate_animals">mission_eradicate_animals.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
 <br>text mission_eradicate_animals!0x00000000 -emotion Neutral -require MySpecies
@@ -2290,7 +2458,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <br>text mission_eradicate_animals!0x00000083
 <br>text mission_eradicate_animals!0x00000084
 <br>
-</div></div><div class="files"><h2>mission_eradicate_city_citizens.cnv</h2>
+</div></div><div class="files"><h2 id="mission_eradicate_city_citizens">mission_eradicate_city_citizens.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
 <br>text mission_eradicate_city_citizens!0x00000001 -emotion Neutral -require MySpecies
@@ -2828,7 +2996,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <br>text mission_eradicate_city_citizens!0x0000006D
 <br>text mission_eradicate_city_citizens!0x0000006E
 <br>
-</div></div><div class="files"><h2>mission_fetch_animal.cnv</h2>
+</div></div><div class="files"><h2 id="mission_fetch_animal">mission_fetch_animal.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
 <br>text mission_fetch_animal!0x0000002A -emotion Neutral -require MySpecies
@@ -3157,7 +3325,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <br>text mission_fetch_animal!0x00000079
 <br>text mission_fetch_animal!0x0000007A
 <br>
-</div></div><div class="files"><h2>mission_fetch_artifact.cnv</h2>
+</div></div><div class="files"><h2 id="mission_fetch_artifact">mission_fetch_artifact.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
 <br>text mission_fetch_artifact!0x00000001 -emotion Neutral -require Trader
@@ -3573,7 +3741,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <br>text mission_fetch_artifact!0x0000009F
 <br>text mission_fetch_artifact!0x000000A0
 <br>
-</div></div><div class="files"><h2>mission_fetch_civ_citizen.cnv</h2>
+</div></div><div class="files"><h2 id="mission_fetch_civ_citizen">mission_fetch_civ_citizen.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>value4 true
 <hr><!-- hr here-->
 <br>text mission_fetch_civ_citizen!0x00000001 -emotion Neutral -require Ecologist
@@ -3942,7 +4110,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <br>text mission_fetch_civ_citizen!0x00000098
 <br>text mission_fetch_civ_citizen!0x00000099
 <br>
-</div></div><div class="files"><h2>mission_fetch_commodity.cnv</h2>
+</div></div><div class="files"><h2 id="mission_fetch_commodity">mission_fetch_commodity.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>value4 true
 <hr><!-- hr here-->
 <br>text mission_fetch_commodity!0x00000001 -emotion Neutral -require MySpecies
@@ -4375,7 +4543,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <br>text mission_fetch_commodity!0x000000B8
 <br>text mission_fetch_commodity!0x0000007A
 <br>
-</div></div><div class="files"><h2>mission_fetch_empire_citizen.cnv</h2>
+</div></div><div class="files"><h2 id="mission_fetch_empire_citizen">mission_fetch_empire_citizen.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
 <br>text mission_fetch_empire_citizen!0x00000001 -emotion Neutral -require Ecologist
@@ -4759,7 +4927,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <br>text mission_fetch_empire_citizen!0x000000C5
 <br>text mission_fetch_empire_citizen!0x000000C6
 <br>
-</div></div><div class="files"><h2>mission_fetch_plant.cnv</h2>
+</div></div><div class="files"><h2 id="mission_fetch_plant">mission_fetch_plant.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>value4 true
 <hr><!-- hr here-->
 <br>text mission_fetch_plant!0x00000065 -emotion Neutral -require MySpecies
@@ -5166,7 +5334,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <br>text mission_fetch_plant!0x0000007A
 <br>text mission_fetch_plant!0x0000007B
 <br>
-</div></div><div class="files"><h2>mission_fetch_tribe_citizen.cnv</h2>
+</div></div><div class="files"><h2 id="mission_fetch_tribe_citizen">mission_fetch_tribe_citizen.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
 <br>text mission_fetch_tribe_citizen!0x00000001 -emotion Neutral -require Ecologist
@@ -5533,7 +5701,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <br>text mission_fetch_tribe_citizen!0x00000079
 <br>text mission_fetch_tribe_citizen!0x0000007A
 <br>
-</div></div><div class="files"><h2>mission_multi_delivery.cnv</h2>
+</div></div><div class="files"><h2 id="mission_multi_delivery">mission_multi_delivery.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
 <br>text mission_multi_delivery!0x00000001 -emotion Neutral -require MySpecies
@@ -6008,7 +6176,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <br>action action_mission_delivery
 <br>text mission_multi_delivery!0x000000C5
 <br>
-</div></div><div class="files"><h2>mission_sample_collection.cnv</h2>
+</div></div><div class="files"><h2 id="mission_sample_collection">mission_sample_collection.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
 <br>text mission_sample_collection!0x00000001 -emotion Neutral -require MySpecies
@@ -6455,7 +6623,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <br>text mission_sample_collection!0x00000086
 <br>text mission_sample_collection!0x00000087
 <br>
-</div></div><div class="files"><h2>mission_scan_fetch.cnv</h2>
+</div></div><div class="files"><h2 id="mission_scan_fetch">mission_scan_fetch.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
 <br>text mission_scan_fetch!0x00000005 -emotion Neutral -require MySpecies Step1
@@ -6820,7 +6988,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <br>text mission_scan_fetch!0x0000004F
 <br>text mission_scan_fetch!0x00000050
 <br>
-</div></div><div class="files"><h2>mission_terraform.cnv</h2>
+</div></div><div class="files"><h2 id="mission_terraform">mission_terraform.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
 <br>text mission_terraform!0x00000001 -emotion Neutral -require MySpecies
@@ -7209,7 +7377,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <br>text mission_terraform!0x0000007F
 <br>text mission_terraform!0x00000080
 <br>
-</div></div><div class="files"><h2>mission_tutorial_alliance_batch1.cnv</h2>
+</div></div><div class="files"><h2 id="mission_tutorial_alliance_batch1">mission_tutorial_alliance_batch1.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
 <br>text mission_tutorial_alliance_batch1!0x00000003 -emotion Urgent
@@ -7327,7 +7495,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <br>action exit
 <br>text mission_tutorial_alliance_batch1!0x0000005F
 <br>
-</div></div><div class="files"><h2>mission_tutorial_colonize.cnv</h2>
+</div></div><div class="files"><h2 id="mission_tutorial_colonize">mission_tutorial_colonize.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
 <br>text mission_tutorial_colonize!0x0000000E -emotion Urgent
@@ -7343,7 +7511,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 </div>
 <div class="dialogs"><h3>dialog dynamic_response_to_source</h3>value1 true
 <br>value4 true
-<hr><!-- hr here-->
+<hr><!-- hr here--><br>
 <br>text mission_tutorial_colonize!0x00000045
 <hr><!-- hr here-->
 <br>response
@@ -7492,7 +7660,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <br>action exit
 <br>text mission_tutorial_colonize!0x00000025
 <br>
-</div></div><div class="files"><h2>mission_tutorial_colonize_batch1.cnv</h2>
+</div></div><div class="files"><h2 id="mission_tutorial_colonize_batch1">mission_tutorial_colonize_batch1.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
 <br>text mission_tutorial_colonize_batch1!0x00000003 -emotion Urgent
@@ -7613,7 +7781,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <br>action exit
 <br>text mission_tutorial_colonize_batch1!0x0000005F
 <br>
-</div></div><div class="files"><h2>mission_tutorial_colonize_batch2.cnv</h2>
+</div></div><div class="files"><h2 id="mission_tutorial_colonize_batch2">mission_tutorial_colonize_batch2.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
 <br>text mission_tutorial_colonize_batch2!0x00000003 -emotion Urgent
@@ -7734,7 +7902,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <br>action exit
 <br>text mission_tutorial_colonize_batch2!0x0000005F
 <br>
-</div></div><div class="files"><h2>mission_tutorial_color_terrain_purple.cnv</h2>
+</div></div><div class="files"><h2 id="mission_tutorial_color_terrain_purple">mission_tutorial_color_terrain_purple.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
 <br>text mission_tutorial_color_terrain_purple!0x00000001
@@ -7864,7 +8032,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <br>action exit
 <br>text mission_tutorial_color_terrain_purple!0x0000005F
 <br>
-</div></div><div class="files"><h2>mission_tutorial_contact_grob.cnv</h2>
+</div></div><div class="files"><h2 id="mission_tutorial_contact_grob">mission_tutorial_contact_grob.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
 <br>text mission_tutorial_contact_grob!0x00000001 -emotion Urgent
@@ -7928,7 +8096,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <br>text mission_tutorial_contact_grob!0x0000003E
 <br>text mission_tutorial_contact_grob!0x00000040
 <br>
-</div></div><div class="files"><h2>mission_tutorial_find_aliens.cnv</h2>
+</div></div><div class="files"><h2 id="mission_tutorial_find_aliens">mission_tutorial_find_aliens.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
 <br>text mission_tutorial_find_aliens!0x00000001
@@ -8058,7 +8226,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <br>action kCnvCommEvent~ mission_tutorial_find_aliens!mission_more.cnv
 <br>text mission_tutorial_find_aliens!0x0000001C
 <br>
-</div></div><div class="files"><h2>mission_tutorial_find_rare.cnv</h2>
+</div></div><div class="files"><h2 id="mission_tutorial_find_rare">mission_tutorial_find_rare.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
 <br>text mission_tutorial_find_rare!0x00000001
@@ -8076,7 +8244,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 </div>
 <div class="dialogs"><h3>dialog dynamic_response_to_source</h3>value1 true
 <br>value4 true
-<hr><!-- hr here-->
+<hr><!-- hr here--><br>
 <br>text mission_tutorial_find_rare!0x00000084
 <hr><!-- hr here-->
 <br>response
@@ -8201,7 +8369,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <br>action exit
 <br>text mission_tutorial_find_rare!0x0000005F
 <br>
-</div></div><div class="files"><h2>mission_tutorial_flight_101.cnv</h2>
+</div></div><div class="files"><h2 id="mission_tutorial_flight_101">mission_tutorial_flight_101.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
 <br>text mission_tutorial_flight_101!0x00000003 -require Step1
@@ -8324,7 +8492,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <br>action kCnvCommEvent~ mission_tutorial_flight_101!mission_reject.cnv
 <br>text mission_tutorial_flight_101!0x00000009
 <br>
-</div></div><div class="files"><h2>mission_tutorial_make_ally.cnv</h2>
+</div></div><div class="files"><h2 id="mission_tutorial_make_ally">mission_tutorial_make_ally.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
 <br>text mission_tutorial_make_ally!0x00000001
@@ -8396,7 +8564,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <br>text mission_tutorial_make_ally!0x0000003E
 <br>text mission_tutorial_make_ally!0x00000040
 <br>
-</div></div><div class="files"><h2>mission_tutorial_setup_trade_route.cnv</h2>
+</div></div><div class="files"><h2 id="mission_tutorial_setup_trade_route">mission_tutorial_setup_trade_route.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
 <br>text mission_tutorial_setup_trade_route!0x00000001
@@ -8414,7 +8582,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 </div>
 <div class="dialogs"><h3>dialog dynamic_response_to_source</h3>value1 true
 <br>value4 true
-<hr><!-- hr here-->
+<hr><!-- hr here--><br>
 <br>text mission_tutorial_setup_trade_route!0x00000084
 <hr><!-- hr here-->
 <br>response
@@ -8564,7 +8732,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <br>action exit
 <br>text mission_tutorial_setup_trade_route!0x0000005F
 <br>
-</div></div><div class="files"><h2>mission_tutorial_story_201.cnv</h2>
+</div></div><div class="files"><h2 id="mission_tutorial_story_201">mission_tutorial_story_201.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
 <br>text mission_tutorial_story_201!0x00000001
@@ -8711,7 +8879,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <br>action exit
 <br>text mission_tutorial_story_201!0x0000000A
 <br>
-</div></div><div class="files"><h2>mission_tutorial_terraform.cnv</h2>
+</div></div><div class="files"><h2 id="mission_tutorial_terraform">mission_tutorial_terraform.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
 <br>text mission_tutorial_terraform!0x00000001 -emotion Happy
@@ -8734,7 +8902,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 </div>
 <div class="dialogs"><h3>dialog dynamic_response_to_source</h3>value1 true
 <br>value4 true
-<hr><!-- hr here-->
+<hr><!-- hr here--><br>
 <br>text mission_tutorial_terraform!0x00000045
 <hr><!-- hr here-->
 <br>response
@@ -8950,7 +9118,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <br>text mission_tutorial_terraform!0x00000043
 <br>exclude HasMissionTools
 <br>
-</div></div><div class="files"><h2>mission_tutorial_trade_rare.cnv</h2>
+</div></div><div class="files"><h2 id="mission_tutorial_trade_rare">mission_tutorial_trade_rare.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
 <br>text mission_tutorial_trade_rare!0x00000001
@@ -8968,7 +9136,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 </div>
 <div class="dialogs"><h3>dialog dynamic_response_to_source</h3>value1 true
 <br>value4 true
-<hr><!-- hr here-->
+<hr><!-- hr here--><br>
 <br>text mission_tutorial_trade_rare!0x00000084
 <hr><!-- hr here-->
 <br>response
@@ -9096,7 +9264,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <br>action exit
 <br>text mission_tutorial_trade_rare!0x0000005F
 <br>
-</div></div><div class="files"><h2>mission_tutorial_trade_spice.cnv</h2>
+</div></div><div class="files"><h2 id="mission_tutorial_trade_spice">mission_tutorial_trade_spice.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
 <br>text mission_tutorial_trade_spice!0x00000001
@@ -9247,10 +9415,10 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <br>action exit
 <br>text mission_tutorial_trade_spice!0x0000005F
 <br>
-</div></div><div class="files"><h2>mission_tutorial_war.cnv</h2>
+</div></div><div class="files"><h2 id="mission_tutorial_war">mission_tutorial_war.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
-<br>text mission_tutorial_war!animations~
+<br>text mission_tutorial_war!0x00000000
 <hr><!-- hr here-->
 <br>response
 <br>action kCnvCommEvent~ mission_tutorial_war!mission_clues.cnv
@@ -9288,7 +9456,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 </div>
 <div class="dialogs"><h3>dialog dynamic_response_to_source</h3>value1 true
 <br>value4 true
-<hr><!-- hr here-->
+<hr><!-- hr here--><br>
 <br>text mission_tutorial_war!0x000000A7
 <hr><!-- hr here-->
 <br>response
@@ -9428,10 +9596,10 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <br>text mission_tutorial_war!0x0000005D
 <br>text mission_tutorial_war!0x0000005E
 <br>
-</div></div><div class="files"><h2>mission_war.cnv</h2>
+</div></div><div class="files"><h2 id="mission_war">mission_war.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
-<br>text mission_war!animations~ -emotion Neutral -require MySpecies
+<br>text mission_war!0x00000000 -emotion Neutral -require MySpecies
 <hr class="shorthr">
 <br>text mission_war!0x00000001 -emotion Neutral -require Trader
 <hr class="shorthr">
@@ -9874,7 +10042,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <br>text mission_war!0x0000008A
 <br>text mission_war!0x0000008B
 <br>
-</div></div><div class="files"><h2>mission_adventure.cnv</h2>
+</div></div><div class="files"><h2 id="mission_adventure">mission_adventure.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
 <br>text mission_adventure!0x00000001 -emotion Neutral -require Diplomat
@@ -10158,7 +10326,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <br>text 0xCF4AA8C2!0xFADED00C -exclude Grob
 <br>text mission_adventure!0x0000005F -require Grob
 <br>
-</div></div><div class="files"><h2>mission_adventure101.cnv</h2>
+</div></div><div class="files"><h2 id="mission_adventure101">mission_adventure101.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
 <br>text mission_adventure101!0x00000001 -emotion Neutral -require MySpecies
@@ -10436,10 +10604,10 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <br>action exit
 <br>text 0xCF4AA8C2!0xFADED035
 <br>
-</div></div><div class="files"><h2>mission_bard_02.cnv</h2>
+</div></div><div class="files"><h2 id="mission_bard_02">mission_bard_02.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
-<br>text mission_bard_02!animations~ -emotion Neutral -require Bard
+<br>text mission_bard_02!0x00000000 -emotion Neutral -require Bard
 <hr><!-- hr here-->
 <br>response
 <br>action kCnvCommEvent~ mission_bard_02!mission_accept.cnv
@@ -10588,10 +10756,10 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <br>text 0xCF4AA8C2!0xFADED005 -exclude Grob
 <br>text 0xCF4AA8C2!0xFADED00C -exclude Grob
 <br>
-</div></div><div class="files"><h2>mission_diplomat_01.cnv</h2>
+</div></div><div class="files"><h2 id="mission_diplomat_01">mission_diplomat_01.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
-<br>text mission_diplomat_01!animations~ -emotion Neutral -require Diplomat
+<br>text mission_diplomat_01!0x00000000 -emotion Neutral -require Diplomat
 <hr><!-- hr here-->
 <br>response
 <br>action kCnvCommEvent~ mission_diplomat_01!mission_accept.cnv
@@ -10740,10 +10908,10 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <br>text 0xCF4AA8C2!0xFADED005 -exclude Grob
 <br>text 0xCF4AA8C2!0xFADED00C -exclude Grob
 <br>
-</div></div><div class="files"><h2>mission_ecologist_01.cnv</h2>
+</div></div><div class="files"><h2 id="mission_ecologist_01">mission_ecologist_01.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
-<br>text mission_ecologist_01!animations~ -emotion Neutral -require Ecologist
+<br>text mission_ecologist_01!0x00000000 -emotion Neutral -require Ecologist
 <hr><!-- hr here-->
 <br>response
 <br>action kCnvCommEvent~ mission_ecologist_01!mission_accept.cnv
@@ -10892,10 +11060,10 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <br>text 0xCF4AA8C2!0xFADED005 -exclude Grob
 <br>text 0xCF4AA8C2!0xFADED00C -exclude Grob
 <br>
-</div></div><div class="files"><h2>mission_scientist_04.cnv</h2>
+</div></div><div class="files"><h2 id="mission_scientist_04">mission_scientist_04.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
-<br>text mission_scientist_04!animations~ -emotion Neutral -require Scientist
+<br>text mission_scientist_04!0x00000000 -emotion Neutral -require Scientist
 <hr><!-- hr here-->
 <br>response
 <br>action kCnvCommEvent~ mission_scientist_04!mission_accept.cnv
@@ -11044,10 +11212,10 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <br>text 0xCF4AA8C2!0xFADED005 -exclude Grob
 <br>text 0xCF4AA8C2!0xFADED00C -exclude Grob
 <br>
-</div></div><div class="files"><h2>mission_shaman_04.cnv</h2>
+</div></div><div class="files"><h2 id="mission_shaman_04">mission_shaman_04.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
-<br>text mission_shaman_04!animations~ -emotion Neutral -require Shaman
+<br>text mission_shaman_04!0x00000000 -emotion Neutral -require Shaman
 <hr><!-- hr here-->
 <br>response
 <br>action kCnvCommEvent~ mission_shaman_04!mission_accept.cnv
@@ -11196,10 +11364,10 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <br>text 0xCF4AA8C2!0xFADED005 -exclude Grob
 <br>text 0xCF4AA8C2!0xFADED00C -exclude Grob
 <br>
-</div></div><div class="files"><h2>mission_trader_03.cnv</h2>
+</div></div><div class="files"><h2 id="mission_trader_03">mission_trader_03.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
-<br>text mission_trader_03!animations~ -emotion Neutral -require Trader
+<br>text mission_trader_03!0x00000000 -emotion Neutral -require Trader
 <hr><!-- hr here-->
 <br>response
 <br>action kCnvCommEvent~ mission_trader_03!mission_accept.cnv
@@ -11348,10 +11516,10 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <br>text 0xCF4AA8C2!0xFADED005 -exclude Grob
 <br>text 0xCF4AA8C2!0xFADED00C -exclude Grob
 <br>
-</div></div><div class="files"><h2>mission_warrior_03.cnv</h2>
+</div></div><div class="files"><h2 id="mission_warrior_03">mission_warrior_03.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
-<br>text mission_warrior_03!animations~ -emotion Neutral -require Warrior
+<br>text mission_warrior_03!0x00000000 -emotion Neutral -require Warrior
 <hr><!-- hr here-->
 <br>response
 <br>action kCnvCommEvent~ mission_warrior_03!mission_accept.cnv
@@ -11500,10 +11668,10 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <br>text 0xCF4AA8C2!0xFADED005 -exclude Grob
 <br>text 0xCF4AA8C2!0xFADED00C -exclude Grob
 <br>
-</div></div><div class="files"><h2>mission_zealot_01.cnv</h2>
+</div></div><div class="files"><h2 id="mission_zealot_01">mission_zealot_01.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
-<br>text mission_zealot_01!animations~ -emotion Neutral -require Zealot
+<br>text mission_zealot_01!0x00000000 -emotion Neutral -require Zealot
 <hr><!-- hr here-->
 <br>response
 <br>action kCnvCommEvent~ mission_zealot_01!mission_accept.cnv

@@ -1,0 +1,2093 @@
+<!DOCTYPE html><html><head>
+<title>Creature part randomizer</title>
+<style>
+body {
+font: 16px trebuchet ms, sans-serif;
+color: #ffffff;
+background-color: #0F1C24
+}
+a { color: #66EFF7; text-decoration: none; } a:hover, a:focus {text-decoration: underline;}
+
+#main {
+margin: 0 auto;
+max-width: 1000px;
+min-width: 500px;
+padding: 40px;
+background: #1A303F;
+border: 2px solid #3D505C;
+border-radius: 20px;
+}
+
+.box {
+border: 2px solid #3D505C;
+border-radius: 5px;
+padding: 2px
+}
+
+hr { height: 2px; border-width: 0; background-color: #3D505C }
+
+#partcontainer {
+text-align: center;
+width: 350px;
+height: 180px;
+margin: 0 auto;
+}
+
+#particon {
+width: 128px;
+height: 128px;
+display: inline-block;
+}
+
+.inlinebox {
+display: inline-block;
+padding: 5px;
+}
+</style></head><body>
+
+<div id="main">Gives you a random (vanilla) creature part or paint from any category. You can use this to make a creature with random parts!
+<br>Part icons are reused from my all parts pages.
+
+<hr>
+
+<p>
+Generate a random part:
+<input type="button" value="Mouths" onclick="mouth()">
+<input type="button" value="Eyes &amp; Senses" onclick="senses()">
+<input type="button" value="Arms &amp; Legs" onclick="limbs()">
+<input type="button" value="Graspers" onclick="graspers()">
+<input type="button" value="Feet" onclick="feet()">
+<input type="button" value="Weapons" onclick="weapons()">
+<input type="button" value="Details" onclick="details()">
+<input type="button" value="Literally any part (ignores checks)" onclick="test()">
+<br>
+Generate a random paint:
+<input type="button" value="Base" onclick="base()">
+<input type="button" value="Coat" onclick="coat()">
+<input type="button" value="Detail" onclick="detail()">
+<input type="button" value="Theme" onclick="theme()">
+<input type="button" value="Literally any paint/theme (ignores checks)" onclick="test2()">
+</p>
+
+<p>
+<div class="box" id="partcontainer">
+<div id="particon"></div>
+<div id="partname">Click a part or paint category</div>
+</div></p>
+
+<p>
+<input type="checkbox" id="def"> <label for="def">Include default limb feet and graspers? (including exoskeleton ones)</label><br>
+<input type="checkbox" id="c2c"> <label for="c2c">Include early creature parts and cell paints?</label><br>
+<input type="checkbox" id="exo"> <label for="exo">Include exoskeleton limbs?</label><br>
+<input type="checkbox" id="cnc"> <label for="cnc">Include Creepy &amp; Cute parts and paints? (+ the one GA paint)</label><br>
+<input type="checkbox" id="bot"> <label for="bot">Include Bot Parts?</label><br>
+<input type="checkbox" id="grx"> <label for="grx">Include Grox parts?</label>
+</p>
+
+<p>All of these are achievable with vanilla (I even added Maxis cells or creatures you can pick from for most cell paints), but some parts are easier to use with mods and otherwise would require some planning (editing an early creature or the Grox to get their parts).</p>
+
+<p>It might roll the same part or paint again if it fails a check, you can just click the button again to get a different part if that's an issue.</p>
+
+<hr>
+
+<p>Generating random colors and hues is a lot more difficult to code. You can generate <a href="https://www.random.org/colors/hex" target="_blank">a random hex color here</a>, and then, if you don't have Enhanced Color Picker, run it through <a href="color matcher.html" target="_blank">the color matcher</a> and use that.</p>
+
+<hr>
+
+<p>If you want, you can also generate random numbers here (with 2 to 20 you can randomize the amount of vertebrae on your creature, and you can randomize the amount of other parts, for example)</p>
+
+<div class="box">
+<div class ="inlinebox">
+<label for="minrandom">Min</label><br>
+<label for="maxrandom">Max</label>
+</div><div class ="inlinebox">
+<input type="text" id="minrandom" value="2"><br>
+<input type="text" id="maxrandom" value="20">
+</div><div class ="inlinebox">
+<div class="box" id="randomnumber">&nbsp;</div>
+<input type="button" value="Generate number" onclick="randomnum()">
+</div><div class ="inlinebox">(The numbers are inclusive, but actually become exclusive if you have the larger one in min and the smaller one in max)
+</div></div>
+
+</div></body>
+
+<script>
+
+//generates literally every part
+function test() {
+partid = getRndInteger(1, 352);
+outputpart()
+}
+
+//generates literally every paint
+function test2() {
+partid = getRndInteger(353, 569);
+outputpart()
+}
+
+//mouth
+function mouth() {
+partid = getRndInteger(1, 57);
+//checks for checks. if it fails a check it just runs the function again
+     if (document.getElementById("cnc").checked == false && partid >= 41 && partid <= 52) {mouth()}
+else if (document.getElementById("bot").checked == false && partid >= 53 && partid <= 54) {mouth()}
+else if (document.getElementById("c2c").checked == false && partid >= 55 && partid <= 57) {mouth()}
+else {outputpart()}
+}
+
+//senses
+function senses() {
+partid = getRndInteger(58, 115);
+     if (document.getElementById("cnc").checked == false && partid >= 98 && partid <= 109) {senses()}
+else if (document.getElementById("bot").checked == false && partid >= 110 && partid <= 111) {senses()}
+else if (document.getElementById("c2c").checked == false && partid >= 112 && partid <= 114) {senses()}
+else if (document.getElementById("grx").checked == false && partid == 115) {senses()}
+else {outputpart()}
+}
+
+//limbs
+function limbs() {
+partid = getRndInteger(116, 167);
+     if (document.getElementById("exo").checked == false && partid >= 140 && partid <= 163) {limbs()}
+else if (document.getElementById("bot").checked == false && partid >= 164 && partid <= 167) {limbs()}
+else {outputpart()}
+}
+
+//graspers
+function graspers() {
+partid = getRndInteger(168, 212);
+     if (document.getElementById("def").checked == false && partid >= 196 && partid <= 197) {graspers()}
+else if (document.getElementById("cnc").checked == false && partid >= 198 && partid <= 209) {graspers()}
+else if (document.getElementById("bot").checked == false && partid >= 210 && partid <= 211) {graspers()}
+else if (document.getElementById("grx").checked == false && partid == 212) {graspers()}
+else {outputpart()}
+}
+
+//feet
+function feet() {
+partid = getRndInteger(213, 261);
+     if (document.getElementById("def").checked == false && partid >= 245 && partid <= 246) {feet()}
+else if (document.getElementById("cnc").checked == false && partid >= 247 && partid <= 258) {feet()}
+else if (document.getElementById("bot").checked == false && partid >= 259 && partid <= 260) {feet()}
+else if (document.getElementById("grx").checked == false && partid == 261) {feet()}
+else {outputpart()}
+}
+
+//weapons
+function weapons() {
+partid = getRndInteger(262, 287);
+     if (document.getElementById("c2c").checked == false && partid >= 286 && partid <= 287) {weapons()}
+else {outputpart()}
+}
+
+//details
+function details() {
+partid = getRndInteger(288, 352);
+     if (document.getElementById("cnc").checked == false && partid >= 328 && partid <= 339) {details()}
+else if (document.getElementById("bot").checked == false && partid >= 340 && partid <= 341) {details()}
+else if (document.getElementById("c2c").checked == false && partid >= 342 && partid <= 345) {details()}
+else if (document.getElementById("grx").checked == false && partid >= 346 && partid <= 352) {details()}
+else {outputpart()}
+}
+
+//----------------------------------------------------
+
+//base
+function base() {
+partid = getRndInteger(353, 424);
+     if (document.getElementById("cnc").checked == false && partid >= 389 && partid <= 400) {base()}
+else if (document.getElementById("c2c").checked == false && partid >= 401 && partid <= 424) {base()}
+else {outputpart()}
+}
+
+//coat
+function coat() {
+partid = getRndInteger(425, 472);
+     if (document.getElementById("cnc").checked == false && partid >= 461 && partid <= 472) {coat()}
+else {outputpart()}
+}
+
+//detail
+function detail() {
+partid = getRndInteger(473, 521);
+     if (document.getElementById("cnc").checked == false && partid >= 509 && partid <= 521) {detail()}
+else {outputpart()}
+}
+
+//theme
+function theme() {
+partid = getRndInteger(522, 569);
+     if (document.getElementById("cnc").checked == false && partid >= 558 && partid <= 569) {theme()}
+else {outputpart()}
+}
+
+//----------------------------------------------------
+
+// https://www.w3schools.com/js/js_random.asp
+function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+
+//----------------------------------------------------
+
+//a big fat list of every part for output to the actual page
+function outputpart() {
+
+//mouths
+
+if (partid==1) {
+document.getElementById("partname").innerHTML = 'Simperton';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_amphibian_omnivore_01.png')"}
+else if (partid==2) {
+document.getElementById("partname").innerHTML = 'Rostrum';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_amphibian_omnivore_02.png')"}
+else if (partid==3) {
+document.getElementById("partname").innerHTML = 'Worrybeak';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_amphibian_omnivore_03.png')"}
+else if (partid==4) {
+document.getElementById("partname").innerHTML = 'Amphibitude';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_amphibian_omnivore_04.png')"}
+else if (partid==5) {
+document.getElementById("partname").innerHTML = "Toucan't";
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_beak_carnivore_01.png')"}
+else if (partid==6) {
+document.getElementById("partname").innerHTML = 'Buzzbeak';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_beak_carnivore_02.png')"}
+else if (partid==7) {
+document.getElementById("partname").innerHTML = 'Buzzmuzzle';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_beak_carnivore_03.png')"}
+else if (partid==8) {
+document.getElementById("partname").innerHTML = 'Skexybeast';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_beak_carnivore_04.png')"}
+else if (partid==9) {
+document.getElementById("partname").innerHTML = 'Cantovis';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_beak_herbivore_01.png')"}
+else if (partid==10) {
+document.getElementById("partname").innerHTML = 'Splatypus';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_beak_herbivore_02.png')"}
+else if (partid==11) {
+document.getElementById("partname").innerHTML = 'Snapgator';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_beak_herbivore_03.png')"}
+else if (partid==12) {
+document.getElementById("partname").innerHTML = 'Grubblemaw';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_beak_herbivore_04.png')"}
+else if (partid==13) {
+document.getElementById("partname").innerHTML = 'Manglerfish';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_fish_carnivore_01.png')"}
+else if (partid==14) {
+document.getElementById("partname").innerHTML = 'Slagjawed';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_fish_carnivore_02.png')"}
+else if (partid==15) {
+document.getElementById("partname").innerHTML = 'Barracutie';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_fish_carnivore_03.png')"}
+else if (partid==16) {
+document.getElementById("partname").innerHTML = 'Carcharebear';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_fish_carnivore_04.png')"}
+else if (partid==17) {
+document.getElementById("partname").innerHTML = "D'orca";
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_jaw_carnivore_01.png')"}
+else if (partid==18) {
+document.getElementById("partname").innerHTML = 'Terrorpin';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_jaw_carnivore_02.png')"}
+else if (partid==19) {
+document.getElementById("partname").innerHTML = 'CrocKisser';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_jaw_carnivore_03.png')"}
+else if (partid==20) {
+document.getElementById("partname").innerHTML = 'Shortensnout';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_jaw_carnivore_04.png')"}
+else if (partid==21) {
+document.getElementById("partname").innerHTML = 'Mollratt';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_jaw_herbivore_01.png')"}
+else if (partid==22) {
+document.getElementById("partname").innerHTML = 'Laardvark';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_jaw_herbivore_02.png')"}
+else if (partid==23) {
+document.getElementById("partname").innerHTML = 'Ruminanteater';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_jaw_herbivore_03.png')"}
+else if (partid==24) {
+document.getElementById("partname").innerHTML = 'Whalephant';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_jaw_herbivore_04.png')"}
+else if (partid==25) {
+document.getElementById("partname").innerHTML = 'Gobsterclaw';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_mandible_carnivore_01.png')"}
+else if (partid==26) {
+document.getElementById("partname").innerHTML = 'Handibles';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_mandible_carnivore_02.png')"}
+else if (partid==27) {
+document.getElementById("partname").innerHTML = 'Handtennae';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_mandible_carnivore_03.png')"}
+else if (partid==28) {
+document.getElementById("partname").innerHTML = 'Pincernaut';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_mandible_carnivore_04.png')"}
+else if (partid==29) {
+document.getElementById("partname").innerHTML = 'Sauroclod';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_primate_omnivore_01.png')"}
+else if (partid==30) {
+document.getElementById("partname").innerHTML = 'Grinnace';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_primate_omnivore_02.png')"}
+else if (partid==31) {
+document.getElementById("partname").innerHTML = 'Vermilips';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_primate_omnivore_03.png')"}
+else if (partid==32) {
+document.getElementById("partname").innerHTML = "S'gnarly";
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_primate_omnivore_04.png')"}
+else if (partid==33) {
+document.getElementById("partname").innerHTML = 'Leeyotch';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_radial_omnivore_01.png')"}
+else if (partid==34) {
+document.getElementById("partname").innerHTML = 'Gnathognasher';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_radial_omnivore_02.png')"}
+else if (partid==35) {
+document.getElementById("partname").innerHTML = 'Saginaughty';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_radial_omnivore_03.png')"}
+else if (partid==36) {
+document.getElementById("partname").innerHTML = 'Dietrap';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_radial_omnivore_04.png')"}
+else if (partid==37) {
+document.getElementById("partname").innerHTML = 'Swillson';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_snout_herbivore_01.png')"}
+else if (partid==38) {
+document.getElementById("partname").innerHTML = 'Ungulot';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_snout_herbivore_02.png')"}
+else if (partid==39) {
+document.getElementById("partname").innerHTML = 'Soundersnout';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_snout_herbivore_03.png')"}
+else if (partid==40) {
+document.getElementById("partname").innerHTML = 'Haunchface';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_snout_herbivore_04.png')"}
+
+//creepy and cute
+
+else if (partid==41) {
+document.getElementById("partname").innerHTML = 'MumblyJoe';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_cute_herbivore_01.png')"}
+else if (partid==42) {
+document.getElementById("partname").innerHTML = 'Buttonmaw';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_cute_herbivore_02.png')"}
+else if (partid==43) {
+document.getElementById("partname").innerHTML = 'Gnawly';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_cute_herbivore_03.png')"}
+else if (partid==44) {
+document.getElementById("partname").innerHTML = 'Bucky Buckerson';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_cute_herbivore_04.png')"}
+else if (partid==45) {
+document.getElementById("partname").innerHTML = 'Muzzletuff';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_cute_omnivore_01.png')"}
+else if (partid==46) {
+document.getElementById("partname").innerHTML = 'Grindah';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_cute_omnivore_02.png')"}
+else if (partid==47) {
+document.getElementById("partname").innerHTML = 'Gnasha';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_cute_omnivore_03.png')"}
+else if (partid==48) {
+document.getElementById("partname").innerHTML = 'Tuskaloosa';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_cute_omnivore_04.png')"}
+else if (partid==49) {
+document.getElementById("partname").innerHTML = 'Masticator';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_horror_carnivore_01.png')"}
+else if (partid==50) {
+document.getElementById("partname").innerHTML = 'Chompasaurus';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_horror_carnivore_02.png')"}
+else if (partid==51) {
+document.getElementById("partname").innerHTML = 'Beefteef';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_horror_carnivore_03.png')"}
+else if (partid==52) {
+document.getElementById("partname").innerHTML = 'Macobbjaw';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouth_horror_carnivore_04.png')"}
+
+//bot parts
+
+else if (partid==53) {
+document.getElementById("partname").innerHTML = 'Clamps';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouthTech_01.png')"}
+else if (partid==54) {
+document.getElementById("partname").innerHTML = 'Cantop';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_mouthTech_02.png')"}
+
+//early creature parts
+
+else if (partid==55) {
+document.getElementById("partname").innerHTML = 'Filter Mouth';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce_cell/ce_cell_mouth_filter_01.png')"}
+else if (partid==56) {
+document.getElementById("partname").innerHTML = 'Jaw';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce_cell/ce_cell_mouth_jaw_04.png')"}
+else if (partid==57) {
+document.getElementById("partname").innerHTML = 'Proboscis';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce_cell/ce_cell_mouth_poker_01.png')"}
+
+//----------------------------------------------------
+
+//eyes senses
+
+else if (partid==58) {
+document.getElementById("partname").innerHTML = 'Mantenna';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_antenna_01-symmetric.png')"}
+else if (partid==59) {
+document.getElementById("partname").innerHTML = 'Feelyfrond';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_antenna_02-symmetric.png')"}
+else if (partid==60) {
+document.getElementById("partname").innerHTML = 'Segmentenna';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_antenna_03-symmetric.png')"}
+else if (partid==61) {
+document.getElementById("partname").innerHTML = 'Ant-ler';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_antenna_04-symmetric.png')"}
+else if (partid==62) {
+document.getElementById("partname").innerHTML = 'Hearbear';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_ear_side_01-symmetric.png')"}
+else if (partid==63) {
+document.getElementById("partname").innerHTML = 'Kitty';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_ear_side_02-symmetric.png')"}
+else if (partid==64) {
+document.getElementById("partname").innerHTML = 'Elfinmagick';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_ear_side_03-symmetric.png')"}
+else if (partid==65) {
+document.getElementById("partname").innerHTML = 'Gettineerful';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_ear_side_04-symmetric.png')"}
+else if (partid==66) {
+document.getElementById("partname").innerHTML = 'Ehhwot';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_ear_top_01-symmetric.png')"}
+else if (partid==67) {
+document.getElementById("partname").innerHTML = 'Overhear';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_ear_top_02-symmetric.png')"}
+else if (partid==68) {
+document.getElementById("partname").innerHTML = 'Panhear';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_ear_top_03-symmetric.png')"}
+else if (partid==69) {
+document.getElementById("partname").innerHTML = 'Batboy';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_ear_top_04-symmetric.png')"}
+else if (partid==70) {
+document.getElementById("partname").innerHTML = 'LarvEye';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_eye_bug_01-symmetric.png')"}
+else if (partid==71) {
+document.getElementById("partname").innerHTML = 'Seeodesic';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_eye_bug_02-symmetric.png')"}
+else if (partid==72) {
+document.getElementById("partname").innerHTML = 'Eyelien';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_eye_bug_03-symmetric.png')"}
+else if (partid==73) {
+document.getElementById("partname").innerHTML = 'Stemma-addict';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_eye_bug_04-symmetric.png')"}
+else if (partid==74) {
+document.getElementById("partname").innerHTML = 'Felizard';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_eye_dino_01-symmetric.png')"}
+else if (partid==75) {
+document.getElementById("partname").innerHTML = 'Wizened';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_eye_dino_02-symmetric.png')"}
+else if (partid==76) {
+document.getElementById("partname").innerHTML = 'Saurian';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_eye_dino_03-symmetric.png')"}
+else if (partid==77) {
+document.getElementById("partname").innerHTML = 'Boneye';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_eye_dino_04-symmetric.png')"}
+else if (partid==78) {
+document.getElementById("partname").innerHTML = 'Coygamine';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_eye_mammal_01-symmetric.png')"}
+else if (partid==79) {
+document.getElementById("partname").innerHTML = 'Grumpeye';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_eye_mammal_02-symmetric.png')"}
+else if (partid==80) {
+document.getElementById("partname").innerHTML = 'Furtive';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_eye_mammal_03-symmetric.png')"}
+else if (partid==81) {
+document.getElementById("partname").innerHTML = 'Evil Eye';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_eye_mammal_04-symmetric.png')"}
+else if (partid==82) {
+document.getElementById("partname").innerHTML = 'Optic Orb';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_eye_simple_01-symmetric.png')"}
+else if (partid==83) {
+document.getElementById("partname").innerHTML = 'Ocubulge';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_eye_simple_02-symmetric.png')"}
+else if (partid==84) {
+document.getElementById("partname").innerHTML = 'Eyebissed';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_eye_simple_03-symmetric.png')"}
+else if (partid==85) {
+document.getElementById("partname").innerHTML = 'Scrutineye';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_eye_simple_04-symmetric.png')"}
+else if (partid==86) {
+document.getElementById("partname").innerHTML = 'Stalkgazer';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_eye_stalk_01-symmetric.png')"}
+else if (partid==87) {
+document.getElementById("partname").innerHTML = 'Meanstalk';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_eye_stalk_02-symmetric.png')"}
+else if (partid==88) {
+document.getElementById("partname").innerHTML = 'Periscoptic';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_eye_stalk_03-symmetric.png')"}
+else if (partid==89) {
+document.getElementById("partname").innerHTML = 'Peduncledunk';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_eye_stalk_04-symmetric.png')"}
+else if (partid==90) {
+document.getElementById("partname").innerHTML = 'Empteyes';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_eye_weird_01-symmetric.png')"}
+else if (partid==91) {
+document.getElementById("partname").innerHTML = 'Occulus';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_eye_weird_02-symmetric.png')"}
+else if (partid==92) {
+document.getElementById("partname").innerHTML = 'Wide Eyed';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_eye_weird_03-symmetric.png')"}
+else if (partid==93) {
+document.getElementById("partname").innerHTML = 'Neo-teeny';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_eye_weird_04-symmetric.png')"}
+else if (partid==94) {
+document.getElementById("partname").innerHTML = 'Sporacles';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_nose_01-symmetric.png')"}
+else if (partid==95) {
+document.getElementById("partname").innerHTML = 'Chuffle';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_nose_02.png')"}
+else if (partid==96) {
+document.getElementById("partname").innerHTML = 'Snuffle';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_nose_03.png')"}
+else if (partid==97) {
+document.getElementById("partname").innerHTML = 'Snortle';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_nose_04.png')"}
+
+//creepy and cute
+
+else if (partid==98) {
+document.getElementById("partname").innerHTML = 'Pinhole';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_eye_cute_01-symmetric.png')"}
+else if (partid==99) {
+document.getElementById("partname").innerHTML = 'Babybleu';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_eye_cute_02-symmetric.png')"}
+else if (partid==100) {
+document.getElementById("partname").innerHTML = 'Blinky';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_eye_cute_03-symmetric.png')"}
+else if (partid==101) {
+document.getElementById("partname").innerHTML = 'Alieyes';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_eye_cute_04-symmetric.png')"}
+else if (partid==102) {
+document.getElementById("partname").innerHTML = 'Dozer';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_eye_cute_05-symmetric.png')"}
+else if (partid==103) {
+document.getElementById("partname").innerHTML = 'Ladeye';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_eye_cute_06-symmetric.png')"}
+else if (partid==104) {
+document.getElementById("partname").innerHTML = 'Eyely';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_eye_cute_07-symmetric.png')"}
+else if (partid==105) {
+document.getElementById("partname").innerHTML = 'Hubba Hubba';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_eye_cute_08-symmetric.png')"}
+else if (partid==106) {
+document.getElementById("partname").innerHTML = 'Necreye';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_eye_horror_01-symmetric.png')"}
+else if (partid==107) {
+document.getElementById("partname").innerHTML = 'Soulless';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_eye_horror_02-symmetric.png')"}
+else if (partid==108) {
+document.getElementById("partname").innerHTML = 'Celestial Stare';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_eye_horror_03-symmetric.png')"}
+else if (partid==109) {
+document.getElementById("partname").innerHTML = 'Wareye';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_sense_eye_horror_04-symmetric.png')"}
+
+//bot parts
+
+else if (partid==110) {
+document.getElementById("partname").innerHTML = 'Binoculeye';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_senseTech_Alien_04-symmetric.png')"}
+else if (partid==111) {
+document.getElementById("partname").innerHTML = 'Blinkojo';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_senseTech_Futurion_01-symmetric.png')"}
+
+//early creature parts
+
+else if (partid==112) {
+document.getElementById("partname").innerHTML = 'Stalk Eye';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce_cell/ce_cell_sense_eye_01-symmetric.png')"}
+else if (partid==113) {
+document.getElementById("partname").innerHTML = 'Beady Eye';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce_cell/ce_cell_sense_eye_02-symmetric.png')"}
+else if (partid==114) {
+document.getElementById("partname").innerHTML = 'Button Eye';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce_cell/ce_cell_sense_eye_04-symmetric.png')"}
+
+//grox parts
+
+else if (partid==115) {
+document.getElementById("partname").innerHTML = 'Eyebissed';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/placeholder/ce_sense_eye_grob.png')"}
+
+//----------------------------------------------------
+
+//arms legs
+
+else if (partid==116) {
+document.getElementById("partname").innerHTML = 'Meekling';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_x_arm_01.png')"}
+else if (partid==117) {
+document.getElementById("partname").innerHTML = 'Deltroid';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_x_arm_02.png')"}
+else if (partid==118) {
+document.getElementById("partname").innerHTML = 'Doubelbow';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_x_arm_03.png')"}
+else if (partid==119) {
+document.getElementById("partname").innerHTML = 'Cutty';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_x_arm_04.png')"}
+else if (partid==120) {
+document.getElementById("partname").innerHTML = 'Skrappy';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_x_arm_05.png')"}
+else if (partid==121) {
+document.getElementById("partname").innerHTML = 'Gunnshow';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_x_arm_07.png')"}
+else if (partid==122) {
+document.getElementById("partname").innerHTML = 'Slackwrist';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_x_arm_08.png')"}
+else if (partid==123) {
+document.getElementById("partname").innerHTML = 'Python';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_x_arm_09.png')"}
+else if (partid==124) {
+document.getElementById("partname").innerHTML = 'Bulgo';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_x_arm_10.png')"}
+else if (partid==125) {
+document.getElementById("partname").innerHTML = 'Flextor';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_x_arm_11.png')"}
+else if (partid==126) {
+document.getElementById("partname").innerHTML = 'Burly';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_x_arm_12.png')"}
+else if (partid==127) {
+document.getElementById("partname").innerHTML = 'Wizardsleeve';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_x_arm_13.png')"}
+else if (partid==128) {
+document.getElementById("partname").innerHTML = 'Thundercalf';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_x_leg_01.png')"}
+else if (partid==129) {
+document.getElementById("partname").innerHTML = 'Broncosaurus';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_x_leg_02.png')"}
+else if (partid==130) {
+document.getElementById("partname").innerHTML = 'Thighstrider';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_x_leg_03.png')"}
+else if (partid==131) {
+document.getElementById("partname").innerHTML = 'Stompbottom';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_x_leg_05.png')"}
+else if (partid==132) {
+document.getElementById("partname").innerHTML = 'Qopazcoatl';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_x_leg_06.png')"}
+else if (partid==133) {
+document.getElementById("partname").innerHTML = 'Yumstick';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_x_leg_07.png')"}
+else if (partid==134) {
+document.getElementById("partname").innerHTML = 'Cankle';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_x_leg_08.png')"}
+else if (partid==135) {
+document.getElementById("partname").innerHTML = 'Brawnysaurus';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_x_leg_09.png')"}
+else if (partid==136) {
+document.getElementById("partname").innerHTML = 'Steatopiggy';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_x_leg_10.png')"}
+else if (partid==137) {
+document.getElementById("partname").innerHTML = 'Phatella';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_x_leg_11.png')"}
+else if (partid==138) {
+document.getElementById("partname").innerHTML = 'Callypigeon';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_x_leg_12.png')"}
+else if (partid==139) {
+document.getElementById("partname").innerHTML = 'Ostrichopath';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_x_leg_14.png')"}
+
+//exoskeleton limbs
+
+else if (partid==140) {
+document.getElementById("partname").innerHTML = 'Arm Plated';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_exo_a_01.png')"}
+else if (partid==141) {
+document.getElementById("partname").innerHTML = 'Spiker';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_exo_a_02.png')"}
+else if (partid==142) {
+document.getElementById("partname").innerHTML = 'Lesser Tubercle';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_exo_a_03.png')"}
+else if (partid==143) {
+document.getElementById("partname").innerHTML = 'Delta Point';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_exo_a_04.png')"}
+else if (partid==144) {
+document.getElementById("partname").innerHTML = 'Sinew Slug';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_exo_a_05.png')"}
+else if (partid==145) {
+document.getElementById("partname").innerHTML = 'Brawned';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_exo_a_06.png')"}
+else if (partid==146) {
+document.getElementById("partname").innerHTML = 'Tendonikes';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_exo_a_07.png')"}
+else if (partid==147) {
+document.getElementById("partname").innerHTML = 'Fleshed';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_exo_a_08.png')"}
+else if (partid==148) {
+document.getElementById("partname").innerHTML = 'Deltoid Tuberosity';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_exo_a_09.png')"}
+else if (partid==149) {
+document.getElementById("partname").innerHTML = 'Humorous Humerus';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_exo_a_10.png')"}
+else if (partid==150) {
+document.getElementById("partname").innerHTML = 'Khourtier';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_exo_a_11.png')"}
+else if (partid==151) {
+document.getElementById("partname").innerHTML = 'Holiarm';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_exo_a_12.png')"}
+else if (partid==152) {
+document.getElementById("partname").innerHTML = 'Locust Legs';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_exo_l_01.png')"}
+else if (partid==153) {
+document.getElementById("partname").innerHTML = 'Plated Muscle';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_exo_l_02.png')"}
+else if (partid==154) {
+document.getElementById("partname").innerHTML = 'Spikependage';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_exo_l_03.png')"}
+else if (partid==155) {
+document.getElementById("partname").innerHTML = 'Armored Bones';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_exo_l_04.png')"}
+else if (partid==156) {
+document.getElementById("partname").innerHTML = 'Bugleg';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_exo_l_05.png')"}
+else if (partid==157) {
+document.getElementById("partname").innerHTML = 'Grouchyspike';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_exo_l_06.png')"}
+else if (partid==158) {
+document.getElementById("partname").innerHTML = 'Centilegs';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_exo_l_07.png')"}
+else if (partid==159) {
+document.getElementById("partname").innerHTML = 'Layered Limb';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_exo_l_08.png')"}
+else if (partid==160) {
+document.getElementById("partname").innerHTML = 'Thighboned';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_exo_l_09.png')"}
+else if (partid==161) {
+document.getElementById("partname").innerHTML = 'Grasshopper';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_exo_l_10.png')"}
+else if (partid==162) {
+document.getElementById("partname").innerHTML = 'Femur Friday';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_exo_l_11.png')"}
+else if (partid==163) {
+document.getElementById("partname").innerHTML = 'Proprioceptive Flex';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_exo_l_12.png')"}
+
+//bot parts
+
+else if (partid==164) {
+document.getElementById("partname").innerHTML = 'Roto-knots';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_drp_arm_01.png')"}
+else if (partid==165) {
+document.getElementById("partname").innerHTML = 'Mechstensions';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_drp_arm_02.png')"}
+else if (partid==166) {
+document.getElementById("partname").innerHTML = 'Autojaunts';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_drp_leg_01.png')"}
+else if (partid==167) {
+document.getElementById("partname").innerHTML = 'Knee-matics';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/limb_assembly_drp_leg_02.png')"}
+
+//----------------------------------------------------
+
+//graspers
+
+else if (partid==168) {
+document.getElementById("partname").innerHTML = 'Setaetarsal';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_grasper_amphibian_01-symmetric.png')"}
+else if (partid==169) {
+document.getElementById("partname").innerHTML = 'Amphibigrab';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_grasper_amphibian_02-symmetric.png')"}
+else if (partid==170) {
+document.getElementById("partname").innerHTML = 'Amphibigrip';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_grasper_amphibian_03-symmetric.png')"}
+else if (partid==171) {
+document.getElementById("partname").innerHTML = 'Croak Masseur';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_grasper_amphibian_04-symmetric.png')"}
+else if (partid==172) {
+document.getElementById("partname").innerHTML = 'Bonestickler';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_grasper_bird_01-symmetric.png')"}
+else if (partid==173) {
+document.getElementById("partname").innerHTML = 'Torsionwrencher';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_grasper_bird_02-symmetric.png')"}
+else if (partid==174) {
+document.getElementById("partname").innerHTML = 'Prongripper';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_grasper_bird_03-symmetric.png')"}
+else if (partid==175) {
+document.getElementById("partname").innerHTML = 'Tearerwrist';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_grasper_bird_04-symmetric.png')"}
+else if (partid==176) {
+document.getElementById("partname").innerHTML = 'Grubbygrabber';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_grasper_dino_01-symmetric.png')"}
+else if (partid==177) {
+document.getElementById("partname").innerHTML = 'Velocigrasper';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_grasper_dino_02-symmetric.png')"}
+else if (partid==178) {
+document.getElementById("partname").innerHTML = 'Hookencrook';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_grasper_dino_03-symmetric.png')"}
+else if (partid==179) {
+document.getElementById("partname").innerHTML = 'Horrorthumbs';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_grasper_dino_04-symmetric.png')"}
+else if (partid==180) {
+document.getElementById("partname").innerHTML = 'Butterbib';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_grasper_insect_01.png')"}
+else if (partid==181) {
+document.getElementById("partname").innerHTML = 'Mitzy';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_grasper_insect_02-symmetric.png')"}
+else if (partid==182) {
+document.getElementById("partname").innerHTML = 'Classic Minion';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_grasper_insect_03-symmetric.png')"}
+else if (partid==183) {
+document.getElementById("partname").innerHTML = 'Ectoknight';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_grasper_insect_04-symmetric.png')"}
+else if (partid==184) {
+document.getElementById("partname").innerHTML = 'Phatlanges';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_grasper_paw_01-symmetric.png')"}
+else if (partid==185) {
+document.getElementById("partname").innerHTML = 'Badgerbear';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_grasper_paw_02-symmetric.png')"}
+else if (partid==186) {
+document.getElementById("partname").innerHTML = 'Ultrarolfer';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_grasper_paw_03-symmetric.png')"}
+else if (partid==187) {
+document.getElementById("partname").innerHTML = 'Metacarnal';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_grasper_paw_04-symmetric.png')"}
+else if (partid==188) {
+document.getElementById("partname").innerHTML = 'Nubknuckle';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_grasper_primate_01-symmetric.png')"}
+else if (partid==189) {
+document.getElementById("partname").innerHTML = 'Lockpicker';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_grasper_primate_02-symmetric.png')"}
+else if (partid==190) {
+document.getElementById("partname").innerHTML = 'Opposabubba';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_grasper_primate_03-symmetric.png')"}
+else if (partid==191) {
+document.getElementById("partname").innerHTML = 'Monstrumtalon';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_grasper_primate_04-symmetric.png')"}
+else if (partid==192) {
+document.getElementById("partname").innerHTML = 'Trapfist';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_grasper_radial_01-symmetric.png')"}
+else if (partid==193) {
+document.getElementById("partname").innerHTML = 'Succulenders';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_grasper_radial_02-symmetric.png')"}
+else if (partid==194) {
+document.getElementById("partname").innerHTML = 'Snatchengrabben';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_grasper_radial_03-symmetric.png')"}
+else if (partid==195) {
+document.getElementById("partname").innerHTML = 'Dexterrorous';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_grasper_radial_04-symmetric.png')"}
+
+//defaults
+
+else if (partid==196) {
+document.getElementById("partname").innerHTML = 'Extractor';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/placeholder/ce_grasper_horror_default.png')"}
+else if (partid==197) {
+document.getElementById("partname").innerHTML = 'Bulbous Fingers';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/placeholder/ce_grasper_default_01.png')"}
+
+//creepy and cute
+
+else if (partid==198) {
+document.getElementById("partname").innerHTML = 'Peppergrabber';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_grasper_cute_01-symmetric.png')"}
+else if (partid==199) {
+document.getElementById("partname").innerHTML = 'Suction Cup';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_grasper_cute_02-symmetric.png')"}
+else if (partid==200) {
+document.getElementById("partname").innerHTML = 'Sponge Mitt';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_grasper_cute_03-symmetric.png')"}
+else if (partid==201) {
+document.getElementById("partname").innerHTML = 'Suckerpunch';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_grasper_cute_04-symmetric.png')"}
+else if (partid==202) {
+document.getElementById("partname").innerHTML = 'Mittenfist';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_grasper_cute_05-symmetric.png')"}
+else if (partid==203) {
+document.getElementById("partname").innerHTML = 'Nubby';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_grasper_cute_06-symmetric.png')"}
+else if (partid==204) {
+document.getElementById("partname").innerHTML = 'Pointer';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_grasper_cute_07-symmetric.png')"}
+else if (partid==205) {
+document.getElementById("partname").innerHTML = 'Clownfingers';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_grasper_cute_08-symmetric.png')"}
+else if (partid==206) {
+document.getElementById("partname").innerHTML = 'Evildigit';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_grasper_horror_01-symmetric.png')"}
+else if (partid==207) {
+document.getElementById("partname").innerHTML = 'Deathclaw';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_grasper_horror_02-symmetric.png')"}
+else if (partid==208) {
+document.getElementById("partname").innerHTML = 'Fembones';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_grasper_horror_03-symmetric.png')"}
+else if (partid==209) {
+document.getElementById("partname").innerHTML = 'Extractor';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_grasper_horror_04-symmetric.png')"}
+
+//bot parts
+
+else if (partid==210) {
+document.getElementById("partname").innerHTML = 'Claspers';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_grasperTech_Brute_01-symmetric.png')"}
+else if (partid==211) {
+document.getElementById("partname").innerHTML = 'Sockems';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_grasperTech_Brute_02-symmetric.png')"}
+
+//grox parts
+
+else if (partid==212) {
+document.getElementById("partname").innerHTML = 'Prongripper';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/placeholder/SA_grob_grasper.png')"}
+
+//----------------------------------------------------
+
+//feet
+
+else if (partid==213) {
+document.getElementById("partname").innerHTML = 'The Geckonator';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movement_amphibian_01-symmetric.png')"}
+else if (partid==214) {
+document.getElementById("partname").innerHTML = 'The Geckoning';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movement_amphibian_02-symmetric.png')"}
+else if (partid==215) {
+document.getElementById("partname").innerHTML = 'The Froggening';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movement_amphibian_03-symmetric.png')"}
+else if (partid==216) {
+document.getElementById("partname").innerHTML = 'The Toadening';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movement_amphibian_04-symmetric.png')"}
+else if (partid==217) {
+document.getElementById("partname").innerHTML = 'Webwaddle';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movement_bird_01-symmetric.png')"}
+else if (partid==218) {
+document.getElementById("partname").innerHTML = 'Backskritcher';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movement_bird_02-symmetric.png')"}
+else if (partid==219) {
+document.getElementById("partname").innerHTML = 'Elevatorclaws';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movement_bird_03-symmetric.png')"}
+else if (partid==220) {
+document.getElementById("partname").innerHTML = 'Raptorclaws';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movement_bird_04-symmetric.png')"}
+else if (partid==221) {
+document.getElementById("partname").innerHTML = 'Stubbtoe';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movement_dino_01-symmetric.png')"}
+else if (partid==222) {
+document.getElementById("partname").innerHTML = 'Scareclaw';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movement_dino_02-symmetric.png')"}
+else if (partid==223) {
+document.getElementById("partname").innerHTML = 'The Clawman';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movement_dino_03-symmetric.png')"}
+else if (partid==224) {
+document.getElementById("partname").innerHTML = 'Dirtchargers';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movement_dino_04-symmetric.png')"}
+else if (partid==225) {
+document.getElementById("partname").innerHTML = 'Clippity';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movement_hoof_01.png')"}
+else if (partid==226) {
+document.getElementById("partname").innerHTML = 'Cloppity';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movement_hoof_02.png')"}
+else if (partid==227) {
+document.getElementById("partname").innerHTML = 'Hoppity';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movement_hoof_03-symmetric.png')"}
+else if (partid==228) {
+document.getElementById("partname").innerHTML = 'Hippoty';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movement_hoof_04-symmetric.png')"}
+else if (partid==229) {
+document.getElementById("partname").innerHTML = 'Stumplestilt';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movement_insect_01-symmetric.png')"}
+else if (partid==230) {
+document.getElementById("partname").innerHTML = 'Buckfoot';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movement_insect_02-symmetric.png')"}
+else if (partid==231) {
+document.getElementById("partname").innerHTML = 'Slasherknight';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movement_insect_03-symmetric.png')"}
+else if (partid==232) {
+document.getElementById("partname").innerHTML = 'Scarmaker';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movement_insect_04-symmetric.png')"}
+else if (partid==233) {
+document.getElementById("partname").innerHTML = 'Twopaw';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movement_paw_01-symmetric.png')"}
+else if (partid==234) {
+document.getElementById("partname").innerHTML = 'Threepaw';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movement_paw_02-symmetric.png')"}
+else if (partid==235) {
+document.getElementById("partname").innerHTML = 'Fourpaw';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movement_paw_03-symmetric.png')"}
+else if (partid==236) {
+document.getElementById("partname").innerHTML = 'Morepaw';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movement_paw_04-symmetric.png')"}
+else if (partid==237) {
+document.getElementById("partname").innerHTML = 'Palmwalker';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movement_primate_01-symmetric.png')"}
+else if (partid==238) {
+document.getElementById("partname").innerHTML = 'Underhanded';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movement_primate_02-symmetric.png')"}
+else if (partid==239) {
+document.getElementById("partname").innerHTML = 'Hombrenid';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movement_primate_03-symmetric.png')"}
+else if (partid==240) {
+document.getElementById("partname").innerHTML = 'Sassyquatch';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movement_primate_04-symmetric.png')"}
+else if (partid==241) {
+document.getElementById("partname").innerHTML = 'Suctoped';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movement_sucker_01-symmetric.png')"}
+else if (partid==242) {
+document.getElementById("partname").innerHTML = 'Sugerefoot';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movement_sucker_02-symmetric.png')"}
+else if (partid==243) {
+document.getElementById("partname").innerHTML = 'Suctopod';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movement_sucker_03-symmetric.png')"}
+else if (partid==244) {
+document.getElementById("partname").innerHTML = 'Suctofleur';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movement_sucker_04-symmetric.png')"}
+
+//defaults
+
+else if (partid==245) {
+document.getElementById("partname").innerHTML = 'Peppergrabber';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/placeholder/ce_movement_horror_default.png')"}
+else if (partid==246) {
+document.getElementById("partname").innerHTML = 'Pads';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/placeholder/ce_movement_default_01.png')"}
+
+//creepy and cute
+
+else if (partid==247) {
+document.getElementById("partname").innerHTML = 'Taptoe';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movement_cute_01-symmetric.png')"}
+else if (partid==248) {
+document.getElementById("partname").innerHTML = 'Smoosherfoot';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movement_cute_02-symmetric.png')"}
+else if (partid==249) {
+document.getElementById("partname").innerHTML = 'Toely';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movement_cute_03-symmetric.png')"}
+else if (partid==250) {
+document.getElementById("partname").innerHTML = 'Suckerkick';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movement_cute_04-symmetric.png')"}
+else if (partid==251) {
+document.getElementById("partname").innerHTML = 'Footoon';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movement_cute_05-symmetric.png')"}
+else if (partid==252) {
+document.getElementById("partname").innerHTML = 'Pawed';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movement_cute_06-symmetric.png')"}
+else if (partid==253) {
+document.getElementById("partname").innerHTML = 'Toepick';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movement_cute_07-symmetric.png')"}
+else if (partid==254) {
+document.getElementById("partname").innerHTML = 'Fingerpaw';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movement_cute_08-symmetric.png')"}
+else if (partid==255) {
+document.getElementById("partname").innerHTML = 'Skeletoes';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movement_horror_01-symmetric.png')"}
+else if (partid==256) {
+document.getElementById("partname").innerHTML = 'Talon Paw';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movement_horror_02-symmetric.png')"}
+else if (partid==257) {
+document.getElementById("partname").innerHTML = 'Heeltoe';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movement_horror_03-symmetric.png')"}
+else if (partid==258) {
+document.getElementById("partname").innerHTML = 'Starfoot';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movement_horror_04-symmetric.png')"}
+
+//bot parts
+
+else if (partid==259) {
+document.getElementById("partname").innerHTML = 'Crushers';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movementTech_Brute_02-symmetric.png')"}
+else if (partid==260) {
+document.getElementById("partname").innerHTML = 'Robokicks';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movementTech_Futurion_04-symmetric.png')"}
+
+//grox parts
+
+else if (partid==261) {
+document.getElementById("partname").innerHTML = 'Dirtchargers';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/placeholder/SA_grob_foot.png')"}
+
+//----------------------------------------------------
+
+//weapons
+
+else if (partid==262) {
+document.getElementById("partname").innerHTML = 'Pediculous';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_weapon_antler_01-symmetric.png')"}
+else if (partid==263) {
+document.getElementById("partname").innerHTML = 'Fawninatrix';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_weapon_antler_02-symmetric.png')"}
+else if (partid==264) {
+document.getElementById("partname").innerHTML = 'Ultramegadeer';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_weapon_antler_03-symmetric.png')"}
+else if (partid==265) {
+document.getElementById("partname").innerHTML = 'Elkegent';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_weapon_antler_04-symmetric.png')"}
+else if (partid==266) {
+document.getElementById("partname").innerHTML = 'Maceball';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_weapon_club_01.png')"}
+else if (partid==267) {
+document.getElementById("partname").innerHTML = 'Stessball';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_weapon_club_02.png')"}
+else if (partid==268) {
+document.getElementById("partname").innerHTML = 'The Tauntlet';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_weapon_club_03-symmetric.png')"}
+else if (partid==269) {
+document.getElementById("partname").innerHTML = 'SlimSlam Kablam';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_weapon_club_04.png')"}
+else if (partid==270) {
+document.getElementById("partname").innerHTML = 'Keratinhorn';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_weapon_horn_01-symmetric.png')"}
+else if (partid==271) {
+document.getElementById("partname").innerHTML = 'Narwhalicorn';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_weapon_horn_02-symmetric.png')"}
+else if (partid==272) {
+document.getElementById("partname").innerHTML = 'Cornutopia';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_weapon_horn_03-symmetric.png')"}
+else if (partid==273) {
+document.getElementById("partname").innerHTML = 'Rammer';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_weapon_horn_04-symmetric.png')"}
+else if (partid==274) {
+document.getElementById("partname").innerHTML = 'Gobstalker';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_weapon_range_liquid_01.png')"}
+else if (partid==275) {
+document.getElementById("partname").innerHTML = 'Phlegmthrower';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_weapon_range_liquid_02.png')"}
+else if (partid==276) {
+document.getElementById("partname").innerHTML = 'Problem-Solvent';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_weapon_range_liquid_03.png')"}
+else if (partid==277) {
+document.getElementById("partname").innerHTML = 'Spraypalm';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_weapon_range_liquid_04.png')"}
+else if (partid==278) {
+document.getElementById("partname").innerHTML = 'Hockitlauncher';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_weapon_range_solid_01.png')"}
+else if (partid==279) {
+document.getElementById("partname").innerHTML = 'Spraybuchet';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_weapon_range_solid_02.png')"}
+else if (partid==280) {
+document.getElementById("partname").innerHTML = 'Ziggur-hat';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_weapon_range_solid_03.png')"}
+else if (partid==281) {
+document.getElementById("partname").innerHTML = 'Porcupain';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_weapon_range_solid_04.png')"}
+else if (partid==282) {
+document.getElementById("partname").innerHTML = 'Scimitard';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_weapon_slasher_01-symmetric.png')"}
+else if (partid==283) {
+document.getElementById("partname").innerHTML = 'Toxic Telson';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_weapon_slasher_02-symmetric.png')"}
+else if (partid==284) {
+document.getElementById("partname").innerHTML = 'Reapermantis';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_weapon_slasher_03-symmetric.png')"}
+else if (partid==285) {
+document.getElementById("partname").innerHTML = 'Spurprise!';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_weapon_slasher_04-symmetric.png')"}
+
+//early creature parts
+
+else if (partid==286) {
+document.getElementById("partname").innerHTML = 'Poison';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce_cell/ce_cell_weapon_chemical_03.png')"}
+else if (partid==287) {
+document.getElementById("partname").innerHTML = 'Spike';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce_cell/ce_cell_weapon_spike_02-symmetric.png')"}
+
+//----------------------------------------------------
+
+//details
+
+else if (partid==288) {
+document.getElementById("partname").innerHTML = 'Shellshard';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_details_armor_01.png')"}
+else if (partid==289) {
+document.getElementById("partname").innerHTML = 'Osteoflippy';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_details_armor_02-symmetric.png')"}
+else if (partid==290) {
+document.getElementById("partname").innerHTML = 'Hydroxylappetite';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_details_armor_03.png')"}
+else if (partid==291) {
+document.getElementById("partname").innerHTML = 'Triterraflops';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_details_armor_04-symmetric.png')"}
+else if (partid==292) {
+document.getElementById("partname").innerHTML = 'Bonekneepad';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_details_armor_05.png')"}
+else if (partid==293) {
+document.getElementById("partname").innerHTML = 'Knurl Down';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_details_armor_06-symmetric.png')"}
+else if (partid==294) {
+document.getElementById("partname").innerHTML = 'Bone Tablets';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_details_armor_07-symmetric.png')"}
+else if (partid==295) {
+document.getElementById("partname").innerHTML = 'Rockne';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_details_armor_08-symmetric.png')"}
+else if (partid==296) {
+document.getElementById("partname").innerHTML = 'Heycorn';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_details_bump_01.png')"}
+else if (partid==297) {
+document.getElementById("partname").innerHTML = 'Nurple';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_details_bump_02-symmetric.png')"}
+else if (partid==298) {
+document.getElementById("partname").innerHTML = 'Jellybutton';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_details_bump_03-symmetric.png')"}
+else if (partid==299) {
+document.getElementById("partname").innerHTML = 'Mackne';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_details_bump_04.png')"}
+else if (partid==300) {
+document.getElementById("partname").innerHTML = 'Derma Bark';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_details_crystal_01.png')"}
+else if (partid==301) {
+document.getElementById("partname").innerHTML = 'Baublewarts';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_details_crystal_02.png')"}
+else if (partid==302) {
+document.getElementById("partname").innerHTML = 'Jemite';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_details_crystal_03.png')"}
+else if (partid==303) {
+document.getElementById("partname").innerHTML = 'Stealing Crystals';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_details_crystal_04.png')"}
+else if (partid==304) {
+document.getElementById("partname").innerHTML = 'Featherbluster';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_details_feather_01.png')"}
+else if (partid==305) {
+document.getElementById("partname").innerHTML = 'Marshcara';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_details_feather_02-symmetric.png')"}
+else if (partid==306) {
+document.getElementById("partname").innerHTML = 'Peacrock';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_details_feather_03-symmetric.png')"}
+else if (partid==307) {
+document.getElementById("partname").innerHTML = 'Featherferns';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_details_feather_04-symmetric.png')"}
+else if (partid==308) {
+document.getElementById("partname").innerHTML = 'Grasstachio';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_details_flora_01.png')"}
+else if (partid==309) {
+document.getElementById("partname").innerHTML = 'Coverleaf';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_details_flora_02.png')"}
+else if (partid==310) {
+document.getElementById("partname").innerHTML = 'Branch Deco';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_details_flora_03-symmetric.png')"}
+else if (partid==311) {
+document.getElementById("partname").innerHTML = 'Florsage';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_details_flora_04.png')"}
+else if (partid==312) {
+document.getElementById("partname").innerHTML = 'Whipwick';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_details_hair_01-symmetric.png')"}
+else if (partid==313) {
+document.getElementById("partname").innerHTML = 'Protubers';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_details_hair_02-symmetric.png')"}
+else if (partid==314) {
+document.getElementById("partname").innerHTML = 'Hairlagmites';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_details_hair_03.png')"}
+else if (partid==315) {
+document.getElementById("partname").innerHTML = 'Crestacean';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_details_hair_04-symmetric.png')"}
+else if (partid==316) {
+document.getElementById("partname").innerHTML = 'Pomp pom';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_details_playful_01.png')"}
+else if (partid==317) {
+document.getElementById("partname").innerHTML = 'Springle';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_details_playful_02-symmetric.png')"}
+else if (partid==318) {
+document.getElementById("partname").innerHTML = 'Wrottontail';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_details_playful_03.png')"}
+else if (partid==319) {
+document.getElementById("partname").innerHTML = 'Fleurbine';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_details_playful_04.png')"}
+else if (partid==320) {
+document.getElementById("partname").innerHTML = 'Antisoptera';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_details_wing_01-symmetric.png')"}
+else if (partid==321) {
+document.getElementById("partname").innerHTML = 'Fauxry Wings';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_details_wing_02-symmetric.png')"}
+else if (partid==322) {
+document.getElementById("partname").innerHTML = 'Megachiraptora';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_details_wing_03-symmetric.png')"}
+else if (partid==323) {
+document.getElementById("partname").innerHTML = 'Cassoworry';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_details_wing_04-symmetric.png')"}
+else if (partid==324) {
+document.getElementById("partname").innerHTML = 'Sporsalfin';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movement_fin_ventral_01-symmetric.png')"}
+else if (partid==325) {
+document.getElementById("partname").innerHTML = 'Icky-osaur';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movement_fin_ventral_02-symmetric.png')"}
+else if (partid==326) {
+document.getElementById("partname").innerHTML = 'Finneas';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movement_fin_ventral_03-symmetric.png')"}
+else if (partid==327) {
+document.getElementById("partname").innerHTML = 'Pool Party-Foul';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_movement_fin_ventral_04-symmetric.png')"}
+
+//creepy and cute
+
+else if (partid==328) {
+document.getElementById("partname").innerHTML = 'Flare';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_detail_cute_01-symmetric.png')"}
+else if (partid==329) {
+document.getElementById("partname").innerHTML = 'Adoravisor';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_detail_cute_02-symmetric.png')"}
+else if (partid==330) {
+document.getElementById("partname").innerHTML = 'Manestay';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_detail_cute_03-symmetric.png')"}
+else if (partid==331) {
+document.getElementById("partname").innerHTML = 'Jeweled Rampart';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_detail_cute_04-symmetric.png')"}
+else if (partid==332) {
+document.getElementById("partname").innerHTML = 'Whiskertickler';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_detail_cute_05-symmetric.png')"}
+else if (partid==333) {
+document.getElementById("partname").innerHTML = 'Twiggy';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_detail_cute_06-symmetric.png')"}
+else if (partid==334) {
+document.getElementById("partname").innerHTML = 'Ponytail';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_detail_cute_07-symmetric.png')"}
+else if (partid==335) {
+document.getElementById("partname").innerHTML = 'Waddleweather';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_detail_cute_08-symmetric.png')"}
+else if (partid==336) {
+document.getElementById("partname").innerHTML = 'Horrorlump';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_detail_horror_01-symmetric.png')"}
+else if (partid==337) {
+document.getElementById("partname").innerHTML = 'Deathspikes';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_detail_horror_02-symmetric.png')"}
+else if (partid==338) {
+document.getElementById("partname").innerHTML = 'Lifesuckers';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_detail_horror_03-symmetric.png')"}
+else if (partid==339) {
+document.getElementById("partname").innerHTML = 'Fleshscooper';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_detail_horror_04.png')"}
+
+//bot parts
+
+else if (partid==340) {
+document.getElementById("partname").innerHTML = 'Bot-panel';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_detailTech_Brute_08-symmetric.png')"}
+else if (partid==341) {
+document.getElementById("partname").innerHTML = 'Achtung-lid';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce/ce_detailTech_Futurion_03-symmetric.png')"}
+
+//early creature parts
+
+else if (partid==342) {
+document.getElementById("partname").innerHTML = 'Cilia';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce_cell/ce_cell_movement_cilia_04-symmetric.png')"}
+else if (partid==343) {
+document.getElementById("partname").innerHTML = 'Flagella';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce_cell/ce_cell_movement_flagella_03-symmetric.png')"}
+else if (partid==344) {
+document.getElementById("partname").innerHTML = 'Jet';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce_cell/ce_cell_movement_jet_01.png')"}
+else if (partid==345) {
+document.getElementById("partname").innerHTML = 'Electric';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/ce_cell/ce_cell_weapon_electrical_01.png')"}
+//the electric part gives charm in creature stage so its in details instead of weapons
+
+//grox parts
+
+else if (partid==346) {
+document.getElementById("partname").innerHTML = 'Smarnocker';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/placeholder/SA_grob_armband.png')"}
+else if (partid==347) {
+document.getElementById("partname").innerHTML = 'Comet Sighter';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/placeholder/SA_grob_collar.png')"}
+else if (partid==348) {
+document.getElementById("partname").innerHTML = 'Beam Helmet';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/placeholder/SA_grob_eyepiece.png')"}
+else if (partid==349) {
+document.getElementById("partname").innerHTML = 'Snogtip Cap';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/placeholder/SA_grob_helmet.png')"}
+else if (partid==350) {
+document.getElementById("partname").innerHTML = 'Moon Gas Sensor';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/placeholder/SA_grob_shinpad.png')"}
+else if (partid==351) {
+document.getElementById("partname").innerHTML = 'Cap. Cornhall';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/placeholder/SA_grob_shoulderPiece.png')"}
+else if (partid==352) {
+document.getElementById("partname").innerHTML = 'Jozz Illuminator';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/placeholder/SA_grob_vest.png')"}
+
+//----------------------------------------------------
+
+//----------------------------------------------------
+
+//base paints
+else if (partid==353) {
+document.getElementById("partname").innerHTML = 'Base, page 1<br>ce_skinpaint_base_amigurumi';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_base_amigurumi.png')"}
+else if (partid==354) {
+document.getElementById("partname").innerHTML = 'Base, page 2<br>ce_skinpaint_base_amphibian';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_base_amphibian.png')"}
+else if (partid==355) {
+document.getElementById("partname").innerHTML = 'Base, page 3<br>ce_skinpaint_base_bacteria';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_base_bacteria.png')"}
+else if (partid==356) {
+document.getElementById("partname").innerHTML = 'Base, page 1<br>ce_skinpaint_base_blankMatte';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_base_blankMatte.png')"}
+else if (partid==357) {
+document.getElementById("partname").innerHTML = 'Base, page 1<br>ce_skinpaint_base_blankShiny';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_base_blankShiny.png')"}
+else if (partid==358) {
+document.getElementById("partname").innerHTML = 'Base, page 2<br>ce_skinpaint_base_eggshell';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_base_eggshell.png')"}
+else if (partid==359) {
+document.getElementById("partname").innerHTML = 'Base, page 3<br>ce_skinpaint_base_fishScales';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_base_fishScales.png')"}
+else if (partid==360) {
+document.getElementById("partname").innerHTML = 'Base, page 2<br>ce_skinpaint_base_giraffe';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_base_giraffe.png')"}
+else if (partid==361) {
+document.getElementById("partname").innerHTML = 'Base, page 1<br>ce_skinpaint_base_gradient';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_base_gradient.png')"}
+else if (partid==362) {
+document.getElementById("partname").innerHTML = 'Base, page 3<br>ce_skinpaint_base_granite';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_base_granite.png')"}
+else if (partid==363) {
+document.getElementById("partname").innerHTML = 'Base, page 2<br>ce_skinpaint_base_leather';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_base_leather.png')"}
+else if (partid==364) {
+document.getElementById("partname").innerHTML = 'Base, page 3<br>ce_skinpaint_base_longFur';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_base_longFur.png')"}
+else if (partid==365) {
+document.getElementById("partname").innerHTML = 'Base, page 2<br>ce_skinpaint_base_lumpy';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_base_lumpy.png')"}
+else if (partid==366) {
+document.getElementById("partname").innerHTML = 'Base, page 1<br>ce_skinpaint_base_mantelloid';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_base_mantelloid.png')"}
+else if (partid==367) {
+document.getElementById("partname").innerHTML = 'Base, page 2<br>ce_skinpaint_base_marble';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_base_marble.png')"}
+else if (partid==368) {
+document.getElementById("partname").innerHTML = 'Base, page 1<br>ce_skinpaint_base_melt';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_base_melt.png')"}
+else if (partid==369) {
+document.getElementById("partname").innerHTML = 'Base, page 3<br>ce_skinpaint_base_platesLarge';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_base_platesLarge.png')"}
+else if (partid==370) {
+document.getElementById("partname").innerHTML = 'Base, page 3<br>ce_skinpaint_base_platesSmall';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_base_platesSmall.png')"}
+else if (partid==371) {
+document.getElementById("partname").innerHTML = 'Base, page 2<br>ce_skinpaint_base_quilted';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_base_quilted.png')"}
+else if (partid==372) {
+document.getElementById("partname").innerHTML = 'Base, page 3<br>ce_skinpaint_base_rubberband';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_base_rubberband.png')"}
+else if (partid==373) {
+document.getElementById("partname").innerHTML = 'Base, page 3<br>ce_skinpaint_base_scallopShell';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_base_scallopShell.png')"}
+else if (partid==374) {
+document.getElementById("partname").innerHTML = 'Base, page 1<br>ce_skinpaint_base_shortfur';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_base_shortfur.png')"}
+else if (partid==375) {
+document.getElementById("partname").innerHTML = 'Base, page 1<br>ce_skinpaint_base_snakescales';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_base_snakescales.png')"}
+else if (partid==376) {
+document.getElementById("partname").innerHTML = 'Base, page 2<br>ce_skinpaint_base_spotted';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_base_spotted.png')"}
+else if (partid==377) {
+document.getElementById("partname").innerHTML = 'Base, page 1<br>ce_skinpaint_base_stripesLL';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_base_stripesLL.png')"}
+else if (partid==378) {
+document.getElementById("partname").innerHTML = 'Base, page 3<br>ce_skinpaint_base_stripesML';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_base_stripesML.png')"}
+else if (partid==379) {
+document.getElementById("partname").innerHTML = 'Base, page 2<br>ce_skinpaint_base_tempered';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_base_tempered.png')"}
+else if (partid==380) {
+document.getElementById("partname").innerHTML = 'Base, page 1<br>ce_skinpaint_base_valueGradientDark';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_base_valueGradientDark.png')"}
+else if (partid==381) {
+document.getElementById("partname").innerHTML = 'Base, page 2<br>ce_skinpaint_base_valueGradientLight';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_base_valueGradientLight.png')"}
+else if (partid==382) {
+document.getElementById("partname").innerHTML = 'Base, page 2<br>ce_skinpaint_base_vgcats';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_base_vgcats.png')"}
+else if (partid==383) {
+document.getElementById("partname").innerHTML = 'Base, page 3<br>ce_skinpaint_base_vittatum2';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_base_vittatum2.png')"}
+else if (partid==384) {
+document.getElementById("partname").innerHTML = 'Base, page 3<br>ce_skinpaint_base_vittatum3';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_base_vittatum3.png')"}
+else if (partid==385) {
+document.getElementById("partname").innerHTML = 'Base, page 3<br>ce_skinpaint_base_vittatum4';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_base_vittatum4.png')"}
+else if (partid==386) {
+document.getElementById("partname").innerHTML = 'Base, page 2<br>ce_skinpaint_base_walrus';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_base_walrus.png')"}
+else if (partid==387) {
+document.getElementById("partname").innerHTML = 'Base, page 1<br>ce_skinpaint_base_zebra';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_base_zebra.png')"}
+else if (partid==388) {
+document.getElementById("partname").innerHTML = 'Base, page 1<br>ce_skinpaint_base_zebroid';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_base_zebroid.png')"}
+
+// creepy and cute
+
+else if (partid==389) {
+document.getElementById("partname").innerHTML = 'Base, page 4<br>ce_skinpaint_base_alien_HRG';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_base_alien_HRG.png')"}
+else if (partid==390) {
+document.getElementById("partname").innerHTML = 'Base, page 4<br>ce_skinpaint_base_armor';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_base_armor.png')"}
+else if (partid==391) {
+document.getElementById("partname").innerHTML = 'Base, page 4<br>ce_skinpaint_base_chewtoy';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_base_chewtoy.png')"}
+else if (partid==392) {
+document.getElementById("partname").innerHTML = 'Base, page 4<br>ce_skinpaint_base_dottie';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_base_dottie.png')"}
+else if (partid==393) {
+document.getElementById("partname").innerHTML = 'Base, page 4<br>ce_skinpaint_base_feltStitch';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_base_feltStitch.png')"}
+else if (partid==394) {
+document.getElementById("partname").innerHTML = 'Base, page 4<br>ce_skinpaint_base_Frankenstein';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_base_Frankenstein.png')"}
+else if (partid==395) {
+document.getElementById("partname").innerHTML = 'Base, page 4<br>ce_skinpaint_base_kidRobot';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_base_kidRobot.png')"}
+else if (partid==396) {
+document.getElementById("partname").innerHTML = 'Base, page 4<br>ce_skinpaint_base_krueger';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_base_krueger.png')"}
+else if (partid==397) {
+document.getElementById("partname").innerHTML = 'Base, page 4<br>ce_skinpaint_base_pinata';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_base_pinata.png')"}
+else if (partid==398) {
+document.getElementById("partname").innerHTML = 'Base, page 4<br>ce_skinpaint_base_ragdoll';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_base_ragdoll.png')"}
+else if (partid==399) {
+document.getElementById("partname").innerHTML = 'Base, page 4<br>ce_skinpaint_base_skinnedBeast';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_base_skinnedBeast.png')"}
+else if (partid==400) {
+document.getElementById("partname").innerHTML = 'Base, page 4<br>ce_skinpaint_base_toonCritter';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_base_toonCritter.png')"}
+
+// cell paints
+
+else if (partid==401) {
+document.getElementById("partname").innerHTML = 'Cell, page 1 (use "Paint like..." on Bawb)<br>cl_skinpaint_cell_amphibian';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/placeholder/cl_skinpaint_cell_amphibian.png')"}
+else if (partid==402) {
+document.getElementById("partname").innerHTML = 'Cell, page 1 (use "Paint like..." on Megamouth)<br>cl_skinpaint_cell_bacteria';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/placeholder/cl_skinpaint_cell_bacteria.png')"}
+else if (partid==403) {
+document.getElementById("partname").innerHTML = 'Cell, page 1 (use "Paint like..." on Noog)<br>cl_skinpaint_cell_blankMatte';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/placeholder/cl_skinpaint_cell_blankMatte.png')"}
+else if (partid==404) {
+document.getElementById("partname").innerHTML = 'Cell, page 1 (use "Paint like..." on Yurgh)<br>cl_skinpaint_cell_blankShiny';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/placeholder/cl_skinpaint_cell_blankShiny.png')"}
+else if (partid==405) {
+document.getElementById("partname").innerHTML = 'Cell, page 2 (use "Paint like..." on Chirmpy)<br>cl_skinpaint_cell_cowLeather';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/placeholder/cl_skinpaint_cell_cowLeather.png')"}
+else if (partid==406) {
+document.getElementById("partname").innerHTML = 'Cell, page 2<br>cl_skinpaint_cell_doubleDots';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/placeholder/cl_skinpaint_cell_doubleDots.png')"}
+else if (partid==407) {
+document.getElementById("partname").innerHTML = 'Cell, page 1 (use "Paint like..." on Shyster)<br>cl_skinpaint_cell_eggshellBanded';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/placeholder/cl_skinpaint_cell_eggshellBanded.png')"}
+else if (partid==408) {
+document.getElementById("partname").innerHTML = 'Cell, page 1 (use "Paint like..." on Buzzy)<br>cl_skinpaint_cell_fishScales';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/placeholder/cl_skinpaint_cell_fishScales.png')"}
+else if (partid==409) {
+document.getElementById("partname").innerHTML = 'Cell, page 2 (use "Paint like..." on Nosey)<br>cl_skinpaint_cell_giraffe';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/placeholder/cl_skinpaint_cell_giraffe.png')"}
+else if (partid==410) {
+document.getElementById("partname").innerHTML = 'Cell, page 2<br>cl_skinpaint_cell_glassCreases';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/placeholder/cl_skinpaint_cell_glassCreases.png')"}
+else if (partid==411) {
+document.getElementById("partname").innerHTML = 'Cell, page 2 (use "Paint like..." on Junior)<br>cl_skinpaint_cell_graniteHalftone';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/placeholder/cl_skinpaint_cell_graniteHalftone.png')"}
+else if (partid==412) {
+document.getElementById("partname").innerHTML = 'Cell, page 1 (use "Paint like..." on Gadoonk)<br>cl_skinpaint_cell_lumpy';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/placeholder/cl_skinpaint_cell_lumpy.png')"}
+else if (partid==413) {
+document.getElementById("partname").innerHTML = 'Cell, page 1 (use "Paint like..." on Puffish)<br>cl_skinpaint_cell_marbleSuckers';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/placeholder/cl_skinpaint_cell_marbleSuckers.png')"}
+else if (partid==414) {
+document.getElementById("partname").innerHTML = 'Cell, page 2 (use "Paint like..." on Chomper)<br>cl_skinpaint_cell_melt';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/placeholder/cl_skinpaint_cell_melt.png')"}
+else if (partid==415) {
+document.getElementById("partname").innerHTML = 'Cell, page 2 (use "Paint like..." on Jawhead)<br>cl_skinpaint_cell_mesh';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/placeholder/cl_skinpaint_cell_mesh.png')"}
+else if (partid==416) {
+document.getElementById("partname").innerHTML = 'Cell, page 2 (use "Paint like..." on Pokey)<br>cl_skinpaint_cell_platesLarge';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/placeholder/cl_skinpaint_cell_platesLarge.png')"}
+else if (partid==417) {
+document.getElementById("partname").innerHTML = 'Cell, page 2 (use "Paint like..." on Stabbella)<br>cl_skinpaint_cell_platesSmall';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/placeholder/cl_skinpaint_cell_platesSmall.png')"}
+else if (partid==418) {
+document.getElementById("partname").innerHTML = 'Cell, page 1<br>cl_skinpaint_cell_rubberband';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/placeholder/cl_skinpaint_cell_rubberband.png')"}
+else if (partid==419) {
+document.getElementById("partname").innerHTML = 'Cell, page 1 (use "Paint like..." on Snorf)<br>cl_skinpaint_cell_snakeScales';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/placeholder/cl_skinpaint_cell_snakeScales.png')"}
+else if (partid==420) {
+document.getElementById("partname").innerHTML = 'Cell, page 2 (use "Paint like..." on Urgah)<br>cl_skinpaint_cell_spottedLizardo';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/placeholder/cl_skinpaint_cell_spottedLizardo.png')"}
+else if (partid==421) {
+document.getElementById("partname").innerHTML = 'Cell, page 2 (use "Paint like..." on Ducky)<br>cl_skinpaint_cell_stripes';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/placeholder/cl_skinpaint_cell_stripes.png')"}
+else if (partid==422) {
+document.getElementById("partname").innerHTML = 'Cell, page 1<br>cl_skinpaint_cell_subtleStripes';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/placeholder/cl_skinpaint_cell_subtleStripes.png')"}
+else if (partid==423) {
+document.getElementById("partname").innerHTML = 'Cell, page 1 (use "Paint like..." on Squiggly)<br>cl_skinpaint_cell_temperedMantella';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/placeholder/cl_skinpaint_cell_temperedMantella.png')"}
+else if (partid==424) {
+document.getElementById("partname").innerHTML = 'Cell, page 2 (use "Paint like..." on Booster)<br>cl_skinpaint_cell_vgcatsBackStripe';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/placeholder/cl_skinpaint_cell_vgcatsBackStripe.png')"}
+
+//----------------------------------------------------
+
+//coat paints
+
+else if (partid==425) {
+document.getElementById("partname").innerHTML = 'Coat, page 2<br>ce_skinpaint_coat_amigurumi';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_coat_amigurumi.png')"}
+else if (partid==426) {
+document.getElementById("partname").innerHTML = 'Coat, page 1<br>ce_skinpaint_coat_backAndBelly';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_coat_backAndBelly.png')"}
+else if (partid==427) {
+document.getElementById("partname").innerHTML = 'Coat, page 3<br>ce_skinpaint_coat_bacteria';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_coat_bacteria.png')"}
+else if (partid==428) {
+document.getElementById("partname").innerHTML = 'Coat, page 1<br>ce_skinpaint_coat_banded';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_coat_banded.png')"}
+else if (partid==429) {
+document.getElementById("partname").innerHTML = 'Coat, page 1<br>ce_skinpaint_coat_blank';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_coat_blank.png')"}
+else if (partid==430) {
+document.getElementById("partname").innerHTML = 'Coat, page 1<br>ce_skinpaint_coat_cow';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_coat_cow.png')"}
+else if (partid==431) {
+document.getElementById("partname").innerHTML = 'Coat, page 2<br>ce_skinpaint_coat_crocodile';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_coat_crocodile.png')"}
+else if (partid==432) {
+document.getElementById("partname").innerHTML = 'Coat, page 3<br>ce_skinpaint_coat_fishScales';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_coat_fishScales.png')"}
+else if (partid==433) {
+document.getElementById("partname").innerHTML = 'Coat, page 1<br>ce_skinpaint_coat_giraffe';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_coat_giraffe.png')"}
+else if (partid==434) {
+document.getElementById("partname").innerHTML = 'Coat, page 1<br>ce_skinpaint_coat_giraffeBorder';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_coat_giraffeBorder.png')"}
+else if (partid==435) {
+document.getElementById("partname").innerHTML = 'Coat, page 2<br>ce_skinpaint_coat_gooStripe';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_coat_gooStripe.png')"}
+else if (partid==436) {
+document.getElementById("partname").innerHTML = 'Coat, page 3<br>ce_skinpaint_coat_granite';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_coat_granite.png')"}
+else if (partid==437) {
+document.getElementById("partname").innerHTML = 'Coat, page 1<br>ce_skinpaint_coat_halftone';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_coat_halftone.png')"}
+else if (partid==438) {
+document.getElementById("partname").innerHTML = 'Coat, page 2<br>ce_skinpaint_coat_kidney';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_coat_kidney.png')"}
+else if (partid==439) {
+document.getElementById("partname").innerHTML = 'Coat, page 1<br>ce_skinpaint_coat_lateral';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_coat_lateral.png')"}
+else if (partid==440) {
+document.getElementById("partname").innerHTML = 'Coat, page 1<br>ce_skinpaint_coat_lizardo';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_coat_lizardo.png')"}
+else if (partid==441) {
+document.getElementById("partname").innerHTML = 'Coat, page 3<br>ce_skinpaint_coat_lumpy';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_coat_lumpy.png')"}
+else if (partid==442) {
+document.getElementById("partname").innerHTML = 'Coat, page 2<br>ce_skinpaint_coat_mantella';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_coat_mantella.png')"}
+else if (partid==443) {
+document.getElementById("partname").innerHTML = 'Coat, page 1<br>ce_skinpaint_coat_melt';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_coat_melt.png')"}
+else if (partid==444) {
+document.getElementById("partname").innerHTML = 'Coat, page 1<br>ce_skinpaint_coat_pebble';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_coat_pebble.png')"}
+else if (partid==445) {
+document.getElementById("partname").innerHTML = 'Coat, page 1<br>ce_skinpaint_coat_platesLarge';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_coat_platesLarge.png')"}
+else if (partid==446) {
+document.getElementById("partname").innerHTML = 'Coat, page 3<br>ce_skinpaint_coat_platesSmall';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_coat_platesSmall.png')"}
+else if (partid==447) {
+document.getElementById("partname").innerHTML = 'Coat, page 2<br>ce_skinpaint_coat_polkadot';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_coat_polkadot.png')"}
+else if (partid==448) {
+document.getElementById("partname").innerHTML = 'Coat, page 3<br>ce_skinpaint_coat_ridgesLateral';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_coat_ridgesLateral.png')"}
+else if (partid==449) {
+document.getElementById("partname").innerHTML = 'Coat, page 3<br>ce_skinpaint_coat_ridgesTiger';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_coat_ridgesTiger.png')"}
+else if (partid==450) {
+document.getElementById("partname").innerHTML = 'Coat, page 3<br>ce_skinpaint_coat_rubberband';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_coat_rubberband.png')"}
+else if (partid==451) {
+document.getElementById("partname").innerHTML = 'Coat, page 2<br>ce_skinpaint_coat_scallopShell';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_coat_scallopShell.png')"}
+else if (partid==452) {
+document.getElementById("partname").innerHTML = 'Coat, page 3<br>ce_skinpaint_coat_stripesLL';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_coat_stripesLL.png')"}
+else if (partid==453) {
+document.getElementById("partname").innerHTML = 'Coat, page 3<br>ce_skinpaint_coat_stripesML';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_coat_stripesML.png')"}
+else if (partid==454) {
+document.getElementById("partname").innerHTML = 'Coat, page 3<br>ce_skinpaint_coat_toupee';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_coat_toupee.png')"}
+else if (partid==455) {
+document.getElementById("partname").innerHTML = 'Coat, page 2<br>ce_skinpaint_coat_turtle';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_coat_turtle.png')"}
+else if (partid==456) {
+document.getElementById("partname").innerHTML = 'Coat, page 2<br>ce_skinpaint_coat_waldo';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_coat_waldo.png')"}
+else if (partid==457) {
+document.getElementById("partname").innerHTML = 'Coat, page 3<br>ce_skinpaint_coat_walrus';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_coat_walrus.png')"}
+else if (partid==458) {
+document.getElementById("partname").innerHTML = 'Coat, page 1<br>ce_skinpaint_coat_washMatte';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_coat_washMatte.png')"}
+else if (partid==459) {
+document.getElementById("partname").innerHTML = 'Coat, page 2<br>ce_skinpaint_coat_washShiny';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_coat_washShiny.png')"}
+else if (partid==460) {
+document.getElementById("partname").innerHTML = 'Coat, page 2<br>ce_skinpaint_coat_zebra';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_coat_zebra.png')"}
+
+// creepy and cute
+
+else if (partid==461) {
+document.getElementById("partname").innerHTML = 'Coat, page 4<br>ce_skinpaint_coat_alien_HRG';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_coat_alien_HRG.png')"}
+else if (partid==462) {
+document.getElementById("partname").innerHTML = 'Coat, page 4<br>ce_skinpaint_coat_armor';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_coat_armor.png')"}
+else if (partid==463) {
+document.getElementById("partname").innerHTML = 'Coat, page 4<br>ce_skinpaint_coat_chewToy';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_coat_chewToy.png')"}
+else if (partid==464) {
+document.getElementById("partname").innerHTML = 'Coat, page 4<br>ce_skinpaint_coat_dottie';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_coat_dottie.png')"}
+else if (partid==465) {
+document.getElementById("partname").innerHTML = 'Coat, page 4<br>ce_skinpaint_coat_feltStitch';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_coat_feltStitch.png')"}
+else if (partid==466) {
+document.getElementById("partname").innerHTML = 'Coat, page 4<br>ce_skinpaint_coat_Frankenstein';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_coat_Frankenstein.png')"}
+else if (partid==467) {
+document.getElementById("partname").innerHTML = 'Coat, page 4<br>ce_skinpaint_coat_kidRobot';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_coat_kidRobot.png')"}
+else if (partid==468) {
+document.getElementById("partname").innerHTML = 'Coat, page 4<br>ce_skinpaint_coat_krueger';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_coat_krueger.png')"}
+else if (partid==469) {
+document.getElementById("partname").innerHTML = 'Coat, page 4<br>ce_skinpaint_coat_pinata';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_coat_pinata.png')"}
+else if (partid==470) {
+document.getElementById("partname").innerHTML = 'Coat, page 4<br>ce_skinpaint_coat_ragdoll';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_coat_ragdoll.png')"}
+else if (partid==471) {
+document.getElementById("partname").innerHTML = 'Coat, page 4<br>ce_skinpaint_coat_skinnedBeast';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_coat_skinnedBeast.png')"}
+else if (partid==472) {
+document.getElementById("partname").innerHTML = 'Coat, page 4<br>ce_skinpaint_coat_toonCritter';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_coat_toonCritter.png')"}
+
+//----------------------------------------------------
+
+//detail paints
+
+else if (partid==473) {
+document.getElementById("partname").innerHTML = 'Detail, page 2<br>ce_skinpaint_detail_amigurumi';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_amigurumi.png')"}
+else if (partid==474) {
+document.getElementById("partname").innerHTML = 'Detail, page 1<br>ce_skinpaint_detail_bacteria';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_bacteria.png')"}
+else if (partid==475) {
+document.getElementById("partname").innerHTML = 'Detail, page 1<br>ce_skinpaint_detail_blank';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_blank.png')"}
+else if (partid==476) {
+document.getElementById("partname").innerHTML = 'Detail, page 1<br>ce_skinpaint_detail_clydesdale';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_clydesdale.png')"}
+else if (partid==477) {
+document.getElementById("partname").innerHTML = 'Detail, page 1<br>ce_skinpaint_detail_cow';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_cow.png')"}
+else if (partid==478) {
+document.getElementById("partname").innerHTML = 'Detail, page 1<br>ce_skinpaint_detail_giraffeLimbs';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_giraffeLimbs.png')"}
+else if (partid==479) {
+document.getElementById("partname").innerHTML = 'Detail, page 3<br>ce_skinpaint_detail_giraffeUnderside';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_giraffeUnderside.png')"}
+else if (partid==480) {
+document.getElementById("partname").innerHTML = 'Detail, page 1<br>ce_skinpaint_detail_gooLimbs';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_gooLimbs.png')"}
+else if (partid==481) {
+document.getElementById("partname").innerHTML = 'Detail, page 1<br>ce_skinpaint_detail_gooSides';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_gooSides.png')"}
+else if (partid==482) {
+document.getElementById("partname").innerHTML = 'Detail, page 1<br>ce_skinpaint_detail_gooUnderside';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_gooUnderside.png')"}
+else if (partid==483) {
+document.getElementById("partname").innerHTML = 'Detail, page 3<br>ce_skinpaint_detail_graniteLimbs';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_graniteLimbs.png')"}
+else if (partid==484) {
+document.getElementById("partname").innerHTML = 'Detail, page 3<br>ce_skinpaint_detail_graniteUnderside';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_graniteUnderside.png')"}
+else if (partid==485) {
+document.getElementById("partname").innerHTML = 'Detail, page 2<br>ce_skinpaint_detail_halftoneLimbs';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_halftoneLimbs.png')"}
+else if (partid==486) {
+document.getElementById("partname").innerHTML = 'Detail, page 1<br>ce_skinpaint_detail_halftoneUnderside';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_halftoneUnderside.png')"}
+else if (partid==487) {
+document.getElementById("partname").innerHTML = 'Detail, page 3<br>ce_skinpaint_detail_kidney';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_kidney.png')"}
+else if (partid==488) {
+document.getElementById("partname").innerHTML = 'Detail, page 2<br>ce_skinpaint_detail_lateral';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_lateral.png')"}
+else if (partid==489) {
+document.getElementById("partname").innerHTML = 'Detail, page 1<br>ce_skinpaint_detail_lumpySides';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_lumpySides.png')"}
+else if (partid==490) {
+document.getElementById("partname").innerHTML = 'Detail, page 3<br>ce_skinpaint_detail_mantellaJoints';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_mantellaJoints.png')"}
+else if (partid==491) {
+document.getElementById("partname").innerHTML = 'Detail, page 2<br>ce_skinpaint_detail_mantellaUnderside';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_mantellaUnderside.png')"}
+else if (partid==492) {
+document.getElementById("partname").innerHTML = 'Detail, page 2<br>ce_skinpaint_detail_meltLimbs';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_meltLimbs.png')"}
+else if (partid==493) {
+document.getElementById("partname").innerHTML = 'Detail, page 2<br>ce_skinpaint_detail_meltUnderside';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_meltUnderside.png')"}
+else if (partid==494) {
+document.getElementById("partname").innerHTML = 'Detail, page 3<br>ce_skinpaint_detail_platesLarge';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_platesLarge.png')"}
+else if (partid==495) {
+document.getElementById("partname").innerHTML = 'Detail, page 2<br>ce_skinpaint_detail_platesLargeSides';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_platesLargeSides.png')"}
+else if (partid==496) {
+document.getElementById("partname").innerHTML = 'Detail, page 1<br>ce_skinpaint_detail_platesSmall';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_platesSmall.png')"}
+else if (partid==497) {
+document.getElementById("partname").innerHTML = 'Detail, page 2<br>ce_skinpaint_detail_polkadot';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_polkadot.png')"}
+else if (partid==498) {
+document.getElementById("partname").innerHTML = 'Detail, page 2<br>ce_skinpaint_detail_ridgesLateral';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_ridgesLateral.png')"}
+else if (partid==499) {
+document.getElementById("partname").innerHTML = 'Detail, page 3<br>ce_skinpaint_detail_ridgesTiger';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_ridgesTiger.png')"}
+else if (partid==500) {
+document.getElementById("partname").innerHTML = 'Detail, page 1<br>ce_skinpaint_detail_rubberband';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_rubberband.png')"}
+else if (partid==501) {
+document.getElementById("partname").innerHTML = 'Detail, page 2<br>ce_skinpaint_detail_scallopedShellUnderside';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_scallopedShellUnderside.png')"}
+else if (partid==502) {
+document.getElementById("partname").innerHTML = 'Detail, page 2<br>ce_skinpaint_detail_sideWash';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_sideWash.png')"}
+else if (partid==503) {
+document.getElementById("partname").innerHTML = 'Detail, page 3<br>ce_skinpaint_detail_stripesLL';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_stripesLL.png')"}
+else if (partid==504) {
+document.getElementById("partname").innerHTML = 'Detail, page 3<br>ce_skinpaint_detail_stripesML';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_stripesML.png')"}
+else if (partid==505) {
+document.getElementById("partname").innerHTML = 'Detail, page 3<br>ce_skinpaint_detail_suckers';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_suckers.png')"}
+else if (partid==506) {
+document.getElementById("partname").innerHTML = 'Detail, page 3<br>ce_skinpaint_detail_vittatum';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_vittatum.png')"}
+else if (partid==507) {
+document.getElementById("partname").innerHTML = 'Detail, page 2<br>ce_skinpaint_detail_walrusLimbs';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_walrusLimbs.png')"}
+else if (partid==508) {
+document.getElementById("partname").innerHTML = 'Detail, page 3<br>ce_skinpaint_detail_walrusUnderside';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_walrusUnderside.png')"}
+
+// creepy and cute also ga
+
+else if (partid==509) {
+document.getElementById("partname").innerHTML = 'Detail, page 4<br>ce_skinpaint_detail_alien_HRG';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_alien_HRG.png')"}
+else if (partid==510) {
+document.getElementById("partname").innerHTML = 'Detail, page 4<br>ce_skinpaint_detail_armor';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_armor.png')"}
+else if (partid==511) {
+document.getElementById("partname").innerHTML = 'Detail, page 4<br>ce_skinpaint_detail_chewToy';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_chewToy.png')"}
+else if (partid==512) {
+document.getElementById("partname").innerHTML = 'Detail, page 4<br>ce_skinpaint_detail_dottie';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_dottie.png')"}
+else if (partid==513) {
+document.getElementById("partname").innerHTML = 'Detail, page 4<br>ce_skinpaint_detail_feltStitch';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_feltStitch.png')"}
+else if (partid==514) {
+document.getElementById("partname").innerHTML = 'Detail, page 4<br>ce_skinpaint_detail_Frankenstein';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_Frankenstein.png')"}
+else if (partid==515) {
+document.getElementById("partname").innerHTML = 'Detail, page 4<br>ce_skinpaint_detail_kidRobot';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_kidRobot.png')"}
+else if (partid==516) {
+document.getElementById("partname").innerHTML = 'Detail, page 4<br>ce_skinpaint_detail_krueger';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_krueger.png')"}
+else if (partid==517) {
+document.getElementById("partname").innerHTML = 'Detail, page 4<br>ce_skinpaint_detail_pinata';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_pinata.png')"}
+else if (partid==518) {
+document.getElementById("partname").innerHTML = 'Detail, page 4<br>ce_skinpaint_detail_ragdoll';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_ragdoll.png')"}
+else if (partid==519) {
+document.getElementById("partname").innerHTML = 'Detail, page 4<br>ce_skinpaint_detail_skinnedBeast';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_skinnedBeast.png')"}
+else if (partid==520) {
+document.getElementById("partname").innerHTML = 'Detail, page 4<br>ce_skinpaint_detail_toonCritter';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_toonCritter.png')"}
+else if (partid==521) {
+document.getElementById("partname").innerHTML = 'Detail, page 5<br>ce_skinpaint_detail_uniform';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_detail_uniform.png')"}
+
+//----------------------------------------------------
+
+//paint themes
+
+else if (partid==522) {
+document.getElementById("partname").innerHTML = 'Theme, page 1<br>ce_skinpaint_theme_circusfreak';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_theme_circusfreak.png')"}
+else if (partid==523) {
+document.getElementById("partname").innerHTML = 'Theme, page 1<br>ce_skinpaint_theme_cowLeather';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_theme_cowLeather.png')"}
+else if (partid==524) {
+document.getElementById("partname").innerHTML = 'Theme, page 1<br>ce_skinpaint_theme_demonLighting';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_theme_demonLighting.png')"}
+else if (partid==525) {
+document.getElementById("partname").innerHTML = 'Theme, page 1<br>ce_skinpaint_theme_doubleDots';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_theme_doubleDots.png')"}
+else if (partid==526) {
+document.getElementById("partname").innerHTML = 'Theme, page 1<br>ce_skinpaint_theme_dryskin';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_theme_dryskin.png')"}
+else if (partid==527) {
+document.getElementById("partname").innerHTML = 'Theme, page 1<br>ce_skinpaint_theme_earthTonesOfThe70s';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_theme_earthTonesOfThe70s.png')"}
+else if (partid==528) {
+document.getElementById("partname").innerHTML = 'Theme, page 1<br>ce_skinpaint_theme_eggshellBanded';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_theme_eggshellBanded.png')"}
+else if (partid==529) {
+document.getElementById("partname").innerHTML = 'Theme, page 1<br>ce_skinpaint_theme_fuschia';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_theme_fuschia.png')"}
+else if (partid==530) {
+document.getElementById("partname").innerHTML = 'Theme, page 1<br>ce_skinpaint_theme_giraffeArmor';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_theme_giraffeArmor.png')"}
+else if (partid==531) {
+document.getElementById("partname").innerHTML = 'Theme, page 3<br>ce_skinpaint_theme_graniteHalftone';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_theme_graniteHalftone.png')"}
+else if (partid==532) {
+document.getElementById("partname").innerHTML = 'Theme, page 3<br>ce_skinpaint_theme_heavyArmor';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_theme_heavyArmor.png')"}
+else if (partid==533) {
+document.getElementById("partname").innerHTML = 'Theme, page 3<br>ce_skinpaint_theme_imMelting';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_theme_imMelting.png')"}
+else if (partid==534) {
+document.getElementById("partname").innerHTML = 'Theme, page 1<br>ce_skinpaint_theme_kingOfTheWickerPeople';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_theme_kingOfTheWickerPeople.png')"}
+else if (partid==535) {
+document.getElementById("partname").innerHTML = 'Theme, page 1<br>ce_skinpaint_theme_lichenman';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_theme_lichenman.png')"}
+else if (partid==536) {
+document.getElementById("partname").innerHTML = 'Theme, page 1<br>ce_skinpaint_theme_lotsOfStripes';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_theme_lotsOfStripes.png')"}
+else if (partid==537) {
+document.getElementById("partname").innerHTML = 'Theme, page 2<br>ce_skinpaint_theme_marbleSuckers';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_theme_marbleSuckers.png')"}
+else if (partid==538) {
+document.getElementById("partname").innerHTML = 'Theme, page 2<br>ce_skinpaint_theme_mrbumpy';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_theme_mrbumpy.png')"}
+else if (partid==539) {
+document.getElementById("partname").innerHTML = 'Theme, page 2<br>ce_skinpaint_theme_oppositeOfCamouflage';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_theme_oppositeOfCamouflage.png')"}
+else if (partid==540) {
+document.getElementById("partname").innerHTML = 'Theme, page 2<br>ce_skinpaint_theme_outOfNames';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_theme_outOfNames.png')"}
+else if (partid==541) {
+document.getElementById("partname").innerHTML = 'Theme, page 2<br>ce_skinpaint_theme_periwinkle';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_theme_periwinkle.png')"}
+else if (partid==542) {
+document.getElementById("partname").innerHTML = 'Theme, page 2<br>ce_skinpaint_theme_quiltedLumpyShiny';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_theme_quiltedLumpyShiny.png')"}
+else if (partid==543) {
+document.getElementById("partname").innerHTML = 'Theme, page 3<br>ce_skinpaint_theme_rainbowQuasitrout';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_theme_rainbowQuasitrout.png')"}
+else if (partid==544) {
+document.getElementById("partname").innerHTML = 'Theme, page 3<br>ce_skinpaint_theme_sheldon';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_theme_sheldon.png')"}
+else if (partid==545) {
+document.getElementById("partname").innerHTML = 'Theme, page 3<br>ce_skinpaint_theme_sideArmor';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_theme_sideArmor.png')"}
+else if (partid==546) {
+document.getElementById("partname").innerHTML = 'Theme, page 2<br>ce_skinpaint_theme_smoothInTheMiddle';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_theme_smoothInTheMiddle.png')"}
+else if (partid==547) {
+document.getElementById("partname").innerHTML = 'Theme, page 2<br>ce_skinpaint_theme_snazzy';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_theme_snazzy.png')"}
+else if (partid==548) {
+document.getElementById("partname").innerHTML = 'Theme, page 2<br>ce_skinpaint_theme_spottedLizardo';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_theme_spottedLizardo.png')"}
+else if (partid==549) {
+document.getElementById("partname").innerHTML = 'Theme, page 2<br>ce_skinpaint_theme_stanford';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_theme_stanford.png')"}
+else if (partid==550) {
+document.getElementById("partname").innerHTML = 'Theme, page 2<br>ce_skinpaint_theme_swampy';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_theme_swampy.png')"}
+else if (partid==551) {
+document.getElementById("partname").innerHTML = 'Theme, page 2<br>ce_skinpaint_theme_taffy';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_theme_taffy.png')"}
+else if (partid==552) {
+document.getElementById("partname").innerHTML = 'Theme, page 3<br>ce_skinpaint_theme_temperedMantella';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_theme_temperedMantella.png')"}
+else if (partid==553) {
+document.getElementById("partname").innerHTML = 'Theme, page 3<br>ce_skinpaint_theme_tigerFish';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_theme_tigerFish.png')"}
+else if (partid==554) {
+document.getElementById("partname").innerHTML = 'Theme, page 3<br>ce_skinpaint_theme_tigerseye';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_theme_tigerseye.png')"}
+else if (partid==555) {
+document.getElementById("partname").innerHTML = 'Theme, page 3<br>ce_skinpaint_theme_treefrog';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_theme_treefrog.png')"}
+else if (partid==556) {
+document.getElementById("partname").innerHTML = 'Theme, page 3<br>ce_skinpaint_theme_vgcatsBackStripe';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_theme_vgcatsBackStripe.png')"}
+else if (partid==557) {
+document.getElementById("partname").innerHTML = 'Theme, page 3<br>ce_skinpaint_theme_zebraNewt';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_theme_zebraNewt.png')"}
+
+// creepy and cute
+
+else if (partid==558) {
+document.getElementById("partname").innerHTML = 'Theme, page 4<br>ce_skinpaint_theme_alien_HRG';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_theme_alien_HRG.png')"}
+else if (partid==559) {
+document.getElementById("partname").innerHTML = 'Theme, page 4<br>ce_skinpaint_theme_armor';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_theme_armor.png')"}
+else if (partid==560) {
+document.getElementById("partname").innerHTML = 'Theme, page 4<br>ce_skinpaint_theme_chewtoy';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_theme_chewtoy.png')"}
+else if (partid==561) {
+document.getElementById("partname").innerHTML = 'Theme, page 4<br>ce_skinpaint_theme_dottie';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_theme_dottie.png')"}
+else if (partid==562) {
+document.getElementById("partname").innerHTML = 'Theme, page 4<br>ce_skinpaint_theme_feltStitch';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_theme_feltStitch.png')"}
+else if (partid==563) {
+document.getElementById("partname").innerHTML = 'Theme, page 4<br>ce_skinpaint_theme_Frankenstein';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_theme_Frankenstein.png')"}
+else if (partid==564) {
+document.getElementById("partname").innerHTML = 'Theme, page 4<br>ce_skinpaint_theme_kidRobot';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_theme_kidRobot.png')"}
+else if (partid==565) {
+document.getElementById("partname").innerHTML = 'Theme, page 4<br>ce_skinpaint_theme_krueger';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_theme_krueger.png')"}
+else if (partid==566) {
+document.getElementById("partname").innerHTML = 'Theme, page 4<br>ce_skinpaint_theme_pinata';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_theme_pinata.png')"}
+else if (partid==567) {
+document.getElementById("partname").innerHTML = 'Theme, page 4<br>ce_skinpaint_theme_ragdoll';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_theme_ragdoll.png')"}
+else if (partid==568) {
+document.getElementById("partname").innerHTML = 'Theme, page 4<br>ce_skinpaint_theme_skinnedBeast';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_theme_skinnedBeast.png')"}
+else if (partid==569) {
+document.getElementById("partname").innerHTML = 'Theme, page 4<br>ce_skinpaint_theme_toonCritter';
+document.getElementById("particon").style.backgroundImage = "url('every part/pages/files/cepaints/ce_skinpaint_theme_toonCritter.png')"}
+
+}
+
+//simple random number
+function randomnum() {
+minrandom = document.getElementById("minrandom").value;
+maxrandom = document.getElementById("maxrandom").value;
+minrandom = Number(minrandom)
+maxrandom = Number(maxrandom)
+randomnumber = getRndInteger(minrandom, maxrandom);
+document.getElementById("randomnumber").innerHTML = randomnumber;
+}
+</script>
+
+
+</html>

@@ -5,18 +5,16 @@
 
 <div id="main">
 <div class="files">
-this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy~.locale, and Spore_Game.package\space_conversations~\space_diplomacy~.cnv, as well as other fles from this folder
-<br>the line breaks in the original locales were just "~p~"
-<br>ive retained some values and actions that i cant make sense of, but might be useful
-<br>i also kept the dialogue order the same for both the sets of dialogues and also the lines within them. if the order seems weird thats on the original space_diplomacy~.cnv file
-<br>however all the eventlog strings from the mission localization files were excluded
+These are referenced from both locale/en-us/Text.package - locale~/space_diplomacy~.locale, and Spore_Game.package\space_conversations~\space_diplomacy~.cnv, as well as other files from this folder
+<br>The line breaks in the original locales were just "~<!--inserting this comment in here just so it doesnt end up being hit by find and replace-->p~", I retained the ones that were present at the end of a dialogue entry, which is why some will have empty line breaks.
+<br>I've retained some values and actions that I can't make sense of, but might be useful? However I excluded all the eventlog strings from the mission and event localization files.
+<br>I also kept the dialogue order the same for both the sets of dialogues and also the lines within them. If the order seems weird, that's on the original .cnv files.
 <br>
 <script src="spoiler.js"></script>
 <br><div style="display: block;" class="spoilerbutton" onclick="spoiler()">navigation</div>
 <div id="spoiler" style="display: none;">
-<br><a href="civ.html">civ</html>
-<br><a href="missions.html">missions</a>
-<br><a href="misc.html">misc</a>
+main | <a href="civ.html">civ</a> | <a href="missions.html">missions</a> | <a href="misc.html">misc</a>
+<hr>
 <br>space_diplomacy~.cnv
 <br>- dialog <a href="#mission_unavailable"                      >mission_unavailable</a>
 <br>- dialog <a href="#trade_route_destroyed"                    >trade_route_destroyed</a>

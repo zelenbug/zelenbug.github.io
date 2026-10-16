@@ -1,38 +1,43 @@
-<!DOCTYPE html>
-<head><title>Archetype converter</title>
+<!DOCTYPE html><html><head>
+<title>Archetype converter</title>
 <style>
-body { font: 14px trebuchet ms, sans-serif }
+body {
+font: 16px trebuchet ms, sans-serif;
+color: #ffffff;
+background-color: #0F1C24;
+}
+a { color: #66EFF7; text-decoration: none; } a:hover, a:focus {text-decoration: underline;}
 
 .r { background-color: #CC3E16 }
 .g { background-color: #4CEA5E }
 .b { background-color: #49BBD9 }
 :root {
---greenbg: linear-gradient(#A5F4AE, #ffffff);
---bluebg: linear-gradient(#ADE0ED, #ffffff);
---redbg: linear-gradient(#F0C7BB, #ffffff);
+--greenbg: linear-gradient(#4CEA5E80, transparent);
+--bluebg:  linear-gradient(#49BBD980, transparent);
+--redbg:   linear-gradient(#CC3E1680, transparent);
 
---bardbg: linear-gradient(#B0E1CD, #ffffff);
---diplbg: linear-gradient(#E1E3A2, #ffffff);
---ecolbg: linear-gradient(#CFE5A2, #ffffff);
---knitbg: linear-gradient(#EEC1DD, #ffffff);
---sciebg: linear-gradient(#D5D2F2, #ffffff);
---wandbg: linear-gradient(#D3D3D4, #ffffff);
---zealbg: linear-gradient(#E3C6EF, #ffffff);
+--bardbg:  linear-gradient(#47BA8B80, transparent);
+--diplbg:  linear-gradient(#C5C94680, transparent);
+--ecolbg:  linear-gradient(#C5C94680, transparent);
+--knitbg:  linear-gradient(#CD469980, transparent);
+--sciebg:  linear-gradient(#5046CD80, transparent);
+--wandbg:  linear-gradient(#92949780, transparent);
+--zealbg:  linear-gradient(#A446CD80, transparent);
 }
 
-
 .descbox {
-border: 1px solid black;
 width: 300px;
-height: 500px;
+height: 600px;
 display: inline-block;
 padding: 0px;
+border: 2px solid #3D505C;
+border-radius: 5px;
 }
 
 .desctext {
 display: none;
 padding: 5px;
-height: 450px;
+height: 500px;
 }
 
 .selectbox {
@@ -41,15 +46,22 @@ padding: 5px;
 border-bottom: 1px solid black;
 }
 
-.abilitydesc {height: 96px;}
+.abilitydesc {height: 100px; border-bottom: 2px solid #3D505C;}
+.abilitydesc:last-of-type {border-bottom: none;}
 
 select {width: 290px}
 </style>
-</head><body>
+</head><body id="body">
 
 <h1>Spore archetype converter</h1>
 
-<table><tr>
+Shows you the Space Stage archetype you'd get based on the previous stages, as well as the powers for each stage. Designed for a screen width of at least 1600 px.
+<br>
+<button type="button" onclick="setlightmode()">Light mode</button>
+<button type="button" onclick="setdarkmode()">Dark mode</button>
+<br><br>
+
+<div style="margin: 0 auto; width: 1560px;"><table><tr>
 
 <td class="descbox">
 
@@ -671,4 +683,13 @@ function displaydesc() {
   }
   
 }
-</script>
+
+function setlightmode() {
+document.getElementById("body").style.backgroundColor='#ffffff';
+document.getElementById("body").style.color='#000000';
+}
+function setdarkmode() {
+document.getElementById("body").style.backgroundColor='#0F1C24';
+document.getElementById("body").style.color='#ffffff';
+}
+</script></html>

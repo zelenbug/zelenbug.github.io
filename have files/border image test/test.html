@@ -1,0 +1,79 @@
+<!DOCTYPE html><html><head>
+<title>title</title>
+<style>
+body { font: 16px trebuchet ms, sans-serif; }
+a { color: #0000EE; text-decoration: none; }
+a:visited { color: #551A8B; } a:hover, a:focus {text-decoration: underline;}
+
+.bordertest {
+min-height: 100px;
+max-width: 500px;
+margin: 10px;
+display: inline-block;
+}
+
+.wall {
+border: 90px solid transparent;
+border-image: url(1wall.png) 180 fill round;
+border-image-width: 150px;
+padding: 15px 0 0 15px;
+}
+
+.raised {
+border: 65px solid transparent;
+border-image: url(1raised.png) 180 fill round;
+border-image-width: 150px;
+}
+
+.inset {
+border: 25px solid transparent;
+border-image: url(1inset.png) 120 fill round;
+border-image-width: 100px;
+padding: 35px 0 0 35px;
+}
+
+.wall_2 {border-image-source: url(2wall.png); color: white;}
+.raised_2 {border-image-source: url(2raised.png); color: white;}
+.inset_2 {border-image-source: url(2inset.png); color: white;}
+
+.wall_3 {border-image-source: url(3wall.png)}
+.raised_3 {border-image-source: url(3raised.png)}
+.inset_3 {border-image-source: url(3inset.png)}
+
+.wall_4 {border-image-source: url(4wall.png)}
+.raised_4 {border-image-source: url(4raised.png)}
+.inset_4 {border-image-source: url(4inset.png)}
+
+</style></head><body>
+
+<div style="background-color: #3ED5E4">
+<div class="bordertest wall wall_1">wall thingy which does need a lot of padding</div>
+<div class="bordertest raised raised_1">raised thingy</div>
+<div class="bordertest inset inset_1">by the way these are inspired by a theme in jspaint but at least i didnt use ai for it!! (all rendered with bryce 7)</div>
+<div class="bordertest inset inset_1">you can just embed one in the other<br><div class="bordertest raised raised_1">like this</div></div>
+</div>
+
+<div style="background-color: #0F6F94">
+<div class="bordertest wall wall_2">another one</div>
+<div class="bordertest raised raised_2">same material but the sun is tilted</div>
+<div class="bordertest inset inset_2">and the height of the terrains i used is lower so the shadows dont cast so far</div>
+<div class="bordertest raised raised_2">more embedding!!!!<br><div class="bordertest inset inset_2">its like the wall one but it dips lower</div></div>
+<div class="bordertest raised raised_2">stair<br><div class="bordertest raised raised_2">stair<br><div class="bordertest raised raised_2">stair</div></div></div>
+</div>
+
+<div style="background-color: #959C9F">
+<div class="bordertest wall wall_3">this one has a metallicky material</div>
+<div class="bordertest raised raised_3">in the border itself it looks great but it doesnt fit very nicely on the background</div>
+<div class="bordertest inset inset_3">worth a try though</div>
+<div class="bordertest wall wall_3">or how about this<br><div class="bordertest raised raised_3">it does misalign a little</div></div>
+<div class="bordertest raised raised_3">or reverse!!<br><div class="bordertest wall wall_3">also visibly misaligns</div></div>
+</div>
+
+<div style="background-color: #8C70A7">
+<div class="bordertest wall wall_4">this is a reflective material, white hot metal</div>
+<div class="bordertest raised raised_4">i thought the effect of the edge colors was cool. its reflecting the sunset or sunrise sky since the sun was pretty low</div>
+<div class="bordertest inset inset_4">same problem as the other one where on a solid background it doesnt fit very nicely<br>if you crop out the edges to make them transparent it can probably work</div>
+<div class="bordertest inset inset_4">or else you get this<br><div class="bordertest raised raised_4">this</div></div>
+</div>
+
+</body></html>

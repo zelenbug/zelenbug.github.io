@@ -1,0 +1,91 @@
+<!DOCTYPE html><html><head>
+<title>title</title>
+<style>
+body { font: 16px trebuchet ms, sans-serif; }
+a { color: #0000EE; text-decoration: none; }
+a:visited { color: #551A8B; } a:hover, a:focus {text-decoration: underline;}
+
+#main {
+width: 1000px;
+padding: 40px;
+margin: 0 auto;
+border: 1px solid black;
+}
+
+#colorblock {
+width: 100px;
+height: 100px;
+background-color: #ffffff;
+border: 1px solid black
+}
+
+.noise {
+width: 1px;
+height: 1px;
+display: inline-block;
+background-color: #000000;
+margin: 0px;
+}
+</style></head><body>
+
+<div id="main">
+<button onclick="colorchange()">randomize color</button><br><br>
+<div id="colorblock"></div>
+<br>
+<button onclick="colornoise()">randomize poorly coded color noise which is literally 20x20 but oh well</button><br><br>
+
+<div style="font-size: 0;">
+<div class="noise" id="noise1"></div><div class="noise" id="noise2"></div><div class="noise" id="noise3"></div><div class="noise" id="noise4"></div><div class="noise" id="noise5"></div><div class="noise" id="noise6"></div><div class="noise" id="noise7"></div><div class="noise" id="noise8"></div><div class="noise" id="noise9"></div><div class="noise" id="noise10"></div><div class="noise" id="noise11"></div><div class="noise" id="noise12"></div><div class="noise" id="noise13"></div><div class="noise" id="noise14"></div><div class="noise" id="noise15"></div><div class="noise" id="noise16"></div><div class="noise" id="noise17"></div><div class="noise" id="noise18"></div><div class="noise" id="noise19"></div><div class="noise" id="noise20"></div><br>
+<div class="noise" id="noise21"></div><div class="noise" id="noise22"></div><div class="noise" id="noise23"></div><div class="noise" id="noise24"></div><div class="noise" id="noise25"></div><div class="noise" id="noise26"></div><div class="noise" id="noise27"></div><div class="noise" id="noise28"></div><div class="noise" id="noise29"></div><div class="noise" id="noise30"></div><div class="noise" id="noise31"></div><div class="noise" id="noise32"></div><div class="noise" id="noise33"></div><div class="noise" id="noise34"></div><div class="noise" id="noise35"></div><div class="noise" id="noise36"></div><div class="noise" id="noise37"></div><div class="noise" id="noise38"></div><div class="noise" id="noise39"></div><div class="noise" id="noise40"></div><br>
+<div class="noise" id="noise41"></div><div class="noise" id="noise42"></div><div class="noise" id="noise43"></div><div class="noise" id="noise44"></div><div class="noise" id="noise45"></div><div class="noise" id="noise46"></div><div class="noise" id="noise47"></div><div class="noise" id="noise48"></div><div class="noise" id="noise49"></div><div class="noise" id="noise50"></div><div class="noise" id="noise51"></div><div class="noise" id="noise52"></div><div class="noise" id="noise53"></div><div class="noise" id="noise54"></div><div class="noise" id="noise55"></div><div class="noise" id="noise56"></div><div class="noise" id="noise57"></div><div class="noise" id="noise58"></div><div class="noise" id="noise59"></div><div class="noise" id="noise60"></div><br>
+<div class="noise" id="noise61"></div><div class="noise" id="noise62"></div><div class="noise" id="noise63"></div><div class="noise" id="noise64"></div><div class="noise" id="noise65"></div><div class="noise" id="noise66"></div><div class="noise" id="noise67"></div><div class="noise" id="noise68"></div><div class="noise" id="noise69"></div><div class="noise" id="noise70"></div><div class="noise" id="noise71"></div><div class="noise" id="noise72"></div><div class="noise" id="noise73"></div><div class="noise" id="noise74"></div><div class="noise" id="noise75"></div><div class="noise" id="noise76"></div><div class="noise" id="noise77"></div><div class="noise" id="noise78"></div><div class="noise" id="noise79"></div><div class="noise" id="noise80"></div><br>
+<div class="noise" id="noise81"></div><div class="noise" id="noise82"></div><div class="noise" id="noise83"></div><div class="noise" id="noise84"></div><div class="noise" id="noise85"></div><div class="noise" id="noise86"></div><div class="noise" id="noise87"></div><div class="noise" id="noise88"></div><div class="noise" id="noise89"></div><div class="noise" id="noise90"></div><div class="noise" id="noise91"></div><div class="noise" id="noise92"></div><div class="noise" id="noise93"></div><div class="noise" id="noise94"></div><div class="noise" id="noise95"></div><div class="noise" id="noise96"></div><div class="noise" id="noise97"></div><div class="noise" id="noise98"></div><div class="noise" id="noise99"></div><div class="noise" id="noise100"></div><br>
+<div class="noise" id="noise101"></div><div class="noise" id="noise102"></div><div class="noise" id="noise103"></div><div class="noise" id="noise104"></div><div class="noise" id="noise105"></div><div class="noise" id="noise106"></div><div class="noise" id="noise107"></div><div class="noise" id="noise108"></div><div class="noise" id="noise109"></div><div class="noise" id="noise110"></div><div class="noise" id="noise111"></div><div class="noise" id="noise112"></div><div class="noise" id="noise113"></div><div class="noise" id="noise114"></div><div class="noise" id="noise115"></div><div class="noise" id="noise116"></div><div class="noise" id="noise117"></div><div class="noise" id="noise118"></div><div class="noise" id="noise119"></div><div class="noise" id="noise120"></div><br>
+<div class="noise" id="noise121"></div><div class="noise" id="noise122"></div><div class="noise" id="noise123"></div><div class="noise" id="noise124"></div><div class="noise" id="noise125"></div><div class="noise" id="noise126"></div><div class="noise" id="noise127"></div><div class="noise" id="noise128"></div><div class="noise" id="noise129"></div><div class="noise" id="noise130"></div><div class="noise" id="noise131"></div><div class="noise" id="noise132"></div><div class="noise" id="noise133"></div><div class="noise" id="noise134"></div><div class="noise" id="noise135"></div><div class="noise" id="noise136"></div><div class="noise" id="noise137"></div><div class="noise" id="noise138"></div><div class="noise" id="noise139"></div><div class="noise" id="noise140"></div><br>
+<div class="noise" id="noise141"></div><div class="noise" id="noise142"></div><div class="noise" id="noise143"></div><div class="noise" id="noise144"></div><div class="noise" id="noise145"></div><div class="noise" id="noise146"></div><div class="noise" id="noise147"></div><div class="noise" id="noise148"></div><div class="noise" id="noise149"></div><div class="noise" id="noise150"></div><div class="noise" id="noise151"></div><div class="noise" id="noise152"></div><div class="noise" id="noise153"></div><div class="noise" id="noise154"></div><div class="noise" id="noise155"></div><div class="noise" id="noise156"></div><div class="noise" id="noise157"></div><div class="noise" id="noise158"></div><div class="noise" id="noise159"></div><div class="noise" id="noise160"></div><br>
+<div class="noise" id="noise161"></div><div class="noise" id="noise162"></div><div class="noise" id="noise163"></div><div class="noise" id="noise164"></div><div class="noise" id="noise165"></div><div class="noise" id="noise166"></div><div class="noise" id="noise167"></div><div class="noise" id="noise168"></div><div class="noise" id="noise169"></div><div class="noise" id="noise170"></div><div class="noise" id="noise171"></div><div class="noise" id="noise172"></div><div class="noise" id="noise173"></div><div class="noise" id="noise174"></div><div class="noise" id="noise175"></div><div class="noise" id="noise176"></div><div class="noise" id="noise177"></div><div class="noise" id="noise178"></div><div class="noise" id="noise179"></div><div class="noise" id="noise180"></div><br>
+<div class="noise" id="noise181"></div><div class="noise" id="noise182"></div><div class="noise" id="noise183"></div><div class="noise" id="noise184"></div><div class="noise" id="noise185"></div><div class="noise" id="noise186"></div><div class="noise" id="noise187"></div><div class="noise" id="noise188"></div><div class="noise" id="noise189"></div><div class="noise" id="noise190"></div><div class="noise" id="noise191"></div><div class="noise" id="noise192"></div><div class="noise" id="noise193"></div><div class="noise" id="noise194"></div><div class="noise" id="noise195"></div><div class="noise" id="noise196"></div><div class="noise" id="noise197"></div><div class="noise" id="noise198"></div><div class="noise" id="noise199"></div><div class="noise" id="noise200"></div><br>
+<div class="noise" id="noise201"></div><div class="noise" id="noise202"></div><div class="noise" id="noise203"></div><div class="noise" id="noise204"></div><div class="noise" id="noise205"></div><div class="noise" id="noise206"></div><div class="noise" id="noise207"></div><div class="noise" id="noise208"></div><div class="noise" id="noise209"></div><div class="noise" id="noise210"></div><div class="noise" id="noise211"></div><div class="noise" id="noise212"></div><div class="noise" id="noise213"></div><div class="noise" id="noise214"></div><div class="noise" id="noise215"></div><div class="noise" id="noise216"></div><div class="noise" id="noise217"></div><div class="noise" id="noise218"></div><div class="noise" id="noise219"></div><div class="noise" id="noise220"></div><br>
+<div class="noise" id="noise221"></div><div class="noise" id="noise222"></div><div class="noise" id="noise223"></div><div class="noise" id="noise224"></div><div class="noise" id="noise225"></div><div class="noise" id="noise226"></div><div class="noise" id="noise227"></div><div class="noise" id="noise228"></div><div class="noise" id="noise229"></div><div class="noise" id="noise230"></div><div class="noise" id="noise231"></div><div class="noise" id="noise232"></div><div class="noise" id="noise233"></div><div class="noise" id="noise234"></div><div class="noise" id="noise235"></div><div class="noise" id="noise236"></div><div class="noise" id="noise237"></div><div class="noise" id="noise238"></div><div class="noise" id="noise239"></div><div class="noise" id="noise240"></div><br>
+<div class="noise" id="noise241"></div><div class="noise" id="noise242"></div><div class="noise" id="noise243"></div><div class="noise" id="noise244"></div><div class="noise" id="noise245"></div><div class="noise" id="noise246"></div><div class="noise" id="noise247"></div><div class="noise" id="noise248"></div><div class="noise" id="noise249"></div><div class="noise" id="noise250"></div><div class="noise" id="noise251"></div><div class="noise" id="noise252"></div><div class="noise" id="noise253"></div><div class="noise" id="noise254"></div><div class="noise" id="noise255"></div><div class="noise" id="noise256"></div><div class="noise" id="noise257"></div><div class="noise" id="noise258"></div><div class="noise" id="noise259"></div><div class="noise" id="noise260"></div><br>
+<div class="noise" id="noise261"></div><div class="noise" id="noise262"></div><div class="noise" id="noise263"></div><div class="noise" id="noise264"></div><div class="noise" id="noise265"></div><div class="noise" id="noise266"></div><div class="noise" id="noise267"></div><div class="noise" id="noise268"></div><div class="noise" id="noise269"></div><div class="noise" id="noise270"></div><div class="noise" id="noise271"></div><div class="noise" id="noise272"></div><div class="noise" id="noise273"></div><div class="noise" id="noise274"></div><div class="noise" id="noise275"></div><div class="noise" id="noise276"></div><div class="noise" id="noise277"></div><div class="noise" id="noise278"></div><div class="noise" id="noise279"></div><div class="noise" id="noise280"></div><br>
+<div class="noise" id="noise281"></div><div class="noise" id="noise282"></div><div class="noise" id="noise283"></div><div class="noise" id="noise284"></div><div class="noise" id="noise285"></div><div class="noise" id="noise286"></div><div class="noise" id="noise287"></div><div class="noise" id="noise288"></div><div class="noise" id="noise289"></div><div class="noise" id="noise290"></div><div class="noise" id="noise291"></div><div class="noise" id="noise292"></div><div class="noise" id="noise293"></div><div class="noise" id="noise294"></div><div class="noise" id="noise295"></div><div class="noise" id="noise296"></div><div class="noise" id="noise297"></div><div class="noise" id="noise298"></div><div class="noise" id="noise299"></div><div class="noise" id="noise300"></div><br>
+<div class="noise" id="noise301"></div><div class="noise" id="noise302"></div><div class="noise" id="noise303"></div><div class="noise" id="noise304"></div><div class="noise" id="noise305"></div><div class="noise" id="noise306"></div><div class="noise" id="noise307"></div><div class="noise" id="noise308"></div><div class="noise" id="noise309"></div><div class="noise" id="noise310"></div><div class="noise" id="noise311"></div><div class="noise" id="noise312"></div><div class="noise" id="noise313"></div><div class="noise" id="noise314"></div><div class="noise" id="noise315"></div><div class="noise" id="noise316"></div><div class="noise" id="noise317"></div><div class="noise" id="noise318"></div><div class="noise" id="noise319"></div><div class="noise" id="noise320"></div><br>
+<div class="noise" id="noise321"></div><div class="noise" id="noise322"></div><div class="noise" id="noise323"></div><div class="noise" id="noise324"></div><div class="noise" id="noise325"></div><div class="noise" id="noise326"></div><div class="noise" id="noise327"></div><div class="noise" id="noise328"></div><div class="noise" id="noise329"></div><div class="noise" id="noise330"></div><div class="noise" id="noise331"></div><div class="noise" id="noise332"></div><div class="noise" id="noise333"></div><div class="noise" id="noise334"></div><div class="noise" id="noise335"></div><div class="noise" id="noise336"></div><div class="noise" id="noise337"></div><div class="noise" id="noise338"></div><div class="noise" id="noise339"></div><div class="noise" id="noise340"></div><br>
+<div class="noise" id="noise341"></div><div class="noise" id="noise342"></div><div class="noise" id="noise343"></div><div class="noise" id="noise344"></div><div class="noise" id="noise345"></div><div class="noise" id="noise346"></div><div class="noise" id="noise347"></div><div class="noise" id="noise348"></div><div class="noise" id="noise349"></div><div class="noise" id="noise350"></div><div class="noise" id="noise351"></div><div class="noise" id="noise352"></div><div class="noise" id="noise353"></div><div class="noise" id="noise354"></div><div class="noise" id="noise355"></div><div class="noise" id="noise356"></div><div class="noise" id="noise357"></div><div class="noise" id="noise358"></div><div class="noise" id="noise359"></div><div class="noise" id="noise360"></div><br>
+<div class="noise" id="noise361"></div><div class="noise" id="noise362"></div><div class="noise" id="noise363"></div><div class="noise" id="noise364"></div><div class="noise" id="noise365"></div><div class="noise" id="noise366"></div><div class="noise" id="noise367"></div><div class="noise" id="noise368"></div><div class="noise" id="noise369"></div><div class="noise" id="noise370"></div><div class="noise" id="noise371"></div><div class="noise" id="noise372"></div><div class="noise" id="noise373"></div><div class="noise" id="noise374"></div><div class="noise" id="noise375"></div><div class="noise" id="noise376"></div><div class="noise" id="noise377"></div><div class="noise" id="noise378"></div><div class="noise" id="noise379"></div><div class="noise" id="noise380"></div><br>
+<div class="noise" id="noise381"></div><div class="noise" id="noise382"></div><div class="noise" id="noise383"></div><div class="noise" id="noise384"></div><div class="noise" id="noise385"></div><div class="noise" id="noise386"></div><div class="noise" id="noise387"></div><div class="noise" id="noise388"></div><div class="noise" id="noise389"></div><div class="noise" id="noise390"></div><div class="noise" id="noise391"></div><div class="noise" id="noise392"></div><div class="noise" id="noise393"></div><div class="noise" id="noise394"></div><div class="noise" id="noise395"></div><div class="noise" id="noise396"></div><div class="noise" id="noise397"></div><div class="noise" id="noise398"></div><div class="noise" id="noise399"></div><div class="noise" id="noise400"></div><br>
+</div>
+
+</div>
+
+</body>
+<script>
+function colorchange() {
+  let r = Math.floor(Math.random() * 255);
+  let g = Math.floor(Math.random() * 255);
+  let b = Math.floor(Math.random() * 255);
+  let randcolor = "rgb(" + r + ", " + g + ", " + b + ")"
+  document.getElementById("colorblock").style.backgroundColor = randcolor;
+}
+
+function colornoise() {
+    let r = 255;
+    let g = 255;
+    let b = 255;
+	let randcolor = "rgb(255, 255, 255)"
+	let i = 1
+	let documentid = "noise1"
+  while (i < 400) {
+    r = Math.floor(Math.random() * 255);
+    g = Math.floor(Math.random() * 255);
+    b = Math.floor(Math.random() * 255);
+    randcolor = "rgb(" + r + ", " + g + ", " + b + ")"
+	documentid = "noise" + i
+    document.getElementById(documentid).style.backgroundColor = randcolor;
+	i = i+1;
+  }
+}
+</script>
+
+</html>

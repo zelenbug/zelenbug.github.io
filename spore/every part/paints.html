@@ -1,0 +1,33 @@
+<!DOCTYPE html><html><head>
+<title>Paints</title>
+<link rel="stylesheet" href="pages/files/style.css">
+</head><body style="margin: 0px;">
+
+<div id="main">
+
+<div class="tab">
+<a href="pages/paints creature.html" class="tabbutton crepaints" target="iframe"><span class="tooltip">Creature paints</span></a>
+<a href="pages/paints cell.html"     class="tabbutton cell"      target="iframe"><span class="tooltip">Cell paints</span></a>
+<a href="pages/paints flora.html"    class="tabbutton flepaints" target="iframe"><span class="tooltip">Flora paints</span></a>
+<a href="pages/paints unused1.html"  class="tabbutton unused"    target="iframe"><span class="tooltip">Unused skinpaints</span></a>
+<div class="divider"></div>
+<a                                   class="tabbutton blepaints" target="iframe"><span class="tooltip">Building paints (no page yet)</span></a>
+<a                                   class="tabbutton vlepaints" target="iframe"><span class="tooltip">Vehicle paints (no page yet)</span></a>
+<a                                   class="tabbutton unused"    target="iframe"><span class="tooltip">Unused block paints (no page yet)</span></a>
+<div class="divider"></div>
+<div class="tabtext">
+You need a minimum screen width of 1510px for convenience.<br>I dunno if the iframes are reasonable to use
+
+<script src="pages/files/spoiler.js"></script>
+<button type="button" style="display: block;" onclick="spoiler()">Part lists</button>
+<div id="spoiler" style="visibility: hidden;">
+<a href="creature.html">Creature parts</a><br>
+<a href="cell.html">Cell parts</a><br>
+All paints<br>
+</div></div></div>
+
+<iframe src="pages/paints creature.html" name="iframe"></iframe>
+
+</div></body>
+
+</html>

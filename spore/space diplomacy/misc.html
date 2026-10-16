@@ -5,38 +5,36 @@
 
 <div id="main">
 <div class="files">
-this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy~.locale, and Spore_Game.package\space_conversations~\space_diplomacy~.cnv, as well as other fles from this folder
-<br>the line breaks in the original locales were just "~p~"
-<br>ive retained some values and actions that i cant make sense of, but might be useful
-<br>i also kept the dialogue order the same for both the sets of dialogues and also the lines within them. if the order seems weird thats on the original space_diplomacy~.cnv file
-<br>however all the eventlog strings from the mission localization files were excluded
+These are referenced from both locale/en-us/Text.package - locale~/space_diplomacy~.locale, and Spore_Game.package\space_conversations~\space_diplomacy~.cnv, as well as other files from this folder
+<br>The line breaks in the original locales were just "~<!--inserting this comment in here just so it doesnt end up being hit by find and replace-->p~", I retained the ones that were present at the end of a dialogue entry, which is why some will have empty line breaks.
+<br>I've retained some values and actions that I can't make sense of, but might be useful? However I excluded all the eventlog strings from the mission and event localization files.
+<br>I also kept the dialogue order the same for both the sets of dialogues and also the lines within them. If the order seems weird, that's on the original .cnv files.
 <br>
 <script src="spoiler.js"></script>
 <br><div style="display: block;" class="spoilerbutton" onclick="spoiler()">navigation</div>
 <div id="spoiler" style="display: none;">
-<br><a href="main.html">main</html>
-<br><a href="civ.html">civ</html>
-<br><a href="missions.html">missions</a>
+<a href="main.html">main</a> | <a href="civ.html">civ</a> | <a href="missions.html">missions</a> | misc
+<hr>
 <br><a href="#incomingmessages">incoming_messages.cnv</a>
-<br>- dialog welcome_to_neighborhood
-<br>- dialog economic_purchase_ready
-<br>- dialog warn_against_trespass
-<br>- dialog offer_alliance
-<br>- dialog offer_gift
-<br>- dialog declare_war
-<br>- dialog demand_tribute
-<br>event_biosphere_collapse.cnv
-<br>event_generic.cnv
-<br>event_grob_teaser_raid.cnv
-<br>event_grob_war_raid.cnv
-<br>event_happiness.cnv
-<br>event_raid.cnv
-<br>event_raid_ally.cnv
-<br>event_raid_war.cnv
-<br>event_raidplunder.cnv
+<br>- dialog <a href="#welcome_to_neighborhood">welcome_to_neighborhood</a>
+<br>- dialog <a href="#economic_purchase_ready">economic_purchase_ready</a>
+<br>- dialog <a href="#warn_against_trespass"  >warn_against_trespass</a>
+<br>- dialog <a href="#offer_alliance"         >offer_alliance</a>
+<br>- dialog <a href="#offer_gift"             >offer_gift</a>
+<br>- dialog <a href="#declare_war"            >declare_war</a>
+<br>- dialog <a href="#demand_tribute"         >demand_tribute</a>
+<br><a href="#event_biosphere_collapse">event_biosphere_collapse.cnv</a>
+<br><a href="#event_generic"           >event_generic.cnv</a>
+<br><a href="#event_grob_teaser_raid"  >event_grob_teaser_raid.cnv</a>
+<br><a href="#event_grob_war_raid"     >event_grob_war_raid.cnv</a>
+<br><a href="#event_happiness"         >event_happiness.cnv</a>
+<br><a href="#event_raid"              >event_raid.cnv</a>
+<br><a href="#event_raid_ally"         >event_raid_ally.cnv</a>
+<br><a href="#event_raid_war"          >event_raid_war.cnv</a>
+<br><a href="#event_raidplunder"       >event_raidplunder.cnv</a>
 </div>
 </div><div class="files"><h2 id="incomingmessages">incoming_messages.cnv</h2>
-<div class="dialogs"><h3 id="">dialog welcome_to_neighborhood</h3>
+<div class="dialogs"><h3 id="welcome_to_neighborhood">dialog welcome_to_neighborhood</h3>
 <hr><!-- hr here-->
 <br>-emotion Happy -require Diplomat AttitudeCautiousOrBetter
 <p>0x00000029<br>You are in an area of space governed by the Grand Council. Welcome!</p>
@@ -134,7 +132,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <p>0x00000001<br>Close Transmission</p>
 <br>
 </div>
-<div class="dialogs"><h3 id="">dialog economic_purchase_ready</h3>
+<div class="dialogs"><h3 id="economic_purchase_ready">dialog economic_purchase_ready</h3>
 <hr><!-- hr here-->
 <br>-emotion Happy -require Diplomat
 <p>0x00000005<br>The Grand Council has decided to focus on a new set of economic priorities. In view of this fact, perhaps you would care to purchase our Star System ~star_name~?</p>
@@ -187,7 +185,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <p>0x0000000C<br>Close Transmission</p>
 <br>
 </div>
-<div class="dialogs"><h3 id="">dialog warn_against_trespass</h3>
+<div class="dialogs"><h3 id="warn_against_trespass">dialog warn_against_trespass</h3>
 <hr><!-- hr here-->
 <br>-emotion Angry -require Diplomat
 <p>0x0000000B<br>You are encroaching on our sector of space. Stay out of our way.</p>
@@ -241,7 +239,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <p>0x00000009<br>Close Transmission</p>
 <br>
 </div>
-<div class="dialogs"><h3 id="">dialog offer_alliance</h3>
+<div class="dialogs"><h3 id="offer_alliance">dialog offer_alliance</h3>
 <hr><!-- hr here-->
 <br>-emotion Happy -require Diplomat
 <p>0x00000003<br>The Grand Council would be honored if you would consent to join us in an alliance.</p>
@@ -299,7 +297,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <p>0x00000006<br>Send Rejection to Alliance</p>
 <br>
 </div>
-<div class="dialogs"><h3 id="">dialog offer_gift</h3>
+<div class="dialogs"><h3 id="offer_gift">dialog offer_gift</h3>
 <hr><!-- hr here-->
 <br>-emotion Happy -require Diplomat
 <p>0x0000005F<br>The Grand Council has decided that you are worthy of a Friendship Grant of ~cost~.</p>
@@ -352,250 +350,297 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <p>0x00000002<br>Close Transmission</p>
 <br>
 </div>
-<div class="dialogs"><h3 id="">dialog declare_war</h3>
+<div class="dialogs"><h3 id="declare_war">dialog declare_war</h3>
 <hr><!-- hr here-->
 <br>-emotion Angry -require Diplomat
 <p>0x00000095<br>The Grand Council declares war!</p>
 <p>0x00000096<br>You will regret your defiance of the Grand Council. We are at war!</p>
 <p>0x00000097<br>The Grand Council sees no alternative but to declare war on your species!</p>
 <hr class="shorthr">
-<br>text 0x95BBBBFC!0x00000098 -emotion Angry -require Ecologist
-<br>text 0x95BBBBFC!0x00000099 -emotion Angry -require Ecologist
-<br>text 0x95BBBBFC!0x0000009A -emotion Angry -require Ecologist
+<br>-emotion Angry -require Ecologist
+<p>0x00000098<br>Your materialist civilization will no longer be tolerated. We're at war!</p>
+<p>0x00000099<br>In order to prevent further damage to the Universal Life Web, we must declare war on your species!</p>
+<p>0x0000009A<br>We've had enough of your non-life-affirming attitudes. We're at war!</p>
 <hr class="shorthr">
-<br>text 0x95BBBBFC!0x0000009B -emotion Angry -require Bard
-<br>text 0x95BBBBFC!0x0000009C -emotion Angry -require Bard
-<br>text 0x95BBBBFC!0x0000009D -emotion Angry -require Bard
+<br>-emotion Angry -require Bard
+<p>0x0000009B<br>We're totally at war now! Let the party begin!</p>
+<p>0x0000009C<br>We're going to eradicate your civilization! Wheeeee!</p>
+<p>0x0000009D<br>We're going to turn your species into highly entertaining piles of charred carbon!</p>
 <hr class="shorthr">
-<br>text 0x95BBBBFC!0x0000009E -emotion Angry -require Zealot
-<br>text 0x95BBBBFC!0x0000009F -emotion Angry -require Zealot
-<br>text 0x95BBBBFC!0x000000A0 -emotion Angry -require Zealot
+<br>-emotion Angry -require Zealot
+<p>0x0000009E<br>You have defied the Will of Spode for the last time! We are at war!</p>
+<p>0x0000009F<br>The War of Spodification has begun! Die, unbelievers!</p>
+<p>0x000000A0<br>Spode commands us to eradicate all unbelievers! We are at war!</p>
 <hr class="shorthr">
-<br>text 0x95BBBBFC!0x000000A1 -emotion Urgent -require Scientist
-<br>text 0x95BBBBFC!0x000000A2 -emotion Urgent -require Scientist
-<br>text 0x95BBBBFC!0x000000A3 -emotion Urgent -require Scientist
+<br>-emotion Urgent -require Scientist
+<p>0x000000A1<br>It is only rational to conclude that only a single civilization can dominate the galaxy, and that this species should be us.  Let the war begin!</p>
+<p>0x000000A2<br>Your species is too illogical and mindless to survive! Prepare for extermination!</p>
+<p>0x000000A3<br>We've had our fill of you and your inanities! It's war!</p>
 <hr class="shorthr">
-<br>text 0x95BBBBFC!0x000000A4 -emotion Angry -require Trader
-<br>text 0x95BBBBFC!0x000000A5 -emotion Angry -require Trader
-<br>text 0x95BBBBFC!0x000000A6 -emotion Angry -require Trader
+<br>-emotion Angry -require Trader
+<p>0x000000A4<br>We're running a bit of a deficit, so we're going to kill all of you and loot your civilization! It's war!</p>
+<p>0x000000A5<br>The galaxy isn't about to give you a free lunch! We're at war!</p>
+<p>0x000000A6<br>We want your money! And your planets! And your cities! It's war!</p>
 <hr class="shorthr">
-<br>text 0x95BBBBFC!0x000000A7 -emotion Angry -require Shaman
-<br>text 0x95BBBBFC!0x000000A8 -emotion Angry -require Shaman
-<br>text 0x95BBBBFC!0x000000A9 -emotion Angry -require Shaman
+<br>-emotion Angry -require Shaman
+<p>0x000000A7<br>Your species is preventing the galaxy from advancing spiritually! We're going to eradicate you!</p>
+<p>0x000000A8<br>We had a Warrior Weekend that was a big success- so now we're going to beat some drums, walk the Path of War, and wipe out your species!</p>
+<p>0x000000A9<br>We're going to send you to your next incarnation! It's war!</p>
 <hr class="shorthr">
-<br>text 0x95BBBBFC!0x000000AA -emotion Angry -require Warrior
-<br>text 0x95BBBBFC!0x000000AB -emotion Angry -require Warrior
-<br>text 0x95BBBBFC!0x000000AC -emotion Angry -require Warrior
+<br>-emotion Angry -require Warrior
+<p>0x000000AA<br>We are now at war. Don't take it personally- if it wasn't us eradicating you, it would be someone else. </p>
+<p>0x000000AB<br>We have decided to field-test our new weapons systems- on your planets! We are now at war.</p>
+<p>0x000000AC<br>Let a thousand flowers bloom- and to explain the metaphor, the flowers are bombs, bursting above your cities. We're at war!</p>
 <hr class="shorthr">
-<br>text 0x95BBBBFC!0x000000AD -emotion Urgent -require Grob
-<br>text 0x95BBBBFC!0x000000AE -emotion Urgent -require Grob
-<br>text 0x95BBBBFC!0x000000AF -emotion Urgent -require Grob
+<br>-emotion Urgent -require Grob
+<p>0x000000AD<br>We are now at war! Exterminate! Exterminate!</p>
+<p>0x000000AE<br>We are now at war. The eradication of your species will go more efficiently if you do not resist.</p>
+<p>0x000000AF<br>You are now at war with the Grox. Resistance is futile!</p>
 <hr><!-- hr here-->
 <br>response
 <br>action exit
-<br>text 0x95BBBBFC!0x00000012
+<p>0x00000012<br>Close Transmission</p>
 <br>
 </div>
-<div class="dialogs"><h3 id="">dialog demand_tribute</h3>
+<div class="dialogs"><h3 id="demand_tribute">dialog demand_tribute</h3>
 <hr><!-- hr here-->
-<br>text 0x95BBBBFC!0x0000007A -emotion Urgent -require Diplomat
-<br>text 0x95BBBBFC!0x0000007B -emotion Urgent -require Diplomat
-<br>text 0x95BBBBFC!0x0000007C -emotion Urgent -require Diplomat
+<br>-emotion Urgent -require Diplomat
+<p>0x0000007A<br>The Grand Council demands ~cost~. Refusal will be taken with extreme seriousness.</p>
+<p>0x0000007B<br>The Grand Council requires ~cost~ in order to better protect your civilization.</p>
+<p>0x0000007C<br>The Grand Council insists on an immediate non-refundable payment of ~cost~.</p>
 <hr class="shorthr">
-<br>text 0x95BBBBFC!0x0000007D -emotion Urgent -require Ecologist
-<br>text 0x95BBBBFC!0x0000007E -emotion Urgent -require Ecologist
-<br>text 0x95BBBBFC!0x0000007F -emotion Urgent -require Ecologist
+<br>-emotion Urgent -require Ecologist
+<p>0x0000007D<br>Repairing the damage you have caused to the Life Web will cost ~cost~. Pay immediately.</p>
+<p>0x0000007E<br>You will pay us ~cost~ or suffer the consequences.</p>
+<p>0x0000007F<br>The less money you have, the less damage you can do to the environment. Therefore pay us ~cost~.</p>
 <hr class="shorthr">
-<br>text 0x95BBBBFC!0x00000080 -emotion Urgent -require Bard
-<br>text 0x95BBBBFC!0x00000081 -emotion Urgent -require Bard
-<br>text 0x95BBBBFC!0x00000082 -emotion Urgent -require Bard
+<br>-emotion Urgent -require Bard
+<p>0x00000080<br>We think you're a lot more winsome when you're poor! Give us ~cost~ right away!</p>
+<p>0x00000081<br>We want 'a piece of the action.'  'Hand over' ~cost~ or we will 'let you have it.'<br><br>Did we say that right?</p>
+<p>0x00000082<br>Give us ~cost~, or we'll commence the Festival of Blowing Up the Spleens of Foreigners!</p>
 <hr class="shorthr">
-<br>text 0x95BBBBFC!0x00000083 -emotion Angry -require Zealot
-<br>text 0x95BBBBFC!0x00000084 -emotion Angry -require Zealot
-<br>text 0x95BBBBFC!0x00000085 -emotion Angry -require Zealot
+<br>-emotion Angry -require Zealot
+<p>0x00000083<br>The Children of Spode demand a tithe of ~cost~. Pay at once, or suffer Spode's wrath.</p>
+<p>0x00000084<br>Only a gift of ~cost~ can prevent a War of Spodification! Pay at once!</p>
+<p>0x00000085<br>We have inaugurated an Unbeliever Tax of ~cost~. Pay immediately.</p>
 <hr class="shorthr">
-<br>text 0x95BBBBFC!0x00000086 -emotion Urgent -require Scientist
-<br>text 0x95BBBBFC!0x00000087 -emotion Urgent -require Scientist
-<br>text 0x95BBBBFC!0x00000088 -emotion Urgent -require Scientist
+<br>-emotion Urgent -require Scientist
+<p>0x00000086<br>We feel it only logical that a backward civilization such as yours pay us ~cost~, or else suffer serious consequences.</p>
+<p>0x00000087<br>Our analysis shows that you can spare ~cost~ right now. Pay up.</p>
+<p>0x00000088<br>Pay us ~cost~, or the consequences will be incalculable!</p>
 <hr class="shorthr">
-<br>text 0x95BBBBFC!0x00000089 -emotion Urgent -require Trader
-<br>text 0x95BBBBFC!0x0000008A -emotion Urgent -require Trader
-<br>text 0x95BBBBFC!0x0000008B -emotion Urgent -require Trader
+<br>-emotion Urgent -require Trader
+<p>0x00000089<br>Did we forget to add the sales tax? Pay us ~cost~, or we'll have to turn the bill over to our extremely well-armed Collection Agency.</p>
+<p>0x0000008A<br>We need an interest-free, non-refundable loan right now, so we think you should pay us ~cost~.  Right away.  Or else.</p>
+<p>0x0000008B<br>You haven't been buying enough stuff at our boutique, so we're just sending you a bill for ~cost~.  If you don't pay, we'll start looting and shooting!</p>
 <hr class="shorthr">
-<br>text 0x95BBBBFC!0x0000008C -emotion Urgent -require Shaman
-<br>text 0x95BBBBFC!0x0000008D -emotion Urgent -require Shaman
-<br>text 0x95BBBBFC!0x0000008E -emotion Urgent -require Shaman
+<br>-emotion Urgent -require Shaman
+<p>0x0000008C<br>It's up to less Enlightened species to support those of us with spiritual superiority! Pay us ~cost~, or the Karma Police will send you to your next incarnation!</p>
+<p>0x0000008D<br>We need to build new pyramids to generate psychic power, and they're going to set us back ~cost~. Pay us this sum, or we'll build the pyramids on your graves!</p>
+<p>0x0000008E<br>Your negative karma is keeping us from advancing to the next plane! Give us ~cost~ Sporebucks, or we'll eradicate your karma and you with it!</p>
 <hr class="shorthr">
-<br>text 0x95BBBBFC!0x0000008F -emotion Angry -require Warrior
-<br>text 0x95BBBBFC!0x00000090 -emotion Angry -require Warrior
-<br>text 0x95BBBBFC!0x00000091 -emotion Angry -require Warrior
+<br>-emotion Angry -require Warrior
+<p>0x0000008F<br>For guaranteeing your future security, you will now pay us ~cost~. </p>
+<p>0x00000090<br>Pay us ~cost~, and maybe we'll turn our new advanced weapons systems on someone else.</p>
+<p>0x00000091<br>Your insignificant civilization is of no use except as a source of cash. Pay us ~cost~, or learn to regret your very existence.</p>
 <hr class="shorthr">
-<br>text 0x95BBBBFC!0x00000092 -emotion Urgent -require Grob
-<br>text 0x95BBBBFC!0x00000093 -emotion Urgent -require Grob
-<br>text 0x95BBBBFC!0x00000094 -emotion Urgent -require Grob
+<br>-emotion Urgent -require Grob
+<p>0x00000092<br>We have need for money to bribe another civilization into acts of self-destruction. Pay us ~cost~.</p>
+<p>0x00000093<br>Give us ~cost~. Disobedience is not to be contemplated.</p>
+<p>0x00000094<br>Wealth in your civilization equals power. We want you weak. Pay us ~cost~.</p>
 <hr><!-- hr here-->
 <br>response
 <br>action 0x5C2EFCB0
 <br>require TributeMoneyAvailable
-<br>text 0x95BBBBFC!0x0000000E
+<p>0x0000000E<br>Send Funds</p>
 <hr class="shorthr">
 <br>response
 <br>action 0x4C182387
 <br>exclude TributeMoneyAvailable
-<br>text 0x95BBBBFC!0x0000000F
+<p>0x0000000F<br>Funds Unavailable</p>
 <hr class="shorthr">
 <br>response
 <br>action action_withold_tribute
-<br>text 0x95BBBBFC!0x00000010
+<p>0x00000010<br>Ignore Demands</p>
 <br>
-</div></div><div class="files"><h2>event_biosphere_collapse.cnv</h2>
+</div></div><div class="files"><h2 id="event_biosphere_collapse">event_biosphere_collapse.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
-<br>text event_biosphere_collapse!0x00000001 -require MySpecies
+<br>-require MySpecies
+<p>0x00000001<br>Urgent message for our Captain!<br><br>Our ecosystem on planet ~mission_target_planet~ is at great risk! A virus is spreading thru some of our wild ~mission_target_animal_species~ herds.<br><br>We need you to cull the infected from the pack immediately, or the virus will spread and we will lose the entire species... and that may be only the beginning of an entire biosphere collapse.<br><br>Hurry!<br><br>~mission_target_planet~ out!</p>
 <hr class="shorthr">
-<br>text event_biosphere_collapse!0x00000003 -require Ecologist
+<br>-require Ecologist
+<p>0x00000003<br>Kind ~player_title~ ~player_creature_name~!<br><br>While we try to let the cycle of life run its more natural course, a tragic turn requires intervention. Our ecosystem on planet ~mission_target_planet~ is at great risk! A virus is spreading thru some of our wild ~mission_target_animal_species~ herds.<br><br>We need you to cull the infected from the pack immediately, or the virus will spread and we will lose the entire species... and that may be only the beginning of an entire biosphere collapse.<br><br>Hurry!</p>
 <hr class="shorthr">
-<br>text event_biosphere_collapse!0x0000001A -require Zealot
+<br>-require Zealot
+<p>0x0000001A<br>~player_title~ ~player_creature_name~! We seek you to assist us most urgently.<br><br>Spode's Faithful on planet ~mission_target_planet~ are at great risk! A virus is spreading thru some of our wild ~mission_target_animal_species~ herds.<br><br>Thou shalt cull the infected from the pack immediately, or the virus will spread and lost will be the entire species... and to that end, the beginning doom to the planet.<br><br>May you speed this way at once!</p>
 <hr class="shorthr">
-<br>text event_biosphere_collapse!0x0000001B -require Diplomat
+<br>-require Diplomat
+<p>0x0000001B<br>Distress signal launch procedure has been initiated per the Grand Council. Seeking the assistance of ~player_title~ ~player_creature_name~.<br><br>Our ecosystem on planet ~mission_target_planet~ is at great risk! A virus is spreading thru some of our wild ~mission_target_animal_species~ herds.<br><br>We need you to cull the infected from the pack immediately, or the virus will spread and we will lose the entire species... and that may be only the beginning of an entire biosphere collapse.<br><br>I'm sure you can imagine the chaos this is creating, in direct defiance to our Philosophy of Order. We request your intervention per our Alliance Agreement, document 48, paragraph LXVIII.<br><br>We anticipate that your arrival is imminent.</p>
 <hr class="shorthr">
-<br>text event_biosphere_collapse!0x0000001C -require Scientist
+<br>-require Scientist
+<p>0x0000001C<br>~player_title~ ~player_creature_name~.<br><br>A recent field study of our wildlife returned some alarming data. The ecosystem on planet ~mission_target_planet~ is at great risk. A virus is spreading thru some of our wild ~mission_target_animal_species~ herds.<br><br>We need you to cull the infected from the pack immediately, or the virus will spread and we will lose the entire species... and that may be only the beginning of an entire biosphere collapse.<br><br>We request your assistance STAT. Initiate the most efficient flight plan at once. </p>
 <hr class="shorthr">
-<br>text event_biosphere_collapse!0x0000001D -require Bard
+<br>-require Bard
+<p>0x0000001D<br>Fiddledee floo! Nothing ruins a beautiful day like imminent catastrophic ecological disaster.<br><br>~player_title~ ~player_creature_name~, you simply must come and make things right. Our silly wild ~mission_target_animal_species~ herds have put themselves in a terrible fix, though the domesticated ones are still quite lovable and healthy.<br><br>We need you to cull the infected from the pack immediately, or the virus will spread and we will lose the entire species... and that may be only the beginning of an entire biosphere collapse.<br><br>Hurry, hurry! Come quick, come quick!</p>
 <hr class="shorthr">
-<br>text event_biosphere_collapse!0x0000001E -require Trader
+<br>-require Trader
+<p>0x0000001E<br>Oh, ~player_title~ ~player_creature_name~! Help, help!<br><br>Our ecosystem on planet ~mission_target_planet~ is at great risk! A virus is spreading thru some of our wild ~mission_target_animal_species~ herds.<br><br>We need you to cull the infected from the pack immediately, or the virus will spread and we will lose the entire species... and that may be only the beginning of an entire biosphere collapse.<br><br>Hurry, hurry!</p>
 <hr class="shorthr">
-<br>text event_biosphere_collapse!0x0000001F -require Shaman
+<br>-require Shaman
+<p>0x0000001F<br>Kind ~player_title~ ~player_creature_name~.<br><br>As the ways of Harmony teach us, the cycle of life has a rhythm all its own. Alas, this melody has hit a wrong note on planet ~mission_target_planet~!<br><br>A virus is spreading thru some of our wild ~mission_target_animal_species~ herds.<br><br>You must relieve them from their pain at once. If they suffer much longer, the infection will spread and we will lose the entire species... and that may be only the beginning of an entire biosphere collapse.<br><br>Fare thee well and speed you this way.</p>
 <hr class="shorthr">
-<br>text event_biosphere_collapse!0x00000020 -require Warrior
+<br>-require Warrior
+<p>0x00000020<br>Attention ~player_creature_name~!<br><br>Planet ~mission_target_planet~ has exposed a weakness the ~race~ will not tolerate. Eliminate the weak ~mission_target_animal_species~ immediately.<br><br>~race~ out.</p>
 <hr class="shorthr">
-<br>text event_biosphere_collapse!0x00000021 -require Grob
+<br>-require Grob
+<p>0x00000021<br>Attention ~player_creature_name~!<br><br>You will report to planet ~mission_target_planet~ at once to eradicate the weak ~mission_target_animal_species~.<br><br>That is all.</p>
 <hr><!-- hr here-->
 <br>response
 <br>action exit
-<br>text event_biosphere_collapse!0x00000002
+<p>0x00000002<br>Close Transmission</p>
 <br>
-</div></div><div class="files"><h2>event_generic.cnv</h2>
+</div></div><div class="files"><h2 id="event_generic">event_generic.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
-<hr><!-- hr here-->
-<br>text event_generic!0x0000000A
+<hr><!-- hr here--><br>
+<p>0x0000000A<br>Captain. We regret to inform you that the citizens of planet ~mission_target_planet~ are on strike and refuse to produce more Spice. Furthermore, they are threatening to reallocate the current Spice storage out of the Space Program and into more terrestrial pursuits.<br><br>It seems they have gone so long without a visit from you that they are failing to realize how the Space Program benefits them. I'm sure a simple visit from you would be the key to motivating them.<br><br>We hope to see you soon before the Spice is reallocated.<br><br>Planet ~mission_target_planet~ Out.</p>
 <hr><!-- hr here-->
 <br>response
 <br>action exit
-<br>text event_generic!0x00000013
+<p>0x00000013<br>Close Transmission</p>
 <br>
-</div></div><div class="files"><h2>event_grob_teaser_raid.cnv</h2>
+</div></div><div class="files"><h2 id="event_grob_teaser_raid">event_grob_teaser_raid.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
-<br>text event_grob_teaser_raid!0x00000015 -emotion Urgent
+<br>-emotion Urgent
+<p>0x00000015<br>Captain. I hate to trouble you, but we are detecting something very mysterious on our radar and need your assistance.<br><br>This unknown object is headed for civilization on planet ~mission_target_planet~ and has ignored all attempts of communication.<br><br>They seem to be using some kind of signal jamming technology that we've never seen before. We can't get any data on it.<br><br>...Captain, we fear this could be a Grox probe.<br><br>We request you come quickly and intercept it.<br><br>~mission_target_planet~ out!</p>
 <hr><!-- hr here-->
 <br>response
 <br>action exit
-<br>text event_grob_teaser_raid!0x00000009
+<p>0x00000009<br>Close Transmission</p>
 <br>
-</div></div><div class="files"><h2>event_grob_war_raid.cnv</h2>
+</div></div><div class="files"><h2 id="event_grob_war_raid">event_grob_war_raid.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
-<br>text event_grob_war_raid!0x00000015 -emotion Urgent -require MySpecies
+<br>-emotion Urgent -require MySpecies
+<p>0x00000015<br>Urgent message for our Captain!<br><br>The Grox are attacking planet ~mission_target_planet~! Engage and defeat the enemy! Hurry!<br><br>~mission_target_planet~ out!</p>
 <hr class="shorthr">
-<br>text event_grob_war_raid!0x00000001 -emotion Urgent -require Ecologist
+<br>-emotion Urgent -require Ecologist
+<p>0x00000001<br>Help, ~player_title~ ~player_creature_name~!<br><br>We're being attacked by the Grox! This unnatural machine race is trying to devastate planet ~mission_target_planet~! By the terms of our alliance, please help us!</p>
 <hr class="shorthr">
-<br>text event_grob_war_raid!0x00000002 -emotion Urgent -require Scientist
+<br>-emotion Urgent -require Scientist
+<p>0x00000002<br>Alert, ~player_title~ ~player_creature_name~! We're being attacked by the Grox at the location of planet ~mission_target_planet~!! Help us if you can! </p>
 <hr class="shorthr">
-<br>text event_grob_war_raid!0x00000003 -emotion Urgent -require Zealot
+<br>-emotion Urgent -require Zealot
+<p>0x00000003<br>~player_title~ ~player_creature_name~.<br><br>Godless machines are devastating our world at planet ~mission_target_planet~!!<br><br>By the power of Spode, we need your help!</p>
 <hr class="shorthr">
-<br>text event_grob_war_raid!0x00000004 -emotion Urgent -require Diplomat
+<br>-emotion Urgent -require Diplomat
+<p>0x00000004<br>Formal greetings and salutations ~player_title~ ~player_creature_name~.<br><br>The Grox are attacking our world at planet ~mission_target_planet~! Per our diplomatic alliance agreements, we anticipate the arrival of no less than one ship to assist in this battle. Please come at once!<br><br>Transmission concluded.</p>
 <hr class="shorthr">
-<br>text event_grob_war_raid!0x00000005 -emotion Urgent -require Trader
+<br>-emotion Urgent -require Trader
+<p>0x00000005<br>The Grox are attacking our world on planet ~mission_target_planet~! <br><br>No profits exist in devastation! Help us!</p>
 <hr class="shorthr">
-<br>text event_grob_war_raid!0x00000006 -emotion Urgent -require Bard
+<br>-emotion Urgent -require Bard
+<p>0x00000006<br>Eep eep eep! The Grox are attacking us!<br><br>Dear friend, ~player_title~ ~player_creature_name~, we sporifically promise we did nothing to them!<br><br>Come quick! Help, help, help!</p>
 <hr class="shorthr">
-<br>text event_grob_war_raid!0x00000007 -emotion Urgent -require Shaman
+<br>-emotion Urgent -require Shaman
+<p>0x00000007<br>Dear friend, ~player_title~ ~player_creature_name~.<br><br>We are in need of your generous help. The Grox are at our door! We can't adjust their auras because - hey - they're machines!<br><br>Please make haste to our side at planet ~mission_target_planet~!</p>
 <hr class="shorthr">
-<br>text event_grob_war_raid!0x00000008 -emotion Urgent -require Warrior
+<br>-emotion Urgent -require Warrior
+<p>0x00000008<br>~player_creature_name~. Our world at planet ~mission_target_planet~ is being attacked by the Grox.<br><br>You, ~player_creature_name~, have vowed to help. You will keep this promise.</p>
 <hr><!-- hr here-->
 <br>response
 <br>action exit
-<br>text event_grob_war_raid!0x00000009
+<p>0x00000009<br>Close Transmission</p>
 <br>
-</div></div><div class="files"><h2>event_happiness.cnv</h2>
+</div></div><div class="files"><h2 id="event_happiness">event_happiness.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
-<br>text event_happiness!0x00000001 -emotion Urgent
-<br>text event_happiness!0x00000002 -emotion Urgent
-<br>text event_happiness!0x00000013 -emotion Urgent
+<br>-emotion Urgent
+<p>0x00000001<br>Captain! We are seriously overworked. We need a place to play after our long days of Spice production.<br><br>We request you invest in buildings of Entertainment as soon as possible.<br><br>~mission_target_planet~ out!</p>
+<p>0x00000002<br>Greetings Captain.<br><br>We hate to trouble you, but the workers of planet ~mission_target_planet~ are demoralized.<br><br>We request you build entertainment facilities on this world as soon as possible.<br><br>~mission_target_planet~ out!</p>
+<p>0x00000013<br>Captain. There's a serious morale problem on planet ~mission_target_planet~! We need to supply our settlers with entertainment facilities.<br><br>Please make your way the ~mission_target_star~ system at your earliest convenience.<br><br>~mission_target_planet~ out!</p>
 <hr><!-- hr here-->
 <br>response
 <br>action exit
-<br>text event_happiness!0x00000009
+<p>0x00000009<br>Close Transmission</p>
 <br>
-</div></div><div class="files"><h2>event_raid.cnv</h2>
+</div></div><div class="files"><h2 id="event_raid">event_raid.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
-<hr><!-- hr here-->
-<br>text event_raid!0x00000001
+<hr><!-- hr here--><br>
+<p>0x00000001<br>Captain! We need your immediate help! <br><br>We are under attack from an unknown assailant!!! Make your way to planet ~mission_target_planet~ in the ~mission_target_star~ star system as quickly as you can or we are sure to suffer heavy losses.<br><br>Please hurry!!</p>
 <hr><!-- hr here-->
 <br>response
 <br>action exit
-<br>text event_raid!0x00000002
+<p>0x00000002<br>Close Transmission</p>
 <br>
-</div></div><div class="files"><h2>event_raid_ally.cnv</h2>
+</div></div><div class="files"><h2 id="event_raid_ally">event_raid_ally.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
 <hr><!-- hr here-->
-<br>text event_raid_ally!0x00000001 -require Ecologist
-<br>text event_raid_ally!0x00000002 -require Ecologist
-<br>text event_raid_ally!0x00000003 -require Ecologist
+<br>-require Ecologist
+<p>0x00000001<br>Kind ~player_title~ ~player_creature_name~!<br><br>Weapons of mass destruction are being deployed against our people on planet ~mission_target_planet~! <br><br>In the name of our alliance, we ask you to drive off these attackers before the natural order on ~mission_target_planet~ is irrevocably destroyed! </p>
+<p>0x00000002<br>Kind ~player_title~ ~player_creature_name~. Planet ~mission_target_planet~ is being attacked by vicious raiders! Our defense grid is in danger of being overwhelmed! Can you help us?</p>
+<p>0x00000003<br>Alas! ~player_title~ ~player_creature_name~, do come quickly! An unknown enemy is attacking us at planet ~mission_target_planet~. They seem bent on killing our people and rendering the planet's Life Web extinct!<br><br>Please help!</p>
 <hr class="shorthr">
-<br>text event_raid_ally!0x00000004 -require Zealot
-<br>text event_raid_ally!0x00000005 -require Zealot
-<br>text event_raid_ally!0x00000006 -require Zealot
+<br>-require Zealot
+<p>0x00000004<br>Most befriended, ~player_title~ ~player_creature_name~! We seek your urgent intervention.<br><br>Those who bask in the Light of Spode are being attacked on planet ~mission_target_planet~! In the name of Spode and of our alliance, I summon you to crush the unworthy heathen! </p>
+<p>0x00000005<br>We trust this message will reach you, ~player_title~ ~player_creature_name~! It is most urgent that you seek our location.<br><br>Planet ~mission_target_planet~ is being attacked by an enemy who denies the Way of Spode. Make haste and help us smite these unholy beings!</p>
+<p>0x00000006<br>~player_title~ ~player_creature_name~! We seek you to assist us most urgently.<br><br>Spode's Faithful on planet ~mission_target_planet~ are being persecuted by a demon-inspired invader! Join with us, and help us drive off these malefic beings!</p>
 <hr class="shorthr">
-<br>text event_raid_ally!0x00000007 -require Diplomat
-<br>text event_raid_ally!0x00000008 -require Diplomat
-<br>text event_raid_ally!0x00000009 -require Diplomat
+<br>-require Diplomat
+<p>0x00000007<br>~player_title~ ~player_creature_name~. We hope you are receiving this transmission.<br><br>Attackers are threatening the peace of planet ~mission_target_planet~! By the terms of our alliance, the Grand Council requests that you aid us in driving off the raiders.</p>
+<p>0x00000008<br>Message sent to ~player_title~ ~player_creature_name~, allied friend of the ~race~.<br><br>The peace of our federation is being threatened by an unknown enemy! Can you travel at once to planet ~mission_target_planet~ and help us defeat them?</p>
+<p>0x00000009<br>Distress signal launch procedure has been initiated. Seeking the assistance of ~player_title~ ~player_creature_name~.<br><br>Planet ~mission_target_planet~ is being savagely attacked by an unknown enemy! These barbarian pirates failed to send any declaration of intent prior to combat and are ignoring all approved battle zone procedures. We are at our wit's end and in need of your intervention per our Alliance Agreement, document 32, paragraph XIV.<br><br>We anticipate that your arrival is imminent.</p>
 <hr class="shorthr">
-<br>text event_raid_ally!0x0000000A -require Scientist
-<br>text event_raid_ally!0x0000000B -require Scientist
-<br>text event_raid_ally!0x0000000C -require Scientist
+<br>-require Scientist
+<p>0x0000000A<br> ~player_title~ ~player_creature_name~. <br><br>An unknown enemy is attacking planet ~mission_target_planet~! By the terms of our alliance, we summon your aid!</p>
+<p>0x0000000B<br> ~player_title~ ~player_creature_name~. <br><br>Planet ~mission_target_planet~ is being attacked by an unknown enemy! We request you assistance STAT!</p>
+<p>0x0000000C<br> ~player_title~ ~player_creature_name~. <br><br>A ferocious enemy has begun a bombardment of planet ~mission_target_planet~. Make your way to our location immediately.</p>
 <hr class="shorthr">
-<br>text event_raid_ally!0x0000000D -require Bard
-<br>text event_raid_ally!0x0000000E -require Bard
-<br>text event_raid_ally!0x0000000F -require Bard
+<br>-require Bard
+<p>0x0000000D<br>Boo hiss! A bunch of meanies are attacking us on planet ~mission_target_planet~, ~player_title~ ~player_creature_name~!!<br><br>We promise we sent them no stink plant or exploding snow globe to provoke them. Come quick, come quick!</p>
+<p>0x0000000E<br>Oh no, ~player_title~ ~player_creature_name~!<br><br>Here we were, having a Lounging Festival on planet ~mission_target_planet~, when a bunch of strangers started zapping us with zaps and zips! We're getting bored with running and screaming! Save us from tedium!</p>
+<p>0x0000000F<br>Are you there, ~player_title~ ~player_creature_name~? Speak up, speak up! We can't hear you!! <br><br>Ho ho! Did we trick you?! Aren't recorded messages fun! Whee!<br><br>Oh! But we did almost forget to tell you the reason for this message. How silly of us. <br><br>We can't imagine what these people have in mind, but a bunch of them turned up on planet ~mission_target_planet~ and started shooting! We desperately need your help or they will blow us to smithereens! Eep!</p>
 <hr class="shorthr">
-<br>text event_raid_ally!0x00000010 -require Trader
-<br>text event_raid_ally!0x00000011 -require Trader
-<br>text event_raid_ally!0x00000012 -require Trader
+<br>-require Trader
+<p>0x00000010<br>Oh, ~player_title~ ~player_creature_name~! Help, help!<br><br>Our peaceful kindred on planet ~mission_target_planet~ are being attacked by raiders! This worthless one is convinced that you, our glorious ally, will have no difficulty in driving them off. Come to our aid, and riches shall be yours!</p>
+<p>0x00000011<br>Help, help! Oh, ~player_title~ ~player_creature_name~! Only a being of your power and decisiveness can save us now! <br><br>Our kindred on planet ~mission_target_planet~ are being attacked by an unknown race! We will gratefully reward you if you can drive them off!</p>
+<p>0x00000012<br>Oh dear, oh dear! We hate to trouble you ~player_title~ ~player_creature_name~, but tragic tragedy is amok amok on planet ~mission_target_planet~! Our world is being attacked by vicious raiders! <br><br>Please, please help us! Our treasury will be open to you if you can drive drive them off!</p>
 <hr class="shorthr">
-<br>text event_raid_ally!0x00000013 -require Shaman
-<br>text event_raid_ally!0x00000014 -require Shaman
-<br>text event_raid_ally!0x00000015 -require Shaman
+<br>-require Shaman
+<p>0x00000013<br>Kind ~player_title~ ~player_creature_name~. <br><br>Despite our welcoming them with the Ceremony of Sitting and Song, a group of aliens are attacking us! We wish you speed in our direction.</p>
+<p>0x00000014<br>Kind ~player_title~ ~player_creature_name~. <br><br>Planet ~mission_target_planet~ is being attacked by spiritually unevolved beings! To resort to force is never preferred, but they have left us no other option. Make haste to our side and we will stand united together.</p>
+<p>0x00000015<br>Dear friend, ~player_title~ ~player_creature_name~. <br><br>Misguided aliens are attacking planet ~mission_target_planet~! We're sending them messages of love and peace on the psychic plane, but it seems not to be working! We regret that we must resort to more direct communication.<br><br>Please come with haste, with weapons armed, and assist in this communication</p>
 <hr class="shorthr">
-<br>text event_raid_ally!0x00000016 -require Warrior
-<br>text event_raid_ally!0x00000017 -require Warrior
-<br>text event_raid_ally!0x00000018 -require Warrior
+<br>-require Warrior
+<p>0x00000016<br>Alien race foolishly assaults planet ~mission_target_planet~.<br><br>In the near future, they are doomed. Bring your ship to ~mission_target_planet~ at once to demonstrate your alliance..</p>
+<p>0x00000017<br>Make haste! Target practice on planet ~mission_target_planet~!</p>
+<p>0x00000018<br>Attention ~player_creature_name~!<br><br>Foolish aliens attack our planet ~mission_target_planet~. We make haste to destroy their home world. <br><br>~player_creature_name~, attend to the insects on planet ~mission_target_planet~ at once.</p>
 <hr class="shorthr">
-<br>text event_raid_ally!0x0000001A -require Grob
+<br>-require Grob
+<p>0x0000001A<br>Attention ~player_creature_name~!<br><br>You will report to planet ~mission_target_planet~ at once to demonstrate your alliance to the mighty Grox.<br><br>That is all.</p>
 <hr><!-- hr here-->
 <br>response
 <br>action exit
-<br>text event_raid_ally!0x00000019
+<p>0x00000019<br>Close Transmission</p>
 <br>
-</div></div><div class="files"><h2>event_raid_war.cnv</h2>
+</div></div><div class="files"><h2 id="event_raid_war">event_raid_war.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
-<hr><!-- hr here-->
-<br>text event_raid_war!0x00000001
+<hr><!-- hr here--><br>
+<p>0x00000001<br>Captain! We need your immediate help! <br><br>Our enemy, ~mission_attacker_empire~, has sent an alien fleet to attack us!!! Make your way to planet ~mission_target_planet~ in the star system ~mission_target_star~ as quickly as you can or we are sure to suffer heavy losses.<br><br>Please hurry! </p>
 <hr><!-- hr here-->
 <br>response
 <br>action exit
-<br>text event_raid_war!0x00000002
+<p>0x00000002<br>Close Transmission</p>
 <br>
-</div></div><div class="files"><h2>event_raidplunder.cnv</h2>
+</div></div><div class="files"><h2 id="event_raidplunder">event_raidplunder.cnv</h2>
 <div class="dialogs"><h3>dialog mission_assign</h3>
-<hr><!-- hr here-->
-<br>text event_raidplunder!0x00000001
+<hr><!-- hr here--><br>
+<p>0x00000001<br>Captain! We need your immediate help! A alien pirate force has struck planet ~mission_target_planet~. They're looting the spice supplies. <br><br>Make your way to planet ~mission_target_planet~ in the ~mission_target_star~ star system as quickly as you can or they are sure to make off with all of our spice!<br><br>Please hurry!!</p>
 <hr><!-- hr here-->
 <br>response
 <br>action exit
-<br>text event_raidplunder!0x0000000A
+<p>0x0000000A<br>Close Transmission</p>
 <br>
 </div>
 </body></html>

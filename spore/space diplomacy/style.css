@@ -1,5 +1,15 @@
-body { font: 16px trebuchet ms, sans-serif; background: #1B2D3C; }
-a { color: #0000EE; text-decoration: none; }
+:root{
+/*i did this just to figure out the color scheme and realised i didnt feel like figuring out how to make the colors customizeable lol*/
+--darkest: #001430;
+--dark: #0D5596;
+--darkhover: #1672B1;
+--medium: #1E8ECC;
+--light: #A6D6EB;
+--lightest: #ffffff;
+--link: #0000ee;
+}
+body { font: 16px trebuchet ms, sans-serif; background: var(--darkest); }
+a { color: var(--link); text-decoration: none; }
 a:hover, a:focus {text-decoration: underline;}
 
 #main {
@@ -7,34 +17,37 @@ width: 80%;
 min-width: 500px;
 padding: 25px;
 margin: 0 auto;
-background: #3B687F;
+background: var(--dark);
 border-radius: 10px;
 }
 
 .files {
 padding: 10px;
 margin: 20px 0px;
-background: #B1C8D3;
+background: var(--medium);
 border-radius: 10px;
+color: var(--lightest);
 }
 
 .dialogs {
 padding: 10px;
 margin: 20px 10px;
-background: #ffffff80;
+background: var(--light); /* spore cool */
 border-radius: 10px;
+color: var(--darkest);
 }
 
 p {
-background: white;
+background: var(--lightest);
 margin: 8px 0px;
 padding: 5px;
 border-radius: 10px;
+white-space: pre-wrap; /* keeps double spaces that spore likes to do so much */
 }
 
 .spoilerbutton {
-background-color: #3B687F;
-color: white;
+background-color: var(--dark);
+color: var(--lightest);
 width: 80%;
 margin: 0 auto;
 border-radius: 5px 5px 0px 0px;
@@ -43,10 +56,11 @@ padding: 5px 10px;
 text-align: center;
 cursor: default;
 }
-.spoilerbutton:hover {background-color: #638FA5}
+.spoilerbutton:hover {background-color: var(--darkhover)}
 
 #spoiler {
 background-color: white;
+color: var(--darkest);
 width: 80%;
 margin: 0 auto;
 padding: 10px;
@@ -54,5 +68,5 @@ border-radius: 0px 0px 5px 5px;
 border-top: 0px solid transparent;
 }
 
-hr { height: 2px; border-width: 0; background-color: #3B687F; float: left; display: block; width: 100%; }
+hr { height: 2px; border-width: 0; background-color: var(--dark); float: left; display: block; width: 100%; }
 .shorthr {width: 50%;}

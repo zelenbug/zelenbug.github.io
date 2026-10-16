@@ -1,53 +1,104 @@
 <!DOCTYPE html><html><head>
 <title>draggable images</title>
 <style>
-body {
-font: 16px trebuchet ms, sans-serif;
-}
+body {font: 16px trebuchet ms, sans-serif;}
 
-#draggablediv1, #draggablediv2, #draggablediv3, #draggablediv4, #draggablediv5, #draggablediv6, #draggablediv7, #draggablediv8, #draggablediv9, #draggablediv10 {
+.draggydiv {
   position: absolute;
   background-repeat: no-repeat;
   width: 200px;
   height: 200px;
 }
-#draggablediv1:hover, #draggablediv2:hover, #draggablediv3:hover, #draggablediv4:hover, #draggablediv5:hover, #draggablediv6:hover, #draggablediv7:hover, #draggablediv8:hover, #draggablediv9:hover, #draggablediv10:hover {
-  background-color: #8000FF40
+.draggydiv:hover {animation: hoverimg 3s infinite}
+
+.upload {width: 250px}
+.resizer {width: 50px;}
+
+#spoiler {
+width: 500px;
+padding: 5px;
+border: 2px solid #8F8F9D;
+border-radius: 5px;
+background-color: #E3E3E8c0;
+z-index: 500;
+position: relative;
+height: 315px;
+}
+
+@keyframes hoverimg {
+0% {background-color: #8000FF40;}
+50% {background-color: #00FFFF40;}
+100% {background-color: #8000FF40;}
 }
 
 </style></head><body>
 
-images taller/wider than 200px get cropped (inspect element to change size). selection has the image in the top left. drag and dropping images onto uploaders works! <a href="index.html">back to index</a><br>
-<input type="file" class="file-uploader1" name="pic1" accept ="image/*" onchange="upload1()"><br>
-<input type="file" class="file-uploader2" name="pic2" accept ="image/*" onchange="upload2()"><br>
-<input type="file" class="file-uploader3" name="pic3" accept ="image/*" onchange="upload3()"><br>
-<input type="file" class="file-uploader4" name="pic4" accept ="image/*" onchange="upload4()"><br>
-<input type="file" class="file-uploader5" name="pic5" accept ="image/*" onchange="upload5()"><br>
-<input type="file" class="file-uploader6" name="pic6" accept ="image/*" onchange="upload6()"><br>
-<input type="file" class="file-uploader7" name="pic7" accept ="image/*" onchange="upload7()"><br>
-<input type="file" class="file-uploader8" name="pic8" accept ="image/*" onchange="upload8()"><br>
-<input type="file" class="file-uploader9" name="pic9" accept ="image/*" onchange="upload9()"><br>
-<input type="file" class="file-uploader10" name="pic10" accept ="image/*" onchange="upload10()">
+<button onclick="spoiler()" style="z-index: 500; position: relative;">open/close image selection</button>
+<div id="spoiler">
 
-<div id="draggablediv1"></div>
+selection has the image in the top left, images larger than the set width/height will be cropped (not resized). dragging and dropping images onto uploaders from file explorer works! <a href="index.html">back to index</a><br><br>
+<div style="display: inline-block; width: 250px">select an image to upload</div> image width/height<br>
+<input type="file" class="upload file-uploader1" name="upload image 1" accept ="image/*" onchange="upload1()">
+<input type="number" value="200" id="width1" class="resizer" oninput="setsize1()"> x
+<input type="number" value="200" id="height1" class="resizer" oninput="setsize1()"> bottom layer
+<br>
+<input type="file" class="upload file-uploader2" name="upload image 2" accept ="image/*" onchange="upload2()">
+<input type="number" value="200" id="width2" class="resizer" oninput="setsize2()"> x
+<input type="number" value="200" id="height2" class="resizer" oninput="setsize2()">
+<br>
+<input type="file" class="upload file-uploader3" name="upload image 3" accept ="image/*" onchange="upload3()">
+<input type="number" value="200" id="width3" class="resizer" oninput="setsize3()"> x
+<input type="number" value="200" id="height3" class="resizer" oninput="setsize3()">
+<br>
+<input type="file" class="upload file-uploader4" name="upload image 4" accept ="image/*" onchange="upload4()">
+<input type="number" value="200" id="width4" class="resizer" oninput="setsize4()"> x
+<input type="number" value="200" id="height4" class="resizer" oninput="setsize4()">
+<br>
+<input type="file" class="upload file-uploader5" name="upload image 5" accept ="image/*" onchange="upload5()">
+<input type="number" value="200" id="width5" class="resizer" oninput="setsize5()"> x
+<input type="number" value="200" id="height5" class="resizer" oninput="setsize5()">
+<br>
+<input type="file" class="upload file-uploader6" name="upload image 6" accept ="image/*" onchange="upload6()">
+<input type="number" value="200" id="width6" class="resizer" oninput="setsize6()"> x
+<input type="number" value="200" id="height6" class="resizer" oninput="setsize6()">
+<br>
+<input type="file" class="upload file-uploader7" name="upload image 7" accept ="image/*" onchange="upload7()">
+<input type="number" value="200" id="width7" class="resizer" oninput="setsize7()"> x
+<input type="number" value="200" id="height7" class="resizer" oninput="setsize7()">
+<br>
+<input type="file" class="upload file-uploader8" name="upload image 8" accept ="image/*" onchange="upload8()">
+<input type="number" value="200" id="width8" class="resizer" oninput="setsize8()"> x
+<input type="number" value="200" id="height8" class="resizer" oninput="setsize8()">
+<br>
+<input type="file" class="upload file-uploader9" name="upload image 9" accept ="image/*" onchange="upload9()">
+<input type="number" value="200" id="width9" class="resizer" oninput="setsize9()"> x
+<input type="number" value="200" id="height9" class="resizer" oninput="setsize9()">
+<br>
+<input type="file" class="upload file-uploader10" name="upload image 10" accept ="image/*" onchange="upload10()">
+<input type="number" value="200" id="width10" class="resizer" oninput="setsize10()"> x
+<input type="number" value="200" id="height10" class="resizer" oninput="setsize10()"> top layer
+
+</div>
+
+<div id="draggablediv1" class="draggydiv"></div>
 <br><br><br>
-<div id="draggablediv2"></div>
+<div id="draggablediv2" class="draggydiv"></div>
 <br><br><br>
-<div id="draggablediv3"></div>
+<div id="draggablediv3" class="draggydiv"></div>
 <br><br><br>
-<div id="draggablediv4"></div>
+<div id="draggablediv4" class="draggydiv"></div>
 <br><br><br>
-<div id="draggablediv5"></div>
+<div id="draggablediv5" class="draggydiv"></div>
 <br><br><br>
-<div id="draggablediv6"></div>
+<div id="draggablediv6" class="draggydiv"></div>
 <br><br><br>
-<div id="draggablediv7"></div>
+<div id="draggablediv7" class="draggydiv"></div>
 <br><br><br>
-<div id="draggablediv8"></div>
+<div id="draggablediv8" class="draggydiv"></div>
 <br><br><br>
-<div id="draggablediv9"></div>
+<div id="draggablediv9" class="draggydiv"></div>
 <br><br><br>
-<div id="draggablediv10"></div>
+<div id="draggablediv10" class="draggydiv"></div>
 <br><br><br>
 
 </body><script>
@@ -225,5 +276,85 @@ fileReader.onload = (fileReaderEvent) => {
 const picturething = document.getElementById("draggablediv10");
 picturething.style.backgroundImage = `url(${fileReaderEvent.target.result})`;
 }}
+
+//and i have to do this yet again!! but this does allow me to set size for each image manually
+
+function setsize1() {
+imgwidth = document.getElementById("width1").value + 'px';
+imgheight = document.getElementById("height1").value + 'px';
+document.getElementById("draggablediv1").style.width = imgwidth;
+document.getElementById("draggablediv1").style.height = imgheight;
+}
+
+function setsize2() {
+imgwidth = document.getElementById("width2").value + 'px';
+imgheight = document.getElementById("height2").value + 'px';
+document.getElementById("draggablediv2").style.width = imgwidth;
+document.getElementById("draggablediv2").style.height = imgheight;
+}
+
+function setsize3() {
+imgwidth = document.getElementById("width3").value + 'px';
+imgheight = document.getElementById("height3").value + 'px';
+document.getElementById("draggablediv3").style.width = imgwidth;
+document.getElementById("draggablediv3").style.height = imgheight;
+}
+
+function setsize4() {
+imgwidth = document.getElementById("width4").value + 'px';
+imgheight = document.getElementById("height4").value + 'px';
+document.getElementById("draggablediv4").style.width = imgwidth;
+document.getElementById("draggablediv4").style.height = imgheight;
+}
+
+function setsize5() {
+imgwidth = document.getElementById("width5").value + 'px';
+imgheight = document.getElementById("height5").value + 'px';
+document.getElementById("draggablediv5").style.width = imgwidth;
+document.getElementById("draggablediv5").style.height = imgheight;
+}
+
+function setsize6() {
+imgwidth = document.getElementById("width6").value + 'px';
+imgheight = document.getElementById("height6").value + 'px';
+document.getElementById("draggablediv6").style.width = imgwidth;
+document.getElementById("draggablediv6").style.height = imgheight;
+}
+
+function setsize7() {
+imgwidth = document.getElementById("width7").value + 'px';
+imgheight = document.getElementById("height7").value + 'px';
+document.getElementById("draggablediv7").style.width = imgwidth;
+document.getElementById("draggablediv7").style.height = imgheight;
+}
+
+function setsize8() {
+imgwidth = document.getElementById("width8").value + 'px';
+imgheight = document.getElementById("height8").value + 'px';
+document.getElementById("draggablediv8").style.width = imgwidth;
+document.getElementById("draggablediv8").style.height = imgheight;
+}
+
+function setsize9() {
+imgwidth = document.getElementById("width9").value + 'px';
+imgheight = document.getElementById("height9").value + 'px';
+document.getElementById("draggablediv9").style.width = imgwidth;
+document.getElementById("draggablediv9").style.height = imgheight;
+}
+
+function setsize10() {
+imgwidth = document.getElementById("width10").value + 'px';
+imgheight = document.getElementById("height10").value + 'px';
+document.getElementById("draggablediv10").style.width = imgwidth;
+document.getElementById("draggablediv10").style.height = imgheight;
+}
+
+// source https://www.bloggersentral.com/2009/12/create-show-hide-or-peek-boo.html i got this before it became ai riddled to hell jesus christ
+function spoiler() {
+if (document.getElementById('spoiler') .style.visibility=='hidden')
+{document.getElementById('spoiler') .style.visibility='visible'}
+else
+{document.getElementById('spoiler') .style.visibility='hidden'}
+}
 
 </script></html>

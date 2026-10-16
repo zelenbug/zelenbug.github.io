@@ -1,0 +1,49 @@
+<style>
+.alignpic {
+position: absolute;
+width: 200%;
+height: 600px; /* height of the background */
+background-repeat: repeat;
+}
+
+.piccontainer {
+width: 800px;  /* width of the background */
+height: 600px; /* height of the background */
+overflow: hidden;
+position: relative;
+}
+
+/* https://stackoverflow.com/questions/36433961/how-to-create-a-css-marquee-effect-without-empty-space , https://stackoverflow.com/questions/78912182/how-can-i-make-an-infinite-scrolling-marquee-i-cant-get-my-items-to-repeat */
+@keyframes marquee {
+  0%   { left: 0px }
+  100% { left: 1600px } /* twice the width of the background */
+}
+@keyframes marquee2 {
+  0%   { left: -1600px } /* twice the width of the background */
+  100% { left: 0px }
+}
+</style>
+
+<div class="piccontainer">
+<div class="alignpic" style="background-image: url(1.png); animation: marquee  50s linear infinite;"></div>
+<div class="alignpic" style="background-image: url(1.png); animation: marquee2 50s linear infinite;"></div> <!-- 1.5 increase but i rounded it to 50 for niceness -->
+
+<div class="alignpic" style="background-image: url(2.png); animation: marquee  32s linear infinite;"></div>
+<div class="alignpic" style="background-image: url(2.png); animation: marquee2 32s linear infinite;"></div> <!-- 1.5 increase -->
+
+<div class="alignpic" style="background-image: url(3.png); animation: marquee  22s linear infinite;"></div>
+<div class="alignpic" style="background-image: url(3.png); animation: marquee2 22s linear infinite;"></div> <!-- 1.5 increase -->
+
+<div class="alignpic" style="background-image: url(4.png); animation: marquee  14.6s linear infinite;"></div>
+<div class="alignpic" style="background-image: url(4.png); animation: marquee2 14.6s linear infinite;"></div> <!-- 1.25 increase -->
+
+<div class="alignpic" style="background-image: url(5.png); animation: marquee  11.7s linear infinite;"></div>
+<div class="alignpic" style="background-image: url(5.png); animation: marquee2 11.7s linear infinite;"></div> <!-- 1.25 increase -->
+
+<div class="alignpic" style="background-image: url(6.png); animation: marquee  9.4s linear infinite;"></div>
+<div class="alignpic" style="background-image: url(6.png); animation: marquee2 9.4s linear infinite;"></div> <!-- 1.25 increase -->
+
+<div class="alignpic" style="background-image: url(7.png); animation: marquee  7.5s linear infinite;"></div>
+<div class="alignpic" style="background-image: url(7.png); animation: marquee2 7.5s linear infinite;"></div>
+</div>
+woah css

@@ -5,65 +5,63 @@
 
 <div id="main">
 <div class="files">
-this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy~.locale, and Spore_Game.package\space_conversations~\space_diplomacy~.cnv, as well as other fles from this folder
-<br>the line breaks in the original locales were just "~p~"
-<br>ive retained some values and actions that i cant make sense of, but might be useful
-<br>i also kept the dialogue order the same for both the sets of dialogues and also the lines within them. if the order seems weird thats on the original space_diplomacy~.cnv file
-<br>however all the eventlog strings from the mission localization files were excluded
+These are referenced from both locale/en-us/Text.package - locale~/space_diplomacy~.locale, and Spore_Game.package\space_conversations~\space_diplomacy~.cnv, as well as other files from this folder
+<br>The line breaks in the original locales were just "~<!--inserting this comment in here just so it doesnt end up being hit by find and replace-->p~", I retained the ones that were present at the end of a dialogue entry, which is why some will have empty line breaks.
+<br>I've retained some values and actions that I can't make sense of, but might be useful? However I excluded all the eventlog strings from the mission and event localization files.
+<br>I also kept the dialogue order the same for both the sets of dialogues and also the lines within them. If the order seems weird, that's on the original .cnv files.
 <br>
 <script src="spoiler.js"></script>
 <br><div style="display: block;" class="spoilerbutton" onclick="spoiler()">navigation</div>
 <div id="spoiler" style="display: none;">
-<br><a href="main.html">main</html>
-<br><a href="missions.html">missions</a>
-<br><a href="misc.html">misc</a>
+<a href="main.html">main</a> | civ | <a href="missions.html">missions</a> | <a href="misc.html">misc</a>
+<hr>
 <br>civ_main_menu.cnv
-<br>- dialog trade_route_offer_npc
-<br>- dialog npc_alliance_countered
-<br>- dialog player_contact_npc
-<br>- dialog npc_embargo_countered
-<br>- dialog trade_route_offer_player_accepted
-<br>- dialog npc_war_warning
-<br>- dialog capture_city_npc_gloat
-<br>- dialog capture_city_from_player_religious
-<br>- dialog greetings
-<br>- dialog npc_complimented
-<br>- dialog buy_city_offer_from_player_rejected
-<br>- dialog capture_city_from_npc_religious
-<br>- dialog npc_insulted
-<br>- dialog npc_receive_gift
-<br>- dialog npc_attack_city
-<br>- dialog npc_surrender
-<br>- dialog buy_city_offer_from_player
-<br>- dialog capture_city_from_player_military
-<br>- dialog buy_city_offer_from_player_accepted
-<br>- dialog npc_demand_rejected
-<br>- dialog npc_gift
-<br>- dialog npc_demand_met
-<br>- dialog buy_city_offer_from_npc
-<br>- dialog npc_attack_city_counter_accepted
-<br>- dialog npc_embargo_accepted
-<br>- dialog trade_route_offer_npc_accept
-<br>- dialog npc_alliance
-<br>- dialog npc_embargo
-<br>- dialog npc_alliance_rejected
-<br>- dialog npc_alliance_accepted
-<br>- dialog trade_route_offer_player_rejected
-<br>- dialog buy_city_offer_from_player_too_low
-<br>- dialog npc_trade_route_sever_city
-<br>- dialog capture_city_from_npc_military
-<br>- dialog default
-<br>- dialog npc_attack_city_counter
-<br>- dialog npc_node_bought
-<br>- dialog npc_embargo_rejected
-<br>- dialog trade_route_offer_npc_reject
-<br>- dialog buy_city_offer_from_player_too_high
-<br>- dialog npc_surrender_ally
-<br>- dialog npc_demand
-<br>- dialog buy_city_offer_from_player_canceled
+<br>- dialog <a href="#trade_route_offer_npc"              >trade_route_offer_npc</a>
+<br>- dialog <a href="#npc_alliance_countered"             >npc_alliance_countered</a>
+<br>- dialog <a href="#player_contact_npc"                 >player_contact_npc</a>
+<br>- dialog <a href="#npc_embargo_countered"              >npc_embargo_countered</a>
+<br>- dialog <a href="#trade_route_offer_player_accepted"  >trade_route_offer_player_accepted</a>
+<br>- dialog <a href="#npc_war_warning"                    >npc_war_warning</a>
+<br>- dialog <a href="#capture_city_npc_gloat"             >capture_city_npc_gloat</a>
+<br>- dialog <a href="#capture_city_from_player_religious" >capture_city_from_player_religious</a>
+<br>- dialog <a href="#greetings"                          >greetings</a>
+<br>- dialog <a href="#npc_complimented"                   >npc_complimented</a>
+<br>- dialog <a href="#buy_city_offer_from_player_rejected">buy_city_offer_from_player_rejected</a>
+<br>- dialog <a href="#capture_city_from_npc_religious"    >capture_city_from_npc_religious</a>
+<br>- dialog <a href="#npc_insulted"                       >npc_insulted</a>
+<br>- dialog <a href="#npc_receive_gift"                   >npc_receive_gift</a>
+<br>- dialog <a href="#npc_attack_city"                    >npc_attack_city</a>
+<br>- dialog <a href="#npc_surrender"                      >npc_surrender</a>
+<br>- dialog <a href="#buy_city_offer_from_player"         >buy_city_offer_from_player</a>
+<br>- dialog <a href="#capture_city_from_player_military"  >capture_city_from_player_military</a>
+<br>- dialog <a href="#buy_city_offer_from_player_accepted">buy_city_offer_from_player_accepted</a>
+<br>- dialog <a href="#npc_demand_rejected"                >npc_demand_rejected</a>
+<br>- dialog <a href="#npc_gift"                           >npc_gift</a>
+<br>- dialog <a href="#npc_demand_met"                     >npc_demand_met</a>
+<br>- dialog <a href="#buy_city_offer_from_npc"            >buy_city_offer_from_npc</a>
+<br>- dialog <a href="#npc_attack_city_counter_accepted"   >npc_attack_city_counter_accepted</a>
+<br>- dialog <a href="#npc_embargo_accepted"               >npc_embargo_accepted</a>
+<br>- dialog <a href="#trade_route_offer_npc_accept"       >trade_route_offer_npc_accept</a>
+<br>- dialog <a href="#npc_alliance"                       >npc_alliance</a>
+<br>- dialog <a href="#npc_embargo"                        >npc_embargo</a>
+<br>- dialog <a href="#npc_alliance_rejected"              >npc_alliance_rejected</a>
+<br>- dialog <a href="#npc_alliance_accepted"              >npc_alliance_accepted</a>
+<br>- dialog <a href="#trade_route_offer_player_rejected"  >trade_route_offer_player_rejected</a>
+<br>- dialog <a href="#buy_city_offer_from_player_too_low" >buy_city_offer_from_player_too_low</a>
+<br>- dialog <a href="#npc_trade_route_sever_city"         >npc_trade_route_sever_city</a>
+<br>- dialog <a href="#capture_city_from_npc_military"     >capture_city_from_npc_military</a>
+<br>- dialog <a href="#default"                            >default</a>
+<br>- dialog <a href="#npc_attack_city_counter"            >npc_attack_city_counter</a>
+<br>- dialog <a href="#npc_node_bought"                    >npc_node_bought</a>
+<br>- dialog <a href="#npc_embargo_rejected"               >npc_embargo_rejected</a>
+<br>- dialog <a href="#trade_route_offer_npc_reject"       >trade_route_offer_npc_reject</a>
+<br>- dialog <a href="#buy_city_offer_from_player_too_high">buy_city_offer_from_player_too_high</a>
+<br>- dialog <a href="#npc_surrender_ally"                 >npc_surrender_ally</a>
+<br>- dialog <a href="#npc_demand"                         >npc_demand</a>
+<br>- dialog <a href="#buy_city_offer_from_player_canceled">buy_city_offer_from_player_canceled</a>
 </div>
 </div><div class="files"><h2>civ_main_menu.cnv</h2>
-<div class="dialogs"><h3 id="">dialog trade_route_offer_npc</h3>
+<div class="dialogs"><h3 id="trade_route_offer_npc">dialog trade_route_offer_npc</h3>
 <hr><!-- hr here-->
 <br>-emotion Happy -require SourceCivMilitary
 <p>0x00000012<br>Our armies require goods that ~target_city_name~ possesses in order to flourish. Let us establish a trade route. We will pay you handsomely for each trip.</p>
@@ -85,7 +83,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <p>0x00000016<br>I reject your offer! You can keep your tawdry goods.</p>
 <br>
 </div>
-<div class="dialogs"><h3 id="">dialog npc_alliance_countered</h3>
+<div class="dialogs"><h3 id="npc_alliance_countered">dialog npc_alliance_countered</h3>
 <hr><!-- hr here-->
 <br>-emotion Neutral
 <p>0x000000A2<br>Sounds good. Glad to have you on our side.</p>
@@ -96,7 +94,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <p>0x000000A3<br>Let's go!</p>
 <br>
 </div>
-<div class="dialogs"><h3 id="">dialog player_contact_npc</h3>
+<div class="dialogs"><h3 id="player_contact_npc">dialog player_contact_npc</h3>
 <hr><!-- hr here-->
 <br>-emotion Angry -require AttitudeAnnoyedOrWorse SourceCivMilitary
 <p>0x0000001F<br>Our military gathers at your borders. We greet you only to mock you.</p>
@@ -177,7 +175,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <p>0x00000052<br>Goodbye</p>
 <br>
 </div>
-<div class="dialogs"><h3 id="">dialog npc_embargo_countered</h3>
+<div class="dialogs"><h3 id="npc_embargo_countered">dialog npc_embargo_countered</h3>
 <hr><!-- hr here-->
 <br>-emotion Neutral
 <p>0x00000098<br>We can do that. Glad to see we could make a deal.</p>
@@ -188,7 +186,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <p>0x00000099<br>Thank you. Goodbye.</p>
 <br>
 </div>
-<div class="dialogs"><h3 id="">dialog trade_route_offer_player_accepted</h3>
+<div class="dialogs"><h3 id="trade_route_offer_player_accepted">dialog trade_route_offer_player_accepted</h3>
 <hr><!-- hr here-->
 <br>-emotion Happy -require SourceCivMilitary
 <p>0x0000000A<br>Trade can only grow our might. We accept.</p>
@@ -205,7 +203,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <p>0x0000000D<br>Great!</p>
 <br>
 </div>
-<div class="dialogs"><h3 id="">dialog npc_war_warning</h3>
+<div class="dialogs"><h3 id="npc_war_warning">dialog npc_war_warning</h3>
 <hr><!-- hr here-->
 <br>-emotion Angry -require SourceCivMilitary
 <p>0x00000060<br>This planet trembles before our mighty armada. You will not survive. Prepare for war.</p>
@@ -222,7 +220,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <p>0x00000063<br>I'm sorry, did you say something?</p>
 <br>
 </div>
-<div class="dialogs"><h3 id="">dialog capture_city_npc_gloat</h3>
+<div class="dialogs"><h3 id="capture_city_npc_gloat">dialog capture_city_npc_gloat</h3>
 <hr><!-- hr here-->
 <br>-emotion Happy -require SourceCiv0to3Cities
 <p>0x0000006C<br>Hey, we captured ~target_city_name~, woohoo!</p>
@@ -242,7 +240,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <p>0x00000070<br>Good for you.</p>
 <br>
 </div>
-<div class="dialogs"><h3 id="">dialog capture_city_from_player_religious</h3>
+<div class="dialogs"><h3 id="capture_city_from_player_religious">dialog capture_city_from_player_religious</h3>
 <hr><!-- hr here-->
 <br>-emotion Laugh
 <p>0x0000006A<br>Was it the song? Was it the music? We're not sure, but your citizens have decided that ~target_city_name~ will be joining our nation. Sorry, but charm like this is hard to contain.</p>
@@ -253,7 +251,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <p>0x0000006B<br>Bye</p>
 <br>
 </div>
-<div class="dialogs"><h3 id="">dialog greetings</h3>
+<div class="dialogs"><h3 id="greetings">dialog greetings</h3>
 <hr><!-- hr here-->
 <br>-emotion Happy
 <p>0x00000083<br>Hi, ~target_city_name~ of the ~player_name_nation~ here, what news do you bring?</p>
@@ -274,7 +272,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <p>0x00000086<br>Time to conquer this planet.</p>
 <br>
 </div>
-<div class="dialogs"><h3 id="">dialog npc_complimented</h3>
+<div class="dialogs"><h3 id="npc_complimented">dialog npc_complimented</h3>
 <hr><!-- hr here-->
 <br>-emotion Laugh
 <p>0x00000053<br>Your words show great wisdom.</p>
@@ -285,7 +283,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <p>0x00000054<br>Take care</p>
 <br>
 </div>
-<div class="dialogs"><h3 id="">dialog buy_city_offer_from_player_rejected</h3>
+<div class="dialogs"><h3 id="buy_city_offer_from_player_rejected">dialog buy_city_offer_from_player_rejected</h3>
 <hr><!-- hr here-->
 <br>-emotion Gasp
 <p>0x0000007F<br>After due consideration we must inform you that your offer has been rejected.</p>
@@ -296,7 +294,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <p>0x00000080<br>Oops.</p>
 <br>
 </div>
-<div class="dialogs"><h3 id="">dialog capture_city_from_npc_religious</h3>
+<div class="dialogs"><h3 id="capture_city_from_npc_religious">dialog capture_city_from_npc_religious</h3>
 <hr><!-- hr here-->
 <br>-emotion Neutral
 <p>0x00000066<br>Your religion has gained popularity in ~target_city_name~! We have no choice but to convert to your culture. Now spread the good word to other cities!</p>
@@ -307,7 +305,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <p>0x00000067<br>Bye</p>
 <br>
 </div>
-<div class="dialogs"><h3 id="">dialog npc_insulted</h3>
+<div class="dialogs"><h3 id="npc_insulted">dialog npc_insulted</h3>
 <hr><!-- hr here-->
 <br>-emotion Angry
 <p>0x00000055<br>You'll look good over my mantlepiece...</p>
@@ -318,7 +316,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <p>0x00000056<br>Whatever</p>
 <br>
 </div>
-<div class="dialogs"><h3 id="">dialog npc_receive_gift</h3>
+<div class="dialogs"><h3 id="npc_receive_gift">dialog npc_receive_gift</h3>
 <hr><!-- hr here-->
 <br>-emotion Laugh -require AttitudeCautiousOrBetter
 <p>0x00000057<br>Why, I've always counted on the kindness of strangers...</p>
@@ -332,7 +330,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <p>0x00000059<br>My pleasure</p>
 <br>
 </div>
-<div class="dialogs"><h3 id="">dialog npc_attack_city</h3>
+<div class="dialogs"><h3 id="npc_attack_city">dialog npc_attack_city</h3>
 <hr><!-- hr here-->
 <br>-emotion Neutral
 <p>0x000000A6<br>Which city?</p>
@@ -403,7 +401,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <p>0x000000B1<br>Nevermind</p>
 <br>
 </div>
-<div class="dialogs"><h3 id="">dialog npc_surrender</h3>
+<div class="dialogs"><h3 id="npc_surrender">dialog npc_surrender</h3>
 <hr><!-- hr here-->
 <br>-emotion Angry
 <p>0x00000087<br>We can see the writing on the wall. I think it's time to fight no more forever.</p>
@@ -414,7 +412,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <p>0x00000088<br>We happily accept your surrender.</p>
 <br>
 </div>
-<div class="dialogs"><h3 id="">dialog buy_city_offer_from_player</h3>
+<div class="dialogs"><h3 id="buy_city_offer_from_player">dialog buy_city_offer_from_player</h3>
 <hr><!-- hr here-->
 <br>-emotion Neutral
 <p>0x00000072<br>We understand why you would want fair ~target_city_name~ for your own! Name your price.</p>
@@ -455,7 +453,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <p>0x00000078<br>Nevermind...</p>
 <br>
 </div>
-<div class="dialogs"><h3 id="">dialog capture_city_from_player_military</h3>
+<div class="dialogs"><h3 id="capture_city_from_player_military">dialog capture_city_from_player_military</h3>
 <hr><!-- hr here-->
 <br>-emotion Laugh
 <p>0x00000068<br>~target_city_name~ was a cakewalk to defeat. Hope you're better able to defend yourself next time!</p>
@@ -466,7 +464,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <p>0x00000069<br>Bye</p>
 <br>
 </div>
-<div class="dialogs"><h3 id="">dialog buy_city_offer_from_player_accepted</h3>
+<div class="dialogs"><h3 id="buy_city_offer_from_player_accepted">dialog buy_city_offer_from_player_accepted</h3>
 <hr><!-- hr here-->
 <br>-emotion Neutral
 <p>0x0000007D<br>You are a shrewd negotiator. We accept.</p>
@@ -477,7 +475,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <p>0x0000007E<br>Yay!</p>
 <br>
 </div>
-<div class="dialogs"><h3 id="">dialog npc_demand_rejected</h3>
+<div class="dialogs"><h3 id="npc_demand_rejected">dialog npc_demand_rejected</h3>
 <hr><!-- hr here-->
 <br>-emotion Angry
 <p>0x00000090<br>We are not pleased.</p>
@@ -488,7 +486,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <p>0x00000091<br>You are wasting your breath.</p>
 <br>
 </div>
-<div class="dialogs"><h3 id="">dialog npc_gift</h3>
+<div class="dialogs"><h3 id="npc_gift">dialog npc_gift</h3>
 <hr><!-- hr here-->
 <br>-emotion Laugh -require AttitudeCautiousOrBetter
 <p>0x0000005A<br>Yes, please. Thanks in advance!</p>
@@ -520,7 +518,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <p>0x0000005F<br>Nevermind</p>
 <br>
 </div>
-<div class="dialogs"><h3 id="">dialog npc_demand_met</h3>
+<div class="dialogs"><h3 id="npc_demand_met">dialog npc_demand_met</h3>
 <hr><!-- hr here-->
 <br>-emotion Happy
 <p>0x0000008E<br>You have chosen wisely.</p>
@@ -531,7 +529,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <p>0x0000008F<br>Don't push it, buddy...</p>
 <br>
 </div>
-<div class="dialogs"><h3 id="">dialog buy_city_offer_from_npc</h3>
+<div class="dialogs"><h3 id="buy_city_offer_from_npc">dialog buy_city_offer_from_npc</h3>
 <hr><!-- hr here-->
 <br>-emotion Neutral
 <p>0x00000071<br>We would like to offer ~offer_1~ Sporebucks for ~target_city_name~. Interested?</p>
@@ -543,7 +541,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <br>action 0x7E41D64A
 <br>
 </div>
-<div class="dialogs"><h3 id="">dialog npc_attack_city_counter_accepted</h3>
+<div class="dialogs"><h3 id="npc_attack_city_counter_accepted">dialog npc_attack_city_counter_accepted</h3>
 <hr><!-- hr here-->
 <br>-emotion Happy
 <p>0x000000B5<br>Alright, we'll get to work!</p>
@@ -554,7 +552,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <p>0x000000B6<br>Thanks for the help...</p>
 <br>
 </div>
-<div class="dialogs"><h3 id="">dialog npc_embargo_accepted</h3>
+<div class="dialogs"><h3 id="npc_embargo_accepted">dialog npc_embargo_accepted</h3>
 <hr><!-- hr here-->
 <br>-emotion Happy
 <p>0x00000096<br>Thank you, we appreciate your support.</p>
@@ -565,7 +563,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <p>0x00000097<br>Excellent. Goodbye.</p>
 <br>
 </div>
-<div class="dialogs"><h3 id="">dialog trade_route_offer_npc_accept</h3>
+<div class="dialogs"><h3 id="trade_route_offer_npc_accept">dialog trade_route_offer_npc_accept</h3>
 <hr><!-- hr here-->
 <br>-emotion Happy -require SourceCivMilitary
 <p>0x00000017<br>You are not just a friend, but also a smart friend. We look forward to a long, prosperous relationship.</p>
@@ -582,7 +580,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <p>0x0000001A<br>Agreed. Bye for now.</p>
 <br>
 </div>
-<div class="dialogs"><h3 id="">dialog npc_alliance</h3>
+<div class="dialogs"><h3 id="npc_alliance">dialog npc_alliance</h3>
 <hr><!-- hr here-->
 <br>-emotion Angry
 <p>0x0000009C<br>We could use your help. Would you declare war on ~npc1_name_nation~?</p>
@@ -603,7 +601,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <p>0x0000009F<br>Sorry. We don't consider this to be prudent at this juncture.</p>
 <br>
 </div>
-<div class="dialogs"><h3 id="">dialog npc_embargo</h3>
+<div class="dialogs"><h3 id="npc_embargo">dialog npc_embargo</h3>
 <hr><!-- hr here-->
 <br>-emotion Angry
 <p>0x00000092<br>We are upset that you are trading with ~npc1_name_nation~. We insist that you stop immediately!</p>
@@ -624,7 +622,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <p>0x00000095<br>Sorry. We don't consider this to be prudent at this juncture.</p>
 <br>
 </div>
-<div class="dialogs"><h3 id="">dialog npc_alliance_rejected</h3>
+<div class="dialogs"><h3 id="npc_alliance_rejected">dialog npc_alliance_rejected</h3>
 <hr><!-- hr here-->
 <br>-emotion Angry
 <p>0x000000A4<br>I'm sorry to hear that.</p>
@@ -635,7 +633,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <p>0x000000A5<br>Well, maybe next time...</p>
 <br>
 </div>
-<div class="dialogs"><h3 id="">dialog npc_alliance_accepted</h3>
+<div class="dialogs"><h3 id="npc_alliance_accepted">dialog npc_alliance_accepted</h3>
 <hr><!-- hr here-->
 <br>-emotion Happy
 <p>0x000000A0<br>Excellent. Let's grind our enemies into dust!</p>
@@ -646,7 +644,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <p>0x000000A1<br>Huzzah!</p>
 <br>
 </div>
-<div class="dialogs"><h3 id="">dialog trade_route_offer_player_rejected</h3>
+<div class="dialogs"><h3 id="trade_route_offer_player_rejected">dialog trade_route_offer_player_rejected</h3>
 <hr><!-- hr here-->
 <br>-emotion Gasp -require SourceCivMilitary
 <p>0x0000000E<br>We do not need to trade with trifling civilizations such as yourselves. No.</p>
@@ -663,7 +661,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <p>0x00000011<br>Very well.</p>
 <br>
 </div>
-<div class="dialogs"><h3 id="">dialog buy_city_offer_from_player_too_low</h3>
+<div class="dialogs"><h3 id="buy_city_offer_from_player_too_low">dialog buy_city_offer_from_player_too_low</h3>
 <hr><!-- hr here-->
 <br>-emotion Angry
 <p>0x00000081<br>You insult my parents and my parents' parents. Such a ridiculous offer cannot be tolerated.</p>
@@ -674,7 +672,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <p>0x00000082<br>Oops.</p>
 <br>
 </div>
-<div class="dialogs"><h3 id="">dialog npc_trade_route_sever_city</h3>
+<div class="dialogs"><h3 id="npc_trade_route_sever_city">dialog npc_trade_route_sever_city</h3>
 <hr><!-- hr here-->
 <br>-emotion Angry -require SourceCivMilitary
 <p>0x00000003<br>Our military was built in preparation for behavior such as yours. We have ended trade between ~source_city_name~ and ~target_city_name~.</p>
@@ -700,7 +698,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <p>0x00000009<br>We didn't need your money anyway.</p>
 <br>
 </div>
-<div class="dialogs"><h3 id="">dialog capture_city_from_npc_military</h3>
+<div class="dialogs"><h3 id="capture_city_from_npc_military">dialog capture_city_from_npc_military</h3>
 <hr><!-- hr here-->
 <br>-emotion Sad
 <p>0x00000064<br>Okay, bully. We surrender. Hope you like the mess you've made of ~target_city_name~.</p>
@@ -711,7 +709,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <p>0x00000065<br>Bye</p>
 <br>
 </div>
-<div class="dialogs"><h3 id="">dialog default</h3>
+<div class="dialogs"><h3 id="default">dialog default</h3>
 <hr><!-- hr here--><br>
 <p>0x000000B9<br>Testing this communications channel...</p>
 <hr><!-- hr here-->
@@ -731,7 +729,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <p>0x000000BC<br>three</p>
 <br>
 </div>
-<div class="dialogs"><h3 id="">dialog npc_attack_city_counter</h3>
+<div class="dialogs"><h3 id="npc_attack_city_counter">dialog npc_attack_city_counter</h3>
 <hr><!-- hr here-->
 <br>-emotion Happy
 <p>0x000000B2<br>We could help you out for a price. How about ~offer_1~ Sporebucks?</p>
@@ -748,7 +746,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <p>0x000000B4<br>Sorry, that's too just too high.</p>
 <br>
 </div>
-<div class="dialogs"><h3 id="">dialog npc_node_bought</h3>
+<div class="dialogs"><h3 id="npc_node_bought">dialog npc_node_bought</h3>
 <hr><!-- hr here-->
 <br>-emotion Happy
 <p>0x000000B7<br>Thanks for the cash!</p>
@@ -759,7 +757,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <p>0x000000B8<br>Our pleasure...</p>
 <br>
 </div>
-<div class="dialogs"><h3 id="">dialog npc_embargo_rejected</h3>
+<div class="dialogs"><h3 id="npc_embargo_rejected">dialog npc_embargo_rejected</h3>
 <hr><!-- hr here-->
 <br>-emotion Angry
 <p>0x0000009A<br>We're disappointed to hear that.</p>
@@ -770,7 +768,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <p>0x0000009B<br>It's our final decision. Goodbye.</p>
 <br>
 </div>
-<div class="dialogs"><h3 id="">dialog trade_route_offer_npc_reject</h3>
+<div class="dialogs"><h3 id="trade_route_offer_npc_reject">dialog trade_route_offer_npc_reject</h3>
 <hr><!-- hr here-->
 <br>-emotion Gasp -require SourceCivMilitary
 <p>0x0000001B<br>Our generals are not pleased. It is unlikely we will offer such a deal again.</p>
@@ -787,7 +785,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <p>0x0000001E<br>Duly noted. Goodbye.</p>
 <br>
 </div>
-<div class="dialogs"><h3 id="">dialog buy_city_offer_from_player_too_high</h3>
+<div class="dialogs"><h3 id="buy_city_offer_from_player_too_high">dialog buy_city_offer_from_player_too_high</h3>
 <hr><!-- hr here-->
 <br>-emotion Happy
 <p>0x0000007B<br>You are a very generous bidder. We gladly accept your offer.</p>
@@ -798,7 +796,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <p>0x0000007C<br>Yay!</p>
 <br>
 </div>
-<div class="dialogs"><h3 id="">dialog npc_surrender_ally</h3>
+<div class="dialogs"><h3 id="npc_surrender_ally">dialog npc_surrender_ally</h3>
 <hr><!-- hr here-->
 <br>-emotion Happy
 <p>0x00000089<br>We've won! Let's band together, so the world can live as one.</p>
@@ -809,7 +807,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <p>0x0000008A<br>I'd hoped someday you'd join us.</p>
 <br>
 </div>
-<div class="dialogs"><h3 id="">dialog npc_demand</h3>
+<div class="dialogs"><h3 id="npc_demand">dialog npc_demand</h3>
 <hr><!-- hr here-->
 <br>-emotion Angry
 <p>0x0000008B<br>It's time to show us proper respect. We demand ~offer_1~ Sporebucks.</p>
@@ -825,7 +823,7 @@ this is referenced from both locale/en-us/Text.package - locale~/space_diplomacy
 <p>0x0000008D<br>You can have the money - once you pry it from our dead, cold hands.</p>
 <br>
 </div>
-<div class="dialogs"><h3 id="">dialog buy_city_offer_from_player_canceled</h3>
+<div class="dialogs"><h3 id="buy_city_offer_from_player_canceled">dialog buy_city_offer_from_player_canceled</h3>
 <hr><!-- hr here-->
 <br>-emotion Angry
 <p>0x00000079<br>Thanks for wasting our time.</p>
