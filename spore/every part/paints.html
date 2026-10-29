@@ -1,6 +1,6 @@
 <!DOCTYPE html><html><head>
 <title>Paints</title>
-<link rel="stylesheet" href="pages/files/style.css">
+<link rel="stylesheet" href="pages/files/style.css"><script src="pages/files/spoiler.js"></script>
 </head><body style="margin: 0px;">
 
 <div id="main">
@@ -16,15 +16,30 @@
 <a                                   class="tabbutton unused"    target="iframe"><span class="tooltip">Unused block paints (no page yet)</span></a>
 <div class="divider"></div>
 <div class="tabtext">
-You need a minimum screen width of 1510px for convenience.<br>I dunno if the iframes are reasonable to use
+Minimum screen width 1140px. Some other stuff:
 
-<script src="pages/files/spoiler.js"></script>
-<button type="button" style="display: block;" onclick="spoiler()">Part lists</button>
-<div id="spoiler" style="visibility: hidden;">
-<a href="creature.html">Creature parts</a><br>
-<a href="cell.html">Cell parts</a><br>
-All paints<br>
-</div></div></div>
+<!-- dear god the code -->
+<div style="margin: 0 auto; width: 200px"><div style="display: inline-block">
+<button type="button" style="display: block;" class="dropdown" onclick="spoilerdropdown()">All paints</button>
+<div id="spoilerdropdown" style="visibility: hidden;">
+<a href="creature.html">Creature parts</a>
+<a href="outfitter.html">Outfitter parts</a>
+<a href="cell.html">Cell parts</a>
+<span class="miscinfo">Flora parts (to do)</span><br>
+<span class="miscinfo">Building parts (to do)</span><br>
+<span class="miscinfo">Vehicle/UFO parts (to do)</span><br>
+<div class="selected">All paints</div>
+</div>
+
+</div> <div style="display: inline-block">
+
+<button type="button" style="display: block;" onclick="spoiler2()">Additional info</button>
+<div id="spoiler2" style="visibility: hidden; width: 400px; right: 0px;">
+Base/coat/detail paints technically work the same as paint themes, they just apply an empty paint (hash 0x00000000) and empty colors to the other slots
+<br><br>I say minimum width 1140px but. Yeah not for plants, which are arranged in 4 columns for some reason
+</div>
+
+</div></div></div></div>
 
 <iframe src="pages/paints creature.html" name="iframe"></iframe>
 

@@ -124,6 +124,72 @@ document.getElementById("layer1_2_used").style.backgroundColor = "var(--pink)";
 document.getElementById("layer1_3_used").style.backgroundColor = "transparent";
 }
 
+//our ancestors the humans
+function layer1princess() {
+document.getElementById("layer1_0").style.backgroundImage = "url(files/1_princess_0.png)";
+document.getElementById("layer1_1").style.backgroundImage = "url(files/1_princess_1.png)";
+document.getElementById("layer1_2").style.backgroundImage = "url(files/1_princess_2.png)";
+document.getElementById("layer1_3").style.backgroundImage = "url(files/1_princess_3.png)";
+
+document.getElementById("layer1_1_hue").value = 336;
+document.getElementById("layer1_1_sat").value = 27;
+document.getElementById("layer1_1_bri").value = 217;
+color_layer1_1();
+
+document.getElementById("layer1_2_hue").value = 325;
+document.getElementById("layer1_2_sat").value = 50;
+document.getElementById("layer1_2_bri").value = 148;
+color_layer1_2();
+
+document.getElementById("layer1_3_hue").value = 180;
+document.getElementById("layer1_3_sat").value = 15;
+document.getElementById("layer1_3_bri").value = 270;
+color_layer1_3();
+
+document.getElementById("layer1_1_used").style.backgroundColor = "var(--pink)";
+document.getElementById("layer1_2_used").style.backgroundColor = "var(--pink)";
+document.getElementById("layer1_3_used").style.backgroundColor = "var(--pink)";
+}
+
+//fit 11
+function layer1fit11() {
+document.getElementById("layer1_0").style.backgroundImage = "none";
+document.getElementById("layer1_1").style.backgroundImage = "url(files/1_fit11_1.png)";
+document.getElementById("layer1_2").style.backgroundImage = "none";
+document.getElementById("layer1_3").style.backgroundImage = "none";
+
+document.getElementById("layer1_1_hue").value = 74;
+document.getElementById("layer1_1_sat").value = 30;
+document.getElementById("layer1_1_bri").value = 358;
+color_layer1_1();
+
+document.getElementById("layer1_1_used").style.backgroundColor = "var(--pink)";
+document.getElementById("layer1_2_used").style.backgroundColor = "transparent";
+document.getElementById("layer1_3_used").style.backgroundColor = "transparent";
+}
+
+//madame zelza disguise
+function layer1flowers() {
+document.getElementById("layer1_0").style.backgroundImage = "none";
+document.getElementById("layer1_1").style.backgroundImage = "url(files/1_flowers_1.png)";
+document.getElementById("layer1_2").style.backgroundImage = "url(files/1_flowers_2.png)";
+document.getElementById("layer1_3").style.backgroundImage = "none";
+
+document.getElementById("layer1_1_hue").value = 58;
+document.getElementById("layer1_1_sat").value = 40;
+document.getElementById("layer1_1_bri").value = 400;
+color_layer1_1();
+
+document.getElementById("layer1_2_hue").value = 314;
+document.getElementById("layer1_2_sat").value = 100;
+document.getElementById("layer1_2_bri").value = 95;
+color_layer1_2();
+
+document.getElementById("layer1_1_used").style.backgroundColor = "var(--pink)";
+document.getElementById("layer1_2_used").style.backgroundColor = "var(--pink)";
+document.getElementById("layer1_3_used").style.backgroundColor = "transparent";
+}
+
 //layer 1 (hats)   -------------------------------------------------------------------
 // ===================================================================================
 //layer 2 (coats)  -------------------------------------------------------------------
@@ -182,6 +248,33 @@ color_layer2_2();
 document.getElementById("layer2_1_used").style.backgroundColor = "var(--pink)";
 document.getElementById("layer2_2_used").style.backgroundColor = "var(--pink)";
 document.getElementById("layer2_3_used").style.backgroundColor = "transparent";
+}
+
+//madame zelza disguise
+function layer2flowers() {
+document.getElementById("layer2_0").style.backgroundImage = "none";
+document.getElementById("layer2_1").style.backgroundImage = "url(files/2_flowers_1.png)";
+document.getElementById("layer2_2").style.backgroundImage = "url(files/2_flowers_2.png)";
+document.getElementById("layer2_3").style.backgroundImage = "url(files/2_flowers_3.png)";
+
+document.getElementById("layer2_1_hue").value = 335;
+document.getElementById("layer2_1_sat").value = 75;
+document.getElementById("layer2_1_bri").value = 102;
+color_layer2_1();
+
+document.getElementById("layer2_2_hue").value = 250;
+document.getElementById("layer2_2_sat").value = 14;
+document.getElementById("layer2_2_bri").value = 400;
+color_layer2_2();
+
+document.getElementById("layer2_3_hue").value = 250;
+document.getElementById("layer2_3_sat").value = 14;
+document.getElementById("layer2_3_bri").value = 400;
+color_layer2_3();
+
+document.getElementById("layer2_1_used").style.backgroundColor = "var(--pink)";
+document.getElementById("layer2_2_used").style.backgroundColor = "var(--pink)";
+document.getElementById("layer2_3_used").style.backgroundColor = "var(--pink)";
 }
 
 //layer 2 (coats)  -------------------------------------------------------------------
@@ -309,6 +402,72 @@ color_layer3_1();
 
 document.getElementById("layer3_1_used").style.backgroundColor = "var(--pink)";
 document.getElementById("layer3_2_used").style.backgroundColor = "transparent";
+document.getElementById("layer3_3_used").style.backgroundColor = "transparent";
+}
+
+//from musical chairs
+function layer3coatthingy() {
+document.getElementById("layer3_0").style.backgroundImage = "url(files/3_coatthingy_0.png)";
+document.getElementById("layer3_1").style.backgroundImage = "url(files/3_coatthingy_1.png)";
+document.getElementById("layer3_2").style.backgroundImage = "url(files/3_coatthingy_2.png)";
+document.getElementById("layer3_3").style.backgroundImage = "none";
+
+document.getElementById("layer3_1_hue").value = 180;
+document.getElementById("layer3_1_sat").value = 25;
+document.getElementById("layer3_1_bri").value = 330;
+color_layer3_1();
+
+document.getElementById("layer3_2_hue").value = 180;
+document.getElementById("layer3_2_sat").value = 21;
+document.getElementById("layer3_2_bri").value = 262;
+color_layer3_2();
+
+document.getElementById("layer3_1_used").style.backgroundColor = "var(--pink)";
+document.getElementById("layer3_2_used").style.backgroundColor = "var(--pink)";
+document.getElementById("layer3_3_used").style.backgroundColor = "transparent";
+}
+
+//our ancestors the humans
+function layer3princess() {
+document.getElementById("layer3_0").style.backgroundImage = "url(files/3_princess_0.png)";
+document.getElementById("layer3_1").style.backgroundImage = "url(files/3_princess_1.png)";
+document.getElementById("layer3_2").style.backgroundImage = "url(files/3_princess_2.png)";
+document.getElementById("layer3_3").style.backgroundImage = "none";
+
+document.getElementById("layer3_1_hue").value = 336;
+document.getElementById("layer3_1_sat").value = 27;
+document.getElementById("layer3_1_bri").value = 217;
+color_layer3_1();                               
+                                                
+document.getElementById("layer3_2_hue").value = 325;
+document.getElementById("layer3_2_sat").value = 50;
+document.getElementById("layer3_2_bri").value = 148;
+color_layer3_2();
+
+document.getElementById("layer3_1_used").style.backgroundColor = "var(--pink)";
+document.getElementById("layer3_2_used").style.backgroundColor = "var(--pink)";
+document.getElementById("layer3_3_used").style.backgroundColor = "transparent";
+}
+
+//fit 11
+function layer3fit11() {
+document.getElementById("layer3_0").style.backgroundImage = "url(files/3_fit11_0.png)";
+document.getElementById("layer3_1").style.backgroundImage = "url(files/3_fit11_1.png)";
+document.getElementById("layer3_2").style.backgroundImage = "url(files/3_fit11_2.png)";
+document.getElementById("layer3_3").style.backgroundImage = "none";
+
+document.getElementById("layer3_1_hue").value = 69;
+document.getElementById("layer3_1_sat").value = 12;
+document.getElementById("layer3_1_bri").value = 400;
+color_layer3_1();
+
+document.getElementById("layer3_2_hue").value = 60;
+document.getElementById("layer3_2_sat").value = 75;
+document.getElementById("layer3_2_bri").value = 215;
+color_layer3_2();
+
+document.getElementById("layer3_1_used").style.backgroundColor = "var(--pink)";
+document.getElementById("layer3_2_used").style.backgroundColor = "var(--pink)";
 document.getElementById("layer3_3_used").style.backgroundColor = "transparent";
 }
 
@@ -455,6 +614,89 @@ document.getElementById("layer4_2_used").style.backgroundColor = "var(--pink)";
 document.getElementById("layer4_3_used").style.backgroundColor = "var(--pink)";
 }
 
+//our ancestors the humans
+function layer4princess() {
+document.getElementById("layer4_0").style.backgroundImage = "url(files/4_princess_0.png)";
+document.getElementById("layer4_1").style.backgroundImage = "url(files/4_princess_1.png)";
+document.getElementById("layer4_2").style.backgroundImage = "none";
+document.getElementById("layer4_3").style.backgroundImage = "none";
+
+document.getElementById("layer4_1_hue").value = 336;
+document.getElementById("layer4_1_sat").value = 27;
+document.getElementById("layer4_1_bri").value = 217;
+color_layer4_1();
+
+document.getElementById("layer4_1_used").style.backgroundColor = "var(--pink)";
+document.getElementById("layer4_2_used").style.backgroundColor = "transparent";
+document.getElementById("layer4_4_used").style.backgroundColor = "transparent";
+}
+
+// REALIGNED default skirt/apron thingy
+function layer4defaultalt() {
+document.getElementById("layer4_0").style.backgroundImage = "url(files/4_defaultalt_0.png)";
+document.getElementById("layer4_1").style.backgroundImage = "url(files/4_defaultalt_1.png)";
+document.getElementById("layer4_2").style.backgroundImage = "url(files/4_defaultalt_2.png)";
+document.getElementById("layer4_3").style.backgroundImage = "none";
+
+document.getElementById("layer4_1_hue").value = 51;
+document.getElementById("layer4_1_sat").value = 95;
+document.getElementById("layer4_1_bri").value = 270;
+color_layer4_1();
+
+document.getElementById("layer4_2_hue").value = 0;
+document.getElementById("layer4_2_sat").value = 100;
+document.getElementById("layer4_2_bri").value = 57;
+color_layer4_2();
+
+document.getElementById("layer4_1_used").style.backgroundColor = "var(--pink)";
+document.getElementById("layer4_2_used").style.backgroundColor = "var(--pink)";
+document.getElementById("layer4_3_used").style.backgroundColor = "transparent";
+}
+
+//fit 11
+function layer4fit11() {
+document.getElementById("layer4_0").style.backgroundImage = "url(files/4_fit11_0.png)";
+document.getElementById("layer4_1").style.backgroundImage = "url(files/4_fit11_1.png)";
+document.getElementById("layer4_2").style.backgroundImage = "url(files/4_fit11_2.png)";
+document.getElementById("layer4_3").style.backgroundImage = "none";
+
+document.getElementById("layer4_1_hue").value = 232;
+document.getElementById("layer4_1_sat").value = 22;
+document.getElementById("layer4_1_bri").value = 146;
+color_layer4_1();
+
+document.getElementById("layer4_2_hue").value = 232;
+document.getElementById("layer4_2_sat").value = 23;
+document.getElementById("layer4_2_bri").value = 95;
+color_layer4_2();
+
+document.getElementById("layer4_1_used").style.backgroundColor = "var(--pink)";
+document.getElementById("layer4_2_used").style.backgroundColor = "var(--pink)";
+document.getElementById("layer4_3_used").style.backgroundColor = "transparent";
+}
+
+//madame zelza disguise
+function layer4flowers() {
+document.getElementById("layer4_0").style.backgroundImage = "url(files/4_flowers_0.png)";
+document.getElementById("layer4_1").style.backgroundImage = "url(files/4_flowers_1.png)";
+document.getElementById("layer4_2").style.backgroundImage = "url(files/4_flowers_2.png)";
+document.getElementById("layer4_3").style.backgroundImage = "none";
+
+document.getElementById("layer4_1_hue").value = 45;
+document.getElementById("layer4_1_sat").value = 91;
+document.getElementById("layer4_1_bri").value = 240;
+color_layer4_1();
+
+document.getElementById("layer4_2_hue").value = 168;
+document.getElementById("layer4_2_sat").value = 48;
+document.getElementById("layer4_2_bri").value = 241;
+color_layer4_2();
+
+document.getElementById("layer4_1_used").style.backgroundColor = "var(--pink)";
+document.getElementById("layer4_2_used").style.backgroundColor = "var(--pink)";
+document.getElementById("layer4_3_used").style.backgroundColor = "transparent";
+}
+
 //layer 4 (pants)  -------------------------------------------------------------------
 // ===================================================================================
 //layer 5 (shoes)  -------------------------------------------------------------------
@@ -574,6 +816,23 @@ document.getElementById("layer5_3").style.backgroundImage = "none";
 document.getElementById("layer5_1_hue").value = 62;
 document.getElementById("layer5_1_sat").value = 39;
 document.getElementById("layer5_1_bri").value = 290;
+color_layer5_1();
+
+document.getElementById("layer5_1_used").style.backgroundColor = "var(--pink)";
+document.getElementById("layer5_2_used").style.backgroundColor = "transparent";
+document.getElementById("layer5_3_used").style.backgroundColor = "transparent";
+}
+
+//fit 11
+function layer5fit11() {
+document.getElementById("layer5_0").style.backgroundImage = "url(files/5_fit11_0.png)";
+document.getElementById("layer5_1").style.backgroundImage = "url(files/5_fit11_1.png)";
+document.getElementById("layer5_2").style.backgroundImage = "none";
+document.getElementById("layer5_3").style.backgroundImage = "none";
+
+document.getElementById("layer5_1_hue").value = 44;
+document.getElementById("layer5_1_sat").value = 80;
+document.getElementById("layer5_1_bri").value = 115;
 color_layer5_1();
 
 document.getElementById("layer5_1_used").style.backgroundColor = "var(--pink)";

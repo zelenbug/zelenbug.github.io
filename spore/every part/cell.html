@@ -1,6 +1,6 @@
 <!DOCTYPE html><html><head>
 <title>Cell parts</title>
-<link rel="stylesheet" href="pages/files/style.css">
+<link rel="stylesheet" href="pages/files/style.css"><script src="pages/files/spoiler.js"></script>
 </head><body style="margin: 0px;">
 
 <div id="main">
@@ -11,15 +11,30 @@
 <a href="pages/cell arranged.html" class="tabbutton unused"   target="iframe"><span class="tooltip">Rearranged cell parts</span></a>
 <div class="divider"></div>
 <div class="tabtext">
-You need a minimum screen width of 1510px for convenience.<br>I dunno if the iframes are reasonable to use
+Minimum screen width 1140px. Some other stuff:
 
-<script src="pages/files/spoiler.js"></script>
-<button type="button" style="display: block;" onclick="spoiler()">Part lists</button>
-<div id="spoiler" style="visibility: hidden;">
-<a href="creature.html">Creature parts</a><br>
-Cell parts<br>
-<a href="paints.html">All paints</a><br>
-</div></div></div>
+<!-- dear god the code -->
+<div style="margin: 0 auto; width: 200px"><div style="display: inline-block">
+<button type="button" style="display: block;" class="dropdown" onclick="spoilerdropdown()">Cell parts</button>
+<div id="spoilerdropdown" style="visibility: hidden;">
+<a href="creature.html">Creature parts</a>
+<a href="outfitter.html">Outfitter parts</a>
+<div class="selected">Cell parts</div>
+<span class="miscinfo">Flora parts (to do)</span><br>
+<span class="miscinfo">Building parts (to do)</span><br>
+<span class="miscinfo">Vehicle/UFO parts (to do)</span><br>
+<a href="paints.html">All paints</a>
+</div>
+
+</div> <div style="display: inline-block">
+
+<button type="button" style="display: block;" onclick="spoiler2()">Additional info</button>
+<div id="spoiler2" style="visibility: hidden; width: 400px; right: 0px;">
+Model capabilities determine various stats, as well as abilities that the part gives. Charm is a model capability, so is health, so is any model capability that seems to just exist to define certain animations for the part<br><br>
+These parts are technically separate parts from their early creature part counterparts, and, for some reason, the cell mouth have creature mouth types and mouth priorities set (which affects the voices they use). The game doesn't treat them as creature mouths otherwise
+</div>
+
+</div></div></div></div>
 
 <iframe src="pages/cell normal.html" name="iframe"></iframe>
 

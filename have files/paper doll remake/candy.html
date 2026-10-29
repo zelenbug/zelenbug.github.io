@@ -3,6 +3,7 @@
 <script src="files/colorchange.js"></script>
 <script src="files/clotheschange.js"></script>
 <script src="files/tab.js"></script>
+<script src="files/clothessave.js"></script>
 <link rel="stylesheet" href="files/style.css">
 </head><body>
 
@@ -10,33 +11,33 @@
 
 <div style="display: flex; flex-wrap: wrap; justify-content: center; max-width: 1500px; margin: 0 auto;">
 
-<div class="piccontainer">
+<div class="piccontainer" id="bg">
 <div class="outfit" style="background-image: url(files/base.png)"></div>
 <!-- shoes -->
-<div class="outfit" id="layer5_0"></div>
-<div class="outfit" id="layer5_1"></div>
-<div class="outfit" id="layer5_2"></div>
-<div class="outfit" id="layer5_3"></div>
+<div class="outfit" id="layer5_0" style="background-image: none;"></div> <!-- including this only for the outfit code -->
+<div class="outfit" id="layer5_1" style="background-image: none;"></div>
+<div class="outfit" id="layer5_2" style="background-image: none;"></div>
+<div class="outfit" id="layer5_3" style="background-image: none;"></div>
 <!-- pants/skirts -->
 <div class="outfit" id="layer4_0" style="background-image: url(files/4_default0.png)"></div>
 <div class="outfit" id="layer4_1" style="background-image: url(files/4_default1.png); filter: hue-rotate(51deg) saturate(95%) brightness(270%)"></div>
 <div class="outfit" id="layer4_2" style="background-image: url(files/4_default2.png); filter: hue-rotate(0deg) saturate(100%) brightness(57%)"></div>
-<div class="outfit" id="layer4_3"></div>
+<div class="outfit" id="layer4_3" style="background-image: none;"></div>
 <!-- hats, forced to layer under shirts to allow for longer wigs and such -->
-<div class="outfit" id="layer1_0"></div>
-<div class="outfit" id="layer1_1"></div>
-<div class="outfit" id="layer1_2"></div>
-<div class="outfit" id="layer1_3"></div>
+<div class="outfit" id="layer1_0" style="background-image: none;"></div>
+<div class="outfit" id="layer1_1" style="background-image: none;"></div>
+<div class="outfit" id="layer1_2" style="background-image: none;"></div>
+<div class="outfit" id="layer1_3" style="background-image: none;"></div>
 <!-- shirts -->
-<div class="outfit" id="layer3_0"></div>
-<div class="outfit" id="layer3_1"></div>
-<div class="outfit" id="layer3_2"></div>
-<div class="outfit" id="layer3_3"></div>
+<div class="outfit" id="layer3_0" style="background-image: none;"></div>
+<div class="outfit" id="layer3_1" style="background-image: none;"></div>
+<div class="outfit" id="layer3_2" style="background-image: none;"></div>
+<div class="outfit" id="layer3_3" style="background-image: none;"></div>
 <!-- coats -->
-<div class="outfit" id="layer2_0"></div>
-<div class="outfit" id="layer2_1"></div>
-<div class="outfit" id="layer2_2"></div>
-<div class="outfit" id="layer2_3"></div>
+<div class="outfit" id="layer2_0" style="background-image: none;"></div>
+<div class="outfit" id="layer2_1" style="background-image: none;"></div>
+<div class="outfit" id="layer2_2" style="background-image: none;"></div>
+<div class="outfit" id="layer2_3" style="background-image: none;"></div>
 </div>
 
 
@@ -44,12 +45,12 @@
 
 <div class="tab">
   <div class="tablinks clicky active" onclick="opentab(event, 'tablayer1')">Layer 1<br>(hats/wigs)</div>
-  <div class="tablinks clicky" onclick="opentab(event, 'tablayer2')"       >Layer 2<br>(coats)</div>
+  <div class="tablinks clicky" onclick="opentab(event, 'tablayer2')"       >Layer 2<br>(outer)</div>
   <div class="tablinks clicky" onclick="opentab(event, 'tablayer3')"       >Layer 3<br>(shirts)</div>
   <div class="tablinks clicky" onclick="opentab(event, 'tablayer4')"       >Layer 4<br>(pants/skirts)</div>
   <div class="tablinks clicky" onclick="opentab(event, 'tablayer5')"       >Layer 5<br>(shoes)</div>
-  <div class="tablinks clicky" onclick="opentab(event, 'tabbackground')"   >Background<br>(wip)</div>
-  <div class="tablinks clicky" onclick="opentab(event, 'tabhelp')"         >Info<br>&nbsp;</div> <!-- the non breaking space is a hacky way to get the buttons to be all the same height -->
+  <div class="tablinks clicky" onclick="opentab(event, 'tabbackground')"   >Background<br>&nbsp;</div> <!-- the non breaking space is a hacky way to get the buttons to be all the same height -->
+  <div class="tablinks clicky" onclick="opentab(event, 'tabhelp')"         >Info<br>&nbsp;</div>
 </div>
 
 <!-- layer 1 hats ------------------------------------------------------- -->
@@ -60,7 +61,10 @@
 <br>
 <div class="selectclothes clicky" onclick="layer1fit2()"><img loading="lazy" src="files/1_fit2.png"><span class="tooltip">2nd outfit from the original</span></div>
 <div class="selectclothes clicky" onclick="layer1fit5()"><img loading="lazy" src="files/1_fit5.png"><span class="tooltip">5th outfit from the original</span></div>
+<div class="selectclothes clicky" onclick="layer1fit11()"><img loading="lazy" src="files/1_fit11.png"><span class="tooltip">11th outfit from the original</span></div>
 <div class="selectclothes clicky" onclick="layer1headband()"><img loading="lazy" src="files/1_headband.png"><span class="tooltip">Headband</span></div> <!-- from time for a change which i think is a bad episode but it was a good piece of clothing to add -->
+<div class="selectclothes clicky" onclick="layer1princess()"><img loading="lazy" src="files/1_princess.png"><span class="tooltip">Princess hennin (apparently)</span></div>
+<div class="selectclothes clicky" onclick="layer1flowers()"><img loading="lazy" src="files/1_flowers.png"><span class="tooltip">Flower</span></div>
 <div class="selectclothes clicky" onclick="layer1biker()"><img loading="lazy" src="files/1_biker.png"><span class="tooltip">Biker wig</span></div>
 <div class="selectclothes clicky" onclick="layer1witch()"><img loading="lazy" src="files/1_witch.png"><span class="tooltip">Witch hat from some DVD cover</span></div>
 
@@ -124,6 +128,7 @@
 <br>
 <div class="selectclothes clicky" onclick="layer2fit5()"><img loading="lazy" src="files/2_fit5.png"><span class="tooltip">5th outfit from the original (overalls)</span></div>
 <div class="selectclothes clicky" onclick="layer2vamp()"><img loading="lazy" src="files/2_vamp.png"><span class="tooltip">Vampire cloak (clips with most shirts poorly)</span></div>
+<div class="selectclothes clicky" onclick="layer2flowers()"><img loading="lazy" src="files/2_flowers.png"><span class="tooltip">More flowers</span></div>
 
 <hr>
 
@@ -186,7 +191,10 @@
 <div class="selectclothes clicky" onclick="layer3fit2()"><img loading="lazy" src="files/3_fit2.png"><span class="tooltip">2nd outfit from the original</span></div>
 <div class="selectclothes clicky" onclick="layer3fit5()"><img loading="lazy" src="files/3_fit5.png"><span class="tooltip">5th outfit from the original</span></div>
 <div class="selectclothes clicky" onclick="layer3fit6()"><img loading="lazy" src="files/3_fit6.png"><span class="tooltip">6th outfit from the original</span></div>
+<div class="selectclothes clicky" onclick="layer3fit11()"><img loading="lazy" src="files/3_fit11.png"><span class="tooltip">11th outfit from the original</span></div>
 <div class="selectclothes clicky" onclick="layer3fit12()"><img loading="lazy" src="files/3_fit12.png"><span class="tooltip">12th outfit from the original</span></div>
+<div class="selectclothes clicky" onclick="layer3princess()"><img loading="lazy" src="files/3_princess.png"><span class="tooltip">Princess upper dress</span></div>
+<div class="selectclothes clicky" onclick="layer3coatthingy()"><img loading="lazy" src="files/3_coatthingy.png"><span class="tooltip">Coat from like one episode</span></div>
 <div class="selectclothes clicky" onclick="layer3biker()"><img loading="lazy" src="files/3_biker.png"><span class="tooltip">Biker shirt(?)</span></div>
 <div class="selectclothes clicky" onclick="layer3turtleneck()"><img loading="lazy" src="files/3_turtleneck.png"><span class="tooltip">Turtleneck</span></div> <!-- s2 disguise works with overalls -->
 
@@ -247,12 +255,16 @@
 <div class="tabcontent" id="tablayer4">
 
 <div class="selectclothes clicky" onclick="layer4default()"><img loading="lazy" src="files/4_default.png"><span class="tooltip">Skirt apron thingy</span></div>
+<div class="selectclothes clicky" onclick="layer4defaultalt()"><img loading="lazy" src="files/4_defaultalt.png"><span class="tooltip">Alternate to better fit most shirts</span></div>
 <div class="selectclothes clicky" onclick="layer4remove()"><img loading="lazy" src="files/emptybutton.png"><span class="tooltip">Remove layer</span></div>
 <br>
 <div class="selectclothes clicky" onclick="layer4fit2()"><img loading="lazy" src="files/4_fit2.png"><span class="tooltip">2nd outfit from the original</span></div>
 <div class="selectclothes clicky" onclick="layer4fit5()"><img loading="lazy" src="files/4_fit5.png"><span class="tooltip">5th outfit from the original (overalls)</span></div>
 <div class="selectclothes clicky" onclick="layer4fit6()"><img loading="lazy" src="files/4_fit6.png"><span class="tooltip">6th outfit from the original</span></div>
+<div class="selectclothes clicky" onclick="layer4fit11()"><img loading="lazy" src="files/4_fit11.png"><span class="tooltip">11th outfit from the original</span></div>
 <div class="selectclothes clicky" onclick="layer4fit12()"><img loading="lazy" src="files/4_fit12.png"><span class="tooltip">12th outfit from the original</span></div>
+<div class="selectclothes clicky" onclick="layer4princess()"><img loading="lazy" src="files/4_princess.png"><span class="tooltip">Princess lower dress</span></div>
+<div class="selectclothes clicky" onclick="layer4flowers()"><img loading="lazy" src="files/4_flowers.png"><span class="tooltip">Flowery skirt</span></div>
 <div class="selectclothes clicky" onclick="layer4biker()"><img loading="lazy" src="files/4_biker.png"><span class="tooltip">Biker skirt</span></div>
 
 <hr>
@@ -316,6 +328,7 @@
 <div class="selectclothes clicky" onclick="layer5fit2()"><img loading="lazy" src="files/5_fit2.png"><span class="tooltip">2nd outfit from the original</span></div>
 <div class="selectclothes clicky" onclick="layer5fit5()"><img loading="lazy" src="files/5_fit5.png"><span class="tooltip">5th outfit from the original</span></div>
 <div class="selectclothes clicky" onclick="layer5fit6()"><img loading="lazy" src="files/5_fit6.png"><span class="tooltip">6th outfit from the original</span></div>
+<div class="selectclothes clicky" onclick="layer5fit11()"><img loading="lazy" src="files/5_fit11.png"><span class="tooltip">11th outfit from the original</span></div>
 <div class="selectclothes clicky" onclick="layer5fit12()"><img loading="lazy" src="files/5_fit12.png"><span class="tooltip">12th outfit from the original</span></div>
 <div class="selectclothes clicky" onclick="layer5fit12alt()"><img loading="lazy" src="files/5_fit12alt.png"><span class="tooltip">12th outfit from the original (alternate)</span></div>
 
@@ -375,9 +388,25 @@
 
 <div class="tabcontent" id="tabbackground">
 
-to add flat recolorable background and just regular background options. not a priority right now
-<!-- <input type="color"> use that -->
+Input background color (# isn't required in the color hex):
+<div class="inputblock">
+<input type="color" id="bgcolor" style="width: 66px;" value="#808080" onchange="bgrecolor()" class="clicky"><br>
+<input id="hexinput" type="text" style="width: 60px;" value="#808080" onchange="bgrecolorhex()">
+</div>
 
+<p>no selectable backgrounds currently, i'll see if i do actually want to add them (as drawing backgrounds isnt My Thing)</p>
+
+<p>boxes for generating and loading outfits will be here later!!! actually i already have generating outfit codes implemented but so far thats it</p>
+<!-- yup its already implemented partly LOL
+<div class="inline" style="width: 45%">output code:
+<textarea readonly class="outfitcode" id="codeoutput"></textarea><br>
+<button onclick="savefit()" class="clicky">generate outfit code</button>
+</div><div class="inline" style="width: 45%">input code:
+<textarea class="outfitcode" id="codeinput"></textarea><br>
+<button class="clicky">load outfit code</button>
+</div>
+<br>and example outfit buttons will be here. i think you click on a button and it replaces the code in the right textarea
+-->
 </div>
 
 <!-- help ---------------------------------------------------------- -->
@@ -399,13 +428,30 @@ this is a Space Goofs fan project, based on the original flash game by Xilam (re
 <a href="files/z.png" target="_blank">(view in full)</a>
 <p>(excuse the french LOL, i made these screenshots before i finished curating the game for flashpoint, and before i figured out how to actually get the game working in english. of course i was the one who curated it, it was my first curation even)</p>
 
-<p>todo
-<br>backgrounds..........
-<br>add ability to save and load outfits
-</p>
+<hr>
 
-<p>changelog
-<br>2026.10.16 - release!!!
+<p><b>changelog</b><ul style="padding-left: 15px">
+<li><b>2026.10.29</b>
+<br>- now theres a way to change background colors!
+<br>- added an alternate skirt/apron thing that aligns with the shirts better
+<br>- added coat from musical chairs
+<br>- added princess outfit from our ancestors the humans (since the original game had it in one of the backgrounds, but did NOT offer it as a clothing option)
+<br>- added 11th outfit from the original
+<br>- added disguise from madame zelza
+<br>- renamed layer 2 from the coat layer because it was not really having any coats
+<br>- changed like. a few pixels on her nose
+<br>- revamped how the changelog looks, as you can see
+</li><li><b>2026.10.16</b>
+<br>- release!!!</li>
+</ul></p> <!-- once again what problem does firefox view source have with this closing p tag -->
+
+<hr>
+
+<p><b>todo</b>
+<br><s>- backgrounds..........</s>
+<br>- add ability to save and load outfits. probably add into the background tab
+<br>- replace the used color indicators with a small box that just shows what the current color is
+<br>- add some of the other outfit suggestions i got
 </p>
 
 </div>

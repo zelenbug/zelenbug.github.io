@@ -54,6 +54,7 @@ border: 2px solid var(--purple);
 border-radius: 7.5px;
 background: var(--darkblue);
 cursor: pointer;
+color: white;
 }
 .clicky:hover, .active {background: var(--darkpurple); border-color: var(--pink);}
 .clicky:active {background: var(--dullblue);}
@@ -124,4 +125,19 @@ height: 15px;
 border-radius: 5px;
 margin: 10px auto;
 background-color: transparent;
+}
+
+/* outfit code boxes */
+.outfitcode {
+border: 2px solid var(--purple);
+border-radius: 7.5px;
+padding: 5px;
+font-family: monospace;
+word-break: break-word;
+height: 100px;
+width: 95%;
+background: var(--dullblue);
+color: white;
+margin: 5px 10px 5px 0;
+resize: none;
 }

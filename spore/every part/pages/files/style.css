@@ -2,26 +2,39 @@ body {
 font: 14px trebuchet ms, sans-serif;
 background: #203A4A;
 color: white;
+white-space: nowrap; /* hacky way to not wrap parts */
 }
 a { color: #66EFF7; text-decoration: none; }
 a:hover { text-decoration: underline; }
+.normalwrap {white-space: normal}
 
-#main {
-min-width: 1500px;
+#main { /* used in the pages with iframe headers */
+min-width: 1140px;
 margin: 0 auto;
+white-space: normal;
 }
 
 .partcontainer {
 display: inline-block;
+width: 24vw;
+max-width: 360px;
+min-width: 220px;
+white-space: normal;
 }
 
-.part, #spoiler {
-background-color: #192735b0;
+.part, #spoiler, #spoiler2 {
 padding: 5px;
-border: 2px solid #4598B9b0;
 border-radius: 6px;
 display: inline-block;
-width: 200px;
+white-space: normal;
+}
+
+.part {
+background-color: #192735b0;
+border: 2px solid #4598B9b0;
+max-width: 220px;
+min-width: 150px;
+box-sizing: border-box;
 }
 
 .partheader {
@@ -46,9 +59,9 @@ text-shadow: 0px 0px 3px #000000, 0px 0px 3px #000000;
 margin: 8px 0 0 0; /* centering */
 }
 /* this is for parts */
-.caplevel img {
-height: 25px;
-}
+.caplevel img {height: 25px;}
+
+/* ---------- verb icons ---------- */
 
 .verbicon {
 display: inline-block;
@@ -63,12 +76,25 @@ margin: 5px;
 .blue {background-color: #3B4FA8;}
 .red {background-color: #A41209;}
 .green {background-color: #55A046;}
+.veblue {background-color: #3FAFBA;}
+.vegreen {background-color: #6FB27F;}
 .verbicon > img {
 filter: drop-shadow(0.2px 0.2px 0 #1F1F3F) drop-shadow(-0.2px -0.2px 0 #1F1F3F) drop-shadow(-0.2px 0.2px 0 #1F1F3F) drop-shadow(0.2px -0.2px 0 #1F1F3F);
 opacity: 0.90;
 width: 15px;
 height: 15px;
 }
+/* verb icons without a background */
+.none {
+border: none;
+box-shadow: none;
+margin: 0 13px 0 0;
+position: relative;
+top: 3px;
+}
+.none > img {width: 22px; height: 22px; filter: none;}
+
+/* ---------- verb icons ---------- */
 
 .miscinfo {
 color: #C0C0C0;
@@ -83,7 +109,7 @@ td {padding-right: 5px; padding-left: 5px;}
 iframe {
 width: 100%;
 border: none;
-height: calc(100vh - 79px); /* making sure it fits, though it still cuts off a little at the bottom */
+height: calc(100vh - 71px); /* making sure it fits, though it still cuts off a little at the bottom */
 }
 
 .tab {background: linear-gradient(#3C5767 48%, #273642 52%, #19222A);}
@@ -104,38 +130,96 @@ margin: 5px 0; /* centering */
 }
 
 .tabtext {
-display: inline-block;
+float: right;
+position: relative;
+right: 10vw;
+margin-top: 10px;
 }
 
-#spoiler {
+/* style taken from RolloverVerbIcon */
+#spoiler, #spoiler2 {
 position: absolute;
 z-index: 1;
-backdrop-filter: blur(5px);
+max-height: 50vh;
+overflow-y: auto;
+width: 200px;
+background-color: #082B39f0;
+border: 1px solid #366E96a8;
+border-radius: 3px;
 }
 
-/* buttons */
+/* buttons. referenced -button.spui */
 
 button {
-background-color: #BEAA4C;
-border: 2px solid #978128;
-border-top-color: #F7F5EF;
-border-left-color: #F7F5EF;
-outline: 1px solid black;
-border-radius: 5px;
+background-color: #AA932C;
+border: 2px solid #847226;
+border-top-color: #DFDBC7;
+border-left-color: #DFDBC7;
+outline: 2px solid #111111;
+border-radius: 10px;
 margin: 5px 0px;
+box-shadow: 2px 2px 4px #000000aa;
 }
 button:hover {
-background-color: #E2CD6B;
-border: 2px solid #C0A63E;
-border-top-color: white;
-border-left-color: white;
+background-color: #EBDC7A;
+border: 2px solid #BDB063;
+border-top-color: #EFECD9;
+border-left-color: #EFECD9;
 }
 button:active {
-background-color: #A69234;
-border: 2px solid #7B6612;
-border-top-color: #EDE9D9;
-border-left-color: #EDE9D9;
-outline: 1px solid #3E2904;
+background-color: #C5B042;
+border: 2px solid #947704;
+border-top-color: #ECE4C7;
+border-left-color: #ECE4C7;
+outline: 2px solid #422A00;
+}
+
+/* -popup.spui -popup_item.spui*/
+.dropdown {
+color: white;
+background: linear-gradient(#879BAC, #567187 48%, #2E4D66 52%, #0D1A24);
+border: 1px solid #0B141D;
+outline: none;
+border-radius: 5px;
+width: 95px;
+}
+.dropdown:hover, .dropdown:active {
+background: linear-gradient(#98C0DB, #78B8D9 48%, #60AAD0 52%, #487493);
+border: 1px solid #3C5C78;
+outline: none;
+}
+#spoilerdropdown {
+position: absolute;
+z-index: 1;
+overflow-y: auto;
+width: 200px;
+background-color: #D8DCEDeb;
+border: 1px solid #366E96a8;
+border-radius: 3px;
+}
+#spoilerdropdown a {
+color: black;
+padding: 2px;
+padding-left: 15px;
+display: block;
+}
+#spoilerdropdown .selected {
+background-color: #EFF4FF;
+border: 1px solid #A8AAB7;
+border-left: none;
+border-right: none;
+color: black;
+}
+#spoilerdropdown .selected::before {content: "✓ ";}
+#spoilerdropdown .miscinfo {color: #707070; padding: 2px; padding-left: 15px; cursor: default;}
+#spoilerdropdown a:hover, #spoilerdropdown .selected:hover {
+text-decoration: none;
+color: white;
+background: linear-gradient(#3F4C59, #6D889D, #4F6F88, #516E85, #647D91);
+cursor: default;
+outline: 1px solid #77CAE5;
+outline-left: none;
+outline-right: none;
 }
 
 /* https://www.w3schools.com/css/css_tooltip.asp */
@@ -166,6 +250,12 @@ border-radius: 4px;
 .center {text-align: center;}
 
 .partimg { width: 128px; height: 128px; }
+
+/* dummy for vehicle parts since they dont have the text on the icon on the left */
+.noicon {height: 21px; display: inline-block}
+
+/* fixes the misaligned cap levels on cell and vehicle parts since they use icons, and for parts with military/religious/economic power */
+.cellvepart .caplevel, .vepower .verbicon {margin: 0}
 
 /* buttons with icons!!!!!!!!!! */
 
@@ -228,6 +318,34 @@ border-radius: 4px;
 .flepaints        {background-image: url(buttons/CIP_butn-section-civc-norm.png);}
 .flepaints:hover  {background-image: url(buttons/CIP_butn-section-civc-hl.png);}
 .flepaints:active {background-image: url(buttons/CIP_butn-section-civc-norm.png);}
+
+.hats        {background-image: url(buttons/EDT_access_hat_norm.png);}
+.hats:hover  {background-image: url(buttons/EDT_access_hat_hl.png);}
+.hats:active {background-image: url(buttons/EDT_access_hat_norm.png);}
+
+.masks        {background-image: url(buttons/CIP_butn-section-acc-norm.png);}
+.masks:hover  {background-image: url(buttons/CIP_butn-section-acc-hl.png);}
+.masks:active {background-image: url(buttons/CIP_butn-section-acc-norm.png);}
+
+.chest        {background-image: url(buttons/EDT_access_chest_norm.png);}
+.chest:hover  {background-image: url(buttons/EDT_access_chest_hl.png);}
+.chest:active {background-image: url(buttons/EDT_access_chest_norm.png);}
+
+.shoulders        {background-image: url(buttons/EDT_access_shoulders_norm.png);}
+.shoulders:hover  {background-image: url(buttons/EDT_access_shoulders_hl.png);}
+.shoulders:active {background-image: url(buttons/EDT_access_shoulders_norm.png);}
+
+.symbol        {background-image: url(buttons/EDT_access_symbols_norm.png);}
+.symbol:hover  {background-image: url(buttons/EDT_access_symbols_hl.png);}
+.symbol:active {background-image: url(buttons/EDT_access_symbols_norm.png);}
+
+.accdetail        {background-image: url(buttons/EDT_access_detail_norm.png);}
+.accdetail:hover  {background-image: url(buttons/EDT_access_detail_hl.png);}
+.accdetail:active {background-image: url(buttons/EDT_access_detail_norm.png);}
+
+.captain        {background-image: url(buttons/EDT_access_adventurer_norm.png);}
+.captain:hover  {background-image: url(buttons/EDT_access_adventurer_hl.png);}
+.captain:active {background-image: url(buttons/EDT_access_adventurer_norm.png);}
 
 /* to copy
 

@@ -442,3 +442,19 @@ document.getElementById("layer5_3_sat").value = sat;
 document.getElementById("layer5_3_bri").value = bri;
 color_layer5_3()
 }
+
+//hey its still changing colors isnt it?? ------------------------------------------------------------------------
+
+function bgrecolor() {
+bgcolor = document.getElementById("bgcolor").value;
+document.getElementById("hexinput").value = bgcolor;
+document.getElementById("bg").style.backgroundColor = bgcolor;
+}
+function bgrecolorhex() {
+colorhex = document.getElementById("hexinput").value;
+//ensures the # isnt required by removing it and just readding it anyway (so there isnt any ##)
+bgcolor = colorhex.replace("#", "");
+bgcolor = "#" + bgcolor;
+document.getElementById("bgcolor").value = bgcolor;
+bgrecolor()
+}

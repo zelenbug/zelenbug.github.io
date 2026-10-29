@@ -1,6 +1,6 @@
 <!DOCTYPE html><html><head>
 <title>Creature parts</title>
-<link rel="stylesheet" href="pages/files/style.css">
+<link rel="stylesheet" href="pages/files/style.css"><script src="pages/files/spoiler.js"></script>
 </head><body style="margin: 0px;">
 
 <div id="main">
@@ -21,15 +21,39 @@
 <a href="pages/creature unused.html"   class="tabbutton unused"   target="iframe"><span class="tooltip">Unused &amp; inaccessible</span></a>
 <div class="divider"></div>
 <div class="tabtext">
-You need a minimum screen width of 1510px for convenience.<br>I dunno if the iframes are reasonable to use
+Minimum screen width 1140px. Some other stuff:
 
-<script src="pages/files/spoiler.js"></script>
-<button type="button" style="display: block;" onclick="spoiler()">Part lists</button>
-<div id="spoiler" style="visibility: hidden;">
-Creature parts<br>
-<a href="cell.html">Cell parts</a><br>
-<a href="paints.html">All paints</a><br>
-</div></div></div>
+<!-- dear god the code -->
+<div style="margin: 0 auto; width: 200px"><div style="display: inline-block">
+<button type="button" style="display: block;" class="dropdown" onclick="spoilerdropdown()">Creature parts</button>
+<div id="spoilerdropdown" style="visibility: hidden;">
+<div class="selected">Creature parts</div>
+<a href="outfitter.html">Outfitter parts</a>
+<a href="cell.html">Cell parts</a>
+<span class="miscinfo">Flora parts (to do)</span><br>
+<span class="miscinfo">Building parts (to do)</span><br>
+<span class="miscinfo">Vehicle/UFO parts (to do)</span><br>
+<a href="paints.html">All paints</a>
+</div>
+
+</div> <div style="display: inline-block">
+
+<button type="button" style="display: block;" onclick="spoiler2()">Additional info</button>
+<div id="spoiler2" style="visibility: hidden; width: 400px; right: 0px;">
+Model capabilities determine various stats, as well as abilities that the part gives. Charm is a model capability, so is health, so is any model capability that seems to just exist to define certain animations for the part<br><br>
+Cuteness and meanness values exist for most creature parts, and I think they do seem to be used, like in SpeciesArchetypes (herdtypes~)<br><br>
+Parts that ignore skinpaint particles don't get affected by skinpaint brushes, so, for example, on the eggshell base paint (see the paints page to see which one it is), they will be the opposite color from the set base color<br><br>
+Models not being jigglable, or being extra jiggly, just determines how much it will jiggle around as the creature animates
+<hr>
+Mouth type determines the used voice for a mouth, and mouth priority determines the sapient creature mouth voice used on creature with multiple mouths (with different sapient mouth sounds). Mammal voices have a higher priority than bird mouths, and then insect mouths<br><br>
+Eye overlay is unused in retail Spore, same for the day and night vision values, but most eyes still retain them<br><br>
+Limb block counts is just the amount of parts (block) that they use, each limb segment is a part<br><br>
+I'm not sure what modelCapabilitySocial is!! Some parts with social stats don't have it, but some graspers that DON'T have social stats do have it<br><br>
+Foot type determines the sound used for footsteps. Feet with an undefined foot type just won't make any footstep sounds<br><br>
+modelCapabilityPoke/Bash/Slash seem unused?
+</div>
+
+</div></div></div></div>
 
 <iframe src="pages/creature mouths.html" name="iframe"></iframe>
 

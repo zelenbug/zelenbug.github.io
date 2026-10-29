@@ -1,10 +1,11 @@
 <!DOCTYPE html><html><head><link rel="stylesheet" href="files/style.css"></head><style>
-.part {width: 300px; margin: 10px 8px;}
-.emptypart {width: 314px; margin: 10px 8px;}
+.part {width: 300px; max-width: 300px; margin: 10px 8px;}
+.partcontainer {width: 350px; max-width: 350px;}
 </style><body>
 
 <h1>Flora paints</h1>
 
+<div class="normalwrap">
 Colors, used paints and descriptions come from the skinPaint_script~ files. Colors shown are as converted from floats in SporeModder FX, and might be ever so slightly off from their actual ingame color
 <br><br>You can view all flora paints applied to creatures (it's much easier to see here how they look like, in comparison to the paint icon) in the following posts from my blog:
 <a target="_blank" href="https://randomsporefacts.tumblr.com/post/771305149234855936/some-flora-paints-applied-onto-a-creature-with">post 1</a>,
@@ -15,6 +16,7 @@ Colors, used paints and descriptions come from the skinPaint_script~ files. Colo
 <a target="_blank" href="https://randomsporefacts.tumblr.com/post/772457100000493568/heres-the-flora-paint-themes-now-finally-viewed">post 6</a>
 <br>The really weird arrangement of paints (with random empty slots) is entirely accurate to the game
 <br>Another note: a color of (0, 0, 0) isn't actually pitch black, it just leaves the current base/coat/detail color on the creation intact (so most of the theme paints will not change any of the plant's colors, for example). Similarly, an unset paint (uses hash 0x00000000) doesn't change the respective paint slot
+</div>
 
 <br><br> <!-- divider!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 </div><hr>
@@ -893,7 +895,7 @@ skinpaint_florabase_lumpy<br>
 
 <br><hr>
 Fun fact: these last several theme paints are genuinely identical (aside from description) to just applying the same base paint by itself! Compare these files:<br>
-<div class="part" style="width: 500px"><div class="partheader">fe_skinpaint_floratheme_36.prop</div><pre>
+<div class="part" style="width: 500px; max-width: 500px;"><div class="partheader">fe_skinpaint_floratheme_36.prop</div><pre>
 key parent skinPaint_script~!TemplateSkinPaintTheme.prop
 string16 description "fe_skinpaint_floratheme_36"
 colorRGBs paintThemeColor1s
@@ -906,7 +908,7 @@ keys paintThemePaints
 	animations~
 	animations~
 end</pre></div>
-<div class="part" style="width: 500px"><div class="partheader">fe_skinpaint_florabase_lumpy.prop</div><pre>
+<div class="part" style="width: 500px; max-width: 500px;"><div class="partheader">fe_skinpaint_florabase_lumpy.prop</div><pre>
 key parent skinPaint_script~!TemplateSkinPaintTheme.prop
 string16 description "skinpaint_florabase_lumpy"
 colorRGBs paintThemeColor1s
