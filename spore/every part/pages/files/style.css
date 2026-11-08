@@ -257,6 +257,12 @@ border-radius: 4px;
 /* fixes the misaligned cap levels on cell and vehicle parts since they use icons, and for parts with military/religious/economic power */
 .cellvepart .caplevel, .vepower .verbicon {margin: 0}
 
+/* bullet lists in parts */
+ul {
+padding-left: 10px;
+margin: 5px 0 5px 0
+}
+
 /* buttons with icons!!!!!!!!!! */
 
 .mouths        {background-image: url(buttons/button-mouth-norm.png);}

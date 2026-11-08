@@ -1,7 +1,7 @@
 <!DOCTYPE html><html><head><link rel="stylesheet" href="files/style.css"></head><body>
 
 <h1>Unused &amp; inaccessible</h1>
-No part icons, so I took screenshots in Blender. Part information comes from the creature_rigblock~ files.<br>
+No part icons, so I took screenshots in Blender. Part information comes from the creature_rigblock~ files, and names from locale files.<br>
 Some of these parts may be used (like vertebrae and limb segments), but do not have part info viewable if you hover over them while holding I, so they're included here.<br>
 
 <br><script src="files/spoiler.js"></script>
@@ -146,7 +146,7 @@ Complexity: -
 <hr>
 <h2>Extra cell parts</h2>
 
-(Health with no level is "modelCapabilityHealth 0", which does nothing)<br><br>
+Health with no level is "modelCapabilityHealth 0", which does nothing. Long Eye is missing modelCapabilitySense 1 unlike the other cell eyes<br><br>
 
 <div class="partcontainer">
 <img class="partimg" loading="lazy" src="files/placeholder/ce_cell_mouth_filter_02.png">
@@ -471,7 +471,7 @@ Complexity: 6
 CE_cell_weapon_chemical_01<br>
 "(PLACEHOLDER)"
 <hr>
-modelCapabilityCellWeaponCharging: 1 (this is for animations only)
+modelCapabilityCellWeaponCharging: 1
 <hr>
 Parent: CreatureCellWeaponChemicalTemplate
 <table><tr><td>
@@ -492,7 +492,7 @@ Complexity: 6
 CE_cell_weapon_chemical_02<br>
 "(PLACEHOLDER)"
 <hr>
-modelCapabilityCellWeaponCharging: 1 (this is for animations only)
+modelCapabilityCellWeaponCharging: 1
 <hr>
 Parent: CreatureCellWeaponChemicalTemplate
 <table><tr><td>
@@ -513,7 +513,7 @@ Complexity: 6
 CE_cell_weapon_chemical_04<br>
 "(PLACEHOLDER)"
 <hr>
-modelCapabilityCellWeaponCharging: 1 (this is for animations only)
+modelCapabilityCellWeaponCharging: 1
 <hr>
 Parent: CreatureCellWeaponChemicalTemplate
 <table><tr><td>
@@ -536,7 +536,7 @@ Complexity: 12
 CE_cell_weapon_electrical_02<br>
 "(PLACEHOLDER)"
 <hr>
-modelCapabilityCellWeaponCharging: 1 (this is for animations only)
+modelCapabilityCellWeaponCharging: 1
 <hr>
 Parent: CreatureCellWeaponElectricTemplate
 <table><tr><td>
@@ -557,7 +557,7 @@ Complexity: 8
 CE_cell_weapon_electrical_03<br>
 "(PLACEHOLDER)"
 <hr>
-modelCapabilityCellWeaponCharging: 1 (this is for animations only)
+modelCapabilityCellWeaponCharging: 1
 <hr>
 Parent: CreatureCellWeaponElectricTemplate
 <table><tr><td>
@@ -578,7 +578,7 @@ Complexity: 8
 CE_cell_weapon_electrical_04<br>
 "Electrical 04 (PLACEHOLDER)"
 <hr>
-modelCapabilityCellWeaponCharging: 1 (this is for animations only)
+modelCapabilityCellWeaponCharging: 1
 <hr>
 Parent: CreatureCellWeaponElectricTemplate
 <table><tr><td>
@@ -777,8 +777,7 @@ Complexity: 8
 CE_cell_sense_eye_03<br>
 "Long Eye (PLACEHOLDER)"
 <hr>
-modelCapabilityEye 1<br>
-Missing modelCapabilitySense 1 unlike the other cell eyes
+modelCapabilityEye 1
 <hr>
 Parent: CreatureCellEyeStalkTemplate
 <table><tr><td>
@@ -858,6 +857,8 @@ Complexity: -
 <hr>
 <h2>Limb assemblies</h2>
 
+Used limb segment parts come from the .crt files found in AssembledContent<br><br>
+
 <div class="partcontainer">
 <img class="partimg" loading="lazy" src="files/placeholder/limb_assembly_x_arm_06.png">
 <div class="part">
@@ -869,8 +870,13 @@ Complexity: -
 Limb_assembly_x_arm_06<br>
 "Biped Limb (PLACEHOLDER)"
 <hr>
-Block count: 4
-<hr>
+Block count: 4<br>
+Assembly file: x_arm_06.crt<ul>
+<li>Limb_pelvic_smallNew</li>
+<li>Limb_UberLimb_forearmNew</li>
+<li>Limb_UberLimb_forearmNew</li>
+<li>CE_grasper_default_01</li>
+</ul><hr>
 Parent: -
 <table><tr><td>
 Cuteness: -<br>
@@ -892,8 +898,13 @@ Complexity: 9
 Limb_assembly_x_arm_14<br>
 "Biped Limb (PLACEHOLDER)"
 <hr>
-Block count: 4
-<hr>
+Block count: 4<br>
+Assembly file: x_arm_14.crt<ul>
+<li>Limb_pelvic_smallNew</li>
+<li>Limb_UberLimb_forearmNew</li>
+<li>Limb_UberLimb_forearmNew</li>
+<li>CE_grasper_default_01</li>
+</ul><hr>
 Parent: -
 <table><tr><td>
 Cuteness: -<br>
@@ -915,8 +926,12 @@ Complexity: 9
 Limb_assembly_x_leg_04<br>
 "Biped Limb (PLACEHOLDER)"
 <hr>
-Block count: 3
-<hr>
+Block count: 3<br>
+Assembly file: x_leg_04.crt<ul>
+<li>Limb_UberLimb_calfNew</li>
+<li>Limb_UberLimbNew</li>
+<li>CE_movement_default_01</li>
+</ul><hr>
 Parent: -
 <table><tr><td>
 Cuteness: -<br>
@@ -938,8 +953,12 @@ Complexity: 6
 Limb_assembly_x_leg_13<br>
 "Biped Limb (PLACEHOLDER)"
 <hr>
-Block count: 3
-<hr>
+Block count: 3<br>
+Assembly file: x_leg_13.crt<ul>
+<li>Limb_pelvic_smallNew</li>
+<li>Limb_pelvic_smallNew</li>
+<li>CE_movement_default_01</li>
+</ul><hr>
 Parent: -
 <table><tr><td>
 Cuteness: -<br>
@@ -952,27 +971,282 @@ Complexity: 6
 
 <br><br><!-- divider!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 
-<div class="normalwrap">Limb assemblies found in Spore_Content.package (which has Maxis creations, which limb assemblies technically are) that don't have a creature_rigblock~ file
-<br>The names are aliases, but come from their .crt files in AssembledContent<br>
+Older limb assemblies with no models or associated .crt files<br><br>
 
-<div style="display: inline-block"><img src="files/placeholder/LimbAssemblyBasic.png"><br>
-LimbAssemblyBasic</div>
-<div style="display: inline-block"><img src="files/placeholder/0x0660EAB3.png"><br>
-Weapon_limb_club01~</div>
-<div style="display: inline-block"><img src="files/placeholder/0x0660EAB8.png"><br>
-Weapon_limb_club02~</div>
-<div style="display: inline-block"><img src="files/placeholder/0x0660EACA.png"><br>
-Weapon_limb_club03~</div>
-<div style="display: inline-block"><img src="files/placeholder/0x0660F25A.png"><br>
-Weapon_limb_club04~</div>
-<div style="display: inline-block"><img src="files/placeholder/0x0660F279.png"><br>
-Weapon_limb_slash01~</div>
-<div style="display: inline-block"><img src="files/placeholder/0x0660F28B.png"><br>
-Weapon_limb_slash02~</div>
-<div style="display: inline-block"><img src="files/placeholder/0x0660F2BA.png"><br>
-Weapon_limb_slash03~</div>
-<div style="display: inline-block"><img src="files/placeholder/0x0660F2C0.png"><br>
-Weapon_limb_slash04~</div></div>
+<div class="partcontainer">
+<div style="width: 128px; height: 128px; display: inline-block;"></div>
+<div class="part">
+<div class="partheader">assembly Leg Insect</div>
+<div class="modelcaps">
+<div class="miscinfo">
+Limb_legInsect_01Assembly<br>
+"assembly Leg Insect (PLACEHOLDER)"
+<hr>
+Assembly file: 0x7977290E.crt<ul>
+</ul><hr>
+Parent: -
+<table><tr><td>
+Cuteness: -<br>
+Meanness: -
+</td><td>
+Unlock level: -<br>
+Complexity: 3
+<tr></table>
+</div></div></div></div>
+
+<div class="partcontainer">
+<div style="width: 128px; height: 128px; display: inline-block;"></div>
+<div class="part">
+<div class="partheader">assembly leg insect 03</div>
+<div class="modelcaps">
+<div class="miscinfo">
+Limb_legInsect_03Assembly<br>
+"assembly leg insect 03 (PLACEHOLDER)"
+<hr>
+Assembly file: 0x3676BF88.crt<ul>
+</ul><hr>
+Parent: -
+<table><tr><td>
+Cuteness: -<br>
+Meanness: -
+</td><td>
+Unlock level: -<br>
+Complexity: 3
+<tr></table>
+</div></div></div></div>
+
+<div class="partcontainer">
+<div style="width: 128px; height: 128px; display: inline-block;"></div>
+<div class="part">
+<div class="partheader">assembly limb insect 02</div>
+<div class="modelcaps">
+<div class="miscinfo">
+Limb_limbInsect_01Assembly<br>
+"assembly limb insect 02 (PLACEHOLDER)"
+<hr>
+Assembly file: 0xE9785AAE.crt<ul>
+</ul><hr>
+Parent: -
+<table><tr><td>
+Cuteness: -<br>
+Meanness: -
+</td><td>
+Unlock level: -<br>
+Complexity: 3
+<tr></table>
+</div></div></div></div>
+
+<div class="partcontainer">
+<div style="width: 128px; height: 128px; display: inline-block;"></div>
+<div class="part">
+<div class="partheader">assembly limb insect 03</div>
+<div class="modelcaps">
+<div class="miscinfo">
+Limb_limbInsect_02Assembly<br>
+"assembly limb insect 03 (PLACEHOLDER)"
+<hr>
+Assembly file: 0x3676BFD9.crt<ul>
+</ul><hr>
+Parent: -
+<table><tr><td>
+Cuteness: -<br>
+Meanness: -
+</td><td>
+Unlock level: -<br>
+Complexity: 3
+<tr></table>
+</div></div></div></div>
+
+<br><br><!-- divider!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+
+<div class="partcontainer">
+<div style="width: 128px; height: 128px; display: inline-block;"></div>
+<div class="part">
+<div class="partheader">Pelvic Limbus</div>
+<div class="modelcaps">
+<div class="miscinfo">
+Limb_pelvicAssembly<br>
+"Pelvic Limbus (PLACEHOLDER)"
+<hr>
+Assembly file: 0xE9785AAE.crt<ul>
+</ul><hr>
+Parent: -
+<table><tr><td>
+Cuteness: -<br>
+Meanness: -
+</td><td>
+Unlock level: -<br>
+Complexity: 3
+<tr></table>
+</div></div></div></div>
+
+<div class="partcontainer">
+<div style="width: 128px; height: 128px; display: inline-block;"></div>
+<div class="part">
+<div class="partheader">assembly leg model rump</div>
+<div class="modelcaps">
+<div class="miscinfo">
+Limb_pelvicAssembly_model<br>
+"assembly leg model rump (PLACEHOLDER)"
+<hr>
+Assembly file: AssemblyPelvicM.crt<ul>
+</ul><hr>
+Parent: -
+<table><tr><td>
+Cuteness: -<br>
+Meanness: -
+</td><td>
+Unlock level: -<br>
+Complexity: 3
+<tr></table>
+</div></div></div></div>
+
+<div class="partcontainer">
+<div style="width: 128px; height: 128px; display: inline-block;"></div>
+<div class="part">
+<div class="partheader">assembly tentacle</div>
+<div class="modelcaps">
+<div class="miscinfo">
+Limb_tentacle_01Assembly<br>
+"assembly tentacle (PLACEHOLDER)"
+<hr>
+Assembly file: AssemblyTentacle.crt<ul>
+</ul><hr>
+Parent: -
+<table><tr><td>
+Cuteness: -<br>
+Meanness: -
+</td><td>
+Unlock level: -<br>
+Complexity: 3
+<tr></table>
+</div></div></div></div>
+
+<div class="partcontainer">
+<div style="width: 128px; height: 128px; display: inline-block;"></div>
+<div class="part">
+<div class="partheader">Thoracic Limbus</div>
+<div class="modelcaps">
+<div class="miscinfo">
+Limb_thoracicAssembly<br>
+"Thoracic Limbus (PLACEHOLDER)"
+<hr>
+Assembly file: 0x3C4E066A.crt<ul>
+</ul><hr>
+Parent: -
+<table><tr><td>
+Cuteness: -<br>
+Meanness: -
+</td><td>
+Unlock level: -<br>
+Complexity: 3
+<tr></table>
+</div></div></div></div>
+
+<br><br><!-- divider!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+
+<div class="partcontainer">
+<div style="width: 128px; height: 128px; display: inline-block;"></div>
+<div class="part">
+<div class="partheader">Biped Limb<span class="price">$30</span></div>
+<div class="modelcaps">
+<div class="miscinfo">
+Limb_uprightAssembly<br>
+"Biped Limb (PLACEHOLDER)"
+<hr>
+Assembly file: 0x01C8FF3E.crt<ul>
+</ul><hr>
+Parent: -
+<table><tr><td>
+Cuteness: -<br>
+Meanness: -
+</td><td>
+Unlock level: 2<br>
+Complexity: 3
+<tr></table>
+</div></div></div></div>
+
+<br><br><!-- divider!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+
+<div class="normalwrap">Limb assemblies found in Spore_Content.package (which has Maxis creations, which limb assemblies technically are) that don't have a creature_rigblock~ file. Info from the .crt files found in AssembledContent (where the names for the aliases also come from) is still covered here</div><br>
+
+<div class="partcontainer"><img class="partimg" loading="lazy" src="files/placeholder/LimbAssemblyBasic.png">
+<div class="part"><div class="partheader">LimbAssemblyBasic</div><div class="modelcaps"><div class="miscinfo">
+Assembly file: LimbAssemblyBasic.crt<ul>
+<li>Limb_MiddleArm</li>
+<li>Limb_ForeArm</li>
+<li>ce_movement_bird_01</li>
+</div></div></div></div>
+
+<br><br><!-- divider!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+
+<div class="partcontainer"><img class="partimg" loading="lazy" src="files/placeholder/0x0660EAB3.png">
+<div class="part"><div class="partheader">Weapon_limb_club01~</div><div class="modelcaps"><div class="miscinfo">
+Assembly file: Weapon_limb_club01_@palette_editorModel!0x0660eab3.crt<ul>
+<li>Limb_pelvic_smallNew</li>
+<li>Limb_UberLimb_forearmNew</li>
+<li>ce_weapon_club_01</li>
+</div></div></div></div>
+
+<div class="partcontainer"><img class="partimg" loading="lazy" src="files/placeholder/0x0660EAB8.png">
+<div class="part"><div class="partheader">Weapon_limb_club02~</div><div class="modelcaps"><div class="miscinfo">
+Assembly file: Weapon_limb_club02_@palette_editorModel!0x0660eab8.crt<ul>
+<li>Limb_pelvic_smallNew</li>
+<li>Limb_UberLimb_forearmNew</li>
+<li>ce_weapon_club_02</li>
+</div></div></div></div>
+
+<div class="partcontainer"><img class="partimg" loading="lazy" src="files/placeholder/0x0660EACA.png">
+<div class="part"><div class="partheader">Weapon_limb_club03~</div><div class="modelcaps"><div class="miscinfo">
+Assembly file: Weapon_limb_club03_@palette_editorModel!0x0660eaca.crt<ul>
+<li>Limb_UberLimb_forearmNew</li>
+<li>Limb_UberLimb_forearmNew</li>
+<li>Limb_UberLimb_forearmNew</li>
+<li>ce_weapon_club_03</li>
+</div></div></div></div>
+
+<div class="partcontainer"><img class="partimg" loading="lazy" src="files/placeholder/0x0660F25A.png">
+<div class="part"><div class="partheader">Weapon_limb_club04~</div><div class="modelcaps"><div class="miscinfo">
+Assembly file: Weapon_limb_club04_@palette_editorModel!0x0660f25a.crt<ul>
+<li>Limb_pelvic_smallNew</li>
+<li>Limb_pelvic_smallNew</li>
+<li>Limb_UberLimb_forearmNew</li>
+<li>ce_weapon_club_04</li>
+</div></div></div></div>
+
+<br><br><!-- divider!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+
+<div class="partcontainer"><img class="partimg" loading="lazy" src="files/placeholder/0x0660F279.png">
+<div class="part"><div class="partheader">Weapon_limb_slash01~</div><div class="modelcaps"><div class="miscinfo">
+Assembly file: Weapon_limb_slash01_@palette_editorModel!0x0660f279.crt<ul>
+<li>Limb_pelvic_smallNew</li>
+<li>Limb_UberLimb_forearmNew</li>
+<li>ce_weapon_slasher_01</li>
+</div></div></div></div>
+
+<div class="partcontainer"><img class="partimg" loading="lazy" src="files/placeholder/0x0660F28B.png">
+<div class="part"><div class="partheader">Weapon_limb_slash02~</div><div class="modelcaps"><div class="miscinfo">
+Assembly file: Weapon_limb_slash02_@palette_editorModel!0x0660f28b.crt<ul>
+<li>Limb_pelvic_smallNew</li>
+<li>Limb_pelvic_smallNew</li>
+<li>ce_weapon_slasher_02</li>
+</div></div></div></div>
+
+<div class="partcontainer"><img class="partimg" loading="lazy" src="files/placeholder/0x0660F2BA.png">
+<div class="part"><div class="partheader">Weapon_limb_club04~</div><div class="modelcaps"><div class="miscinfo">
+Assembly file: Weapon_limb_slash03_@palette_editorModel!0x0660f2ba.crt<ul>
+<li>Limb_UberLimb_bicepNew</li>
+<li>Limb_UberLimb_forearmNew</li>
+<li>ce_weapon_slasher_03</li>
+</div></div></div></div>
+
+<div class="partcontainer"><img class="partimg" loading="lazy" src="files/placeholder/0x0660F2C0.png">
+<div class="part"><div class="partheader">Weapon_limb_slash04~</div><div class="modelcaps"><div class="miscinfo">
+Assembly file: Weapon_limb_slash04_@palette_editorModel!0x0660f2c0.crt<ul>
+<li>Limb_UberLimb_forearmNew</li>
+<li>Limb_UberLimb_forearmNew</li>
+<li>ce_weapon_slasher_04</li>
+</div></div></div></div>
 
 <br><br><!-- divider!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 <hr>
@@ -1001,6 +1275,37 @@ Unlock level: -<br>
 Complexity: -
 <tr></table>
 </div></div></div></div>
+
+<div class="normalwrap">todo lol. spore_game.package/editor_muscles~ has the files for blender<br>
+Limb_Calf
+Limb_ChubbyThigh
+Limb_ForeArm
+Limb_InsectThigh
+Limb_MiddleArm
+Limb_MiddleLeg
+Limb_pelvic_small
+Limb_pelvic_smallNew
+Limb_plain
+Limb_plain_bowed
+Limb_plain_bowedNew
+Limb_plainNew
+Limb_Shoulder
+Limb_skinnyMidLeg
+Limb_skinnyThigh
+Limb_skinnyThigh1
+Limb_skinnyThigh2
+Limb_skinnyThigh3
+Limb_StretchBone
+Limb_Thigh
+Limb_UberLimb
+Limb_UberLimb_bicep
+Limb_UberLimb_bicepNew
+Limb_UberLimb_calf
+Limb_UberLimb_calfNew
+Limb_UberLimb_forearm
+Limb_UberLimb_forearmNew
+Limb_UberLimbNew
+</div>
 
 <!-- divider!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 
@@ -1093,7 +1398,7 @@ ce_limb_exo_11<br>"calfMuscular (NOT LOCALIZED)"
 <img class="partimg" loading="lazy" src="files/placeholder/ce_limb_exo_12.png">
 <div class="part"><div class="partheader">***<span class="price">$15</span>
 </div><div class="modelcaps"><div class="miscinfo">
-ce_limb_exo_12<br>"calfMuscular (NOT LOCALIZED)"
+ce_limb_exo_12<br>"tibfib (NOT LOCALIZED)"
 <hr>modelCapabilityNoStretch 1<br>Doesn't use skin<hr>Parent: LimbRigblockTemplate<table><tr><td>Cuteness: -<br>Meanness: -</td><td>Unlock level: -<br>Complexity: 3<tr></table></div></div></div></div>
 
 <br><br><!-- divider!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
@@ -1102,15 +1407,42 @@ ce_limb_exo_12<br>"calfMuscular (NOT LOCALIZED)"
 <img class="partimg" loading="lazy" src="files/placeholder/ce_limb_exo_13.png">
 <div class="part"><div class="partheader">***<span class="price">$15</span>
 </div><div class="modelcaps"><div class="miscinfo">
-ce_limb_exo_13<br>"calfMuscular (NOT LOCALIZED)"
+ce_limb_exo_13<br>"thorny (NOT LOCALIZED)"
 <hr>modelCapabilityNoStretch 1<br>Doesn't use skin<hr>Parent: LimbRigblockTemplate<table><tr><td>Cuteness: -<br>Meanness: -</td><td>Unlock level: -<br>Complexity: 3<tr></table></div></div></div></div>
 
 <div class="partcontainer">
 <img class="partimg" loading="lazy" src="files/placeholder/ce_limb_exo_14.png">
 <div class="part"><div class="partheader">***<span class="price">$15</span>
 </div><div class="modelcaps"><div class="miscinfo">
-ce_limb_exo_14<br>"calfMuscular (NOT LOCALIZED)"
+ce_limb_exo_14<br>"shins (NOT LOCALIZED)"
 <hr>modelCapabilityNoStretch 1<br>Doesn't use skin<hr>Parent: LimbRigblockTemplate<table><tr><td>Cuteness: -<br>Meanness: -</td><td>Unlock level: -<br>Complexity: 3<tr></table></div></div></div></div>
+
+<div class="normalwrap">todo lol<br>
+ce_limb_alt_a_01
+ce_limb_alt_a_02
+ce_limb_alt_a_03
+ce_limb_alt_a_04
+ce_limb_alt_a_05
+ce_limb_alt_a_06
+ce_limb_alt_a_07
+ce_limb_alt_a_08
+ce_limb_alt_a_09
+ce_limb_alt_a_10
+ce_limb_alt_a_11
+ce_limb_alt_a_12
+ce_limb_alt_l_01
+ce_limb_alt_l_02
+ce_limb_alt_l_03
+ce_limb_alt_l_04
+ce_limb_alt_l_05
+ce_limb_alt_l_06
+ce_limb_alt_l_07
+ce_limb_alt_l_08
+ce_limb_alt_l_09
+ce_limb_alt_l_10
+ce_limb_alt_l_11
+ce_limb_alt_l_12
+</div>
 
 <br><br><!-- divider!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 
@@ -1219,5 +1551,56 @@ Unlock level: -<br>
 Complexity: 2
 <tr></table>
 </div></div></div></div>
+
+<br><br><!-- divider!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+<hr>
+<h2>Other</h2>
+
+<div class="normalwrap">Limb parts, assemblies, and a cake editor part listed in CreatureRigblocks.locale (sorted as in that file) whose prop files are no longer present:<br>
+<table>
+<tr><th>Prop file</th><th>blockName</th></tr>
+<tr><td>CE_leg_insect_01_calf</td><td>limb insect leg 01 calf</td></tr>
+<tr><td>CE_leg_insect_01_thigh</td><td>limb insect 01 thigh</td></tr>
+<tr><td>CE_leg_insect_02_calf</td><td>limb insect 02 calf</td></tr>
+<tr><td>CE_leg_insect_02_thigh</td><td>limb insect 02 thigh</td></tr>
+<tr><td>CE_leg_insect_grasshopper_femur</td><td>CE_leg_insect_grasshopper_femur</td></tr>
+<tr><td>CE_leg_insect_grasshopper_tarsus</td><td>CE_leg_insect_grasshopper_tarsus</td></tr>
+<tr><td>CE_leg_insect_grasshopper_tibia</td><td>CE_leg_insect_grasshopper_tibia</td></tr>
+<tr><td>CE_leg_mammal_pelvic_lower</td><td>limb mammal pelvic lower</td></tr>
+<tr><td>CE_leg_mammal_pelvic_upper</td><td>limb insect leg 01 calf</td></tr>
+<tr><td>CE_leg_mammal_pelvic_upperlimb</td><td>limb mammal pelvic upper</td></tr>
+<tr><td>Limb_armInsect_01Assembly</td><td>assembly arm insect</td></tr>
+<tr><td>Limb_ArmLongAssembly</td><td>Biped Limb</td></tr>
+<tr><td>Limb_assemblyArm1</td><td>Ambidextrous Limbus</td></tr>
+<tr><td>Limb_assemblyArm2</td><td>Muscular Limb</td></tr>
+<tr><td>Limb_assemblyArm3</td><td>Curvus Limbus</td></tr>
+<tr><td>Limb_assemblyLeg1</td><td>Quadraped Limb</td></tr>
+<tr><td>Limb_assemblyLeg2</td><td>Contrarium Limbus</td></tr>
+<tr><td>Limb_assemblyLeg3</td><td>leg needs name</td></tr>
+<tr><td>Limb_assemblyLeg4</td><td>leg needs name</td></tr>
+<tr><td>Limb_assemblyLeg5</td><td>leg needs name</td></tr>
+<tr><td>Limb_assembly_alien_backleg</td><td>Arched Limb</td></tr>
+<tr><td>Limb_assembly_alien_backleg2</td><td>Tentacle Limb</td></tr>
+<tr><td>Limb_assembly_animal_backleg</td><td>Quadraped Limb</td></tr>
+<tr><td>Limb_assembly_animal_frontleg</td><td>Muscular Limb</td></tr>
+<tr><td>Limb_Assembly_Basic</td><td>Basic Limb Assembly</td></tr>
+<tr><td>Limb_assembly_human_arm</td><td>Biped Limb</td></tr>
+<tr><td>Limb_assembly_tentacle_front</td><td>Scyphozoa Tentaculi</td></tr>
+<tr><td>Limb_assembly_tentacle_mid</td><td>Octopoda Tentaculi</td></tr>
+<tr><td>CE_mouth_beak_herbivore_04_dan</td><td>Ridged Bill</td></tr>
+</table><br>
+
+CE_mouth_beak_herbivore_04_dan is referenced in the cake editor files (Spore_Game.package\cake_editor_palette_items~\cake_page_parts.prop). Cake editor stuff will be in the building editor page, I think?<br><br>
+
+For whatever reason these still have textures in skinPaint_texture~. It's like they repurposed the same idea for exoskeleton limbs, though none of the textures match exactly!<br>
+Textures left to right are the diffuse, specBump and tintMask textures; top to bottom are the RGB channels and the alpha channel.
+<table><tr>
+<td><img loading="lazy" src="files/placeholder/CE_leg_insect_01_calf.png"><br>CE_leg_insect_01_calf (limb insect leg 01 calf)</td>
+<td><img loading="lazy" src="files/placeholder/CE_leg_insect_01_thigh.png"><br>CE_leg_insect_01_thigh (limb insect 01 thigh)</td>
+</tr><tr>
+<td><img loading="lazy" src="files/placeholder/CE_leg_insect_02_calf.png"><br>CE_leg_insect_02_calf (limb insect 02 calf)</td>
+<td><img loading="lazy" src="files/placeholder/CE_leg_insect_02_thigh.png"><br>CE_leg_insect_02_thigh (limb insect 02 thigh)</td>
+</tr></table>
+</div>
 
 </body></html>
