@@ -15,14 +15,14 @@ body {font: 16px trebuchet ms, sans-serif;}
 .resizer {width: 50px;}
 
 #spoiler {
-width: 500px;
+width: 550px;
 padding: 5px;
 border: 2px solid #8F8F9D;
 border-radius: 5px;
 background-color: #E3E3E8c0;
 z-index: 500;
 position: relative;
-height: 315px;
+height: 320px;
 }
 
 @keyframes hoverimg {
@@ -31,52 +31,76 @@ height: 315px;
 100% {background-color: #8000FF40;}
 }
 
+table {border-collapse: collapse;}
+hr { height: 2px; border-width: 0; background-color: #8F8F9D }
 </style></head><body>
 
 <button onclick="spoiler()" style="z-index: 500; position: relative;">open/close image selection</button>
 <div id="spoiler">
 
-selection has the image in the top left, images larger than the set width/height will be cropped (not resized). dragging and dropping images onto uploaders from file explorer works! <a href="index.html">back to index</a><br><br>
-<div style="display: inline-block; width: 250px">select an image to upload</div> image width/height<br>
-<input type="file" class="upload file-uploader1" name="upload image 1" accept ="image/*" onchange="upload1()">
+selection has the image in the top left. dragging and dropping images onto uploaders from file explorer works! <a href="index.html">back to index</a><hr>
+<table><tr><td>select image to upload</td><td>width/height</td><td>tile</td><td>resize
+</td></tr><tr><td>
+<input type="file" class="upload file-uploader1" name="upload image 1" accept ="image/*" onchange="upload1()"></td><td>
 <input type="number" value="200" id="width1" class="resizer" oninput="setsize1()"> x
-<input type="number" value="200" id="height1" class="resizer" oninput="setsize1()"> bottom layer
-<br>
-<input type="file" class="upload file-uploader2" name="upload image 2" accept ="image/*" onchange="upload2()">
+<input type="number" value="200" id="height1" class="resizer" oninput="setsize1()"></td><td>
+<input type="checkbox" id="tile1" onclick="tilepic1()"></td><td>
+<input type="checkbox" id="resize1" onclick="resizepic1()"> bottom layer
+</td></tr><tr><td>
+<input type="file" class="upload file-uploader2" name="upload image 2" accept ="image/*" onchange="upload2()"></td><td>
 <input type="number" value="200" id="width2" class="resizer" oninput="setsize2()"> x
-<input type="number" value="200" id="height2" class="resizer" oninput="setsize2()">
-<br>
-<input type="file" class="upload file-uploader3" name="upload image 3" accept ="image/*" onchange="upload3()">
+<input type="number" value="200" id="height2" class="resizer" oninput="setsize2()"></td><td>
+<input type="checkbox" id="tile2" onclick="tilepic2()"></td><td>
+<input type="checkbox" id="resize2" onclick="resizepic2()">
+</td></tr><tr><td>
+<input type="file" class="upload file-uploader3" name="upload image 3" accept ="image/*" onchange="upload3()"></td><td>
 <input type="number" value="200" id="width3" class="resizer" oninput="setsize3()"> x
-<input type="number" value="200" id="height3" class="resizer" oninput="setsize3()">
-<br>
-<input type="file" class="upload file-uploader4" name="upload image 4" accept ="image/*" onchange="upload4()">
+<input type="number" value="200" id="height3" class="resizer" oninput="setsize3()"></td><td>
+<input type="checkbox" id="tile3" onclick="tilepic3()"></td><td>
+<input type="checkbox" id="resize3" onclick="resizepic3()">
+</td></tr><tr><td>
+<input type="file" class="upload file-uploader4" name="upload image 4" accept ="image/*" onchange="upload4()"></td><td>
 <input type="number" value="200" id="width4" class="resizer" oninput="setsize4()"> x
-<input type="number" value="200" id="height4" class="resizer" oninput="setsize4()">
-<br>
-<input type="file" class="upload file-uploader5" name="upload image 5" accept ="image/*" onchange="upload5()">
+<input type="number" value="200" id="height4" class="resizer" oninput="setsize4()"></td><td>
+<input type="checkbox" id="tile4" onclick="tilepic4()"></td><td>
+<input type="checkbox" id="resize4" onclick="resizepic4()">
+</td></tr><tr><td>
+<input type="file" class="upload file-uploader5" name="upload image 5" accept ="image/*" onchange="upload5()"></td><td>
 <input type="number" value="200" id="width5" class="resizer" oninput="setsize5()"> x
-<input type="number" value="200" id="height5" class="resizer" oninput="setsize5()">
-<br>
-<input type="file" class="upload file-uploader6" name="upload image 6" accept ="image/*" onchange="upload6()">
+<input type="number" value="200" id="height5" class="resizer" oninput="setsize5()"></td><td>
+<input type="checkbox" id="tile5" onclick="tilepic5()"></td><td>
+<input type="checkbox" id="resize5" onclick="resizepic5()">
+</td></tr><tr><td>
+<input type="file" class="upload file-uploader6" name="upload image 6" accept ="image/*" onchange="upload6()"></td><td>
 <input type="number" value="200" id="width6" class="resizer" oninput="setsize6()"> x
-<input type="number" value="200" id="height6" class="resizer" oninput="setsize6()">
-<br>
-<input type="file" class="upload file-uploader7" name="upload image 7" accept ="image/*" onchange="upload7()">
+<input type="number" value="200" id="height6" class="resizer" oninput="setsize6()"></td><td>
+<input type="checkbox" id="tile6" onclick="tilepic6()"></td><td>
+<input type="checkbox" id="resize6" onclick="resizepic6()">
+</td></tr><tr><td>
+<input type="file" class="upload file-uploader7" name="upload image 7" accept ="image/*" onchange="upload7()"></td><td>
 <input type="number" value="200" id="width7" class="resizer" oninput="setsize7()"> x
-<input type="number" value="200" id="height7" class="resizer" oninput="setsize7()">
-<br>
-<input type="file" class="upload file-uploader8" name="upload image 8" accept ="image/*" onchange="upload8()">
+<input type="number" value="200" id="height7" class="resizer" oninput="setsize7()"></td><td>
+<input type="checkbox" id="tile7" onclick="tilepic7()"></td><td>
+<input type="checkbox" id="resize7" onclick="resizepic7()">
+</td></tr><tr><td>
+<input type="file" class="upload file-uploader8" name="upload image 8" accept ="image/*" onchange="upload8()"></td><td>
 <input type="number" value="200" id="width8" class="resizer" oninput="setsize8()"> x
-<input type="number" value="200" id="height8" class="resizer" oninput="setsize8()">
-<br>
-<input type="file" class="upload file-uploader9" name="upload image 9" accept ="image/*" onchange="upload9()">
+<input type="number" value="200" id="height8" class="resizer" oninput="setsize8()"></td><td>
+<input type="checkbox" id="tile8" onclick="tilepic8()"></td><td>
+<input type="checkbox" id="resize8" onclick="resizepic8()">
+</td></tr><tr><td>
+<input type="file" class="upload file-uploader9" name="upload image 9" accept ="image/*" onchange="upload9()"></td><td>
 <input type="number" value="200" id="width9" class="resizer" oninput="setsize9()"> x
-<input type="number" value="200" id="height9" class="resizer" oninput="setsize9()">
-<br>
-<input type="file" class="upload file-uploader10" name="upload image 10" accept ="image/*" onchange="upload10()">
+<input type="number" value="200" id="height9" class="resizer" oninput="setsize9()"></td><td>
+<input type="checkbox" id="tile9" onclick="tilepic9()"></td><td>
+<input type="checkbox" id="resize9" onclick="resizepic9()">
+</td></tr><tr><td>
+<input type="file" class="upload file-uploader10" name="upload image 10" accept ="image/*" onchange="upload10()"></td><td>
 <input type="number" value="200" id="width10" class="resizer" oninput="setsize10()"> x
-<input type="number" value="200" id="height10" class="resizer" oninput="setsize10()"> top layer
+<input type="number" value="200" id="height10" class="resizer" oninput="setsize10()"></td><td>
+<input type="checkbox" id="tile10" onclick="tilepic10()"></td><td>
+<input type="checkbox" id="resize10" onclick="resizepic10()"> top layer
+</td></tr></table>
 
 </div>
 
@@ -357,4 +381,107 @@ else
 {document.getElementById('spoiler') .style.visibility='hidden'}
 }
 
+// now for image tiling. also partly edited from the above code
+function tilepic1() {
+if (document.getElementById('tile1').checked)
+{document.getElementById('draggablediv1').style.backgroundRepeat='repeat'} else
+{document.getElementById('draggablediv1').style.backgroundRepeat='no-repeat'}
+}
+function tilepic2() {
+if (document.getElementById('tile2').checked)
+{document.getElementById('draggablediv2').style.backgroundRepeat='repeat'} else
+{document.getElementById('draggablediv2').style.backgroundRepeat='no-repeat'}
+}
+function tilepic3() {
+if (document.getElementById('tile3').checked)
+{document.getElementById('draggablediv3').style.backgroundRepeat='repeat'} else
+{document.getElementById('draggablediv3').style.backgroundRepeat='no-repeat'}
+}
+function tilepic4() {
+if (document.getElementById('tile4').checked)
+{document.getElementById('draggablediv4').style.backgroundRepeat='repeat'} else
+{document.getElementById('draggablediv4').style.backgroundRepeat='no-repeat'}
+}
+function tilepic5() {
+if (document.getElementById('tile5').checked)
+{document.getElementById('draggablediv5').style.backgroundRepeat='repeat'} else
+{document.getElementById('draggablediv5').style.backgroundRepeat='no-repeat'}
+}
+function tilepic6() {
+if (document.getElementById('tile6').checked)
+{document.getElementById('draggablediv6').style.backgroundRepeat='repeat'} else
+{document.getElementById('draggablediv6').style.backgroundRepeat='no-repeat'}
+}
+function tilepic7() {
+if (document.getElementById('tile7').checked)
+{document.getElementById('draggablediv7').style.backgroundRepeat='repeat'} else
+{document.getElementById('draggablediv7').style.backgroundRepeat='no-repeat'}
+}
+function tilepic8() {
+if (document.getElementById('tile8').checked)
+{document.getElementById('draggablediv8').style.backgroundRepeat='repeat'} else
+{document.getElementById('draggablediv8').style.backgroundRepeat='no-repeat'}
+}
+function tilepic9() {
+if (document.getElementById('tile9').checked)
+{document.getElementById('draggablediv9').style.backgroundRepeat='repeat'} else
+{document.getElementById('draggablediv9').style.backgroundRepeat='no-repeat'}
+}
+function tilepic10() {
+if (document.getElementById('tile10').checked)
+{document.getElementById('draggablediv10').style.backgroundRepeat='repeat'} else
+{document.getElementById('draggablediv10').style.backgroundRepeat='no-repeat'}
+}
+
+// same but for image size
+function resizepic1() {
+if (document.getElementById('resize1').checked)
+{document.getElementById('draggablediv1').style.backgroundSize='contain'} else
+{document.getElementById('draggablediv1').style.backgroundSize='auto'}
+}
+function resizepic2() {
+if (document.getElementById('resize2').checked)
+{document.getElementById('draggablediv2').style.backgroundSize='contain'} else
+{document.getElementById('draggablediv2').style.backgroundSize='auto'}
+}
+function resizepic3() {
+if (document.getElementById('resize3').checked)
+{document.getElementById('draggablediv3').style.backgroundSize='contain'} else
+{document.getElementById('draggablediv3').style.backgroundSize='auto'}
+}
+function resizepic4() {
+if (document.getElementById('resize4').checked)
+{document.getElementById('draggablediv4').style.backgroundSize='contain'} else
+{document.getElementById('draggablediv4').style.backgroundSize='auto'}
+}
+function resizepic5() {
+if (document.getElementById('resize5').checked)
+{document.getElementById('draggablediv5').style.backgroundSize='contain'} else
+{document.getElementById('draggablediv5').style.backgroundSize='auto'}
+}
+function resizepic6() {
+if (document.getElementById('resize6').checked)
+{document.getElementById('draggablediv6').style.backgroundSize='contain'} else
+{document.getElementById('draggablediv6').style.backgroundSize='auto'}
+}
+function resizepic7() {
+if (document.getElementById('resize7').checked)
+{document.getElementById('draggablediv7').style.backgroundSize='contain'} else
+{document.getElementById('draggablediv7').style.backgroundSize='auto'}
+}
+function resizepic8() {
+if (document.getElementById('resize8').checked)
+{document.getElementById('draggablediv8').style.backgroundSize='contain'} else
+{document.getElementById('draggablediv8').style.backgroundSize='auto'}
+}
+function resizepic9() {
+if (document.getElementById('resize9').checked)
+{document.getElementById('draggablediv9').style.backgroundSize='contain'} else
+{document.getElementById('draggablediv9').style.backgroundSize='auto'}
+}
+function resizepic10() {
+if (document.getElementById('resize10').checked)
+{document.getElementById('draggablediv10').style.backgroundSize='contain'} else
+{document.getElementById('draggablediv10').style.backgroundSize='auto'}
+}
 </script></html>
