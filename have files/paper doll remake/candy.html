@@ -49,8 +49,8 @@
   <div class="tablinks clicky" onclick="opentab(event, 'tablayer3')"       >Layer 3<br>(shirts)</div>
   <div class="tablinks clicky" onclick="opentab(event, 'tablayer4')"       >Layer 4<br>(pants/skirts)</div>
   <div class="tablinks clicky" onclick="opentab(event, 'tablayer5')"       >Layer 5<br>(shoes)</div>
-  <div class="tablinks clicky" onclick="opentab(event, 'tabbackground')"   >Background<br>&nbsp;</div> <!-- the non breaking space is a hacky way to get the buttons to be all the same height -->
-  <div class="tablinks clicky" onclick="opentab(event, 'tabhelp')"         >Info<br>&nbsp;</div>
+  <div class="tablinks clicky" onclick="opentab(event, 'tabbackground')"   >Background<br>Save/load</div>
+  <div class="tablinks clicky" onclick="opentab(event, 'tabhelp')"         >Info<br>&nbsp;</div> <!-- the non breaking space is a hacky way to get the buttons to be all the same height -->
 </div>
 
 <!-- layer 1 hats ------------------------------------------------------- -->
@@ -63,7 +63,9 @@
 <div class="selectclothes clicky" onclick="layer1fit5()"><img loading="lazy" src="files/1_fit5.png"><span class="tooltip">5th outfit from the original</span></div>
 <div class="selectclothes clicky" onclick="layer1fit11()"><img loading="lazy" src="files/1_fit11.png"><span class="tooltip">11th outfit from the original</span></div>
 <div class="selectclothes clicky" onclick="layer1headband()"><img loading="lazy" src="files/1_headband.png"><span class="tooltip">Headband</span></div> <!-- from time for a change which i think is a bad episode but it was a good piece of clothing to add -->
+<div class="selectclothes clicky" onclick="layer1exerc()"><img loading="lazy" src="files/1_exerc.png"><span class="tooltip">Exercise headband</span></div>
 <div class="selectclothes clicky" onclick="layer1princess()"><img loading="lazy" src="files/1_princess.png"><span class="tooltip">Princess hennin (apparently)</span></div>
+<div class="selectclothes clicky" onclick="layer1hippie()"><img loading="lazy" src="files/1_hippie.png"><span class="tooltip">Hippie(?) wig</span></div>
 <div class="selectclothes clicky" onclick="layer1flowers()"><img loading="lazy" src="files/1_flowers.png"><span class="tooltip">Flower</span></div>
 <div class="selectclothes clicky" onclick="layer1biker()"><img loading="lazy" src="files/1_biker.png"><span class="tooltip">Biker wig</span></div>
 <div class="selectclothes clicky" onclick="layer1witch()"><img loading="lazy" src="files/1_witch.png"><span class="tooltip">Witch hat from some DVD cover</span></div>
@@ -83,6 +85,7 @@
 <input type="range" class="slider" id="layer1_1_bri" value="100" min="0" max="400" oninput="color_layer1_1()">
 <input type="text" id="layer1_1_bri_label" class="inline" value="100" onfocusout="color_layer1_1_label()"><br>
 
+<button class="clicky" onclick="copy_layer1_1()">Copy color</button><button class="clicky" onclick="paste_layer1_1()">Paste color</button><br>
 <div class="usedcolor" id="layer1_1_used"></div>
 </div>
 
@@ -99,6 +102,7 @@
 <input type="range" class="slider" id="layer1_2_bri" value="100" min="0" max="400" oninput="color_layer1_2()">
 <input type="text" id="layer1_2_bri_label" class="inline" value="100" onfocusout="color_layer1_2_label()"><br>
 
+<button class="clicky" onclick="copy_layer1_2()">Copy color</button><button class="clicky" onclick="paste_layer1_2()">Paste color</button><br>
 <div class="usedcolor" id="layer1_2_used"></div>
 </div> <!-- what problem does firefoxs view-source have with this closing div tag specifically -->
 
@@ -115,8 +119,11 @@
 <input type="range" class="slider" id="layer1_3_bri" value="100" min="0" max="400" oninput="color_layer1_3()">
 <input type="text" id="layer1_3_bri_label" class="inline" value="100" onfocusout="color_layer1_3_label()"><br>
 
+<button class="clicky" onclick="copy_layer1_3()">Copy color</button><button class="clicky" onclick="paste_layer1_3()">Paste color</button><br>
 <div class="usedcolor" id="layer1_3_used"></div>
 </div>
+
+<br><div class="usedcolor copied" id="copiedcolor1" style="filter: hue-rotate(150deg) saturate(0%) brightness(300%)"></div> Copied color
 
 </div>
 
@@ -145,6 +152,7 @@
 <input type="range" class="slider" id="layer2_1_bri" value="100" min="0" max="400" oninput="color_layer2_1()">
 <input type="text" id="layer2_1_bri_label" class="inline" value="100" onfocusout="color_layer2_1_label()"><br>
 
+<button class="clicky" onclick="copy_layer2_1()">Copy color</button><button class="clicky" onclick="paste_layer2_1()">Paste color</button><br>
 <div class="usedcolor" id="layer2_1_used"></div>
 </div>
 
@@ -161,6 +169,7 @@
 <input type="range" class="slider" id="layer2_2_bri" value="100" min="0" max="400" oninput="color_layer2_2()">
 <input type="text" id="layer2_2_bri_label" class="inline" value="100" onfocusout="color_layer2_2_label()"><br>
 
+<button class="clicky" onclick="copy_layer2_2()">Copy color</button><button class="clicky" onclick="paste_layer2_2()">Paste color</button><br>
 <div class="usedcolor" id="layer2_2_used"></div>
 </div>
 
@@ -177,8 +186,11 @@
 <input type="range" class="slider" id="layer2_3_bri" value="100" min="0" max="400" oninput="color_layer2_3()">
 <input type="text" id="layer2_3_bri_label" class="inline" value="100" onfocusout="color_layer2_3_label()"><br>
 
+<button class="clicky" onclick="copy_layer2_3()">Copy color</button><button class="clicky" onclick="paste_layer2_3()">Paste color</button><br>
 <div class="usedcolor" id="layer2_3_used"></div>
 </div>
+
+<br><div class="usedcolor copied" id="copiedcolor2" style="filter: hue-rotate(150deg) saturate(0%) brightness(300%)"></div> Copied color
 
 </div>
 
@@ -193,9 +205,11 @@
 <div class="selectclothes clicky" onclick="layer3fit6()"><img loading="lazy" src="files/3_fit6.png"><span class="tooltip">6th outfit from the original</span></div>
 <div class="selectclothes clicky" onclick="layer3fit11()"><img loading="lazy" src="files/3_fit11.png"><span class="tooltip">11th outfit from the original</span></div>
 <div class="selectclothes clicky" onclick="layer3fit12()"><img loading="lazy" src="files/3_fit12.png"><span class="tooltip">12th outfit from the original</span></div>
+<div class="selectclothes clicky" onclick="layer3blb()"><img loading="lazy" src="files/3_blb.png"><span class="tooltip">That oversized shirt</span></div>
 <div class="selectclothes clicky" onclick="layer3princess()"><img loading="lazy" src="files/3_princess.png"><span class="tooltip">Princess upper dress</span></div>
+<div class="selectclothes clicky" onclick="layer3hippie()"><img loading="lazy" src="files/3_hippie.png"><span class="tooltip">Hippie(?) shirt</span></div>
 <div class="selectclothes clicky" onclick="layer3coatthingy()"><img loading="lazy" src="files/3_coatthingy.png"><span class="tooltip">Coat from like one episode</span></div>
-<div class="selectclothes clicky" onclick="layer3biker()"><img loading="lazy" src="files/3_biker.png"><span class="tooltip">Biker shirt(?)</span></div>
+<div class="selectclothes clicky" onclick="layer3biker()"><img loading="lazy" src="files/3_biker.png"><span class="tooltip">Biker tube top</span></div>
 <div class="selectclothes clicky" onclick="layer3turtleneck()"><img loading="lazy" src="files/3_turtleneck.png"><span class="tooltip">Turtleneck</span></div> <!-- s2 disguise works with overalls -->
 
 <hr>
@@ -213,6 +227,7 @@
 <input type="range" class="slider" id="layer3_1_bri" value="100" min="0" max="400" oninput="color_layer3_1()">
 <input type="text" id="layer3_1_bri_label" class="inline" value="100" onfocusout="color_layer3_1_label()"><br>
 
+<button class="clicky" onclick="copy_layer3_1()">Copy color</button><button class="clicky" onclick="paste_layer3_1()">Paste color</button><br>
 <div class="usedcolor" id="layer3_1_used"></div>
 </div>
 
@@ -229,6 +244,7 @@
 <input type="range" class="slider" id="layer3_2_bri" value="100" min="0" max="400" oninput="color_layer3_2()">
 <input type="text" id="layer3_2_bri_label" class="inline" value="100" onfocusout="color_layer3_2_label()"><br>
 
+<button class="clicky" onclick="copy_layer3_2()">Copy color</button><button class="clicky" onclick="paste_layer3_2()">Paste color</button><br>
 <div class="usedcolor" id="layer3_2_used"></div>
 </div>
 
@@ -245,8 +261,11 @@
 <input type="range" class="slider" id="layer3_3_bri" value="100" min="0" max="400" oninput="color_layer3_3()">
 <input type="text" id="layer3_3_bri_label" class="inline" value="100" onfocusout="color_layer3_3_label()"><br>
 
+<button class="clicky" onclick="copy_layer3_3()">Copy color</button><button class="clicky" onclick="paste_layer3_3()">Paste color</button><br>
 <div class="usedcolor" id="layer3_3_used"></div>
 </div>
+
+<br><div class="usedcolor copied" id="copiedcolor3" style="filter: hue-rotate(150deg) saturate(0%) brightness(300%)"></div> Copied color
 
 </div>
 
@@ -263,7 +282,9 @@
 <div class="selectclothes clicky" onclick="layer4fit6()"><img loading="lazy" src="files/4_fit6.png"><span class="tooltip">6th outfit from the original</span></div>
 <div class="selectclothes clicky" onclick="layer4fit11()"><img loading="lazy" src="files/4_fit11.png"><span class="tooltip">11th outfit from the original</span></div>
 <div class="selectclothes clicky" onclick="layer4fit12()"><img loading="lazy" src="files/4_fit12.png"><span class="tooltip">12th outfit from the original</span></div>
+<div class="selectclothes clicky" onclick="layer4exerc()"><img loading="lazy" src="files/4_exerc.png"><span class="tooltip">Exercise pants</span></div>
 <div class="selectclothes clicky" onclick="layer4princess()"><img loading="lazy" src="files/4_princess.png"><span class="tooltip">Princess lower dress</span></div>
+<div class="selectclothes clicky" onclick="layer4hippie()"><img loading="lazy" src="files/4_hippie.png"><span class="tooltip">Hippie(?) pants</span></div>
 <div class="selectclothes clicky" onclick="layer4flowers()"><img loading="lazy" src="files/4_flowers.png"><span class="tooltip">Flowery skirt</span></div>
 <div class="selectclothes clicky" onclick="layer4biker()"><img loading="lazy" src="files/4_biker.png"><span class="tooltip">Biker skirt</span></div>
 
@@ -271,18 +292,19 @@
 
 <div class="inputblock inline">
 <label for="layer4_1_hue">Color 1 hue</label><br>
-<input type="range" class="slider" id="layer4_1_hue" value="55" min="0" max="360" oninput="color_layer4_1()">
+<input type="range" class="slider" id="layer4_1_hue" value="51" min="0" max="360" oninput="color_layer4_1()">
 <input type="text" id="layer4_1_hue_label" class="inline" value="51" onfocusout="color_layer4_1_label()"><br>
 
 <label for="layer4_1_sat">Color 1 saturation</label><br>
-<input type="range" class="slider" id="layer4_1_sat" value="100" min="0" max="400" oninput="color_layer4_1()">
+<input type="range" class="slider" id="layer4_1_sat" value="95" min="0" max="400" oninput="color_layer4_1()">
 <input type="text" id="layer4_1_sat_label" class="inline" value="95" onfocusout="color_layer4_1_label()"><br>
 
 <label for="layer4_1_bri">Color 1 brightness</label><br>
-<input type="range" class="slider" id="layer4_1_bri" value="300" min="0" max="400" oninput="color_layer4_1()">
+<input type="range" class="slider" id="layer4_1_bri" value="270" min="0" max="400" oninput="color_layer4_1()">
 <input type="text" id="layer4_1_bri_label" class="inline" value="270" onfocusout="color_layer4_1_label()"><br>
 
-<div class="usedcolor" id="layer4_1_used" style="background-color: var(--pink)"></div>
+<button class="clicky" onclick="copy_layer4_1()">Copy color</button><button class="clicky" onclick="paste_layer4_1()">Paste color</button><br>
+<div class="usedcolor" id="layer4_1_used" style="visibility: visible; filter: hue-rotate(51deg) saturate(95%) brightness(270%)"></div>
 </div>
 
 <div class="inputblock inline">
@@ -295,10 +317,11 @@
 <input type="text" id="layer4_2_sat_label" class="inline" value="100" onfocusout="color_layer4_2_label()"><br>
 
 <label for="layer4_2_bri">Color 2 brightness</label><br>
-<input type="range" class="slider" id="layer4_2_bri" value="60" min="0" max="400" oninput="color_layer4_2()">
+<input type="range" class="slider" id="layer4_2_bri" value="57" min="0" max="400" oninput="color_layer4_2()">
 <input type="text" id="layer4_2_bri_label" class="inline" value="57" onfocusout="color_layer4_2_label()"><br>
 
-<div class="usedcolor" id="layer4_2_used" style="background-color: var(--pink)"></div>
+<button class="clicky" onclick="copy_layer4_2()">Copy color</button><button class="clicky" onclick="paste_layer4_2()">Paste color</button><br>
+<div class="usedcolor" id="layer4_2_used" style="visibility: visible; filter: hue-rotate(0deg) saturate(100%) brightness(57%)"></div>
 </div>
 
 <div class="inputblock inline">
@@ -314,8 +337,11 @@
 <input type="range" class="slider" id="layer4_3_bri" value="100" min="0" max="400" oninput="color_layer4_3()">
 <input type="text" id="layer4_3_bri_label" class="inline" value="100" onfocusout="color_layer4_3_label()"><br>
 
+<button class="clicky" onclick="copy_layer4_3()">Copy color</button><button class="clicky" onclick="paste_layer4_3()">Paste color</button><br>
 <div class="usedcolor" id="layer4_3_used"></div>
 </div>
+
+<br><div class="usedcolor copied" id="copiedcolor4" style="filter: hue-rotate(150deg) saturate(0%) brightness(300%)"></div> Copied color
 
 </div>
 
@@ -331,6 +357,7 @@
 <div class="selectclothes clicky" onclick="layer5fit11()"><img loading="lazy" src="files/5_fit11.png"><span class="tooltip">11th outfit from the original</span></div>
 <div class="selectclothes clicky" onclick="layer5fit12()"><img loading="lazy" src="files/5_fit12.png"><span class="tooltip">12th outfit from the original</span></div>
 <div class="selectclothes clicky" onclick="layer5fit12alt()"><img loading="lazy" src="files/5_fit12alt.png"><span class="tooltip">12th outfit from the original (alternate)</span></div>
+<div class="selectclothes clicky" onclick="layer5hippie()"><img loading="lazy" src="files/5_hippie.png"><span class="tooltip">Hippie(?) slippers</span></div>
 
 <hr>
 
@@ -347,6 +374,7 @@
 <input type="range" class="slider" id="layer5_1_bri" value="100" min="0" max="400" oninput="color_layer5_1()">
 <input type="text" id="layer5_1_bri_label" class="inline" value="100" onfocusout="color_layer5_1_label()"><br>
 
+<button class="clicky" onclick="copy_layer5_1()">Copy color</button><button class="clicky" onclick="paste_layer5_1()">Paste color</button><br>
 <div class="usedcolor" id="layer5_1_used"></div>
 </div>
 
@@ -363,6 +391,7 @@
 <input type="range" class="slider" id="layer5_2_bri" value="100" min="0" max="400" oninput="color_layer5_2()">
 <input type="text" id="layer5_2_bri_label" class="inline" value="100" onfocusout="color_layer5_2_label()"><br>
 
+<button class="clicky" onclick="copy_layer5_2()">Copy color</button><button class="clicky" onclick="paste_layer5_2()">Paste color</button><br>
 <div class="usedcolor" id="layer5_2_used"></div>
 </div>
 
@@ -379,8 +408,11 @@
 <input type="range" class="slider" id="layer5_3_bri" value="100" min="0" max="400" oninput="color_layer5_3()">
 <input type="text" id="layer5_3_bri_label" class="inline" value="100" onfocusout="color_layer5_3_label()"><br>
 
+<button class="clicky" onclick="copy_layer5_3()">Copy color</button><button class="clicky" onclick="paste_layer5_3()">Paste color</button><br>
 <div class="usedcolor" id="layer5_3_used"></div>
 </div>
+
+<br><div class="usedcolor copied" id="copiedcolor5" style="filter: hue-rotate(150deg) saturate(0%) brightness(300%)"></div> Copied color
 
 </div>
 
@@ -388,25 +420,36 @@
 
 <div class="tabcontent" id="tabbackground">
 
-Input background color (# isn't required in the color hex):
+Input background color (# isn't required in the color hex). Unsure if I'll be adding background images
 <div class="inputblock">
-<input type="color" id="bgcolor" style="width: 66px;" value="#808080" onchange="bgrecolor()" class="clicky"><br>
-<input id="hexinput" type="text" style="width: 60px;" value="#808080" onchange="bgrecolorhex()">
+<input type="color" id="bgcolor" style="width: 66px;" value="#ffffff" onchange="bgrecolor()" class="clicky"><br>
+<input id="hexinput" type="text" style="width: 60px;" value="#ffffff" onchange="bgrecolorhex()">
 </div>
 
-<p>no selectable backgrounds currently, i'll see if i do actually want to add them (as drawing backgrounds isnt My Thing)</p>
+<p>You can generate and load outfit codes here. Copy and paste the codes from the left textbox somewhere to save or share them!! You'll have to regenerate the code every time you make a change to the outfit, to be clear. You can then paste a code into the right textbox to load an outfit!</p>
 
-<p>boxes for generating and loading outfits will be here later!!! actually i already have generating outfit codes implemented but so far thats it</p>
-<!-- yup its already implemented partly LOL
-<div class="inline" style="width: 45%">output code:
+<div class="inline" style="width: 45%">Output code:
 <textarea readonly class="outfitcode" id="codeoutput"></textarea><br>
-<button onclick="savefit()" class="clicky">generate outfit code</button>
-</div><div class="inline" style="width: 45%">input code:
+<button onclick="savefit()" class="clicky">Generate outfit code</button>
+</div><div class="inline" style="width: 45%">Input code:
 <textarea class="outfitcode" id="codeinput"></textarea><br>
-<button class="clicky">load outfit code</button>
+<button onclick="loadfit()" class="clicky">Load outfit code</button>
 </div>
-<br>and example outfit buttons will be here. i think you click on a button and it replaces the code in the right textarea
--->
+<p>Tip: when loading an outfit, you can remove the very last variable in the code (make sure it doesn't end on a comma!) to keep the background color intact.</p>
+
+<p>Example outfits by me, for inspiration or something!!!<br>
+<button class="clicky" onclick="fit0()">Default</button>
+<button class="clicky" onclick="fit1()">I used it to test outfit codes</button>
+<button class="clicky" onclick="fit2()">Biker variant from @spacegoofs.com</button>
+<button class="clicky" onclick="fit3()">Overalls variant from Soap Chick</button>
+
+<details><summary class="clicky" style="padding: 3px">Known issue with outfit codes not generating</summary>
+<p>I found, at least on desktop Firefox, if you close the tab and reopen it with "reopen closed tab", generating outfit codes doesn't update the output box anymore. Refreshing the page also doesn't help, and to fix it, you have either Ctrl+F5, or click on the address bar and press Enter to reset the page. No clue what the problem is???</p>
+<p>If this happens to you and you don't want to reset the page and lose your outfit, use inspect element, and click on the Console tab. The correct outfit code will be logged there. If you're on mobile, just look up how to open inspect element for your browser, I guess.</p>
+Here's a bonus outfit(?) <button class="clicky" onclick="fitcyan()">Bonus (just turns the clothes cyan)</button>, this happens because of some JS quirks
+</details>
+</p>
+
 </div>
 
 <!-- help ---------------------------------------------------------- -->
@@ -416,22 +459,30 @@ Input background color (# isn't required in the color hex):
 this is a Space Goofs fan project, based on the original flash game by Xilam (redrawn with more clothing options and recolorability). the original game is available on <a href="https://flashpointarchive.org/" target="_blank">flashpoint</a>
 <br>art &amp; coding by <a href="https://zelenbug.github.io" target="_blank">zelenbug</a>. not affiliated with xilam in any way
 
-<p>the color sliders actually modify an image with filters, and it can be difficult to get a color right, so try fiddling around with the sliders. even tweaking the hue on something with 0 brightness and 400 saturation (like if you want white clothes) will affect its brightness!
-<br>the pink box under a color just marks that its used by the selected clothing piece</p>
+<p>the color sliders actually modify an image with filters, and it can be difficult to get a color right, so try fiddling around with the sliders. even tweaking the hue on something with 0 brightness and 400 saturation (like if you want white clothes) will affect its brightness!</p>
 
 <p>you can click on the value of a color slider and type it in manually to set it more precisely as well. the color will update once you click away from the input box</p>
 
 <p>the colors will reset if you switch to a different outfit piece for the layer, so be warned!!</p>
 
-<p>some of the clothes are based on the original game, and go together in sets here as well, but it should be easier to mix them together now (with the ability to actually recolor clothes). here are all the original sets</p>
+<p>some of the clothes are based on the original game, and go together in sets here as well, but it should be easier to mix them together now (with the ability to actually recolor clothes)</p>
+<details><summary class="clicky" style="padding: 3px">view all the original sets</summary>
 <img loading="lazy" src="files/z.png" style="max-width: 100%">
 <a href="files/z.png" target="_blank">(view in full)</a>
-<p>(excuse the french LOL, i made these screenshots before i finished curating the game for flashpoint, and before i figured out how to actually get the game working in english. of course i was the one who curated it, it was my first curation even)</p>
+<p>(excuse the french LOL, i made these screenshots before i finished curating the game for flashpoint, and before i figured out how to actually get the game working in english. of course i was the one who curated it, it was my first curation even)</p></details>
 
 <hr>
 
 <p><b>changelog</b><ul style="padding-left: 15px">
-<li><b>2026.10.29</b>
+<li><b>2026.xx.xx</b>
+<br>- added clothes from sweet tooth blues, bad luck blues (lol nice names) and operation guinea pig
+<br>- implemented saved and loading outfits
+<br>- implemented copying and pasting individual colors
+<br>- the boxes under a used color now indicate what the color actually is
+<br>- hid the original outfits up there under a details tag
+<br>- renamed Biker shirt(?) i looked up what it was supposed to be called
+<br>- fixed the princess lower dress not changing the state of the third layer 4 color being used
+</li><li><b>2026.10.29</b>
 <br>- now theres a way to change background colors!
 <br>- added an alternate skirt/apron thing that aligns with the shirts better
 <br>- added coat from musical chairs
@@ -447,11 +498,13 @@ this is a Space Goofs fan project, based on the original flash game by Xilam (re
 
 <hr>
 
-<p><b>todo</b>
+<p><b>todo</b><br>
 <br><s>- backgrounds..........</s>
-<br>- add ability to save and load outfits. probably add into the background tab
-<br>- replace the used color indicators with a small box that just shows what the current color is
+<br><s>- add ability to save and load outfits. probably add into the background tab</s>
+<br><s>- replace the used color indicators with a small box that just shows what the current color is</s>
 <br>- add some of the other outfit suggestions i got
+<br>- look more into the generate codebox problem
+<br>- for the code gen so it actually changes which color boxes get shown under a selected outfit (and simplifies outfit codes). instead of manually changing the images and colors separately, selecting a clothing piece should set a value which the code gen references, and then uses the same function that runs if you click on an outfit piece, then runs the colors. i have to add these values for each clothing piece though
 </p>
 
 </div>

@@ -37,6 +37,23 @@ padding: 5px;
 }
 
 hr { height: 2px; border-width: 0; background-color: #3D505C }
+
+#inputblocks, #usedblocks {
+display: inline-block;
+width: calc(50% - 10px);
+margin: 5px;
+height: 75vh;
+box-sizing: border-box;
+}
+
+#usedblocks {
+border: 2px solid #3D505C;
+border-radius: 5px;
+overflow-y: auto;
+font-size: 14px;
+text-align: left;
+padding: 5px;
+}
 </style></head><body>
 
 <div id="main">
@@ -63,11 +80,21 @@ Paints are the skineffect1 through 3 values
 The part name is specifically the second hash in its blockid
 <pre>&lt;blockid&gt;0x40626000, <b>0xd05c53a3</b>&lt;/blockid&gt;</pre><br>
 
-Paints for individal parts are in the paintid value for a part
+Paints for individual parts are in the paintid value for a part
 <pre>&lt;paintid&gt;0xd49dbfac&lt;/paintid&gt;</pre><br>
 
 Hashes for morph handles are found for each part too, in weight channels
 <pre>&lt;weight channel=&quot;0x9bfe8bf8&quot;&gt;0.676777&lt;/weight&gt;</pre>
+
+<br><hr><br>
+
+This will read the model type, paints and blocks for any creation XML. Note that the XML has to be split by line!
+<br>
+<textarea id="inputblocks"></textarea><div id="usedblocks"></div>
+<button onclick="findallblocks(0)">Get all blocks</button>
+<button onclick="findallblocks(1)">Get all blocks (with paints on parts)</button>
+
+<br><br>Printing with paints on parts works for both buildings/vehicles AND creatures with Advanced Creature Paint!!
 
 </div>
 
@@ -82,7 +109,7 @@ let blockid = blockmap.indexOf(inputted) + 1;
 document.getElementById("converted").innerHTML = blockmap[blockid];
 }
 
-//AND THIS IS THE HUGE BLOCKMAP ARARY!!!!!!!!!!!
+//AND THIS IS THE HUGE BLOCKMAP ARARY!!!!!!!!!!! lol i typod array
 
 const blockmap = [ "unknown",
 //blockmap.xml from the spore website
@@ -1904,8 +1931,8 @@ const blockmap = [ "unknown",
 
 //but i guess blockmap didnt have flora parts!!!
 
-"0x080d75a6", "branches_MetaballBone",
-"0xef95831f", "branches_standard",
+"0x080d75a6", "Branches_MetaBallBone",
+"0xef95831f", "Branches_Standard",
 "0xcd8f004a", "FE_assembly_branch_01",
 "0xcd8f0049", "FE_assembly_branch_02",
 "0x2d6f007e", "FE_assembly_limb_01",
@@ -1919,52 +1946,52 @@ const blockmap = [ "unknown",
 "0x2a56398b", "FE_assembly_taproot",
 "0x60481a54", "FE_assembly_tentacle_01",
 "0x60481a57", "FE_assembly_tentacle_02",
-"0x38931371", "fe_branch_01",
-"0x80879a82", "fe_branch_01a",
-"0x38931372", "fe_branch_02",
-"0x81879c17", "fe_branch_02a",
-"0x38931373", "fe_branch_03",
-"0x38931374", "fe_branch_04",
-"0x83879ffd", "fe_branch_04a",
-"0x38931375", "fe_branch_05",
-"0x8487a14e", "fe_branch_05a",
-"0x8587a2a3", "fe_branch_06a",
-"0x8687a434", "fe_branch_07a",
+"0x38931371", "FE_branch_01",
+"0x80879a82", "FE_branch_01a",
+"0x38931372", "FE_branch_02",
+"0x81879c17", "FE_branch_02a",
+"0x38931373", "FE_branch_03",
+"0x38931374", "FE_branch_04",
+"0x83879ffd", "FE_branch_04a",
+"0x38931375", "FE_branch_05",
+"0x8487a14e", "FE_branch_05a",
+"0x8587a2a3", "FE_branch_06a",
+"0x8687a434", "FE_branch_07a",
 "0x4f2fbcca", "FE_branch_assemblage_01",
 "0x4f2fbcc9", "FE_branch_assemblage_02",
-"0x1377a037", "fe_branch_standard",
-"0x825c3e51", "fe_canopy_01",
-"0x825c3e52", "fe_canopy_02",
-"0x825c3e53", "fe_canopy_03",
-"0x825c3e54", "fe_canopy_04",
-"0x825c3e55", "fe_canopy_05",
-"0x825c3e56", "fe_canopy_06",
-"0x825c3e57", "fe_canopy_07",
-"0x825c3e59", "fe_canopy_09",
-"0x835c3fc3", "fe_canopy_10",
-"0x835c3fc2", "fe_canopy_11",
-"0x835c3fc1", "fe_canopy_12",
-"0x6f9bbc38", "fe_cap_01a",
-"0x6c9bb7c1", "fe_cap_02a",
-"0x6d9bb952", "fe_cap_03a",
-"0x729bc173", "fe_cap_04a",
-"0x739bc2c4", "fe_cap_05a",
-"0x709bbd8d", "fe_cap_06a",
-"0xe253ae02", "fe_creatureperch",
-"0x7300efe8", "fe_detail_01",
-"0x7300efeb", "fe_detail_02",
-"0x7300efea", "fe_detail_03",
-"0x7300efed", "fe_detail_04",
+"0x1377a037", "FE_branch_standard",
+"0x825c3e51", "FE_canopy_01",
+"0x825c3e52", "FE_canopy_02",
+"0x825c3e53", "FE_canopy_03",
+"0x825c3e54", "FE_canopy_04",
+"0x825c3e55", "FE_canopy_05",
+"0x825c3e56", "FE_canopy_06",
+"0x825c3e57", "FE_canopy_07",
+"0x825c3e59", "FE_canopy_09",
+"0x835c3fc3", "FE_canopy_10",
+"0x835c3fc2", "FE_canopy_11",
+"0x835c3fc1", "FE_canopy_12",
+"0x6f9bbc38", "FE_cap_01a",
+"0x6c9bb7c1", "FE_cap_02a",
+"0x6d9bb952", "FE_cap_03a",
+"0x729bc173", "FE_cap_04a",
+"0x739bc2c4", "FE_cap_05a",
+"0x709bbd8d", "FE_cap_06a",
+"0xe253ae02", "FE_creatureperch",
+"0x7300efe8", "FE_detail_01",
+"0x7300efeb", "FE_detail_02",
+"0x7300efea", "FE_detail_03",
+"0x7300efed", "FE_detail_04",
 "0x16a9bdbe", "FE_flatleaf_01",
 "0x16a9bdbd", "FE_flatleaf_02",
 "0x16a9bdbc", "FE_flatleaf_03",
 "0x16a9bdbb", "FE_flatleaf_04",
 "0x16a9bdba", "FE_flatleaf_05",
 "0x16a9bdb9", "FE_flatleaf_06",
-"0x034c7b99", "fe_fruit_01",
-"0x034c7b9a", "fe_fruit_02",
-"0x034c7b9b", "fe_fruit_03",
-"0x639365a7", "fe_fruit_stem_01",
+"0x034c7b99", "FE_fruit_01",
+"0x034c7b9a", "FE_fruit_02",
+"0x034c7b9b", "FE_fruit_03",
+"0x639365a7", "FE_fruit_stem_01",
 "0xa2885765", "FE_leaf_01",
 "0xa2885766", "FE_leaf_02",
 "0xa2885767", "FE_leaf_03",
@@ -2016,9 +2043,9 @@ const blockmap = [ "unknown",
 "0xe6b1310b", "FE_muscle_branch_05",
 "0xe6b13108", "FE_muscle_branch_06",
 "0x5a75d74f", "FE_muscle_trunk_01",
-"0xbbbc95c6", "fe_root_01a",
-"0xbcbc975b", "fe_root_02a",
-"0xbdbc98ac", "fe_root_03a",
+"0xbbbc95c6", "FE_root_01a",
+"0xbcbc975b", "FE_root_02a",
+"0xbdbc98ac", "FE_root_03a",
 "0xe0b8c2ee", "FE_root_assemblage_01",
 "0xe0b8c2ed", "FE_root_assemblage_02",
 "0xe0b8c2ec", "FE_root_assemblage_03",
@@ -2035,15 +2062,93 @@ const blockmap = [ "unknown",
 "0xdfb8c178", "FE_root_assemblage_14",
 "0xdfb8c179", "FE_root_assemblage_15",
 "0xdfb8c17a", "FE_root_assemblage_16",
-"0xf80fc958", "fe_root_dummy",
-"0xbf3741a6", "fe_roots_01",
-"0xbf3741a5", "fe_roots_02",
-"0xbf3741a4", "fe_roots_03",
-"0xc9e7acd1", "fe_trunk_01",
-"0xc9e7acd2", "fe_trunk_02",
-"0xc9e7acd3", "fe_trunk_03",
-"0xc8196f5c", "pe_eye_01",
-"0x16e98504", "pe_vertebra",
+"0xf80fc958", "FE_root_dummy",
+"0xbf3741a6", "FE_roots_01",
+"0xbf3741a5", "FE_roots_02",
+"0xbf3741a4", "FE_roots_03",
+"0xc9e7acd1", "FE_trunk_01",
+"0xc9e7acd2", "FE_trunk_02",
+"0xc9e7acd3", "FE_trunk_03",
+"0xc8196f5c", "PE_eye_01",
+"0x16e98504", "PE_vertebra",
+
+// or bot parts or ga parts??
+
+"0x3fe3ef71", "ce_detailTech_Brute_08",
+"0xdac506c7", "ce_detailTech_Brute_08-symmetric",
+"0x34355bdc", "ce_detailTech_Futurion_03",
+"0xa4d1dfea", "ce_detailTech_Futurion_03-symmetric",
+"0xa73f20f5", "ce_grasperTech_Brute_01",
+"0x5f4c1ea3", "ce_grasperTech_Brute_01-symmetric",
+"0xa73f20f6", "ce_grasperTech_Brute_02",
+"0x22354798", "ce_grasperTech_Brute_02-symmetric",
+"0xa6b36786", "ce_legTech_01",
+"0xa6b36785", "ce_legTech_02",
+"0xa6b36784", "ce_legTech_03",
+"0xa6b36783", "ce_legTech_04",
+"0x632b213b", "ce_limb_assembly_01",
+"0x632b2138", "ce_limb_assembly_02",
+"0x632b2139", "ce_limb_assembly_03",
+"0x632b213e", "ce_limb_assembly_04",
+"0x3aa168a1", "ce_mouthTech_01",
+"0x3aa168a2", "ce_mouthTech_02",
+"0x47356fb7", "ce_movementTech_Brute_02",
+"0x622d26b1", "ce_movementTech_Brute_02-symmetric",
+"0xc62a3e36", "ce_movementTech_Brute_02-symmetric-runtime",
+"0xbe92c72f", "ce_movementTech_Futurion_04",
+"0x24a76139", "ce_movementTech_Futurion_04-symmetric",
+"0x2e7ef59e", "ce_movementTech_Futurion_04-symmetric-runtime",
+"0x2af68c61", "ce_senseTech_Alien_04",
+"0x88cd5c77", "ce_senseTech_Alien_04-symmetric",
+"0x588af59f", "ce_senseTech_Futurion_01",
+"0x932d9b69", "ce_senseTech_Futurion_01-symmetric",
+"0xe05a8aa6", "limb_assembly_drp_arm_01",
+"0xe05a8aa5", "limb_assembly_drp_arm_02",
+"0x96d6530c", "limb_assembly_drp_leg_01",
+"0x96d6530f", "limb_assembly_drp_leg_02",
+"0xeb80753d", "sa_bard_01",
+"0x8920761b", "sa_bard_01-symmetric",
+"0xeb80753e", "sa_bard_02",
+"0x5369a930", "sa_bard_02-symmetric",
+"0xeb80753f", "sa_bard_03",
+"0xeb807538", "sa_bard_04",
+"0x7a9cc2c8", "sa_diplomat_01",
+"0x7a9cc2cb", "sa_diplomat_02",
+"0x7a9cc2ca", "sa_diplomat_03",
+"0x7a9cc2cd", "sa_diplomat_04",
+"0x28fbd835", "sa_ecologist_01",
+"0x9cf2a463", "sa_ecologist_01-symmetric",
+"0x28fbd836", "sa_ecologist_02",
+"0x28fbd837", "sa_ecologist_03",
+"0x28fbd830", "sa_ecologist_04",
+"0x6181ec28", "sa_scientist_01",
+"0xaba8e7ce", "sa_scientist_01-symmetric",
+"0x6181ec2b", "sa_scientist_02",
+"0x6181ec2a", "sa_scientist_03",
+"0x6181ec2d", "sa_scientist_04",
+"0x03ba5d9c", "sa_shaman_01",
+"0xe3abcf2a", "sa_shaman_01-symmetric",
+"0x03ba5d9f", "sa_shaman_02",
+"0x36bc4369", "sa_shaman_02-symmetric",
+"0x03ba5d9e", "sa_shaman_03",
+"0x03ba5d99", "sa_shaman_04",
+"0xd5a96a7f", "sa_shaman_04-symmetric",
+"0xca09bb92", "sa_trader_01",
+"0xca09bb91", "sa_trader_02",
+"0xca09bb90", "sa_trader_03",
+"0xca09bb97", "sa_trader_04",
+"0x478a0094", "sa_warrior_01",
+"0xb5b11a52", "sa_warrior_01-symmetric",
+"0x478a0097", "sa_warrior_02",
+"0xc77c8191", "sa_warrior_02-symmetric",
+"0x478a0096", "sa_warrior_03",
+"0xe31525b8", "sa_warrior_03-symmetric",
+"0x478a0091", "sa_warrior_04",
+"0xf2102f51", "sa_zealot_01",
+"0xdd083027", "sa_zealot_01-symmetric",
+"0xf2102f52", "sa_zealot_02",
+"0xf2102f53", "sa_zealot_03",
+"0xf2102f54", "sa_zealot_04",
 
 // -------------------------------------
 
@@ -2348,10 +2453,14 @@ const blockmap = [ "unknown",
 "0x8ec5176f", "skinpaint_base_blankMattf",
 "0xcf48a38a", "skinpaint_coat_blann",
 "0xdd5391b4", "skinpaint_detail_blanz",
-"0x2536bb7e", "Bergamot unknown base paint",
-"0xc924ba10", "Baboonspider unknown coat paint",
-"0x86eee0be", "Bergamot unknown coat paint",
-"0xf570c158", "Armox (space outfit) unknown coat paint",
+"0x2536bb7e", "Feb 19 Bergamot unknown base paint",
+"0xc924ba10", "Feb 19 Baboonspider unknown coat paint",
+"0x86eee0be", "Feb 19 Bergamot unknown coat paint",
+"0xf570c158", "Feb 19 Armox (space outfit) unknown coat paint",
+"0x66fda1db", "Creepy &amp; Cute editor key unknown paint",
+"0x79e351b7", "Creepy &amp; Cute editor key unknown paint",
+"0xee238859", "Creepy &amp; Cute editor key unknown paint",
+"0xce20e3bf", "Feb 19 Eyeguy unknown detail paint",
 
 // -------------------------------------
 
@@ -2808,6 +2917,17 @@ const blockmap = [ "unknown",
 "0xbdd15f3d", "BuildingFarm",
 "0x06d5c48c", "plant", //found in a decimal (for some reason) hash in FE_assembly_branch_01.crt in AssembledContent
 
+//duplicates just for compatibility with all xml files in AssembledContent with their weird format versions
+"114672780", "plant",
+"3168222857", "PlantSmall",
+"1142739942", "VehicleMilitaryAir",
+"2564832269", "VehicleUFO",
+"2597835946", "VehicleCulturalLand",
+"2661483290", "creature",
+"3093733065", "PlantMedium",
+"4134578755", "VehicleEconomicLand",
+"441321224", "VehicleEconomicAir",
+
 // -------------------------------------
 
 //model handle keys. some were found in the packages, some were found through creations' actual xml files
@@ -2890,7 +3010,7 @@ const blockmap = [ "unknown",
 
 //extra weirdo hashes
 
-"0x00000000", "no paint, or a paint region",
+"0x00000000", "no paint",
 "0x00000001", "required pack only in feb 19, or a paint region",
 "0x00000002", "a paint region",
 "0x00000003", "a paint region",
@@ -2924,4 +3044,112 @@ const blockmap = [ "unknown",
 "0x00000022", "a paint region",
 "0xffffffff", "a paint region"
 ]
+
+function findallblocks(withpaint) {
+inputted = document.getElementById("inputblocks").value;
+blocksoutput = ''
+
+//splits https://stackoverflow.com/questions/21711768/split-string-in-javascript-and-detect-line-break
+var separateLines = inputted.split(/\r?\n|\r|\n/g);
+
+//loops through every line in array
+for (i = 0; i < separateLines.length; i++) {
+
+// -------------------------------------------------------------
+
+//looks for model type
+if (separateLines[i].includes('<modeltype>')) {
+//trims stuff
+thisblock = separateLines[i]
+thisblock = thisblock.replace('<modeltype>', '').trim()
+thisblock = thisblock.replace('</modeltype>', '').trim()
+//finds model type
+blockid1 = blockmap.indexOf(thisblock) + 1;
+blockhash1 = blockmap[blockid1]
+
+blocksoutput = blocksoutput + 'Model type: ' + blockhash1 + '<br><br>Used paints:<br>'
+}
+
+// -------------------------------------------------------------
+
+// looks for skinpaints
+if (separateLines[i].includes('<skineffect')) {
+
+//does this only if its not skineffectseed
+if (separateLines[i].includes('<skineffectseed') == false) {
+//trims stuff
+thisblock = separateLines[i]
+thisblock = thisblock.replace('<skineffect1>', '').trim()
+thisblock = thisblock.replace('<skineffect2>', '').trim()
+thisblock = thisblock.replace('<skineffect3>', '').trim()
+thisblock = thisblock.replace('</skineffect1>', '').trim()
+thisblock = thisblock.replace('</skineffect2>', '').trim()
+thisblock = thisblock.replace('</skineffect3>', '').trim()
+
+//finds paint name and adds it onto the output
+blockid1 = blockmap.indexOf(thisblock) + 1;
+blockhash1 = blockmap[blockid1]
+
+blocksoutput = blocksoutput + blockhash1 + '<br>'
+}}
+
+// -------------------------------------------------------------
+
+//prints divider
+if (separateLines[i].includes('<blocks')) {
+blocksoutput = blocksoutput + '<br>Used blocks:'
+}
+
+// -------------------------------------------------------------
+
+//then, if it has blockid then it looks at the line
+if (separateLines[i].includes('<blockid>')) {
+
+//trims stuff
+thisblock = separateLines[i]
+thisblock = thisblock.replace('<blockid>', '').trim()
+thisblock = thisblock.replace('</blockid>', '').trim()
+
+//splits the line then finds names for each hash
+blockhashes = thisblock.split(', ')
+blockid1 = blockmap.indexOf(blockhashes[0]) + 1;
+blockid2 = blockmap.indexOf(blockhashes[1]) + 1;
+blockhash1 = blockmap[blockid1]
+blockhash2 = blockmap[blockid2]
+
+//then adds them onto the output
+blocksoutput = blocksoutput + '<br>' + blockhash1 + ' - ' + blockhash2
+}
+
+// -------------------------------------------------------------
+
+//prints divider if theres a paint list for a part
+if (separateLines[i].includes('<paintlist') & withpaint == 1) {
+blocksoutput = blocksoutput + '<br>(Paints: '
+}
+if (separateLines[i].includes('</paintlist>') & withpaint == 1) {
+blocksoutput = blocksoutput + ')<br>'
+}
+
+//also looks at paint id
+if (separateLines[i].includes('<paintid>') & withpaint == 1) {
+
+//trims stuff
+thisblock = separateLines[i]
+thisblock = thisblock.replace('<paintid>', '').trim()
+thisblock = thisblock.replace('</paintid>', '').trim()
+
+//splits the line then finds names for each hash
+blockid1 = blockmap.indexOf(thisblock) + 1;
+blockhash1 = blockmap[blockid1]
+
+//then adds them onto the output
+blocksoutput = blocksoutput + ' ' + blockhash1 + ';'
+}}
+
+// -------------------------------------------------------------
+
+//after the loop is done it just spits out the output
+document.getElementById("usedblocks").innerHTML = blocksoutput.toString()
+}
 </script></html>

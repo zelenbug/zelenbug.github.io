@@ -103,8 +103,8 @@ font-size: 12px;
 }
 hr { height: 1px; border-width: 0; background-color: #4598B9b0 }
 
-td:first-of-type {border-right: 1px solid #4598B9b0;}
-td {padding-right: 5px; padding-left: 5px;}
+.part td:first-of-type {border-right: 1px solid #4598B9b0;}
+.part td {padding-right: 5px; padding-left: 5px;}
 
 iframe {
 width: 100%;
@@ -263,6 +263,12 @@ padding-left: 10px;
 margin: 5px 0 5px 0
 }
 
+/* empty part icons */
+.noparticon {width: 128px; height: 128px; display: inline-block;}
+
+/* for overly long model cap names */
+.longname {white-space: nowrap; font-size: 13px;}
+
 /* buttons with icons!!!!!!!!!! */
 
 .mouths        {background-image: url(buttons/button-mouth-norm.png);}
@@ -352,6 +358,23 @@ margin: 5px 0 5px 0
 .captain        {background-image: url(buttons/EDT_access_adventurer_norm.png);}
 .captain:hover  {background-image: url(buttons/EDT_access_adventurer_hl.png);}
 .captain:active {background-image: url(buttons/EDT_access_adventurer_norm.png);}
+
+/* had to rip flora icons out from a strip again */
+.trunks        {background-image: url(buttons/fe_trunk_1.png); background-size: 75%}
+.trunks:hover  {background-image: url(buttons/fe_trunk_2.png);}
+.trunks:active {background-image: url(buttons/fe_trunk_3.png);}
+
+.leaves        {background-image: url(buttons/fe_leaf_1.png); background-size: 75%}
+.leaves:hover  {background-image: url(buttons/fe_leaf_2.png);}
+.leaves:active {background-image: url(buttons/fe_leaf_3.png);}
+
+.fedetails        {background-image: url(buttons/fe_detail_1.png); background-size: 75%}
+.fedetails:hover  {background-image: url(buttons/fe_detail_2.png);}
+.fedetails:active {background-image: url(buttons/fe_detail_3.png);}
+
+.fruit        {background-image: url(buttons/fe_fruit_1.png); background-size: 75%}
+.fruit:hover  {background-image: url(buttons/fe_fruit_2.png);}
+.fruit:active {background-image: url(buttons/fe_fruit_3.png);}
 
 /* to copy
 

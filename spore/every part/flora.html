@@ -1,0 +1,50 @@
+<!DOCTYPE html><html><head>
+<title>Flora parts</title>
+<link rel="stylesheet" href="pages/files/style.css"><script src="pages/files/spoiler.js"></script>
+</head><body style="margin: 0px;">
+
+<div id="main">
+
+<div class="tab">
+<a href="pages/flora trunks.html"  class="tabbutton trunks"    target="iframe"><span class="tooltip">Trunks</span></a>
+<a href="pages/flora leaves.html"  class="tabbutton leaves"    target="iframe"><span class="tooltip">Leaves</span></a>
+<a href="pages/flora details.html" class="tabbutton fedetails" target="iframe"><span class="tooltip">Details</span></a>
+<a href="pages/flora fruit.html"   class="tabbutton fruit"     target="iframe"><span class="tooltip">Fruit</span></a>
+<a href="pages/flora unused.html"  class="tabbutton unused"    target="iframe"><span class="tooltip">Unused &amp; inaccessible</span></a>
+<div class="divider"></div>
+<div class="tabtext">
+Minimum screen width 1140px. Some other stuff:
+
+<!-- dear god the code -->
+<div style="margin: 0 auto; width: 200px"><div style="display: inline-block">
+<button type="button" style="display: block;" class="dropdown" onclick="spoilerdropdown()">Flora parts</button>
+<div id="spoilerdropdown" style="visibility: hidden;">
+<a href="creature.html">Creature parts</a>
+<a href="outfitter.html">Outfitter parts</a>
+<a href="cell.html">Cell parts</a>
+<div class="selected">Flora parts</div>
+<span class="miscinfo">Building parts (to do)</span><br>
+<span class="miscinfo">Vehicle parts (to do)</span><br>
+<span class="miscinfo">UFO parts (to do)</span><br>
+<a href="paints.html">All paints</a>
+</div>
+
+</div> <div style="display: inline-block">
+
+<button type="button" style="display: block;" onclick="spoiler2()">Additional info</button>
+<div id="spoiler2" style="visibility: hidden; width: 400px; right: 0px;">
+Model capabilities determine various stats, as well as abilities that the part gives. Charm is a model capability, so is health, so is any model capability that seems to just exist to define certain animations for the part
+<hr>
+Some icons come from the February 19 2008 build!! Mostly for some root assemblies. They look blurrier so you can tell they're from that build<br><br>
+The flora editor is incredibly busted, so the part icons are weird and there's no part names and other stuff<br><br>
+No flora parts define a complexity score or price either, despite the editor having a complexity meter (unsure for DNA though, as it's obscured by the plant type selector)<br><br>
+Most flora parts actually used to cost 10 DNA in the Feb 19 build, but are free in retail. This seems to be entirely just due to GlobalRigblockTemplate (which flora parts (that have parents) consecutively parent) having a modelPrice value of 10 in Feb 19, but 0 in retail
+</div>
+
+</div></div></div></div>
+
+<iframe src="pages/flora trunks.html" name="iframe"></iframe>
+
+</div></body>
+
+</html>

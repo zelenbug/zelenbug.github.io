@@ -9,9 +9,9 @@ document.getElementById("layer1_1").style.backgroundImage = "none";
 document.getElementById("layer1_2").style.backgroundImage = "none";
 document.getElementById("layer1_3").style.backgroundImage = "none";
 
-document.getElementById("layer1_1_used").style.backgroundColor = "transparent";
-document.getElementById("layer1_2_used").style.backgroundColor = "transparent";
-document.getElementById("layer1_3_used").style.backgroundColor = "transparent";
+document.getElementById("layer1_1_used").style.visibility = "hidden";
+document.getElementById("layer1_2_used").style.visibility = "hidden";
+document.getElementById("layer1_3_used").style.visibility = "hidden";
 }
 
 //fit 2
@@ -36,9 +36,9 @@ document.getElementById("layer1_3_sat").value = 0;
 document.getElementById("layer1_3_bri").value = 0;
 color_layer1_3();
 
-document.getElementById("layer1_1_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer1_2_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer1_3_used").style.backgroundColor = "var(--pink)";
+document.getElementById("layer1_1_used").style.visibility = "visible";
+document.getElementById("layer1_2_used").style.visibility = "visible";
+document.getElementById("layer1_3_used").style.visibility = "visible";
 }
 
 //the thing from time for a change
@@ -58,9 +58,9 @@ document.getElementById("layer1_2_sat").value = 60;
 document.getElementById("layer1_2_bri").value = 138;
 color_layer1_2();
 
-document.getElementById("layer1_1_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer1_2_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer1_3_used").style.backgroundColor = "transparent";
+document.getElementById("layer1_1_used").style.visibility = "visible";
+document.getElementById("layer1_2_used").style.visibility = "visible";
+document.getElementById("layer1_3_used").style.visibility = "hidden";
 }
 
 //fit 5
@@ -75,9 +75,9 @@ document.getElementById("layer1_1_sat").value = 35;
 document.getElementById("layer1_1_bri").value = 350;
 color_layer1_1();
 
-document.getElementById("layer1_1_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer1_2_used").style.backgroundColor = "transparent";
-document.getElementById("layer1_3_used").style.backgroundColor = "transparent";
+document.getElementById("layer1_1_used").style.visibility = "visible";
+document.getElementById("layer1_2_used").style.visibility = "hidden";
+document.getElementById("layer1_3_used").style.visibility = "hidden";
 }
 
 //biker wig
@@ -97,9 +97,9 @@ document.getElementById("layer1_2_sat").value = 40;
 document.getElementById("layer1_2_bri").value = 385;
 color_layer1_2();
 
-document.getElementById("layer1_1_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer1_2_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer1_3_used").style.backgroundColor = "transparent";
+document.getElementById("layer1_1_used").style.visibility = "visible";
+document.getElementById("layer1_2_used").style.visibility = "visible";
+document.getElementById("layer1_3_used").style.visibility = "hidden";
 }
 
 //witch hat from dvd cover
@@ -119,9 +119,9 @@ document.getElementById("layer1_2_sat").value = 0;
 document.getElementById("layer1_2_bri").value = 300;
 color_layer1_2();
 
-document.getElementById("layer1_1_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer1_2_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer1_3_used").style.backgroundColor = "transparent";
+document.getElementById("layer1_1_used").style.visibility = "visible";
+document.getElementById("layer1_2_used").style.visibility = "visible";
+document.getElementById("layer1_3_used").style.visibility = "hidden";
 }
 
 //our ancestors the humans
@@ -146,9 +146,9 @@ document.getElementById("layer1_3_sat").value = 15;
 document.getElementById("layer1_3_bri").value = 270;
 color_layer1_3();
 
-document.getElementById("layer1_1_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer1_2_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer1_3_used").style.backgroundColor = "var(--pink)";
+document.getElementById("layer1_1_used").style.visibility = "visible";
+document.getElementById("layer1_2_used").style.visibility = "visible";
+document.getElementById("layer1_3_used").style.visibility = "visible";
 }
 
 //fit 11
@@ -163,9 +163,9 @@ document.getElementById("layer1_1_sat").value = 30;
 document.getElementById("layer1_1_bri").value = 358;
 color_layer1_1();
 
-document.getElementById("layer1_1_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer1_2_used").style.backgroundColor = "transparent";
-document.getElementById("layer1_3_used").style.backgroundColor = "transparent";
+document.getElementById("layer1_1_used").style.visibility = "visible";
+document.getElementById("layer1_2_used").style.visibility = "hidden";
+document.getElementById("layer1_3_used").style.visibility = "hidden";
 }
 
 //madame zelza disguise
@@ -185,9 +185,48 @@ document.getElementById("layer1_2_sat").value = 100;
 document.getElementById("layer1_2_bri").value = 95;
 color_layer1_2();
 
-document.getElementById("layer1_1_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer1_2_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer1_3_used").style.backgroundColor = "transparent";
+document.getElementById("layer1_1_used").style.visibility = "visible";
+document.getElementById("layer1_2_used").style.visibility = "visible";
+document.getElementById("layer1_3_used").style.visibility = "hidden";
+}
+
+//exercise fit from sweet tooth blues
+function layer1exerc() {
+document.getElementById("layer1_0").style.backgroundImage = "url(files/1_exerc_0.png)";
+document.getElementById("layer1_1").style.backgroundImage = "url(files/1_exerc_1.png)";
+document.getElementById("layer1_2").style.backgroundImage = "none";
+document.getElementById("layer1_3").style.backgroundImage = "none";
+
+document.getElementById("layer1_1_hue").value = 345;
+document.getElementById("layer1_1_sat").value = 30;
+document.getElementById("layer1_1_bri").value = 270;
+color_layer1_1();
+
+document.getElementById("layer1_1_used").style.visibility = "visible";
+document.getElementById("layer1_2_used").style.visibility = "hidden";
+document.getElementById("layer1_3_used").style.visibility = "hidden";
+}
+
+//operation guinea pig
+function layer1hippie() {
+document.getElementById("layer1_0").style.backgroundImage = "url(files/1_hippie_0.png)";
+document.getElementById("layer1_1").style.backgroundImage = "url(files/1_hippie_1.png)";
+document.getElementById("layer1_2").style.backgroundImage = "url(files/1_hippie_2.png)";
+document.getElementById("layer1_3").style.backgroundImage = "none";
+
+document.getElementById("layer1_1_hue").value = 77;
+document.getElementById("layer1_1_sat").value = 18;
+document.getElementById("layer1_1_bri").value = 400;
+color_layer1_1();
+
+document.getElementById("layer1_2_hue").value = 150;
+document.getElementById("layer1_2_sat").value = 40;
+document.getElementById("layer1_2_bri").value = 20;
+color_layer1_2();
+
+document.getElementById("layer1_1_used").style.visibility = "visible";
+document.getElementById("layer1_2_used").style.visibility = "visible";
+document.getElementById("layer1_3_used").style.visibility = "hidden";
 }
 
 //layer 1 (hats)   -------------------------------------------------------------------
@@ -201,9 +240,9 @@ document.getElementById("layer2_1").style.backgroundImage = "none";
 document.getElementById("layer2_2").style.backgroundImage = "none";
 document.getElementById("layer2_3").style.backgroundImage = "none";
 
-document.getElementById("layer2_1_used").style.backgroundColor = "transparent";
-document.getElementById("layer2_2_used").style.backgroundColor = "transparent";
-document.getElementById("layer2_3_used").style.backgroundColor = "transparent";
+document.getElementById("layer2_1_used").style.visibility = "hidden";
+document.getElementById("layer2_2_used").style.visibility = "hidden";
+document.getElementById("layer2_3_used").style.visibility = "hidden";
 }
 
 //fit 5
@@ -223,9 +262,9 @@ document.getElementById("layer2_2_sat").value = 400;
 document.getElementById("layer2_2_bri").value = 60;
 color_layer2_2();
 
-document.getElementById("layer2_1_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer2_2_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer2_3_used").style.backgroundColor = "transparent";
+document.getElementById("layer2_1_used").style.visibility = "visible";
+document.getElementById("layer2_2_used").style.visibility = "visible";
+document.getElementById("layer2_3_used").style.visibility = "hidden";
 }
 
 //vampire
@@ -245,9 +284,9 @@ document.getElementById("layer2_2_sat").value = 100;
 document.getElementById("layer2_2_bri").value = 200;
 color_layer2_2();
 
-document.getElementById("layer2_1_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer2_2_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer2_3_used").style.backgroundColor = "transparent";
+document.getElementById("layer2_1_used").style.visibility = "visible";
+document.getElementById("layer2_2_used").style.visibility = "visible";
+document.getElementById("layer2_3_used").style.visibility = "hidden";
 }
 
 //madame zelza disguise
@@ -272,9 +311,9 @@ document.getElementById("layer2_3_sat").value = 14;
 document.getElementById("layer2_3_bri").value = 400;
 color_layer2_3();
 
-document.getElementById("layer2_1_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer2_2_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer2_3_used").style.backgroundColor = "var(--pink)";
+document.getElementById("layer2_1_used").style.visibility = "visible";
+document.getElementById("layer2_2_used").style.visibility = "visible";
+document.getElementById("layer2_3_used").style.visibility = "visible";
 }
 
 //layer 2 (coats)  -------------------------------------------------------------------
@@ -288,9 +327,9 @@ document.getElementById("layer3_1").style.backgroundImage = "none";
 document.getElementById("layer3_2").style.backgroundImage = "none";
 document.getElementById("layer3_3").style.backgroundImage = "none";
 
-document.getElementById("layer3_1_used").style.backgroundColor = "transparent";
-document.getElementById("layer3_2_used").style.backgroundColor = "transparent";
-document.getElementById("layer3_3_used").style.backgroundColor = "transparent";
+document.getElementById("layer3_1_used").style.visibility = "hidden";
+document.getElementById("layer3_2_used").style.visibility = "hidden";
+document.getElementById("layer3_3_used").style.visibility = "hidden";
 }
 
 //fit 2
@@ -310,9 +349,9 @@ document.getElementById("layer3_2_sat").value = 243;
 document.getElementById("layer3_2_bri").value = 205;
 color_layer3_2();
 
-document.getElementById("layer3_1_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer3_2_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer3_3_used").style.backgroundColor = "transparent";
+document.getElementById("layer3_1_used").style.visibility = "visible";
+document.getElementById("layer3_2_used").style.visibility = "visible";
+document.getElementById("layer3_3_used").style.visibility = "hidden";
 }
 
 //fit 6
@@ -332,9 +371,9 @@ document.getElementById("layer3_2_sat").value = 0;
 document.getElementById("layer3_2_bri").value = 300;
 color_layer3_2();
 
-document.getElementById("layer3_1_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer3_2_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer3_3_used").style.backgroundColor = "transparent";
+document.getElementById("layer3_1_used").style.visibility = "visible";
+document.getElementById("layer3_2_used").style.visibility = "visible";
+document.getElementById("layer3_3_used").style.visibility = "hidden";
 }
 
 //fit 12
@@ -349,9 +388,9 @@ document.getElementById("layer3_1_sat").value = 100;
 document.getElementById("layer3_1_bri").value = 100;
 color_layer3_1();
 
-document.getElementById("layer3_1_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer3_2_used").style.backgroundColor = "transparent";
-document.getElementById("layer3_3_used").style.backgroundColor = "transparent";
+document.getElementById("layer3_1_used").style.visibility = "visible";
+document.getElementById("layer3_2_used").style.visibility = "hidden";
+document.getElementById("layer3_3_used").style.visibility = "hidden";
 }
 
 //fit 5
@@ -366,9 +405,9 @@ document.getElementById("layer3_1_sat").value = 400;
 document.getElementById("layer3_1_bri").value = 350;
 color_layer3_1();
 
-document.getElementById("layer3_1_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer3_2_used").style.backgroundColor = "transparent";
-document.getElementById("layer3_3_used").style.backgroundColor = "transparent";
+document.getElementById("layer3_1_used").style.visibility = "visible";
+document.getElementById("layer3_2_used").style.visibility = "hidden";
+document.getElementById("layer3_3_used").style.visibility = "hidden";
 }
 
 //alternate shirt for the 5th fit based on the s2 overalls disguise
@@ -383,9 +422,9 @@ document.getElementById("layer3_1_sat").value = 85;
 document.getElementById("layer3_1_bri").value = 200;
 color_layer3_1();
 
-document.getElementById("layer3_1_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer3_2_used").style.backgroundColor = "transparent";
-document.getElementById("layer3_3_used").style.backgroundColor = "transparent";
+document.getElementById("layer3_1_used").style.visibility = "visible";
+document.getElementById("layer3_2_used").style.visibility = "hidden";
+document.getElementById("layer3_3_used").style.visibility = "hidden";
 }
 
 //biker shirt
@@ -400,9 +439,9 @@ document.getElementById("layer3_1_sat").value = 0;
 document.getElementById("layer3_1_bri").value = 20;
 color_layer3_1();
 
-document.getElementById("layer3_1_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer3_2_used").style.backgroundColor = "transparent";
-document.getElementById("layer3_3_used").style.backgroundColor = "transparent";
+document.getElementById("layer3_1_used").style.visibility = "visible";
+document.getElementById("layer3_2_used").style.visibility = "hidden";
+document.getElementById("layer3_3_used").style.visibility = "hidden";
 }
 
 //from musical chairs
@@ -422,9 +461,9 @@ document.getElementById("layer3_2_sat").value = 21;
 document.getElementById("layer3_2_bri").value = 262;
 color_layer3_2();
 
-document.getElementById("layer3_1_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer3_2_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer3_3_used").style.backgroundColor = "transparent";
+document.getElementById("layer3_1_used").style.visibility = "visible";
+document.getElementById("layer3_2_used").style.visibility = "visible";
+document.getElementById("layer3_3_used").style.visibility = "hidden";
 }
 
 //our ancestors the humans
@@ -444,9 +483,9 @@ document.getElementById("layer3_2_sat").value = 50;
 document.getElementById("layer3_2_bri").value = 148;
 color_layer3_2();
 
-document.getElementById("layer3_1_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer3_2_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer3_3_used").style.backgroundColor = "transparent";
+document.getElementById("layer3_1_used").style.visibility = "visible";
+document.getElementById("layer3_2_used").style.visibility = "visible";
+document.getElementById("layer3_3_used").style.visibility = "hidden";
 }
 
 //fit 11
@@ -466,9 +505,58 @@ document.getElementById("layer3_2_sat").value = 75;
 document.getElementById("layer3_2_bri").value = 215;
 color_layer3_2();
 
-document.getElementById("layer3_1_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer3_2_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer3_3_used").style.backgroundColor = "transparent";
+document.getElementById("layer3_1_used").style.visibility = "visible";
+document.getElementById("layer3_2_used").style.visibility = "visible";
+document.getElementById("layer3_3_used").style.visibility = "hidden";
+}
+
+//operation guinea pig
+function layer3hippie() {
+document.getElementById("layer3_0").style.backgroundImage = "url(files/3_hippie_0.png)";
+document.getElementById("layer3_1").style.backgroundImage = "url(files/3_hippie_1.png)";
+document.getElementById("layer3_2").style.backgroundImage = "url(files/3_hippie_2.png)";
+document.getElementById("layer3_3").style.backgroundImage = "none";
+
+document.getElementById("layer3_1_hue").value = 77;
+document.getElementById("layer3_1_sat").value = 18;
+document.getElementById("layer3_1_bri").value = 400;
+color_layer3_1();                               
+                                                
+document.getElementById("layer3_2_hue").value = 150;
+document.getElementById("layer3_2_sat").value = 40;
+document.getElementById("layer3_2_bri").value = 20;
+color_layer3_2();
+
+document.getElementById("layer3_1_used").style.visibility = "visible";
+document.getElementById("layer3_2_used").style.visibility = "visible";
+document.getElementById("layer3_3_used").style.visibility = "hidden";
+}
+
+//bad luck blues
+function layer3blb() {
+document.getElementById("layer3_0").style.backgroundImage = "url(files/3_blb_0.png)";
+document.getElementById("layer3_1").style.backgroundImage = "url(files/3_blb_1.png)";
+document.getElementById("layer3_2").style.backgroundImage = "url(files/3_blb_2.png)";
+document.getElementById("layer3_3").style.backgroundImage = "url(files/3_blb_3.png)";
+
+document.getElementById("layer3_1_hue").value = 0;
+document.getElementById("layer3_1_sat").value = 0;
+document.getElementById("layer3_1_bri").value = 100;
+color_layer3_1();
+
+document.getElementById("layer3_2_hue").value = 330;
+document.getElementById("layer3_2_sat").value = 65;
+document.getElementById("layer3_2_bri").value = 105;
+color_layer3_2();
+
+document.getElementById("layer3_3_hue").value = 206;
+document.getElementById("layer3_3_sat").value = 55;
+document.getElementById("layer3_3_bri").value = 220;
+color_layer3_3();
+
+document.getElementById("layer3_1_used").style.visibility = "visible";
+document.getElementById("layer3_2_used").style.visibility = "visible";
+document.getElementById("layer3_3_used").style.visibility = "visible";
 }
 
 //layer 3 (shirts) -------------------------------------------------------------------
@@ -482,9 +570,9 @@ document.getElementById("layer4_1").style.backgroundImage = "none";
 document.getElementById("layer4_2").style.backgroundImage = "none";
 document.getElementById("layer4_3").style.backgroundImage = "none";
 
-document.getElementById("layer4_1_used").style.backgroundColor = "transparent";
-document.getElementById("layer4_2_used").style.backgroundColor = "transparent";
-document.getElementById("layer4_3_used").style.backgroundColor = "transparent";
+document.getElementById("layer4_1_used").style.visibility = "hidden";
+document.getElementById("layer4_2_used").style.visibility = "hidden";
+document.getElementById("layer4_3_used").style.visibility = "hidden";
 }
 
 // default skirt/apron thingy
@@ -504,9 +592,9 @@ document.getElementById("layer4_2_sat").value = 100;
 document.getElementById("layer4_2_bri").value = 57;
 color_layer4_2();
 
-document.getElementById("layer4_1_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer4_2_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer4_3_used").style.backgroundColor = "transparent";
+document.getElementById("layer4_1_used").style.visibility = "visible";
+document.getElementById("layer4_2_used").style.visibility = "visible";
+document.getElementById("layer4_3_used").style.visibility = "hidden";
 }
 
 //fit 2
@@ -521,9 +609,9 @@ document.getElementById("layer4_1_sat").value = 19;
 document.getElementById("layer4_1_bri").value = 142;
 color_layer4_1();
 
-document.getElementById("layer4_1_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer4_2_used").style.backgroundColor = "transparent";
-document.getElementById("layer4_3_used").style.backgroundColor = "transparent";
+document.getElementById("layer4_1_used").style.visibility = "visible";
+document.getElementById("layer4_2_used").style.visibility = "hidden";
+document.getElementById("layer4_3_used").style.visibility = "hidden";
 }
 
 //fit 6
@@ -543,9 +631,9 @@ document.getElementById("layer4_2_sat").value = 0;
 document.getElementById("layer4_2_bri").value = 300;
 color_layer4_2();
 
-document.getElementById("layer4_1_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer4_2_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer4_3_used").style.backgroundColor = "transparent";
+document.getElementById("layer4_1_used").style.visibility = "visible";
+document.getElementById("layer4_2_used").style.visibility = "visible";
+document.getElementById("layer4_3_used").style.visibility = "hidden";
 }
 
 //fit 12
@@ -560,9 +648,9 @@ document.getElementById("layer4_1_sat").value = 0;
 document.getElementById("layer4_1_bri").value = 300;
 color_layer4_1();
 
-document.getElementById("layer4_1_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer4_2_used").style.backgroundColor = "transparent";
-document.getElementById("layer4_3_used").style.backgroundColor = "transparent";
+document.getElementById("layer4_1_used").style.visibility = "visible";
+document.getElementById("layer4_2_used").style.visibility = "hidden";
+document.getElementById("layer4_3_used").style.visibility = "hidden";
 }
 
 //fit 5
@@ -582,9 +670,9 @@ document.getElementById("layer4_2_sat").value = 20;
 document.getElementById("layer4_2_bri").value = 264;
 color_layer4_2();
 
-document.getElementById("layer4_1_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer4_2_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer4_3_used").style.backgroundColor = "transparent";
+document.getElementById("layer4_1_used").style.visibility = "visible";
+document.getElementById("layer4_2_used").style.visibility = "visible";
+document.getElementById("layer4_3_used").style.visibility = "hidden";
 }
 
 //biker skirt
@@ -609,9 +697,9 @@ document.getElementById("layer4_3_sat").value = 0;
 document.getElementById("layer4_3_bri").value = 300;
 color_layer4_3();
 
-document.getElementById("layer4_1_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer4_2_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer4_3_used").style.backgroundColor = "var(--pink)";
+document.getElementById("layer4_1_used").style.visibility = "visible";
+document.getElementById("layer4_2_used").style.visibility = "visible";
+document.getElementById("layer4_3_used").style.visibility = "visible";
 }
 
 //our ancestors the humans
@@ -626,9 +714,9 @@ document.getElementById("layer4_1_sat").value = 27;
 document.getElementById("layer4_1_bri").value = 217;
 color_layer4_1();
 
-document.getElementById("layer4_1_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer4_2_used").style.backgroundColor = "transparent";
-document.getElementById("layer4_4_used").style.backgroundColor = "transparent";
+document.getElementById("layer4_1_used").style.visibility = "visible";
+document.getElementById("layer4_2_used").style.visibility = "hidden";
+document.getElementById("layer4_3_used").style.visibility = "hidden";
 }
 
 // REALIGNED default skirt/apron thingy
@@ -648,9 +736,9 @@ document.getElementById("layer4_2_sat").value = 100;
 document.getElementById("layer4_2_bri").value = 57;
 color_layer4_2();
 
-document.getElementById("layer4_1_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer4_2_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer4_3_used").style.backgroundColor = "transparent";
+document.getElementById("layer4_1_used").style.visibility = "visible";
+document.getElementById("layer4_2_used").style.visibility = "visible";
+document.getElementById("layer4_3_used").style.visibility = "hidden";
 }
 
 //fit 11
@@ -670,9 +758,9 @@ document.getElementById("layer4_2_sat").value = 23;
 document.getElementById("layer4_2_bri").value = 95;
 color_layer4_2();
 
-document.getElementById("layer4_1_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer4_2_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer4_3_used").style.backgroundColor = "transparent";
+document.getElementById("layer4_1_used").style.visibility = "visible";
+document.getElementById("layer4_2_used").style.visibility = "visible";
+document.getElementById("layer4_3_used").style.visibility = "hidden";
 }
 
 //madame zelza disguise
@@ -692,9 +780,53 @@ document.getElementById("layer4_2_sat").value = 48;
 document.getElementById("layer4_2_bri").value = 241;
 color_layer4_2();
 
-document.getElementById("layer4_1_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer4_2_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer4_3_used").style.backgroundColor = "transparent";
+document.getElementById("layer4_1_used").style.visibility = "visible";
+document.getElementById("layer4_2_used").style.visibility = "visible";
+document.getElementById("layer4_3_used").style.visibility = "hidden";
+}
+
+//exercise fit from sweet tooth blues
+function layer4exerc() {
+document.getElementById("layer4_0").style.backgroundImage = "url(files/4_exerc_0.png)";
+document.getElementById("layer4_1").style.backgroundImage = "url(files/4_exerc_1.png)";
+document.getElementById("layer4_2").style.backgroundImage = "url(files/4_exerc_2.png)";
+document.getElementById("layer4_3").style.backgroundImage = "none";
+
+document.getElementById("layer4_1_hue").value = 345;
+document.getElementById("layer4_1_sat").value = 30;
+document.getElementById("layer4_1_bri").value = 270;
+color_layer4_1();
+
+document.getElementById("layer4_2_hue").value = 63;
+document.getElementById("layer4_2_sat").value = 106;
+document.getElementById("layer4_2_bri").value = 250;
+color_layer4_2();
+
+document.getElementById("layer4_1_used").style.visibility = "visible";
+document.getElementById("layer4_2_used").style.visibility = "visible";
+document.getElementById("layer4_3_used").style.visibility = "hidden";
+}
+
+//operation guinea pig
+function layer4hippie() {
+document.getElementById("layer4_0").style.backgroundImage = "url(files/4_hippie_0.png)";
+document.getElementById("layer4_1").style.backgroundImage = "url(files/4_hippie_1.png)";
+document.getElementById("layer4_2").style.backgroundImage = "url(files/4_hippie_2.png)";
+document.getElementById("layer4_3").style.backgroundImage = "none";
+
+document.getElementById("layer4_1_hue").value = 77;
+document.getElementById("layer4_1_sat").value = 18;
+document.getElementById("layer4_1_bri").value = 400;
+color_layer4_1();                               
+                                                
+document.getElementById("layer4_2_hue").value = 150;
+document.getElementById("layer4_2_sat").value = 40;
+document.getElementById("layer4_2_bri").value = 20;
+color_layer4_2();
+
+document.getElementById("layer4_1_used").style.visibility = "visible";
+document.getElementById("layer4_2_used").style.visibility = "visible";
+document.getElementById("layer4_3_used").style.visibility = "hidden";
 }
 
 //layer 4 (pants)  -------------------------------------------------------------------
@@ -708,9 +840,9 @@ document.getElementById("layer5_1").style.backgroundImage = "none";
 document.getElementById("layer5_2").style.backgroundImage = "none";
 document.getElementById("layer5_3").style.backgroundImage = "none";
 
-document.getElementById("layer5_1_used").style.backgroundColor = "transparent";
-document.getElementById("layer5_2_used").style.backgroundColor = "transparent";
-document.getElementById("layer5_3_used").style.backgroundColor = "transparent";
+document.getElementById("layer5_1_used").style.visibility = "hidden";
+document.getElementById("layer5_2_used").style.visibility = "hidden";
+document.getElementById("layer5_3_used").style.visibility = "hidden";
 }
 
 //fit 2
@@ -735,9 +867,9 @@ document.getElementById("layer5_3_sat").value = 0;
 document.getElementById("layer5_3_bri").value = 300;
 color_layer5_3();
 
-document.getElementById("layer5_1_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer5_2_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer5_3_used").style.backgroundColor = "var(--pink)";
+document.getElementById("layer5_1_used").style.visibility = "visible";
+document.getElementById("layer5_2_used").style.visibility = "visible";
+document.getElementById("layer5_3_used").style.visibility = "visible";
 }
 
 //fit 6
@@ -752,9 +884,9 @@ document.getElementById("layer5_1_sat").value = 97;
 document.getElementById("layer5_1_bri").value = 106;
 color_layer5_1();
 
-document.getElementById("layer5_1_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer5_2_used").style.backgroundColor = "transparent";
-document.getElementById("layer5_3_used").style.backgroundColor = "transparent";
+document.getElementById("layer5_1_used").style.visibility = "visible";
+document.getElementById("layer5_2_used").style.visibility = "hidden";
+document.getElementById("layer5_3_used").style.visibility = "hidden";
 }
 
 //fit 12
@@ -779,9 +911,9 @@ document.getElementById("layer5_3_sat").value = 100;
 document.getElementById("layer5_3_bri").value = 100;
 color_layer5_3();
 
-document.getElementById("layer5_1_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer5_2_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer5_3_used").style.backgroundColor = "var(--pink)";
+document.getElementById("layer5_1_used").style.visibility = "visible";
+document.getElementById("layer5_2_used").style.visibility = "visible";
+document.getElementById("layer5_3_used").style.visibility = "visible";
 }
 
 //fit 12 alt
@@ -801,9 +933,9 @@ document.getElementById("layer5_2_sat").value = 60;
 document.getElementById("layer5_2_bri").value = 120;
 color_layer5_2();
 
-document.getElementById("layer5_1_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer5_2_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer5_3_used").style.backgroundColor = "transparent";
+document.getElementById("layer5_1_used").style.visibility = "visible";
+document.getElementById("layer5_2_used").style.visibility = "visible";
+document.getElementById("layer5_3_used").style.visibility = "hidden";
 }
 
 //fit 5
@@ -818,9 +950,9 @@ document.getElementById("layer5_1_sat").value = 39;
 document.getElementById("layer5_1_bri").value = 290;
 color_layer5_1();
 
-document.getElementById("layer5_1_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer5_2_used").style.backgroundColor = "transparent";
-document.getElementById("layer5_3_used").style.backgroundColor = "transparent";
+document.getElementById("layer5_1_used").style.visibility = "visible";
+document.getElementById("layer5_2_used").style.visibility = "hidden";
+document.getElementById("layer5_3_used").style.visibility = "hidden";
 }
 
 //fit 11
@@ -835,9 +967,31 @@ document.getElementById("layer5_1_sat").value = 80;
 document.getElementById("layer5_1_bri").value = 115;
 color_layer5_1();
 
-document.getElementById("layer5_1_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer5_2_used").style.backgroundColor = "transparent";
-document.getElementById("layer5_3_used").style.backgroundColor = "transparent";
+document.getElementById("layer5_1_used").style.visibility = "visible";
+document.getElementById("layer5_2_used").style.visibility = "hidden";
+document.getElementById("layer5_3_used").style.visibility = "hidden";
+}
+
+//operation guinea pig
+function layer5hippie() {
+document.getElementById("layer5_0").style.backgroundImage = "url(files/5_hippie_0.png)";
+document.getElementById("layer5_1").style.backgroundImage = "url(files/5_hippie_1.png)";
+document.getElementById("layer5_2").style.backgroundImage = "url(files/5_hippie_2.png)";
+document.getElementById("layer5_3").style.backgroundImage = "none";
+
+document.getElementById("layer5_1_hue").value = 77;
+document.getElementById("layer5_1_sat").value = 18;
+document.getElementById("layer5_1_bri").value = 400;
+color_layer5_1();                               
+                                                
+document.getElementById("layer5_2_hue").value = 150;
+document.getElementById("layer5_2_sat").value = 40;
+document.getElementById("layer5_2_bri").value = 20;
+color_layer5_2();
+
+document.getElementById("layer5_1_used").style.visibility = "visible";
+document.getElementById("layer5_2_used").style.visibility = "visible";
+document.getElementById("layer5_3_used").style.visibility = "hidden";
 }
 
 //layer 5 (shoes)  -------------------------------------------------------------------
@@ -845,6 +999,8 @@ document.getElementById("layer5_3_used").style.backgroundColor = "transparent";
 //for copying      -------------------------------------------------------------------
 
 /*
+
+i guess i dont need these anymore now that i have my python script though
 
 1 color
 
@@ -859,9 +1015,9 @@ document.getElementById("layer3_1_sat").value = 300;
 document.getElementById("layer3_1_bri").value = 300;
 color_layer3_1();
 
-document.getElementById("layer3_1_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer3_2_used").style.backgroundColor = "transparent";
-document.getElementById("layer3_3_used").style.backgroundColor = "transparent";
+document.getElementById("layer3_1_used").style.visibility = "visible";
+document.getElementById("layer3_2_used").style.visibility = "hidden";
+document.getElementById("layer3_3_used").style.visibility = "hidden";
 }
 
 2 colors
@@ -882,9 +1038,9 @@ document.getElementById("layer3_2_sat").value = 300;
 document.getElementById("layer3_2_bri").value = 300;
 color_layer3_2();
 
-document.getElementById("layer3_1_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer3_2_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer3_3_used").style.backgroundColor = "transparent";
+document.getElementById("layer3_1_used").style.visibility = "visible";
+document.getElementById("layer3_2_used").style.visibility = "visible";
+document.getElementById("layer3_3_used").style.visibility = "hidden";
 }
 
 3 colors
@@ -910,9 +1066,9 @@ document.getElementById("layer3_3_sat").value = 300;
 document.getElementById("layer3_3_bri").value = 300;
 color_layer3_3();
 
-document.getElementById("layer3_1_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer3_2_used").style.backgroundColor = "var(--pink)";
-document.getElementById("layer3_3_used").style.backgroundColor = "var(--pink)";
+document.getElementById("layer3_1_used").style.visibility = "visible";
+document.getElementById("layer3_2_used").style.visibility = "visible";
+document.getElementById("layer3_3_used").style.visibility = "visible";
 }
 
 common white color values ok

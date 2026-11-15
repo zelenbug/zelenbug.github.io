@@ -120,11 +120,12 @@ background: var(--darkblue);
 
 /* indicators of whether a color is used or not */
 .usedcolor {
-width: 15px;
-height: 15px;
+width: 25px;
+height: 25px;
 border-radius: 5px;
-margin: 10px auto;
-background-color: transparent;
+margin: 15px auto;
+background-image: url(color.png);
+visibility: hidden;
 }
 
 /* outfit code boxes */
@@ -134,10 +135,18 @@ border-radius: 7.5px;
 padding: 5px;
 font-family: monospace;
 word-break: break-word;
-height: 100px;
+height: 120px;
 width: 95%;
 background: var(--dullblue);
 color: white;
 margin: 5px 10px 5px 0;
 resize: none;
+}
+
+summary {cursor: pointer}
+
+.copied {
+margin: auto;
+visibility: visible;
+display: inline-block;
 }

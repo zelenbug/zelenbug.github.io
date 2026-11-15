@@ -17,65 +17,78 @@ border: 2px solid #3D505C;
 border-radius: 20px;
 }
 
-#center { margin: auto; width: 200px; }
+.center { margin: auto; width: 200px; }
 
-#colorinput {width: 200px}
-#colorinput2 {width: 622px;}
+#colorhex, #colorchangebox {width: 200px}
+#colorchangebox1, #colorchangebox2, #colorchangebox3, #colorhex1, #colorhex2, #colorhex3, #skinpaintbase, #skinpaintcoat, #skinpaintdetail {width: 325px}
+#colorinput {width: 190px}
+#colorinput2 {width: 975px}
 
 #colorchangebox, #colorchangebox1, #colorchangebox2, #colorchangebox3 {
-width: 200px;
 height: 200px;
 background-color: #ffffff;
 border: 2px solid #3D505C;
-border-radius: 0px 0px 20px 20px
+border-radius: 0px 0px 20px 20px;
+box-sizing: border-box;
 }
 
 .inline {display: inline-block}
 
 #colorhex, #colorhex1, #colorhex2, #colorhex3 {
-width: 190px;
 border: 2px solid #3D505C;
 border-bottom: 0px solid;
 padding: 5px;
-border-radius: 20px 20px 0px 0px
+border-radius: 20px 20px 0px 0px;
+box-sizing: border-box;
 }
 
-#skinpaintbase, #skinpaintcoat, #skinpaintdetail  {
-width: 190px;
+#skinpaintbase, #skinpaintcoat, #skinpaintdetail {
 padding: 5px;
 overflow-wrap: break-word;
+box-sizing: border-box;
 }
 
 code, pre { border: 2px solid #3D505C; border-radius: 5px; padding:2px }
 
 a { color: #66EFF7; text-decoration: none; } a:hover, a:focus {text-decoration: underline;}
+
+hr { height: 2px; border-width: 0; background-color: #3D505C }
+
+#floatcolor {
+border: 2px solid #3D505C;
+padding: 5px;
+border-radius: 5px;
+width: 220px
+}
 </style></head>
 
 <div id="main">
 
 Converts the colorRGB values found in the XML files for Spore creatures (or plants or cells), or colorRGB values in other files (such as consequence trait colors), into a visible color. It must be separated by commas!
-<br>Also the typed hex might be a little bit off, but the color actually shown here should be accurate to the game.
+<br>The typed hex might be a little bit off, but the color actually shown here should be accurate to the game
 <br><br>Example: <code>0.905882,0.333333,0.290189</code> or <code>0.314, 0.275, 0.804</code>
 <br><br>
 
-<div id="center">
+<div class="center">
 <div id="colorhex">#ffffff</div>
 <div id="colorchangebox"></div><br>
 <input id="colorinput" type="text" oninput="colorchange()"></input>
 </div>
 
-<br>This will convert three color and skinpaint values from a creation's XML (you can get them from PNGs in <a href="https://tools.sporecommunity.com/asset#PngXmlModel" target="_blank">Kade's asset tool</a>). Here you'll have to import it in this exact format (should have line breaks, and be in this order, but leading spaces don't matter):
-<pre>&lt;skineffect1&gt;0xa3163e4a&lt;/skineffect1&gt;
-    &lt;skineffect2&gt;0x52811f23&lt;/skineffect2&gt;
-    &lt;skineffect3&gt;0x64a50d94&lt;/skineffect3&gt;
-    &lt;skineffectseed1&gt;1234&lt;/skineffectseed1&gt;
-    &lt;skineffectseed2&gt;1234&lt;/skineffectseed2&gt;
-    &lt;skineffectseed3&gt;1234&lt;/skineffectseed3&gt;
-    &lt;skincolor1&gt;0.274509,0.443135,0.262743&lt;/skincolor1&gt;
-    &lt;skincolor2&gt;0.694117,0.513725,0.129411&lt;/skincolor2&gt;
-    &lt;skincolor3&gt;0.176470,0.282352,0.168625&lt;/skincolor3&gt;</pre>
+<hr>
 
-<div id="center" style="width: 622px">
+This will convert three color and skinpaint values from a creation's XML (you can get them from PNGs in <a href="https://tools.sporecommunity.com/asset#PngXmlModel" target="_blank">Kade's asset tool</a>). Here you'll have to import it in this exact format (should have line breaks, and be in this order, but leading spaces don't matter):
+<pre>&lt;skineffect1&gt;0xa3163e4a&lt;/skineffect1&gt;
+&lt;skineffect2&gt;0x52811f23&lt;/skineffect2&gt;
+&lt;skineffect3&gt;0x64a50d94&lt;/skineffect3&gt;
+&lt;skineffectseed1&gt;1234&lt;/skineffectseed1&gt;
+&lt;skineffectseed2&gt;1234&lt;/skineffectseed2&gt;
+&lt;skineffectseed3&gt;1234&lt;/skineffectseed3&gt;
+&lt;skincolor1&gt;0.274509,0.443135,0.262743&lt;/skincolor1&gt;
+&lt;skincolor2&gt;0.694117,0.513725,0.129411&lt;/skincolor2&gt;
+&lt;skincolor3&gt;0.176470,0.282352,0.168625&lt;/skincolor3&gt;</pre>
+
+<div class="center" style="width: 100%">
 <div id="colorhex1" class="inline">#ffffff</div>
 <div id="colorhex2" class="inline">#ffffff</div>
 <div id="colorhex3" class="inline">#ffffff</div><br>
@@ -86,6 +99,17 @@ Converts the colorRGB values found in the XML files for Spore creatures (or plan
 <div id="skinpaintcoat" class="inline">None</div>
 <div id="skinpaintdetail" class="inline">None</div><br><br>
 <textarea id="colorinput2" name="colorinput2" type="text" oninput="colorchange2()" rows="9"></textarea>
+</div>
+
+<hr>
+
+This will just convert a color hex to a float color value<br><br>
+
+<div class="center" style="width: 220px; text-align: center;">
+<div id="floatcolor">0.429688,0.796875,0.398438</div>
+<input id="selectcolor" type="color" value="#6ECC66" onchange="inputcolor()" style="width: 68px;"><br>
+<input id="hexinput" type="text" value="#6ECC66" oninput="inputcolorhex()" style="width: 60px;">
+</div><div style="display: inline-block">
 </div>
 
 </div>
@@ -798,5 +822,38 @@ else if (skinhash=='0xdd5391b4') {skinhash='skinpaint_detail_blanz (feb 19 2008 
 else if (skinhash=='0x00000000') {skinhash='no paint'}
    else {skinhash='unknown paint'}
 return skinhash
+}
+
+//adding more code
+function inputcolor() {
+  inputted1 = document.getElementById("selectcolor").value;
+  inputted1 = inputted1.toUpperCase();
+  document.getElementById("hexinput").value = inputted1;
+  inputcolorhex()
+}
+
+//also from here https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb i have no idea what this regexp does honestly
+function hexToRgb(hex) {
+  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result ? {
+    r: parseInt(result[1], 16),
+    g: parseInt(result[2], 16),
+    b: parseInt(result[3], 16)
+  } : null;
+}
+
+function inputcolorhex() {
+  inputted = document.getElementById("hexinput").value;
+  //removes so it doesnt duplicate, and readds hex
+  inputted = inputted.replace("#", "");
+  inputted = "#" + inputted;
+  document.getElementById("selectcolor").value = inputted;
+  //ok then uses the above function and converts it to the correct floats
+  newrgb = hexToRgb(inputted)
+  floatr = (newrgb.r / 255).toFixed(6)
+  floatg = (newrgb.g / 255).toFixed(6)
+  floatb = (newrgb.b / 255).toFixed(6)
+  totalcolor = floatr + "," + floatg + "," + floatb
+  document.getElementById("floatcolor").innerHTML = totalcolor
 }
 </script></html>

@@ -793,15 +793,23 @@ Complexity: 12
 <hr>
 <h2>Vertebrae</h2>
 
+<div class="normalwrap">CE_Vertebra and CE_cell_Vertebra separately define a model price of 0, which doesn't display in the game</div><br>
+
 <div class="partcontainer">
 <img class="partimg" loading="lazy" src="files/placeholder/ce_vertebra.png">
 <div class="part">
-<div class="partheader">Vertebra
-<span class="price">$0</span></div>
+<div class="partheader">Vertebra</div>
 <div class="modelcaps">
 <div class="miscinfo">
 CE_Vertebra<br>
 "Vertebra (PLACEHOLDER)"
+<hr>
+modelCapabilitySpine 1<br>
+modelIsVertebra true
+<hr>
+Can be parentless<br>
+Is not allowed out of bounds<br>
+Uses skin
 <hr>
 Parent: CreatureRigBlockTemplate
 <table><tr><td>
@@ -816,12 +824,18 @@ Complexity: 2
 <div class="partcontainer">
 <img class="partimg" loading="lazy" src="files/placeholder/ce_cell_vertebra.png">
 <div class="part">
-<div class="partheader">Vertebra
-<span class="price">$0</span></div>
+<div class="partheader">Vertebra</div>
 <div class="modelcaps">
 <div class="miscinfo">
 CE_cell_Vertebra<br>
 "Vertebra (PLACEHOLDER)"
+<hr>
+modelCapabilitySpine 1<br>
+modelIsVertebra true
+<hr>
+Can be parentless<br>
+Is not allowed out of bounds<br>
+Uses skin
 <hr>
 Parent: CreatureRigBlockTemplate
 <table><tr><td>
@@ -836,12 +850,17 @@ Complexity: 2
 <div class="partcontainer">
 <img class="partimg" loading="lazy" src="files/placeholder/AAA_vertebra.png">
 <div class="part">
-<div class="partheader">test vertebra
-</div>
+<div class="partheader">test vertebra</div>
 <div class="modelcaps">
 <div class="miscinfo">
 AAA_vertebra<br>
 "test vertebra (PLACEHOLDER)"
+<hr>
+modelCapabilitySpine 1<br>
+modelIsVertebra true
+<hr>
+Is not allowed out of bounds<br>
+Uses skin
 <hr>
 Parent: CreatureRigBlockTemplate
 <table><tr><td>
@@ -974,7 +993,7 @@ Complexity: 6
 Older limb assemblies with no models or associated .crt files<br><br>
 
 <div class="partcontainer">
-<div style="width: 128px; height: 128px; display: inline-block;"></div>
+<div class="noparticon"></div>
 <div class="part">
 <div class="partheader">assembly Leg Insect</div>
 <div class="modelcaps">
@@ -995,7 +1014,7 @@ Complexity: 3
 </div></div></div></div>
 
 <div class="partcontainer">
-<div style="width: 128px; height: 128px; display: inline-block;"></div>
+<div class="noparticon"></div>
 <div class="part">
 <div class="partheader">assembly leg insect 03</div>
 <div class="modelcaps">
@@ -1016,7 +1035,7 @@ Complexity: 3
 </div></div></div></div>
 
 <div class="partcontainer">
-<div style="width: 128px; height: 128px; display: inline-block;"></div>
+<div class="noparticon"></div>
 <div class="part">
 <div class="partheader">assembly limb insect 02</div>
 <div class="modelcaps">
@@ -1037,7 +1056,7 @@ Complexity: 3
 </div></div></div></div>
 
 <div class="partcontainer">
-<div style="width: 128px; height: 128px; display: inline-block;"></div>
+<div class="noparticon"></div>
 <div class="part">
 <div class="partheader">assembly limb insect 03</div>
 <div class="modelcaps">
@@ -1060,7 +1079,7 @@ Complexity: 3
 <br><br><!-- divider!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 
 <div class="partcontainer">
-<div style="width: 128px; height: 128px; display: inline-block;"></div>
+<div class="noparticon"></div>
 <div class="part">
 <div class="partheader">Pelvic Limbus</div>
 <div class="modelcaps">
@@ -1081,7 +1100,7 @@ Complexity: 3
 </div></div></div></div>
 
 <div class="partcontainer">
-<div style="width: 128px; height: 128px; display: inline-block;"></div>
+<div class="noparticon"></div>
 <div class="part">
 <div class="partheader">assembly leg model rump</div>
 <div class="modelcaps">
@@ -1102,7 +1121,7 @@ Complexity: 3
 </div></div></div></div>
 
 <div class="partcontainer">
-<div style="width: 128px; height: 128px; display: inline-block;"></div>
+<div class="noparticon"></div>
 <div class="part">
 <div class="partheader">assembly tentacle</div>
 <div class="modelcaps">
@@ -1123,7 +1142,7 @@ Complexity: 3
 </div></div></div></div>
 
 <div class="partcontainer">
-<div style="width: 128px; height: 128px; display: inline-block;"></div>
+<div class="noparticon"></div>
 <div class="part">
 <div class="partheader">Thoracic Limbus</div>
 <div class="modelcaps">
@@ -1146,7 +1165,7 @@ Complexity: 3
 <br><br><!-- divider!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 
 <div class="partcontainer">
-<div style="width: 128px; height: 128px; display: inline-block;"></div>
+<div class="noparticon"></div>
 <div class="part">
 <div class="partheader">Biped Limb<span class="price">$30</span></div>
 <div class="modelcaps">
@@ -1602,5 +1621,7 @@ Textures left to right are the diffuse, specBump and tintMask textures; top to b
 <td><img loading="lazy" src="files/placeholder/CE_leg_insect_02_thigh.png"><br>CE_leg_insect_02_thigh (limb insect 02 thigh)</td>
 </tr></table>
 </div>
+
+<a href="!empty part template.html">Here's my Secret Webbed Page I've been using to store templates to copy and paste from. Lol</a>
 
 </body></html>
